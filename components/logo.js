@@ -1,8 +1,8 @@
-/** Official mark: use bundled SVG asset (do not approximate in code). */
-export const LOGO_SRC = "assets/FBI.svg";
+/** Official mark: PNG only (no SVG, no inline reconstruction). */
+export const LOGO_SRC = "assets/FBI.png";
 
 export function logoMarkHeader() {
-  return `<span class="logo-mark logo-mark--header"><img src="${LOGO_SRC}" alt="" decoding="async" /></span>`;
+  return `<span class="logo-mark logo-mark--header"><img src="${LOGO_SRC}" alt="" decoding="async" fetchpriority="high" /></span>`;
 }
 
 export function logoMarkFooter() {
