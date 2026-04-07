@@ -4,6 +4,12 @@
   gap: var(--space-3);
   margin-top: var(--space-4);
 }
+.hero-actions {
+  display: flex;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
 .trust-pill {
   border: 1px solid var(--line);
   border-radius: var(--radius-sm);
