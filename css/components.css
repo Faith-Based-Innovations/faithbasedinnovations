@@ -4,17 +4,18 @@
   align-items: center;
   justify-content: center;
 }
+/* PNG logo: natural rendering, no effects; size caps preserve aspect ratio */
 .logo-mark img {
   display: block;
   height: auto;
   width: auto;
-  max-height: 44px;
-  max-width: min(132px, 28vw);
+  max-height: 48px;
+  max-width: min(140px, 30vw);
   object-fit: contain;
 }
 .logo-mark--footer img {
-  max-height: 30px;
-  max-width: 90px;
+  max-height: 32px;
+  max-width: 96px;
 }
 .brand--footer {
   align-items: center;
