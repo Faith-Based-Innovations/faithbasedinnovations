@@ -1,0 +1,235 @@
+/* Cinematic product scenes */
+.scene {
+  position: relative;
+  padding: clamp(4rem, 12vw, 9rem) 0;
+  overflow: hidden;
+}
+
+.scene--hero {
+  min-height: min(85vh, 880px);
+  display: flex;
+  align-items: center;
+  padding-top: clamp(3rem, 8vw, 5rem);
+}
+
+.scene__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 44rem;
+}
+
+.scene__glow {
+  position: absolute;
+  inset: -30% -20% auto;
+  height: 80%;
+  pointer-events: none;
+  opacity: 0.55;
+}
+
+.scene__glow--cfo {
+  background: radial-gradient(ellipse at 30% 0%, rgba(120, 160, 200, 0.2), transparent 60%);
+}
+
+.scene__glow--eden {
+  background: radial-gradient(ellipse at 50% 0%, rgba(160, 140, 200, 0.18), transparent 58%);
+}
+
+.scene__glow--ledger {
+  background: radial-gradient(ellipse at 40% 0%, rgba(140, 160, 150, 0.2), transparent 58%);
+}
+
+.scene__title {
+  font-size: clamp(2.25rem, 5.5vw, 4rem);
+  margin: 0 0 1rem;
+  color: var(--text);
+}
+
+.scene__lead {
+  font-size: 1.15rem;
+  max-width: 42ch;
+  color: var(--text-soft);
+  margin: 0;
+}
+
+.scene__split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 6vw, 4rem);
+  align-items: center;
+}
+
+.scene--reverse .scene__split {
+  direction: rtl;
+}
+
+.scene--reverse .scene__split > * {
+  direction: ltr;
+}
+
+@media (max-width: 900px) {
+  .scene__split {
+    grid-template-columns: 1fr;
+  }
+
+  .scene--reverse .scene__split {
+    direction: ltr;
+  }
+}
+
+.scene__h {
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  margin: 0 0 0.75rem;
+}
+
+.scene__h--center {
+  text-align: center;
+}
+
+.scene__copy p {
+  color: var(--text-soft);
+  font-size: 1.02rem;
+}
+
+.scene__copy ul,
+.scene__list {
+  margin: 0.75rem 0 0;
+  padding-left: 1.25rem;
+  color: var(--text-soft);
+  font-size: 0.98rem;
+  line-height: 1.65;
+}
+
+.scene__copy li + li,
+.scene__list li + li {
+  margin-top: 0.45rem;
+}
+
+.scene__center {
+  text-align: center;
+  max-width: 48ch;
+  margin: 0 auto;
+  color: var(--text-soft);
+}
+
+.scene__visual {
+  display: flex;
+  justify-content: center;
+}
+
+.scene__panel {
+  width: min(100%, 380px);
+  aspect-ratio: 1;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--line);
+  background: linear-gradient(155deg, var(--bg-2), var(--bg-deep));
+  box-shadow:
+    0 40px 100px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.scene__panel--finance .scene__glyph {
+  font-size: clamp(4rem, 15vw, 7rem);
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.08);
+}
+
+.scene__panel--grid::before {
+  content: "";
+  position: absolute;
+  inset: 12%;
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 24px 24px;
+  opacity: 0.4;
+}
+
+.scene__panel--eden .scene__rings {
+  width: 55%;
+  height: 55%;
+  border-radius: 50%;
+  border: 2px solid var(--line-strong);
+  box-shadow:
+    0 0 0 12px rgba(255, 255, 255, 0.03),
+    0 0 0 28px rgba(255, 255, 255, 0.02);
+}
+
+.scene__panel--layers::before {
+  content: "";
+  position: absolute;
+  inset: 18%;
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  transform: rotate(-4deg);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+.scene__panel--ledger .scene__lines {
+  width: 70%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--line-strong), transparent);
+  box-shadow:
+    0 -24px 0 var(--line),
+    0 24px 0 var(--line);
+}
+
+.scene__panel--stripes::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    -12deg,
+    transparent,
+    transparent 8px,
+    rgba(255, 255, 255, 0.03) 8px,
+    rgba(255, 255, 255, 0.03) 9px
+  );
+}
+
+.scene--feature {
+  text-align: center;
+}
+
+.scene--ecosystem {
+  border-block: 1px solid var(--line);
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.scene--ecosystem .scene__lead {
+  max-width: 50ch;
+  margin-bottom: 1.5rem;
+}
+
+.ecosystem-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.ecosystem-links__a {
+  padding: 0.55rem 1.1rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-soft);
+  transition:
+    border-color 0.2s,
+    color 0.2s,
+    background 0.2s;
+}
+
+.ecosystem-links__a:hover {
+  border-color: var(--accent-soft);
+  color: var(--text);
+  background: var(--surface);
+}
+
+.scene--cta {
+  padding-bottom: clamp(5rem, 14vw, 10rem);
+}
