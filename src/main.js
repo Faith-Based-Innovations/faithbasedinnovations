@@ -1,4 +1,1 @@
-import "./styles/app.css";
-import { initMotion } from "./motion.js";
-
-initMotion();
+/* Optional entry when wired from HTML; public pages use Tailwind CDN only. */
