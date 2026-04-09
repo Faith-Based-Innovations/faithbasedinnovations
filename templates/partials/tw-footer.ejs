@@ -1,26 +1,27 @@
-<footer class="mt-auto border-t border-slate-200 bg-white">
-  <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-    <div class="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between">
+<footer class="mt-auto border-t border-slate-200 bg-slate-50/90">
+  <div class="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+    <div class="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between">
       <div class="max-w-md">
-        <div class="flex items-center gap-4 text-navy">
-          <img src="./assets/FBI_Transparent.png" alt="Faith Based Innovations" width="40" height="40" class="h-10 w-10 shrink-0 object-contain" />
-          <p class="text-base font-bold tracking-tight">Faith Based Innovations, LLC</p>
+        <div class="flex items-center gap-3 text-navy">
+          <img src="./assets/FBI_Transparent.png" alt="" width="48" height="48" class="h-12 w-12 shrink-0 object-contain" aria-hidden="true" />
+          <div>
+            <p class="text-sm font-bold tracking-tight">Faith Based Innovations, LLC</p>
+            <p class="mt-1 text-xs leading-relaxed text-slate-600">Thoughtful desktop software—privacy-minded, without engagement gimmicks.</p>
+          </div>
         </div>
-        <p class="mt-3 text-sm leading-relaxed text-slate-600">Premium local-first desktop software—built with discipline, clarity, and respect for stewardship.</p>
-        <p class="mt-4 text-xs font-medium uppercase tracking-[0.12em] text-slate-500">Local-first by conviction · Security-minded design · No engagement bait</p>
       </div>
-      <div>
-        <p class="text-xs font-bold uppercase tracking-[0.16em] text-slate-500">Legal and support</p>
-        <nav class="mt-4 grid grid-cols-1 gap-y-2 text-sm text-slate-600 sm:grid-cols-3 sm:gap-x-8" aria-label="Legal and support">
+      <nav class="flex flex-col gap-3 sm:items-end lg:text-right" aria-label="Policies and legal">
+        <p class="text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-400">Policies</p>
+        <div class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-slate-600">
           <a href="security.html" class="hover:text-navy focus:outline-none focus-visible:text-navy focus-visible:underline">Security</a>
           <a href="privacy.html" class="hover:text-navy focus:outline-none focus-visible:text-navy focus-visible:underline">Privacy</a>
           <a href="terms.html" class="hover:text-navy focus:outline-none focus-visible:text-navy focus-visible:underline">Terms</a>
-        </nav>
-      </div>
+          <a href="support.html" class="hover:text-navy focus:outline-none focus-visible:text-navy focus-visible:underline">Support</a>
+        </div>
+      </nav>
     </div>
-    <div class="mt-10 flex flex-col gap-2 border-t border-slate-200 pt-8 text-xs text-slate-500 sm:flex-row sm:items-center sm:justify-between">
-      <span>© <%= new Date().getFullYear() %> Faith Based Innovations, LLC. All rights reserved.</span>
-      <span class="text-slate-400">CFO, Eden, and Ledger are product names of Faith Based Innovations, LLC.</span>
+    <div class="mt-8 border-t border-slate-200/80 pt-6 text-xs text-slate-500">
+      <p>© <%= new Date().getFullYear() %> Faith Based Innovations, LLC. CFO, Eden, and Ledger are product names of Faith Based Innovations, LLC.</p>
     </div>
   </div>
 </footer>
