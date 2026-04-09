@@ -5,10 +5,10 @@
   "scripts": {
     "prebuild": "node scripts/render-pages.mjs",
     "build": "vite build",
-    "postbuild": "node scripts/stamp-root-html.mjs",
+    "postbuild": "node scripts/stamp-root-html.mjs && node scripts/cleanup-build-input.mjs",
     "dev": "node scripts/render-pages.mjs && vite",
     "preview": "vite preview",
-    "open": "npm run build && start \"\" \"dist\\index.html\""
+    "open": "npm run build && start \"\" \"index.html\""
   },
   "devDependencies": {
     "ejs": "^3.1.10",

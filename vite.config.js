@@ -19,22 +19,10 @@ const pages = [
   "terms.html"
 ];
 
-const generatedDir = path.join(__dirname, "generated");
+const buildInputDir = path.join(__dirname, ".vite-input");
 const input = Object.fromEntries(
-  pages.map((p) => [p.replace(".html", ""), path.join(generatedDir, p)])
+  pages.map((p) => [p.replace(".html", ""), path.join(buildInputDir, p)])
 );
-
-function mergeCopyDir(srcDir, destDir) {
-  if (!fs.existsSync(srcDir)) return;
-  fs.mkdirSync(destDir, { recursive: true });
-  for (const name of fs.readdirSync(srcDir)) {
-    const from = path.join(srcDir, name);
-    const to = path.join(destDir, name);
-    const st = fs.statSync(from);
-    if (st.isDirectory()) mergeCopyDir(from, to);
-    else fs.copyFileSync(from, to);
-  }
-}
 
 /** Resolve /assets/<file> to ./assets/<file> (no public/ folder required). */
 function resolveLocalAssetDiskPath(urlPath) {
@@ -74,21 +62,9 @@ function localAssetsDevMiddleware() {
   };
 }
 
-function copyStaticAssetsToDist() {
-  return {
-    name: "copy-static-assets-to-dist",
-    /** After Rollup writes JS/CSS into dist/assets, merge ./assets (logos, images). */
-    writeBundle() {
-      const dest = path.join(__dirname, "dist", "assets");
-      const src = path.join(__dirname, "assets");
-      if (fs.existsSync(src)) mergeCopyDir(src, dest);
-    }
-  };
-}
-
 export default defineConfig({
-  /** EJS output lives here; build emits flat HTML into ../dist/ (not dist/generated/). */
-  root: generatedDir,
+  /** Temporary EJS output lives here; build emits flat HTML into project root. */
+  root: buildInputDir,
   base: "./",
   publicDir: false,
   plugins: [
@@ -99,11 +75,11 @@ export default defineConfig({
         server.middlewares.use(localAssetsDevMiddleware());
       }
     },
-    copyStaticAssetsToDist()
   ],
   build: {
-    outDir: path.join(__dirname, "dist"),
-    emptyOutDir: true,
+    /** Flat site: HTML + bundles live next to package.json (no dist/). */
+    outDir: __dirname,
+    emptyOutDir: false,
     rollupOptions: {
       input,
       output: {
