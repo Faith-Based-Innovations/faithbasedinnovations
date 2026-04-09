@@ -1,20 +1,27 @@
-<% var navLink = function (id) {
-  var on = typeof activeNav !== "undefined" && activeNav === id;
+<% var suppressActive = typeof activeNav === "string" && ["privacy", "terms", "security"].indexOf(activeNav) !== -1;
+var navLink = function (id) {
+  var on = !suppressActive && typeof activeNav !== "undefined" && activeNav === id;
   return on
     ? "text-sm font-semibold text-navy"
     : "text-sm font-medium text-slate-600 transition-colors hover:text-navy focus:outline-none focus-visible:ring-2 focus-visible:ring-faithGold focus-visible:ring-offset-2 rounded-sm";
 };
 var navLinkMobile = function (id) {
-  var on = typeof activeNav !== "undefined" && activeNav === id;
+  var on = !suppressActive && typeof activeNav !== "undefined" && activeNav === id;
   return on
     ? "rounded-lg px-3 py-2 text-sm font-semibold text-navy bg-slate-100"
     : "rounded-lg px-3 py-2 text-sm text-slate-700 hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-faithGold";
 }; -%>
 <header class="sticky top-0 z-50 border-b border-slate-200/90 bg-white/95 shadow-sm backdrop-blur supports-[backdrop-filter]:bg-white/80">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <div class="flex h-16 items-center justify-between gap-4">
-      <a href="index.html" class="flex min-w-0 items-center gap-3 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-faithGold focus-visible:ring-offset-2" aria-label="Faith Based Innovations home">
-        <img src="./assets/FBI_Transparent.png" alt="Faith Based Innovations" width="48" height="48" class="h-10 w-10 shrink-0 object-contain" />
+    <div class="flex min-h-[5.5rem] items-center justify-between gap-4 py-2.5 sm:min-h-[6rem]">
+      <a href="index.html" class="flex min-w-0 items-center gap-4 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-faithGold focus-visible:ring-offset-2" aria-label="Faith Based Innovations home">
+        <img
+          src="./assets/FBI_Transparent.png"
+          alt="Faith Based Innovations"
+          width="80"
+          height="80"
+          class="h-16 w-16 shrink-0 object-contain"
+        />
         <div class="min-w-0 leading-tight">
           <p class="truncate text-sm font-bold tracking-tight text-navy">Faith Based Innovations, LLC</p>
           <p class="truncate text-xs text-slate-500">Premium local-first desktop software</p>
