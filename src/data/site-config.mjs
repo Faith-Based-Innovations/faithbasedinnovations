@@ -4,7 +4,8 @@ export const SITE = {
   legalName: "Faith Based Innovations, LLC",
   brand: "Faith Based Innovations",
   abbrev: "FBI",
-  tagline: "Three premium desktop products—local-first, privacy-first, built around Steward.",
+  tagline:
+    "Three premium desktop apps—your data stays on your machine, with Steward as the built-in guide that follows clear rules.",
   logoFile: "FBI_Transparent.png",
   logoAlt: "Faith Based Innovations",
   suiteSectionTitle: "Three products, one ecosystem",
@@ -12,9 +13,9 @@ export const SITE = {
   steward: {
     name: "Steward",
     short:
-      "Steward is a controlled, rules-based, logic-driven intelligence layer—not open-ended generation. It helps each product interpret context, apply policy, and surface deterministic guidance from real data.",
+      "Steward is the shared guide inside our apps: it follows clear rules and your real data—not random chat-style answers. It helps organize what matters, explain tradeoffs, and keep results tied to what you actually entered.",
     homeBlurb:
-      "CFO, Eden, and Ledger each use Steward differently: financial interpretation, research prioritization, and document field mapping—all without treating intelligence as magic."
+      "CFO uses Steward for money sense, Eden for research sense, and Ledger for filling forms from your vault—same disciplined approach in each product."
   },
   hero: {
     titleLine: "Premium software, built deliberately.",
@@ -24,9 +25,10 @@ export const SITE = {
   },
   /** Shown wherever purchase is implied; never a signup CTA. */
   availability: {
-    badge: "In development",
-    line: "Not available for purchase, download, or access. This is being built.",
-    ctaLabel: "Currently being built"
+    badge: "Coming soon",
+    line:
+      "CFO, Eden, and Ledger are in active development—not for sale or download yet. We’re building toward a careful launch and will share more as each title is ready.",
+    ctaLabel: "Stay tuned for release news"
   }
 };
 
@@ -65,8 +67,10 @@ export const PRODUCTS = {
     path: "product-cfo.html",
     tag: "Flagship · Finance",
     headline: "The financial operating system.",
+    cardBlurb:
+      "Your money hub on your computer: budgets, plans, forecasts, and cash-flow clarity—with Steward helping you read your own numbers using clear rules (not guesswork).",
     subhead:
-      "CFO is a local-first financial operating system powered by Steward—not a budgeting toy, not a generic tracker. It interprets, analyzes, and guides financial decisions from structured data and clear rules.",
+      "CFO is a financial operating system you run on your machine, powered by Steward—not a thin budgeting app. It helps you interpret, plan, and decide from structured data and transparent rules.",
     purchasable: false
   },
   eden: {
@@ -75,8 +79,10 @@ export const PRODUCTS = {
     path: "product-eden.html",
     tag: "Research",
     headline: "Research intelligence and prioritization.",
+    cardBlurb:
+      "Bring articles, video, notes, and recordings into one place, then sort what matters—with Steward ranking sources using your question and evidence (not hype).",
     subhead:
-      "Eden is a standalone local-first system for aggregating, analyzing, prioritizing, and evaluating sources—screen recordings, video, articles, images, and your own material—with Steward grounding what matters to you.",
+      "Eden is a standalone research workspace on your machine: gather sources, compare claims, and see citations—Steward helps prioritize what fits your question.",
     purchasable: false
   },
   ledger: {
@@ -84,9 +90,11 @@ export const PRODUCTS = {
     name: "Ledger",
     path: "product-ledger.html",
     tag: "Identity & documents",
-    headline: "Secure vault. Deterministic documents.",
+    headline: "Secure vault. Exact-fill documents.",
+    cardBlurb:
+      "Encrypted storage for sensitive info for up to two people, plus forms that fill only from what you saved—Steward helps match fields; it never invents answers.",
     subhead:
-      "Ledger is a local-first encrypted identity vault and deterministic document prefilling system—structured for up to two people (for example, husband and wife). Steward helps parse and map fields—it never guesses or generates answers you did not provide.",
+      "Ledger is an encrypted identity vault and document assistant on your machine—for example, spouses sharing a household file. Steward helps line up form fields with stored values; blanks stay blank if you didn’t supply data.",
     purchasable: false
   }
 };
