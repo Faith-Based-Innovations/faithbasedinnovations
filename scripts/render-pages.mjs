@@ -51,6 +51,8 @@ const pages = [
   { name: "product-ledger", out: "product-ledger.html", data: { title: `Ledger | ${site.SITE.legalName}`, description: site.PRODUCTS.ledger.subhead, activeNav: "products", activeProduct: "ledger", pageClass: "product product-ledger" } },
   { name: "compare", out: "compare.html", data: { title: `Compare | ${site.SITE.legalName}`, description: "CFO, Eden, and Ledger—distinct scope and Steward roles.", activeNav: "compare", pageClass: "compare" } },
   { name: "support", out: "support.html", data: { title: `Support | ${site.SITE.legalName}`, description: "Documentation, policies, and help.", activeNav: "support", pageClass: "support" } },
+  { name: "simulator", out: "simulator.html", data: { title: `Simulator | ${site.SITE.legalName}`, description: "Simulator.", activeNav: "simulator", pageClass: "simulator" } },
+  { name: "reflections", out: "reflections.html", data: { title: `Reflections | ${site.SITE.legalName}`, description: "Reflections.", activeNav: "reflections", pageClass: "reflections" } },
   { name: "about", out: "about.html", data: { title: `About | ${site.SITE.legalName}`, description: "Who we are and how we build.", activeNav: "about", pageClass: "about" } },
   { name: "security", out: "security.html", data: { title: `Security | ${site.SITE.legalName}`, description: "Security posture.", activeNav: "security", pageClass: "legal security" } },
   { name: "privacy", out: "privacy.html", data: { title: `Privacy | ${site.SITE.legalName}`, description: "Privacy policy.", activeNav: "privacy", pageClass: "legal privacy" } },
