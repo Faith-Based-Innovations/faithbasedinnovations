@@ -1,0 +1,154 @@
+/* Faith Based Innovations — design system + motion (GPU: opacity & transform only) */
+
+:root {
+  --fbi-space-1: 0.25rem;
+  --fbi-space-2: 0.5rem;
+  --fbi-space-3: 0.75rem;
+  --fbi-space-4: 1rem;
+  --fbi-space-5: 1.25rem;
+  --fbi-space-6: 1.5rem;
+  --fbi-space-8: 2rem;
+  --fbi-space-10: 2.5rem;
+  --fbi-space-12: 3rem;
+  --fbi-space-16: 4rem;
+  --fbi-space-20: 5rem;
+  --fbi-space-24: 6rem;
+  --fbi-space-32: 8rem;
+  --fbi-max-content: 42rem;
+  --fbi-max-wide: 80rem;
+  --fbi-ease-motion: cubic-bezier(0.25, 1, 0.5, 1);
+  --fbi-duration-fast: 200ms;
+  --fbi-duration-base: 280ms;
+  --fbi-duration-reveal: 400ms;
+  --fbi-reveal-y: 14px;
+  --fbi-reveal-delay: 0ms;
+  --fbi-shadow-line: 0 1px 0 rgba(15, 23, 42, 0.05);
+  --fbi-shadow-float: 0 8px 40px -12px rgba(15, 23, 42, 0.07);
+  --fbi-text: #0f172a;
+  --fbi-text-muted: #475569;
+  --fbi-text-soft: #64748b;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body.fbi-site {
+  font-feature-settings: "kern" 1, "liga" 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  color: var(--fbi-text);
+}
+
+body.fbi-site main h1 {
+  letter-spacing: -0.035em;
+  line-height: 1.06;
+}
+
+body.fbi-site main h2 {
+  letter-spacing: -0.03em;
+  line-height: 1.12;
+}
+
+body.fbi-site main h3 {
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+body.fbi-site main p {
+  line-height: 1.65;
+}
+
+.site-header {
+  border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+  box-shadow: var(--fbi-shadow-line);
+  backdrop-filter: blur(12px);
+}
+
+.site-footer {
+  border-top: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+/* Scroll reveal — secondary sections only (JS skips first section) */
+.fbi-reveal {
+  opacity: 0;
+  transform: translate3d(0, var(--fbi-reveal-y), 0);
+  transition-property: opacity, transform;
+  transition-duration: var(--fbi-reveal-duration);
+  transition-timing-function: var(--fbi-ease-motion);
+  transition-delay: var(--fbi-reveal-delay);
+}
+
+.fbi-reveal.fbi-reveal--visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+html.fbi-reduced-motion .fbi-reveal {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}
+
+/* Optional Y variants (8px–20px), set via --fbi-reveal-y in JS */
+.fbi-reveal[data-fbi-y="sm"] {
+  --fbi-reveal-y: 8px;
+}
+
+.fbi-reveal[data-fbi-y="md"] {
+  --fbi-reveal-y: 14px;
+}
+
+.fbi-reveal[data-fbi-y="lg"] {
+  --fbi-reveal-y: 20px;
+}
+
+a.site-link-quiet {
+  transition: color var(--fbi-duration-base) var(--fbi-ease-motion),
+    opacity var(--fbi-duration-base) var(--fbi-ease-motion);
+}
+
+/* Navigation — micro feedback */
+body.fbi-site .site-header nav a {
+  transition: color var(--fbi-duration-base) var(--fbi-ease-motion),
+    opacity var(--fbi-duration-fast) var(--fbi-ease-motion),
+    transform var(--fbi-duration-fast) var(--fbi-ease-motion);
+}
+
+body.fbi-site .site-header nav a:hover {
+  transform: translate3d(0, -1px, 0);
+}
+
+body.fbi-site .site-footer nav a {
+  transition: color var(--fbi-duration-base) var(--fbi-ease-motion),
+    opacity var(--fbi-duration-fast) var(--fbi-ease-motion);
+}
+
+body.fbi-site .site-footer nav a:hover {
+  opacity: 0.88;
+}
+
+/* Primary actions — 1px lift + shadow handoff (transform GPU; shadow kept subtle / short) */
+body.fbi-site main a.inline-flex {
+  transition: opacity var(--fbi-duration-base) var(--fbi-ease-motion),
+    transform var(--fbi-duration-base) var(--fbi-ease-motion),
+    box-shadow var(--fbi-duration-base) var(--fbi-ease-motion),
+    border-color var(--fbi-duration-base) var(--fbi-ease-motion),
+    background-color var(--fbi-duration-base) var(--fbi-ease-motion);
+}
+
+body.fbi-site main a.inline-flex:hover {
+  transform: translate3d(0, -1px, 0);
+}
+
+body.fbi-site main a.inline-flex:active {
+  transform: translate3d(0, 0, 0);
+  transition-duration: var(--fbi-duration-fast);
+}

@@ -1,0 +1,52 @@
+/* Reveals: must work without JS (e.g. file:// where modules fail). No opacity:0-by-default. */
+
+@keyframes motionRevealFade {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+[data-reveal],
+.reveal {
+  opacity: 1;
+  transform: none;
+}
+
+[data-reveal-delay="0"] {
+  --reveal-delay: 0;
+}
+[data-reveal-delay="1"] {
+  --reveal-delay: 1;
+}
+[data-reveal-delay="2"] {
+  --reveal-delay: 2;
+}
+[data-reveal-delay="3"] {
+  --reveal-delay: 3;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  [data-reveal],
+  .reveal {
+    /* Literal easing — some engines ignore var() inside animation shorthand. */
+    animation: motionRevealFade 0.75s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: calc(var(--reveal-delay, 0) * var(--motion-stagger));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal],
+  .reveal {
+    animation: none;
+  }
+}
+
+/* Subtle parallax hook */
+[data-parallax="slow"] {
+  will-change: transform;
+}

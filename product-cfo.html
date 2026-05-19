@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CFO | Faith Based Innovations, LLC</title>
+  <meta name="description" content="CFO is a financial operating system you run on your machine, powered by Steward—not a thin budgeting app. It helps you interpret, plan, and decide from structured data and transparent rules." />
+  <link rel="icon" type="image/png" href="./assets/FBI_Transparent.png?v=1" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/FBI_Transparent.png?v=1" />
+  <link rel="icon" type="image/png" sizes="192x192" href="./assets/FBI_Transparent.png?v=1" />
+  <link rel="apple-touch-icon" href="./assets/FBI_Transparent.png?v=1" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            navy: "#0f172a",
+            navySoft: "#1e293b",
+            faithGold: "#d97706"
+          },
+          fontFamily: {
+            sans: ["Inter", "ui-sans-serif", "system-ui", "-apple-system", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "sans-serif"]
+          },
+          spacing: {
+            18: "4.5rem",
+            22: "5.5rem"
+          },
+          maxWidth: {
+            content: "42rem"
+          },
+          transitionDuration: {
+            200: "200ms",
+            240: "240ms",
+            280: "280ms",
+            320: "320ms",
+            360: "360ms",
+            400: "400ms"
+          },
+          transitionTimingFunction: {
+            "fbi-out": "cubic-bezier(0.25, 1, 0.5, 1)"
+          },
+          boxShadow: {
+            fbi: "0 12px 48px -12px rgba(15, 23, 42, 0.07)",
+            "fbi-sm": "0 2px 24px -4px rgba(15, 23, 42, 0.05)",
+            "fbi-line": "0 1px 0 rgba(15, 23, 42, 0.05)"
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" crossorigin href="./assets/main.css">
+</head>
+<body class="fbi-site flex min-h-full flex-col bg-slate-50 text-slate-800 antialiased">
+<header class="site-header sticky top-0 z-50 border-b border-transparent bg-white/92 supports-[backdrop-filter]:bg-white/88 backdrop-blur-md">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="flex min-h-[88px] items-center justify-between gap-4 py-3 sm:min-h-[96px]">
+      <a href="index.html" class="flex min-w-0 items-center gap-3 sm:gap-4 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-faithGold focus-visible:ring-offset-2" aria-label="Faith Based Innovations home">
+        <img
+          src="./assets/FBI_Transparent.png"
+          alt="Faith Based Innovations"
+          width="112"
+          height="112"
+          class="h-[4.5rem] w-[4.5rem] shrink-0 object-contain sm:h-[5.25rem] sm:w-[5.25rem]"
+        />
+        <div class="min-w-0 leading-tight">
+          <p class="truncate text-sm font-bold tracking-tight text-navy">Faith Based Innovations, LLC</p>
+          <p class="truncate text-xs text-slate-500">Premium local-first desktop software</p>
+        </div>
+      </a>
+      <button type="button" id="tw-menu-btn" class="inline-flex items-center justify-center rounded-lg p-2 text-slate-600 hover:bg-slate-100 md:hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-faithGold" aria-expanded="false" aria-controls="tw-menu-panel">
+        <span class="sr-only">Open menu</span>
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+      <nav class="hidden items-center gap-4 md:flex lg:gap-8" aria-label="Primary">
+        <a href="index.html" class="text-sm font-medium text-slate-600 transition-colors duration-280 ease-fbi-out hover:text-navy focus:outline-none focus-visible:ring-2 focus-visible:ring-faithGold focus-visible:ring-offset-2 rounded-sm">Home</a>
+        <a href="products.html" class="text-sm font-semibold text-navy">Products</a>
+        <a href="compare.html" class="text-sm font-medium text-slate-600 transition-colors duration-280 ease-fbi-out hover:text-navy focus:outline-none focus-visible:ring-2 focus-visible:ring-faithGold focus-visible:ring-offset-2 rounded-sm">Compare</a>
+        <a href="about.html" class="text-sm font-medium text-slate-600 transition-colors duration-280 ease-fbi-out hover:text-navy focus:outline-none focus-visible:ring-2 focus-visible:ring-faithGold focus-visible:ring-offset-2 rounded-sm">About</a>
+        <a href="support.html" class="text-sm font-medium text-slate-600 transition-colors duration-280 ease-fbi-out hover:text-navy focus:outline-none focus-visible:ring-2 focus-visible:ring-faithGold focus-visible:ring-offset-2 rounded-sm">Support</a>
+        <a href="simulator.html" class="text-sm font-medium text-slate-600 transition-colors duration-280 ease-fbi-out hover:text-navy focus:outline-none focus-visible:ring-2 focus-visible:ring-faithGold focus-visible:ring-offset-2 rounded-sm">Simulator</a>
+        <a href="reflections.html" class="text-sm font-medium text-slate-600 transition-colors duration-280 ease-fbi-out hover:text-navy focus:outline-none focus-visible:ring-2 focus-visible:ring-faithGold focus-visible:ring-offset-2 rounded-sm">Reflections</a>
+      </nav>
+    </div>
+    <div id="tw-menu-panel" class="hidden border-t border-slate-200 py-3 md:hidden">
+      <nav class="grid gap-1" aria-label="Mobile">
+        <a href="index.html" class="rounded-lg px-3 py-2 text-sm text-slate-700 transition-colors duration-280 ease-fbi-out hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-faithGold">Home</a>
+        <a href="products.html" class="rounded-lg px-3 py-2 text-sm font-semibold text-navy bg-slate-100">Products</a>
+        <a href="compare.html" class="rounded-lg px-3 py-2 text-sm text-slate-700 transition-colors duration-280 ease-fbi-out hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-faithGold">Compare</a>
+        <a href="about.html" class="rounded-lg px-3 py-2 text-sm text-slate-700 transition-colors duration-280 ease-fbi-out hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-faithGold">About</a>
+        <a href="support.html" class="rounded-lg px-3 py-2 text-sm text-slate-700 transition-colors duration-280 ease-fbi-out hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-faithGold">Support</a>
+        <a href="simulator.html" class="rounded-lg px-3 py-2 text-sm text-slate-700 transition-colors duration-280 ease-fbi-out hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-faithGold">Simulator</a>
+        <a href="reflections.html" class="rounded-lg px-3 py-2 text-sm text-slate-700 transition-colors duration-280 ease-fbi-out hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-faithGold">Reflections</a>
+      </nav>
+    </div>
+  </div>
+</header>
+<main class="flex-1">
+  <section class="bg-navy py-14 text-white sm:py-16">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-wrap items-center gap-3">
+        <span class="rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-amber-200">Coming soon</span>
+        <span class="text-xs font-bold uppercase tracking-widest text-amber-200/80">Flagship · Finance</span>
+      </div>
+      <h1 class="mt-4 text-4xl font-extrabold tracking-tight sm:text-5xl">The financial operating system.</h1>
+      <p class="mt-5 max-w-3xl text-lg text-slate-200 leading-relaxed">CFO is a financial operating system you run on your machine, powered by Steward—not a thin budgeting app. It helps you interpret, plan, and decide from structured data and transparent rules.</p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a href="#how-cfo-compares" class="inline-flex rounded-lg bg-faithGold px-5 py-2.5 text-sm font-semibold text-white hover:bg-amber-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-300 focus-visible:ring-offset-2 focus-visible:ring-offset-navy">How CFO compares</a>
+        <a href="compare.html" class="inline-flex rounded-lg border border-white/25 px-5 py-2.5 text-sm font-semibold text-white hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50">Compare all products</a>
+        <a href="products.html" class="inline-flex rounded-lg border border-white/25 px-5 py-2.5 text-sm font-semibold text-white hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50">All products</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-3xl px-4 py-20 sm:px-6 lg:px-8">
+    <h2 class="text-2xl font-bold text-navy">A financial operating system—not a dashboard toy</h2>
+    <p class="mt-4 text-slate-600 leading-relaxed">CFO is built for money in motion: structure, planning, and decisions grounded in <em>your</em> data. It is not a generic tracker or a thin budgeting app—it helps you interpret, plan, and act from real inputs. Everything rolls up into one coherent picture instead of disconnected categories.</p>
+    <p class="mt-4 text-slate-600 leading-relaxed"><strong class="text-navy">Steward</strong> inside CFO reads the records you add, highlights patterns and risks, and helps with projections and runway. Answers follow the same rules every time for the same inputs—nothing is invented to fill gaps.</p>
+  </section>
+
+  <section id="cfo-features" class="scroll-mt-28 border-y border-slate-200 bg-white py-16">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-center text-2xl font-bold text-navy">What CFO handles</h2>
+      <ul class="mt-8 space-y-3 text-slate-600">
+        <li class="flex gap-3"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-faithGold"></span>Budgeting and financial planning</li>
+        <li class="flex gap-3"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-faithGold"></span>Forecasting and cash-flow clarity</li>
+        <li class="flex gap-3"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-faithGold"></span>Calendar-based financial awareness for upcoming and recurring obligations</li>
+        <li class="flex gap-3"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-faithGold"></span>Predictive scheduling of expenses from patterns or user-defined entries</li>
+        <li class="flex gap-3"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-faithGold"></span>Manual financial calendar control when you want full input authority</li>
+        <li class="flex gap-3"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-faithGold"></span>Structured financial database foundation—accounts, transactions, documents, and relationships kept in one coherent model</li>
+        <li class="flex gap-3"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-faithGold"></span>OCR ingestion for statements and documents</li>
+        <li class="flex gap-3"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-faithGold"></span>Optional Plaid integration—explicit and optional, never a silent default</li>
+        <li class="flex gap-3"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-faithGold"></span>Structured financial intelligence and advanced organization</li>
+      </ul>
+      <p class="mt-8 text-slate-600 leading-relaxed">CFO includes a financial calendar that tracks recurring and upcoming expenses, can reflect patterns from your activity, and supports fully manual entry when you prefer direct control. It is there to give forward visibility into obligations—not as a separate gimmick, but as part of how the system keeps time and money aligned.</p>
+      <p class="mt-8 text-center text-sm text-slate-500">Local-first and privacy-first. Your financial data stays oriented to your machine and your choices.</p>
+    </div>
+  </section>
+
+  <section id="cfo-database" class="scroll-mt-28 border-y border-slate-200/80 bg-white" aria-labelledby="cfo-database-heading">
+  <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8 lg:py-28">
+    <div class="grid gap-14 lg:grid-cols-2 lg:items-center lg:gap-16">
+      <div class="max-w-xl lg:max-w-none">
+        <p class="text-xs font-bold uppercase tracking-[0.22em] text-faithGold/90">Structured foundation</p>
+        <h2 id="cfo-database-heading" class="mt-6 text-3xl font-bold tracking-tight text-navy sm:text-4xl lg:text-[2.75rem] lg:leading-tight">Your money, organized as a real system</h2>
+        <div class="mt-8 space-y-5 text-base leading-relaxed text-slate-600 sm:text-lg">
+          <p>CFO is not a stack of flat budgeting screens. Under the experience you use every day is a <strong class="font-semibold text-navy">structured, custom financial database</strong>—built in, available to <strong class="font-semibold text-navy">every user</strong>, and part of the standard product. It holds accounts, transactions, recurring patterns, uploaded documents, and the relationships between them in one coherent model—not as disconnected tiles.</p>
+          <p>That foundation is what lets CFO behave as a <strong class="font-semibold text-navy">financial operating system</strong>: richer organization, clearer visibility, and room for deeper analysis over time. You do not need to be a power user or a business customer to benefit; it is the same layer whether you want a straightforward tool or a more structured view underneath.</p>
+        </div>
+        <ul class="mt-10 grid gap-4 sm:grid-cols-2">
+          <li class="flex gap-3 rounded-2xl border border-slate-200/90 bg-slate-50/60 px-4 py-3.5 text-sm font-medium text-navy ring-1 ring-slate-900/[0.03]">
+            <span class="mt-0.5 h-2 w-2 shrink-0 rounded-full bg-faithGold" aria-hidden="true"></span>
+            Structured organization
+          </li>
+          <li class="flex gap-3 rounded-2xl border border-slate-200/90 bg-slate-50/60 px-4 py-3.5 text-sm font-medium text-navy ring-1 ring-slate-900/[0.03]">
+            <span class="mt-0.5 h-2 w-2 shrink-0 rounded-full bg-faithGold" aria-hidden="true"></span>
+            Richer financial visibility
+          </li>
+          <li class="flex gap-3 rounded-2xl border border-slate-200/90 bg-slate-50/60 px-4 py-3.5 text-sm font-medium text-navy ring-1 ring-slate-900/[0.03]">
+            <span class="mt-0.5 h-2 w-2 shrink-0 rounded-full bg-faithGold" aria-hidden="true"></span>
+            User-owned system design
+          </li>
+          <li class="flex gap-3 rounded-2xl border border-slate-200/90 bg-slate-50/60 px-4 py-3.5 text-sm font-medium text-navy ring-1 ring-slate-900/[0.03]">
+            <span class="mt-0.5 h-2 w-2 shrink-0 rounded-full bg-faithGold" aria-hidden="true"></span>
+            Stronger recurring pattern support
+          </li>
+          <li class="flex gap-3 rounded-2xl border border-slate-200/90 bg-slate-50/60 px-4 py-3.5 text-sm font-medium text-navy ring-1 ring-slate-900/[0.03]">
+            <span class="mt-0.5 h-2 w-2 shrink-0 rounded-full bg-faithGold" aria-hidden="true"></span>
+            Better foundation for document-linked finance
+          </li>
+          <li class="flex gap-3 rounded-2xl border border-slate-200/90 bg-slate-50/60 px-4 py-3.5 text-sm font-medium text-navy ring-1 ring-slate-900/[0.03]">
+            <span class="mt-0.5 h-2 w-2 shrink-0 rounded-full bg-faithGold" aria-hidden="true"></span>
+            Built for simplicity and depth
+          </li>
+        </ul>
+      </div>
+      <div class="relative mx-auto w-full max-w-lg lg:max-w-none" role="img" aria-label="Illustration: accounts, activity, and documents connected in one financial model">
+        <div class="relative overflow-hidden rounded-3xl border border-slate-200/90 bg-gradient-to-br from-white via-slate-50/90 to-slate-100/70 p-6 shadow-lg shadow-slate-900/10 ring-1 ring-slate-900/[0.06] sm:p-8">
+          <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_90%_60%_at_20%_0%,rgba(217,119,6,0.07),transparent_55%)]"></div>
+          <div class="relative flex min-h-[280px] flex-col justify-between gap-6 sm:min-h-[300px]">
+            <div class="flex items-start justify-between gap-3">
+              <div class="rounded-xl border border-slate-200/90 bg-white/95 px-3 py-2 shadow-sm">
+                <p class="text-[10px] font-semibold uppercase tracking-[0.16em] text-faithGold">One connected model</p>
+                <p class="mt-1 text-xs font-medium text-navy">Accounts · activity · documents</p>
+              </div>
+              <span class="inline-flex h-2 w-2 shrink-0 rounded-full bg-faithGold shadow-[0_0_0_3px_rgba(217,119,6,0.2)]" aria-hidden="true"></span>
+            </div>
+            <div class="space-y-3">
+              <div class="flex items-center gap-2 sm:gap-3">
+                <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-slate-200 bg-white text-xs font-bold text-navy shadow-sm">1</div>
+                <div class="h-px flex-1 bg-gradient-to-r from-slate-300 to-transparent"></div>
+                <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-slate-200 bg-white text-xs font-bold text-navy shadow-sm">2</div>
+                <div class="h-px flex-1 bg-gradient-to-r from-slate-300 to-transparent"></div>
+                <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-faithGold/40 bg-amber-50 text-xs font-bold text-navy">3</div>
+              </div>
+              <p class="text-center text-[11px] font-medium uppercase tracking-[0.14em] text-slate-500">Linked records · recurring bills · uploads</p>
+            </div>
+            <div class="rounded-2xl border border-slate-200/90 bg-white/90 p-4 shadow-sm">
+              <div class="flex flex-wrap gap-2">
+                <span class="rounded-md border border-slate-200 bg-slate-50 px-2.5 py-1 text-[10px] font-medium text-slate-700">Clear views</span>
+                <span class="rounded-md border border-slate-200 bg-slate-50 px-2.5 py-1 text-[10px] font-medium text-slate-700">Smart filters</span>
+                <span class="rounded-md border border-faithGold/30 bg-amber-50 px-2.5 py-1 text-[10px] font-medium text-amber-900/90">One system</span>
+              </div>
+              <p class="mt-3 text-xs leading-relaxed text-slate-600">Built into CFO for everyone—not a separate “database product” and not a developer-only screen.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <section class="mx-auto max-w-3xl px-4 py-20 sm:px-6 lg:px-8">
+    <h2 class="text-2xl font-bold text-navy">Steward without guesswork</h2>
+    <p class="mt-4 text-slate-600 leading-relaxed">Steward is a controlled, rules-based layer—not vague automation. In CFO, projections and signals trace back to sources and policy.</p>
+    <p class="mt-4 text-slate-600 leading-relaxed">No fabricated balances or filler numbers. Where information is missing, CFO does not pretend otherwise.</p>
+  </section>
+
+  <section class="mx-auto max-w-3xl px-4 pb-16 sm:px-6 sm:pb-20 lg:px-8" aria-label="Structured financial model">
+    <p class="text-slate-600 leading-relaxed">Under the interface, CFO relies on a structured internal financial model that ties accounts, transactions, recurring events, and documents together. It is part of the standard experience for every user, supports consistent tracking and planning, and is not presented as a developer-facing tool.</p>
+  </section>
+
+  <section id="how-cfo-compares" class="scroll-mt-28 border-y border-slate-200/80 bg-gradient-to-b from-slate-100/40 via-white to-slate-50/60" aria-labelledby="cfo-comparison-heading">
+  <div class="mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-28 lg:px-8 lg:py-32">
+    <header class="mx-auto max-w-3xl text-center">
+      <p class="text-xs font-bold uppercase tracking-[0.22em] text-faithGold/90">How CFO compares</p>
+      <h2 id="cfo-comparison-heading" class="mt-4 text-4xl font-bold tracking-tight text-navy sm:text-5xl lg:text-6xl lg:leading-[1.1]">Why CFO is different</h2>
+      <p class="mt-4 text-lg font-medium text-slate-700 sm:text-xl">A side-by-side look at what you get with CFO versus common tools.</p>
+      <div class="mt-8 space-y-5 text-lg leading-relaxed text-slate-600 sm:text-[1.125rem]">
+        <p>Most money apps assume the cloud, quick dashboards, and light budgeting. Helpful for a glance—but not a full system for running your finances.</p>
+        <p><strong class="font-semibold text-navy">CFO</strong> is built as <strong class="font-semibold text-navy">private software on your own computer</strong>: your numbers stay with you, not trapped in someone else’s engagement funnel. You get organized views, deliberate inputs, and steady guidance from <strong class="font-semibold text-navy">Steward</strong>—meaning clear rules and your real data, not a never-ending feed.</p>
+      </div>
+    </header>
+
+    <div class="mt-12 sm:mt-14 lg:mt-16">
+      <p class="sr-only">Comparison of CFO to typical budgeting apps, subscription trackers, cloud personal finance apps, and spreadsheet workflows. Icons indicate full support, partial or limited support, or absence.</p>
+
+      <div class="hidden overflow-hidden rounded-2xl border border-slate-200/90 bg-white/80 shadow-sm ring-1 ring-slate-900/[0.04] backdrop-blur-sm lg:block xl:rounded-3xl">
+        <div class="overflow-x-auto">
+          <table class="w-full min-w-[1200px] border-collapse text-center text-sm">
+            <thead>
+              <tr class="border-b border-slate-200/90 bg-slate-50/90">
+                <th scope="col" class="sticky left-0 z-30 min-w-[220px] bg-slate-50/95 px-4 py-3 text-center align-middle text-xs font-bold uppercase tracking-[0.12em] text-slate-500 shadow-[4px_0_12px_-4px_rgba(15,23,42,0.12)] sm:px-5">Capability</th>
+                <th scope="col" class="group relative px-3 py-3 text-center align-middle transition duration-200 ease-out sm:px-4">
+                  <div class="relative z-10 mx-auto flex h-full min-h-[4.75rem] max-w-[200px] flex-col items-center justify-center gap-0.5 rounded-2xl border-2 border-faithGold/45 bg-gradient-to-b from-white via-amber-50/40 to-white px-3 py-2.5 text-center shadow-lg shadow-amber-900/10 ring-1 ring-amber-200/60 transition duration-280 ease-fbi-out group-hover:shadow-fbi">
+                    <span class="text-[10px] font-bold uppercase leading-tight tracking-[0.14em] text-faithGold">Financial OS</span>
+                    <span class="text-base font-bold leading-tight text-navy">CFO</span>
+                  </div>
+                </th>
+                <th scope="col" class="px-3 py-3 text-center align-middle text-xs font-bold uppercase tracking-wide text-slate-500 sm:px-4">
+                  <div class="mx-auto flex h-full min-h-[4.75rem] max-w-[180px] flex-col items-center justify-center rounded-xl border border-slate-200/90 bg-slate-50/80 px-2.5 py-2.5 text-center transition duration-200 hover:border-slate-300">
+                    <span class="text-[11px] font-semibold leading-snug text-navy">Traditional budgeting apps</span>
+                  </div>
+                </th>
+                <th scope="col" class="px-3 py-3 text-center align-middle text-xs font-bold uppercase tracking-wide text-slate-500 sm:px-4">
+                  <div class="mx-auto flex h-full min-h-[4.75rem] max-w-[180px] flex-col items-center justify-center rounded-xl border border-slate-200/90 bg-slate-50/80 px-2.5 py-2.5 text-center transition duration-200 hover:border-slate-300">
+                    <span class="text-[11px] font-semibold leading-snug text-navy">Subscription trackers</span>
+                  </div>
+                </th>
+                <th scope="col" class="px-3 py-3 text-center align-middle text-xs font-bold uppercase tracking-wide text-slate-500 sm:px-4">
+                  <div class="mx-auto flex h-full min-h-[4.75rem] max-w-[180px] flex-col items-center justify-center rounded-xl border border-slate-200/90 bg-slate-50/80 px-2.5 py-2.5 text-center transition duration-200 hover:border-slate-300">
+                    <span class="text-[11px] font-semibold leading-snug text-navy">Cloud-based finance apps</span>
+                  </div>
+                </th>
+                <th scope="col" class="px-3 py-3 text-center align-middle text-xs font-bold uppercase tracking-wide text-slate-500 sm:px-4">
+                  <div class="mx-auto flex h-full min-h-[4.75rem] max-w-[180px] flex-col items-center justify-center rounded-xl border border-slate-200/90 bg-slate-50/80 px-2.5 py-2.5 text-center transition duration-200 hover:border-slate-300">
+                    <span class="text-[11px] font-semibold leading-snug text-navy">Spreadsheets</span>
+                  </div>
+                </th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100/90 text-slate-600">
+              <tr class="group/row transition-colors duration-200 hover:bg-slate-50/70">
+                <th scope="row" class="sticky left-0 z-20 bg-white px-4 py-4 text-center align-middle text-sm font-semibold leading-snug text-navy shadow-[4px_0_12px_-4px_rgba(15,23,42,0.08)] transition-colors group-hover/row:bg-slate-50/90 sm:px-5">Local-first architecture</th>
+                <td class="bg-gradient-to-b from-amber-50/30 to-white px-3 py-4 text-center align-middle sm:px-4"><div class="flex flex-col items-center gap-1"><svg class="h-5 w-5 shrink-0 text-emerald-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg><span class="text-xs font-medium text-navy">Built in</span></div></td>
+                <td class="px-3 py-4 text-center align-middle"><div class="flex justify-center"><svg class="h-5 w-5 shrink-0 text-amber-600/90" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 10a.75.75 0 01.75-.75h10.5a.75.75 0 010 1.5H4.75A.75.75 0 014 10z" clip-rule="evenodd" /></svg></div></td>
+                <td class="px-3 py-4 text-center align-middle"><div class="flex justify-center"><svg class="h-5 w-5 shrink-0 text-amber-600/90" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 10a.75.75 0 01.75-.75h10.5a.75.75 0 010 1.5H4.75A.75.75 0 014 10z" clip-rule="evenodd" /></svg></div></td>
+                <td class="px-3 py-4 text-center align-middle"><div class="flex justify-center"><svg class="h-5 w-5 shrink-0 text-slate-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z" /></svg></div></td>
+                <td class="px-3 py-4 text-center align-middle"><div class="flex flex-col items-center gap-1"><svg class="h-5 w-5 shrink-0 text-amber-600/90" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 10a.75.75 0 01.75-.75h10.5a.75.75 0 010 1.5H4.75A.75.75 0 014 10z" clip-rule="evenodd" /></svg><span class="text-xs text-slate-500">File-based</span></div></td>
+              </tr>
+              <tr class="group/row transition-colors duration-200 hover:bg-slate-50/70">
+                <th scope="row" class="sticky left-0 z-20 bg-white px-4 py-4 text-center align-middle text-sm font-semibold leading-snug text-navy shadow-[4px_0_12px_-4px_rgba(15,23,42,0.08)] transition-colors group-hover/row:bg-slate-50/90 sm:px-5">User-owned data</th>
+                <td class="bg-gradient-to-b from-amber-50/25 to-white px-3 py-4 text-center align-middle sm:px-4"><div class="flex flex-col items-center gap-1"><svg class="h-5 w-5 shrink-0 text-emerald-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg><span class="text-xs font-medium text-navy">You own it</span></div></td>
+                <td class="px-3 py-4 text-center align-middle"><div class="flex justify-center"><svg class="h-5 w-5 shrink-0 text-amber-600/90" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 10a.75.75 0 01.75-.75h10.5a.75.75 0 010 1.5H4.75A.75.75 0 014 10z" clip-rule="evenodd" /></svg></div></td>
+                <td class="px-3 py-4 text-center align-middle"><div class="flex justify-center"><svg class="h-5 w-5 shrink-0 text-amber-600/90" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 10a.75.75 0 01.75-.75h10.5a.75.75 0 010 1.5H4.75A.75.75 0 014 10z" clip-rule="evenodd" /></svg></div></td>
+                <td class="px-3 py-4 text-center align-middle"><div class="flex flex-col items-center gap-1"><svg class="h-5 w-5 shrink-0 text-amber-600/90" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 10a.75.75 0 01.75-.75h10.5a.75.75 0 010 1.5H4.75A.75.75 0 014 10z" clip-rule="evenodd" /></svg><span class="text-xs text-slate-500">Vendor-hosted</span></div></td>
+                <td class="px-3 py-4 text-center align-middle"><div class="flex flex-col items-center gap-1"><svg class="h-5 w-5 shrink-0 text-emerald-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg><span class="text-xs text-slate-500">Local file</span></div></td>
+              </tr>
+              <tr class="group/row transition-colors duration-200 hover:bg-slate-50/70">
+                <th scope="row" class="sticky left-0 z-20 bg-white px-4 py-4 text-center align-middle text-sm font-semibold leading-snug text-navy shadow-[4px_0_12px_-4px_rgba(15,23,42,0.08)] transition-colors group-hover/row:bg-slate-50/90 sm:px-5">Zero-knowledge design</th>
+                <td class="bg-gradient-to-b from-amber-50/25 to-white px-3 py-4 text-center align-middle sm:px-4"><div class="flex flex-col items-center gap-1"><svg class="h-5 w-5 shrink-0 text-emerald-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg><span class="text-xs font-medium text-navy">By design</span></div></td>
+                <td class="px-3 py-4 text-center align-middle"><div class="flex justify-center"><svg class="h-5 w-5 shrink-0 text-amber-600/90" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 10a.75.75 0 01.75-.75h10.5a.75.75 0 010 1.5H4.75A.75.75 0 014 10z" clip-rule="evenodd" /></svg></div></td>
+                <td class="px-3 py-4 text-center align-middle"><div class="flex justify-center"><svg class="h-5 w-5 shrink-0 text-amber-600/90" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 10a.75.75 0 01.75-.75h10.5a.75.75 0 010 1.5H4.75A.75.75 0 014 10z" clip-rule="evenodd" /></svg></div></td>
+                <td class="px-3 py-4 text-center align-middle"><div class="flex justify-center"><svg class="h-5 w-5 shrink-0 text-amber-600/90" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 10a.75.75 0 01.75-.75h10.5a.75.75 0 010 1.5H4.75A.75.75 0 014 10z" clip-rule="evenodd" /></svg></div></td>
+                <td class="px-3 py-4 text-center align-middle"><div class="flex justify-center"><svg class="h-5 w-5 shrink-0 text-amber-600/90" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 10a.75.75 0 01.75-.75h10.5a.75.75 0 010 1.5H4.75A.75.75 0 014 10z" clip-rule="evenodd" /></svg></div></td>
+              </tr>
+              <tr class="group/row transition-colors duration-200 hover:bg-slate-50/70">
+                <th scope="row" class="sticky left-0 z-20 bg-white px-4 py-4 text-center align-middle text-sm font-semibold leading-snug text-navy shadow-[4px_0_12px_-4px_rgba(15,23,42,0.08)] transition-colors group-hover/row:bg-slate-50/90 sm:px-5">Forced cloud dependency</th>
+                <td class="bg-gradient-to-b from-amber-50/25 to-white px-3 py-4 text-center align-middle sm:px-4"><div class="flex flex-col items-center gap-1"><svg class="h-5 w-5 shrink-0 text-emerald-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg><span class="text-xs font-medium text-navy">None required</span></div></td>
+                <td class="px-3 py-4 text-center align-middle"><div class="flex justify-center"><svg class="h-5 w-5 shrink-0 text-amber-600/90" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 10a.75.75 0 01.75-.75h10.5a.75.75 0 010 1.5H4.75A.75.75 0 014 10z" clip-rule="evenodd" /></svg></div></td>
+                <td class="px-3 py-4 text-center align-middle"><div class="flex justify-center"><svg class="h-5 w-5 shrink-0 text-amber-600/90" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 10a.75.75 0 01.75-.75h10.5a.75.75 0 010 1.5H4.75A.75.75 0 014 10z" clip-rule="evenodd" /></svg></div></td>
+                <td class="px-3 py-4 text-center align-middle"><div class="flex flex-col items-center gap-1"><svg class="h-5 w-5 shrink-0 text-slate-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z" /></svg><span class="text-xs text-slate-500">Typical</span></div></td>
+                <td class="px-3 py-4 text-center align-middle"><div class="flex flex-col items-center gap-1"><svg class="h-5 w-5 shrink-0 text-emerald-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg><span class="text-xs text-slate-500">No cloud</span></div></td>
+              </tr>
+              <tr class="group/row transition-colors duration-200 hover:bg-slate-50/70">
+                <th scope="row" class="sticky left-0 z-20 bg-white px-4 py-4 text-center align-middle text-sm font-semibold leading-snug text-navy shadow-[4px_0_12px_-4px_rgba(15,23,42,0.08)] transition-colors group-hover/row:bg-slate-50/90 sm:px-5">Manual entry flexibility</th>
+                <td class="bg-gradient-to-b from-amber-50/25 to-white px-3 py-4 text-center align-middle sm:px-4"><div class="flex flex-col items-center gap-1"><svg class="h-5 w-5 shrink-0 text-emerald-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg><span class="text-xs font-medium text-navy">Full control</span></div></td>
+                <td class="px-3 py-4 text-center align-middle"><div class="flex justify-center"><svg class="h-5 w-5 shrink-0 text-emerald-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg></div></td>
+                <td class="px-3 py-4 text-center align-middle"><div class="flex justify-center"><svg class="h-5 w-5 shrink-0 text-emerald-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg></div></td>
+                <td class="px-3 py-4 text-center align-middle"><div class="flex justify-center"><svg class="h-5 w-5 shrink-0 text-amber-600/90" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 10a.75.75 0 01.75-.75h10.5a.75.75 0 010 1.5H4.75A.75.75 0 014 10z" clip-rule="evenodd" /></svg></div></td>
+                <td class="px-3 py-4 text-center align-middle"><div class="flex flex-col items-center gap-1"><svg class="h-5 w-5 shrink-0 text-emerald-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg><span class="text-xs text-slate-500">Manual only</span></div></td>
+              </tr>
+              <tr class="group/row transition-colors duration-200 hover:bg-slate-50/70">
+                <th scope="row" class="sticky left-0 z-20 bg-white px-4 py-4 text-center align-middle text-sm font-semibold leading-snug text-navy shadow-[4px_0_12px_-4px_rgba(15,23,42,0.08)] transition-colors group-hover/row:bg-slate-50/90 sm:px-5">OCR-based financial ingestion</th>
+                <td class="bg-gradient-to-b from-amber-50/25 to-white px-3 py-4 text-center align-middle sm:px-4"><div class="flex flex-col items-center gap-1"><svg class="h-5 w-5 shrink-0 text-emerald-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg><span class="text-xs font-medium text-navy">Built in</span></div></td>
+                <td class="px-3 py-4 text-center align-middle"><div class="flex justify-center"><svg class="h-5 w-5 shrink-0 text-amber-600/90" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 10a.75.75 0 01.75-.75h10.5a.75.75 0 010 1.5H4.75A.75.75 0 014 10z" clip-rule="evenodd" /></svg></div></td>
+                <td class="px-3 py-4 text-center align-middle"><div class="flex justify-center"><svg class="h-5 w-5 shrink-0 text-slate-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z" /></svg></div></td>
+                <td class="px-3 py-4 text-center align-middle"><div class="flex justify-center"><svg class="h-5 w-5 shrink-0 text-amber-600/90" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 10a.75.75 0 01.75-.75h10.5a.75.75 0 010 1.5H4.75A.75.75 0 014 10z" clip-rule="evenodd" /></svg></div></td>
+                <td class="px-3 py-4 text-center align-middle"><div class="flex flex-col items-center gap-1"><svg class="h-5 w-5 shrink-0 text-amber-600/90" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 10a.75.75 0 01.75-.75h10.5a.75.75 0 010 1.5H4.75A.75.75 0 014 10z" clip-rule="evenodd" /></svg><span class="text-xs text-slate-500">Add-ons</span></div></td>
+              </tr>
+              <tr class="group/row transition-colors duration-200 hover:bg-slate-50/70">
+                <th scope="row" class="sticky left-0 z-20 bg-white px-4 py-4 text-center align-middle text-sm font-semibold leading-snug text-navy shadow-[4px_0_12px_-4px_rgba(15,23,42,0.08)] transition-colors group-hover/row:bg-slate-50/90 sm:px-5">Receipts, bills, statements, notes &amp; uploads</th>
+                <td class="bg-gradient-to-b from-amber-50/25 to-white px-3 py-4 text-center align-middle sm:px-4"><div class="flex flex-col items-center gap-1"><svg class="h-5 w-5 shrink-0 text-emerald-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg><span class="text-xs font-medium text-navy">Structured</span></div></td>
+                <td class="px-3 py-4 text-center align-middle"><div class="flex justify-center"><svg class="h-5 w-5 shrink-0 text-amber-600/90" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 10a.75.75 0 01.75-.75h10.5a.75.75 0 010 1.5H4.75A.75.75 0 014 10z" clip-rule="evenodd" /></svg></div></td>
+                <td class="px-3 py-4 text-center align-middle"><div class="flex justify-center"><svg class="h-5 w-5 shrink-0 text-slate-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z" /></svg></div></td>
+                <td class="px-3 py-4 text-center align-middle"><div class="flex justify-center"><svg class="h-5 w-5 shrink-0 text-amber-600/90" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 10a.75.75 0 01.75-.75h10.5a.75.75 0 010 1.5H4.75A.75.75 0 014 10z" clip-rule="evenodd" /></svg></div></td>
+                <td class="px-3 py-4 text-center align-middle"><div class="flex flex-col items-center gap-1"><svg class="h-5 w-5 shrink-0 text-emerald-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg><span class="text-xs text-slate-500">DIY</span></div></td>
+              </tr>
+              <tr class="group/row transition-colors duration-200 hover:bg-slate-50/70">
+                <th scope="row" class="sticky left-0 z-20 bg-white px-4 py-4 text-center align-middle text-sm font-semibold leading-snug text-navy shadow-[4px_0_12px_-4px_rgba(15,23,42,0.08)] transition-colors group-hover/row:bg-slate-50/90 sm:px-5">Recurring expense awareness</th>
+                <td class="bg-gradient-to-b from-amber-50/25 to-white px-3 py-4 text-center align-middle sm:px-4"><div class="flex justify-center"><svg class="h-5 w-5 shrink-0 text-emerald-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg></div></td>
+                <td class="px-3 py-4 text-center align-middle"><div class="flex justify-center"><svg class="h-5 w-5 shrink-0 text-emerald-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg></div></td>
+                <td class="px-3 py-4 text-center align-middle"><div class="flex flex-col items-center gap-1"><svg class="h-5 w-5 shrink-0 text-emerald-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg><span class="text-xs text-slate-500">Core focus</span></div></td>
+                <td class="px-3 py-4 text-center align-middle"><div class="flex justify-center"><svg class="h-5 w-5 shrink-0 text-emerald-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg></div></td>
+                <td class="px-3 py-4 text-center align-middle"><div class="flex justify-center"><svg class="h-5 w-5 shrink-0 text-amber-600/90" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 10a.75.75 0 01.75-.75h10.5a.75.75 0 010 1.5H4.75A.75.75 0 014 10z" clip-rule="evenodd" /></svg></div></td>
+              </tr>
+              <tr class="group/row transition-colors duration-200 hover:bg-slate-50/70">
+                <th scope="row" class="sticky left-0 z-20 bg-white px-4 py-4 text-center align-middle text-sm font-semibold leading-snug text-navy shadow-[4px_0_12px_-4px_rgba(15,23,42,0.08)] transition-colors group-hover/row:bg-slate-50/90 sm:px-5">Financial calendar (recurring + upcoming visibility)</th>
+                <td class="bg-gradient-to-b from-amber-50/25 to-white px-3 py-4 text-center align-middle sm:px-4"><div class="flex flex-col items-center gap-1"><svg class="h-5 w-5 shrink-0 text-emerald-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg><span class="text-xs font-medium text-navy">Built in</span></div></td>
+                <td class="px-3 py-4 text-center align-middle"><p class="mx-auto max-w-[9rem] text-center text-xs leading-snug text-slate-600">Basic or separate</p></td>
+                <td class="px-3 py-4 text-center align-middle"><p class="mx-auto max-w-[9rem] text-center text-xs leading-snug text-slate-600">Subscriptions only</p></td>
+                <td class="px-3 py-4 text-center align-middle"><p class="mx-auto max-w-[9rem] text-center text-xs leading-snug text-slate-600">Some</p></td>
+                <td class="px-3 py-4 text-center align-middle"><p class="mx-auto max-w-[9rem] text-center text-xs leading-snug text-slate-600">Manual</p></td>
+              </tr>
+              <tr class="group/row transition-colors duration-200 hover:bg-slate-50/70">
+                <th scope="row" class="sticky left-0 z-20 bg-white px-4 py-4 text-center align-middle text-sm font-semibold leading-snug text-navy shadow-[4px_0_12px_-4px_rgba(15,23,42,0.08)] transition-colors group-hover/row:bg-slate-50/90 sm:px-5">Predictive expense scheduling</th>
+                <td class="bg-gradient-to-b from-amber-50/25 to-white px-3 py-4 text-center align-middle sm:px-4"><p class="mx-auto max-w-[10rem] text-center text-xs font-medium leading-snug text-navy">Pattern-based + manual</p></td>
+                <td class="px-3 py-4 text-center align-middle"><p class="mx-auto max-w-[9rem] text-center text-xs leading-snug text-slate-600">Limited</p></td>
+                <td class="px-3 py-4 text-center align-middle"><p class="mx-auto max-w-[9rem] text-center text-xs leading-snug text-slate-600">Subscription-focused</p></td>
+                <td class="px-3 py-4 text-center align-middle"><p class="mx-auto max-w-[9rem] text-center text-xs leading-snug text-slate-600">Some</p></td>
+                <td class="px-3 py-4 text-center align-middle"><p class="mx-auto max-w-[9rem] text-center text-xs leading-snug text-slate-600">Formulas</p></td>
+              </tr>
+              <tr class="group/row transition-colors duration-200 hover:bg-slate-50/70">
+                <th scope="row" class="sticky left-0 z-20 bg-white px-4 py-4 text-center align-middle text-sm font-semibold leading-snug text-navy shadow-[4px_0_12px_-4px_rgba(15,23,42,0.08)] transition-colors group-hover/row:bg-slate-50/90 sm:px-5">Structured financial system foundation</th>
+                <td class="bg-gradient-to-b from-amber-50/25 to-white px-3 py-4 text-center align-middle sm:px-4"><div class="flex flex-col items-center gap-1"><svg class="h-5 w-5 shrink-0 text-emerald-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg><span class="text-xs font-medium text-navy">Built in</span></div></td>
+                <td class="px-3 py-4 text-center align-middle"><p class="mx-auto max-w-[9rem] text-center text-xs leading-snug text-slate-600">Flat structure</p></td>
+                <td class="px-3 py-4 text-center align-middle"><p class="mx-auto max-w-[9rem] text-center text-xs leading-snug text-slate-600">Narrow</p></td>
+                <td class="px-3 py-4 text-center align-middle"><p class="mx-auto max-w-[9rem] text-center text-xs leading-snug text-slate-600">Moderate</p></td>
+                <td class="px-3 py-4 text-center align-middle"><p class="mx-auto max-w-[9rem] text-center text-xs leading-snug text-slate-600">User-built</p></td>
+              </tr>
+              <tr class="group/row transition-colors duration-200 hover:bg-slate-50/70">
+                <th scope="row" class="sticky left-0 z-20 bg-white px-4 py-4 text-center align-middle text-sm font-semibold leading-snug text-navy shadow-[4px_0_12px_-4px_rgba(15,23,42,0.08)] transition-colors group-hover/row:bg-slate-50/90 sm:px-5">Predictive / watchful behavior</th>
+                <td class="bg-gradient-to-b from-amber-50/25 to-white px-3 py-4 text-center align-middle sm:px-4"><div class="flex flex-col items-center gap-1"><svg class="h-5 w-5 shrink-0 text-emerald-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg><span class="text-xs font-medium text-navy">Rules-based</span></div></td>
+                <td class="px-3 py-4 text-center align-middle"><div class="flex justify-center"><svg class="h-5 w-5 shrink-0 text-amber-600/90" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 10a.75.75 0 01.75-.75h10.5a.75.75 0 010 1.5H4.75A.75.75 0 014 10z" clip-rule="evenodd" /></svg></div></td>
+                <td class="px-3 py-4 text-center align-middle"><div class="flex justify-center"><svg class="h-5 w-5 shrink-0 text-amber-600/90" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 10a.75.75 0 01.75-.75h10.5a.75.75 0 010 1.5H4.75A.75.75 0 014 10z" clip-rule="evenodd" /></svg></div></td>
+                <td class="px-3 py-4 text-center align-middle"><div class="flex justify-center"><svg class="h-5 w-5 shrink-0 text-amber-600/90" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 10a.75.75 0 01.75-.75h10.5a.75.75 0 010 1.5H4.75A.75.75 0 014 10z" clip-rule="evenodd" /></svg></div></td>
+                <td class="px-3 py-4 text-center align-middle"><div class="flex flex-col items-center gap-1"><svg class="h-5 w-5 shrink-0 text-amber-600/90" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 10a.75.75 0 01.75-.75h10.5a.75.75 0 010 1.5H4.75A.75.75 0 014 10z" clip-rule="evenodd" /></svg><span class="text-xs text-slate-500">Formulas</span></div></td>
+              </tr>
+              <tr class="group/row transition-colors duration-200 hover:bg-slate-50/70">
+                <th scope="row" class="sticky left-0 z-20 bg-white px-4 py-4 text-center align-middle text-sm font-semibold leading-snug text-navy shadow-[4px_0_12px_-4px_rgba(15,23,42,0.08)] transition-colors group-hover/row:bg-slate-50/90 sm:px-5">Built-in intelligence (Steward)</th>
+                <td class="bg-gradient-to-b from-amber-50/25 to-white px-3 py-4 text-center align-middle sm:px-4"><div class="flex flex-col items-center gap-1"><svg class="h-5 w-5 shrink-0 text-emerald-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg><span class="text-xs font-medium text-navy">Orchestrator</span></div></td>
+                <td class="px-3 py-4 text-center align-middle"><div class="flex justify-center"><svg class="h-5 w-5 shrink-0 text-slate-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z" /></svg></div></td>
+                <td class="px-3 py-4 text-center align-middle"><div class="flex justify-center"><svg class="h-5 w-5 shrink-0 text-slate-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z" /></svg></div></td>
+                <td class="px-3 py-4 text-center align-middle"><div class="flex justify-center"><svg class="h-5 w-5 shrink-0 text-amber-600/90" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 10a.75.75 0 01.75-.75h10.5a.75.75 0 010 1.5H4.75A.75.75 0 014 10z" clip-rule="evenodd" /></svg></div></td>
+                <td class="px-3 py-4 text-center align-middle"><div class="flex justify-center"><svg class="h-5 w-5 shrink-0 text-slate-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z" /></svg></div></td>
+              </tr>
+              <tr class="group/row transition-colors duration-200 hover:bg-slate-50/70">
+                <th scope="row" class="sticky left-0 z-20 bg-white px-4 py-4 text-center align-middle text-sm font-semibold leading-snug text-navy shadow-[4px_0_12px_-4px_rgba(15,23,42,0.08)] transition-colors group-hover/row:bg-slate-50/90 sm:px-5">Plaid optional (non-Plaid path)</th>
+                <td class="bg-gradient-to-b from-amber-50/25 to-white px-3 py-4 text-center align-middle sm:px-4"><div class="flex flex-col items-center gap-1"><svg class="h-5 w-5 shrink-0 text-emerald-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg><span class="text-xs font-medium text-navy">Optional</span></div></td>
+                <td class="px-3 py-4 text-center align-middle"><div class="flex justify-center"><svg class="h-5 w-5 shrink-0 text-amber-600/90" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 10a.75.75 0 01.75-.75h10.5a.75.75 0 010 1.5H4.75A.75.75 0 014 10z" clip-rule="evenodd" /></svg></div></td>
+                <td class="px-3 py-4 text-center align-middle"><div class="flex justify-center"><svg class="h-5 w-5 shrink-0 text-amber-600/90" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 10a.75.75 0 01.75-.75h10.5a.75.75 0 010 1.5H4.75A.75.75 0 014 10z" clip-rule="evenodd" /></svg></div></td>
+                <td class="px-3 py-4 text-center align-middle"><div class="flex flex-col items-center gap-1"><svg class="h-5 w-5 shrink-0 text-emerald-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg><span class="text-xs text-slate-500">Common</span></div></td>
+                <td class="px-3 py-4 text-center align-middle"><div class="flex flex-col items-center gap-1"><svg class="h-5 w-5 shrink-0 text-slate-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z" /></svg><span class="text-xs text-slate-500">N/A</span></div></td>
+              </tr>
+              <tr class="group/row transition-colors duration-200 hover:bg-slate-50/70">
+                <th scope="row" class="sticky left-0 z-20 bg-white px-4 py-4 text-center align-middle text-sm font-semibold leading-snug text-navy shadow-[4px_0_12px_-4px_rgba(15,23,42,0.08)] transition-colors group-hover/row:bg-slate-50/90 sm:px-5">Personal use + business mode</th>
+                <td class="bg-gradient-to-b from-amber-50/25 to-white px-3 py-4 text-center align-middle sm:px-4"><div class="flex flex-col items-center gap-1"><svg class="h-5 w-5 shrink-0 text-emerald-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg><span class="text-xs font-medium text-navy">Both</span></div></td>
+                <td class="px-3 py-4 text-center align-middle"><div class="flex justify-center"><svg class="h-5 w-5 shrink-0 text-amber-600/90" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 10a.75.75 0 01.75-.75h10.5a.75.75 0 010 1.5H4.75A.75.75 0 014 10z" clip-rule="evenodd" /></svg></div></td>
+                <td class="px-3 py-4 text-center align-middle"><div class="flex justify-center"><svg class="h-5 w-5 shrink-0 text-amber-600/90" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 10a.75.75 0 01.75-.75h10.5a.75.75 0 010 1.5H4.75A.75.75 0 014 10z" clip-rule="evenodd" /></svg></div></td>
+                <td class="px-3 py-4 text-center align-middle"><div class="flex justify-center"><svg class="h-5 w-5 shrink-0 text-amber-600/90" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 10a.75.75 0 01.75-.75h10.5a.75.75 0 010 1.5H4.75A.75.75 0 014 10z" clip-rule="evenodd" /></svg></div></td>
+                <td class="px-3 py-4 text-center align-middle"><div class="flex flex-col items-center gap-1"><svg class="h-5 w-5 shrink-0 text-emerald-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg><span class="text-xs text-slate-500">DIY</span></div></td>
+              </tr>
+              <tr class="group/row transition-colors duration-200 hover:bg-slate-50/70">
+                <th scope="row" class="sticky left-0 z-20 bg-white px-4 py-4 text-center align-middle text-sm font-semibold leading-snug text-navy shadow-[4px_0_12px_-4px_rgba(15,23,42,0.08)] transition-colors group-hover/row:bg-slate-50/90 sm:px-5">Structured visibility beyond budgets</th>
+                <td class="bg-gradient-to-b from-amber-50/25 to-white px-3 py-4 text-center align-middle sm:px-4"><div class="flex flex-col items-center gap-1"><svg class="h-5 w-5 shrink-0 text-emerald-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg><span class="text-xs font-medium text-navy">Operating system</span></div></td>
+                <td class="px-3 py-4 text-center align-middle"><div class="flex flex-col items-center gap-1"><svg class="h-5 w-5 shrink-0 text-amber-600/90" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 10a.75.75 0 01.75-.75h10.5a.75.75 0 010 1.5H4.75A.75.75 0 014 10z" clip-rule="evenodd" /></svg><span class="text-xs text-slate-500">Budget-first</span></div></td>
+                <td class="px-3 py-4 text-center align-middle"><div class="flex flex-col items-center gap-1"><svg class="h-5 w-5 shrink-0 text-amber-600/90" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 10a.75.75 0 01.75-.75h10.5a.75.75 0 010 1.5H4.75A.75.75 0 014 10z" clip-rule="evenodd" /></svg><span class="text-xs text-slate-500">Subs-first</span></div></td>
+                <td class="px-3 py-4 text-center align-middle"><div class="flex justify-center"><svg class="h-5 w-5 shrink-0 text-amber-600/90" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 10a.75.75 0 01.75-.75h10.5a.75.75 0 010 1.5H4.75A.75.75 0 014 10z" clip-rule="evenodd" /></svg></div></td>
+                <td class="px-3 py-4 text-center align-middle"><div class="flex flex-col items-center gap-1"><svg class="h-5 w-5 shrink-0 text-emerald-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg><span class="text-xs text-slate-500">Flexible</span></div></td>
+              </tr>
+              <tr class="group/row transition-colors duration-200 hover:bg-slate-50/70">
+                <th scope="row" class="sticky left-0 z-20 bg-white px-4 py-4 text-center align-middle text-sm font-semibold leading-snug text-navy shadow-[4px_0_12px_-4px_rgba(15,23,42,0.08)] transition-colors group-hover/row:bg-slate-50/90 sm:px-5">Privacy-first product philosophy</th>
+                <td class="bg-gradient-to-b from-amber-50/25 to-white px-3 py-4 text-center align-middle sm:px-4"><div class="flex flex-col items-center gap-1"><svg class="h-5 w-5 shrink-0 text-emerald-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg><span class="text-xs font-medium text-navy">Core</span></div></td>
+                <td class="px-3 py-4 text-center align-middle"><div class="flex justify-center"><svg class="h-5 w-5 shrink-0 text-amber-600/90" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 10a.75.75 0 01.75-.75h10.5a.75.75 0 010 1.5H4.75A.75.75 0 014 10z" clip-rule="evenodd" /></svg></div></td>
+                <td class="px-3 py-4 text-center align-middle"><div class="flex justify-center"><svg class="h-5 w-5 shrink-0 text-amber-600/90" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 10a.75.75 0 01.75-.75h10.5a.75.75 0 010 1.5H4.75A.75.75 0 014 10z" clip-rule="evenodd" /></svg></div></td>
+                <td class="px-3 py-4 text-center align-middle"><div class="flex justify-center"><svg class="h-5 w-5 shrink-0 text-amber-600/90" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 10a.75.75 0 01.75-.75h10.5a.75.75 0 010 1.5H4.75A.75.75 0 014 10z" clip-rule="evenodd" /></svg></div></td>
+                <td class="px-3 py-4 text-center align-middle"><div class="flex flex-col items-center gap-1"><svg class="h-5 w-5 shrink-0 text-amber-600/90" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 10a.75.75 0 01.75-.75h10.5a.75.75 0 010 1.5H4.75A.75.75 0 014 10z" clip-rule="evenodd" /></svg><span class="text-xs text-slate-500">Varies</span></div></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="space-y-6 lg:hidden">
+                
+        <article class="overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-sm ring-1 ring-slate-900/[0.04]">
+          <h3 class="border-b border-slate-100 bg-slate-50/90 px-4 py-3 text-center text-sm font-semibold leading-snug text-navy">Local-first architecture</h3>
+          <div class="divide-y divide-slate-100">
+            <div class="flex flex-col items-center gap-1 bg-gradient-to-r from-amber-50/50 to-white px-4 py-3 text-center">
+              <span class="text-xs font-bold uppercase tracking-wide text-faithGold">CFO</span>
+              <span class="text-sm font-semibold text-navy">Built in</span>
+            </div>
+            <div class="grid grid-cols-2 gap-3 px-4 py-3 text-center text-xs sm:grid-cols-2">
+              <div><span class="font-semibold text-slate-500">Budget apps</span><p class="mt-1 text-slate-600">Rare</p></div>
+              <div><span class="font-semibold text-slate-500">Sub trackers</span><p class="mt-1 text-slate-600">Rare</p></div>
+              <div><span class="font-semibold text-slate-500">Cloud finance</span><p class="mt-1 text-slate-600">Cloud-first</p></div>
+              <div><span class="font-semibold text-slate-500">Spreadsheets</span><p class="mt-1 text-slate-600">File-based</p></div>
+            </div>
+          </div>
+        </article>
+        
+        <article class="overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-sm ring-1 ring-slate-900/[0.04]">
+          <h3 class="border-b border-slate-100 bg-slate-50/90 px-4 py-3 text-center text-sm font-semibold leading-snug text-navy">User-owned data</h3>
+          <div class="divide-y divide-slate-100">
+            <div class="flex flex-col items-center gap-1 bg-gradient-to-r from-amber-50/50 to-white px-4 py-3 text-center">
+              <span class="text-xs font-bold uppercase tracking-wide text-faithGold">CFO</span>
+              <span class="text-sm font-semibold text-navy">You own it</span>
+            </div>
+            <div class="grid grid-cols-2 gap-3 px-4 py-3 text-center text-xs sm:grid-cols-2">
+              <div><span class="font-semibold text-slate-500">Budget apps</span><p class="mt-1 text-slate-600">Limited</p></div>
+              <div><span class="font-semibold text-slate-500">Sub trackers</span><p class="mt-1 text-slate-600">Limited</p></div>
+              <div><span class="font-semibold text-slate-500">Cloud finance</span><p class="mt-1 text-slate-600">Vendor-hosted</p></div>
+              <div><span class="font-semibold text-slate-500">Spreadsheets</span><p class="mt-1 text-slate-600">Local file</p></div>
+            </div>
+          </div>
+        </article>
+        
+        <article class="overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-sm ring-1 ring-slate-900/[0.04]">
+          <h3 class="border-b border-slate-100 bg-slate-50/90 px-4 py-3 text-center text-sm font-semibold leading-snug text-navy">Zero-knowledge design</h3>
+          <div class="divide-y divide-slate-100">
+            <div class="flex flex-col items-center gap-1 bg-gradient-to-r from-amber-50/50 to-white px-4 py-3 text-center">
+              <span class="text-xs font-bold uppercase tracking-wide text-faithGold">CFO</span>
+              <span class="text-sm font-semibold text-navy">By design</span>
+            </div>
+            <div class="grid grid-cols-2 gap-3 px-4 py-3 text-center text-xs sm:grid-cols-2">
+              <div><span class="font-semibold text-slate-500">Budget apps</span><p class="mt-1 text-slate-600">Uncommon</p></div>
+              <div><span class="font-semibold text-slate-500">Sub trackers</span><p class="mt-1 text-slate-600">Uncommon</p></div>
+              <div><span class="font-semibold text-slate-500">Cloud finance</span><p class="mt-1 text-slate-600">Varies</p></div>
+              <div><span class="font-semibold text-slate-500">Spreadsheets</span><p class="mt-1 text-slate-600">Varies</p></div>
+            </div>
+          </div>
+        </article>
+        
+        <article class="overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-sm ring-1 ring-slate-900/[0.04]">
+          <h3 class="border-b border-slate-100 bg-slate-50/90 px-4 py-3 text-center text-sm font-semibold leading-snug text-navy">Forced cloud dependency</h3>
+          <div class="divide-y divide-slate-100">
+            <div class="flex flex-col items-center gap-1 bg-gradient-to-r from-amber-50/50 to-white px-4 py-3 text-center">
+              <span class="text-xs font-bold uppercase tracking-wide text-faithGold">CFO</span>
+              <span class="text-sm font-semibold text-navy">None required</span>
+            </div>
+            <div class="grid grid-cols-2 gap-3 px-4 py-3 text-center text-xs sm:grid-cols-2">
+              <div><span class="font-semibold text-slate-500">Budget apps</span><p class="mt-1 text-slate-600">Varies</p></div>
+              <div><span class="font-semibold text-slate-500">Sub trackers</span><p class="mt-1 text-slate-600">Varies</p></div>
+              <div><span class="font-semibold text-slate-500">Cloud finance</span><p class="mt-1 text-slate-600">Typical</p></div>
+              <div><span class="font-semibold text-slate-500">Spreadsheets</span><p class="mt-1 text-slate-600">No cloud</p></div>
+            </div>
+          </div>
+        </article>
+        
+        <article class="overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-sm ring-1 ring-slate-900/[0.04]">
+          <h3 class="border-b border-slate-100 bg-slate-50/90 px-4 py-3 text-center text-sm font-semibold leading-snug text-navy">Manual entry flexibility</h3>
+          <div class="divide-y divide-slate-100">
+            <div class="flex flex-col items-center gap-1 bg-gradient-to-r from-amber-50/50 to-white px-4 py-3 text-center">
+              <span class="text-xs font-bold uppercase tracking-wide text-faithGold">CFO</span>
+              <span class="text-sm font-semibold text-navy">Full control</span>
+            </div>
+            <div class="grid grid-cols-2 gap-3 px-4 py-3 text-center text-xs sm:grid-cols-2">
+              <div><span class="font-semibold text-slate-500">Budget apps</span><p class="mt-1 text-slate-600">Yes</p></div>
+              <div><span class="font-semibold text-slate-500">Sub trackers</span><p class="mt-1 text-slate-600">Yes</p></div>
+              <div><span class="font-semibold text-slate-500">Cloud finance</span><p class="mt-1 text-slate-600">Varies</p></div>
+              <div><span class="font-semibold text-slate-500">Spreadsheets</span><p class="mt-1 text-slate-600">Manual only</p></div>
+            </div>
+          </div>
+        </article>
+        
+        <article class="overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-sm ring-1 ring-slate-900/[0.04]">
+          <h3 class="border-b border-slate-100 bg-slate-50/90 px-4 py-3 text-center text-sm font-semibold leading-snug text-navy">OCR-based financial ingestion</h3>
+          <div class="divide-y divide-slate-100">
+            <div class="flex flex-col items-center gap-1 bg-gradient-to-r from-amber-50/50 to-white px-4 py-3 text-center">
+              <span class="text-xs font-bold uppercase tracking-wide text-faithGold">CFO</span>
+              <span class="text-sm font-semibold text-navy">Built in</span>
+            </div>
+            <div class="grid grid-cols-2 gap-3 px-4 py-3 text-center text-xs sm:grid-cols-2">
+              <div><span class="font-semibold text-slate-500">Budget apps</span><p class="mt-1 text-slate-600">Limited</p></div>
+              <div><span class="font-semibold text-slate-500">Sub trackers</span><p class="mt-1 text-slate-600">Rare</p></div>
+              <div><span class="font-semibold text-slate-500">Cloud finance</span><p class="mt-1 text-slate-600">Some</p></div>
+              <div><span class="font-semibold text-slate-500">Spreadsheets</span><p class="mt-1 text-slate-600">Add-ons</p></div>
+            </div>
+          </div>
+        </article>
+        
+        <article class="overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-sm ring-1 ring-slate-900/[0.04]">
+          <h3 class="border-b border-slate-100 bg-slate-50/90 px-4 py-3 text-center text-sm font-semibold leading-snug text-navy">Receipts, bills, statements, notes &amp; uploads</h3>
+          <div class="divide-y divide-slate-100">
+            <div class="flex flex-col items-center gap-1 bg-gradient-to-r from-amber-50/50 to-white px-4 py-3 text-center">
+              <span class="text-xs font-bold uppercase tracking-wide text-faithGold">CFO</span>
+              <span class="text-sm font-semibold text-navy">Structured</span>
+            </div>
+            <div class="grid grid-cols-2 gap-3 px-4 py-3 text-center text-xs sm:grid-cols-2">
+              <div><span class="font-semibold text-slate-500">Budget apps</span><p class="mt-1 text-slate-600">Narrow</p></div>
+              <div><span class="font-semibold text-slate-500">Sub trackers</span><p class="mt-1 text-slate-600">Narrow</p></div>
+              <div><span class="font-semibold text-slate-500">Cloud finance</span><p class="mt-1 text-slate-600">Moderate</p></div>
+              <div><span class="font-semibold text-slate-500">Spreadsheets</span><p class="mt-1 text-slate-600">DIY</p></div>
+            </div>
+          </div>
+        </article>
+        
+        <article class="overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-sm ring-1 ring-slate-900/[0.04]">
+          <h3 class="border-b border-slate-100 bg-slate-50/90 px-4 py-3 text-center text-sm font-semibold leading-snug text-navy">Recurring expense awareness</h3>
+          <div class="divide-y divide-slate-100">
+            <div class="flex flex-col items-center gap-1 bg-gradient-to-r from-amber-50/50 to-white px-4 py-3 text-center">
+              <span class="text-xs font-bold uppercase tracking-wide text-faithGold">CFO</span>
+              <span class="text-sm font-semibold text-navy">Yes</span>
+            </div>
+            <div class="grid grid-cols-2 gap-3 px-4 py-3 text-center text-xs sm:grid-cols-2">
+              <div><span class="font-semibold text-slate-500">Budget apps</span><p class="mt-1 text-slate-600">Basic</p></div>
+              <div><span class="font-semibold text-slate-500">Sub trackers</span><p class="mt-1 text-slate-600">Core focus</p></div>
+              <div><span class="font-semibold text-slate-500">Cloud finance</span><p class="mt-1 text-slate-600">Yes</p></div>
+              <div><span class="font-semibold text-slate-500">Spreadsheets</span><p class="mt-1 text-slate-600">DIY</p></div>
+            </div>
+          </div>
+        </article>
+        
+        <article class="overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-sm ring-1 ring-slate-900/[0.04]">
+          <h3 class="border-b border-slate-100 bg-slate-50/90 px-4 py-3 text-center text-sm font-semibold leading-snug text-navy">Financial calendar (recurring + upcoming visibility)</h3>
+          <div class="divide-y divide-slate-100">
+            <div class="flex flex-col items-center gap-1 bg-gradient-to-r from-amber-50/50 to-white px-4 py-3 text-center">
+              <span class="text-xs font-bold uppercase tracking-wide text-faithGold">CFO</span>
+              <span class="text-sm font-semibold text-navy">Built in</span>
+            </div>
+            <div class="grid grid-cols-2 gap-3 px-4 py-3 text-center text-xs sm:grid-cols-2">
+              <div><span class="font-semibold text-slate-500">Budget apps</span><p class="mt-1 text-slate-600">Basic or separate</p></div>
+              <div><span class="font-semibold text-slate-500">Sub trackers</span><p class="mt-1 text-slate-600">Subscriptions only</p></div>
+              <div><span class="font-semibold text-slate-500">Cloud finance</span><p class="mt-1 text-slate-600">Some</p></div>
+              <div><span class="font-semibold text-slate-500">Spreadsheets</span><p class="mt-1 text-slate-600">Manual</p></div>
+            </div>
+          </div>
+        </article>
+        
+        <article class="overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-sm ring-1 ring-slate-900/[0.04]">
+          <h3 class="border-b border-slate-100 bg-slate-50/90 px-4 py-3 text-center text-sm font-semibold leading-snug text-navy">Predictive expense scheduling</h3>
+          <div class="divide-y divide-slate-100">
+            <div class="flex flex-col items-center gap-1 bg-gradient-to-r from-amber-50/50 to-white px-4 py-3 text-center">
+              <span class="text-xs font-bold uppercase tracking-wide text-faithGold">CFO</span>
+              <span class="text-sm font-semibold text-navy">Pattern-based + manual</span>
+            </div>
+            <div class="grid grid-cols-2 gap-3 px-4 py-3 text-center text-xs sm:grid-cols-2">
+              <div><span class="font-semibold text-slate-500">Budget apps</span><p class="mt-1 text-slate-600">Limited</p></div>
+              <div><span class="font-semibold text-slate-500">Sub trackers</span><p class="mt-1 text-slate-600">Subscription-focused</p></div>
+              <div><span class="font-semibold text-slate-500">Cloud finance</span><p class="mt-1 text-slate-600">Some</p></div>
+              <div><span class="font-semibold text-slate-500">Spreadsheets</span><p class="mt-1 text-slate-600">Formulas</p></div>
+            </div>
+          </div>
+        </article>
+        
+        <article class="overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-sm ring-1 ring-slate-900/[0.04]">
+          <h3 class="border-b border-slate-100 bg-slate-50/90 px-4 py-3 text-center text-sm font-semibold leading-snug text-navy">Structured financial system foundation</h3>
+          <div class="divide-y divide-slate-100">
+            <div class="flex flex-col items-center gap-1 bg-gradient-to-r from-amber-50/50 to-white px-4 py-3 text-center">
+              <span class="text-xs font-bold uppercase tracking-wide text-faithGold">CFO</span>
+              <span class="text-sm font-semibold text-navy">Built in</span>
+            </div>
+            <div class="grid grid-cols-2 gap-3 px-4 py-3 text-center text-xs sm:grid-cols-2">
+              <div><span class="font-semibold text-slate-500">Budget apps</span><p class="mt-1 text-slate-600">Flat structure</p></div>
+              <div><span class="font-semibold text-slate-500">Sub trackers</span><p class="mt-1 text-slate-600">Narrow</p></div>
+              <div><span class="font-semibold text-slate-500">Cloud finance</span><p class="mt-1 text-slate-600">Moderate</p></div>
+              <div><span class="font-semibold text-slate-500">Spreadsheets</span><p class="mt-1 text-slate-600">User-built</p></div>
+            </div>
+          </div>
+        </article>
+        
+        <article class="overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-sm ring-1 ring-slate-900/[0.04]">
+          <h3 class="border-b border-slate-100 bg-slate-50/90 px-4 py-3 text-center text-sm font-semibold leading-snug text-navy">Predictive / watchful behavior</h3>
+          <div class="divide-y divide-slate-100">
+            <div class="flex flex-col items-center gap-1 bg-gradient-to-r from-amber-50/50 to-white px-4 py-3 text-center">
+              <span class="text-xs font-bold uppercase tracking-wide text-faithGold">CFO</span>
+              <span class="text-sm font-semibold text-navy">Rules-based</span>
+            </div>
+            <div class="grid grid-cols-2 gap-3 px-4 py-3 text-center text-xs sm:grid-cols-2">
+              <div><span class="font-semibold text-slate-500">Budget apps</span><p class="mt-1 text-slate-600">Limited</p></div>
+              <div><span class="font-semibold text-slate-500">Sub trackers</span><p class="mt-1 text-slate-600">Minimal</p></div>
+              <div><span class="font-semibold text-slate-500">Cloud finance</span><p class="mt-1 text-slate-600">Some</p></div>
+              <div><span class="font-semibold text-slate-500">Spreadsheets</span><p class="mt-1 text-slate-600">Formulas</p></div>
+            </div>
+          </div>
+        </article>
+        
+        <article class="overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-sm ring-1 ring-slate-900/[0.04]">
+          <h3 class="border-b border-slate-100 bg-slate-50/90 px-4 py-3 text-center text-sm font-semibold leading-snug text-navy">Built-in intelligence (Steward)</h3>
+          <div class="divide-y divide-slate-100">
+            <div class="flex flex-col items-center gap-1 bg-gradient-to-r from-amber-50/50 to-white px-4 py-3 text-center">
+              <span class="text-xs font-bold uppercase tracking-wide text-faithGold">CFO</span>
+              <span class="text-sm font-semibold text-navy">Orchestrator</span>
+            </div>
+            <div class="grid grid-cols-2 gap-3 px-4 py-3 text-center text-xs sm:grid-cols-2">
+              <div><span class="font-semibold text-slate-500">Budget apps</span><p class="mt-1 text-slate-600">No</p></div>
+              <div><span class="font-semibold text-slate-500">Sub trackers</span><p class="mt-1 text-slate-600">No</p></div>
+              <div><span class="font-semibold text-slate-500">Cloud finance</span><p class="mt-1 text-slate-600">Limited</p></div>
+              <div><span class="font-semibold text-slate-500">Spreadsheets</span><p class="mt-1 text-slate-600">No</p></div>
+            </div>
+          </div>
+        </article>
+        
+        <article class="overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-sm ring-1 ring-slate-900/[0.04]">
+          <h3 class="border-b border-slate-100 bg-slate-50/90 px-4 py-3 text-center text-sm font-semibold leading-snug text-navy">Plaid optional (non-Plaid path)</h3>
+          <div class="divide-y divide-slate-100">
+            <div class="flex flex-col items-center gap-1 bg-gradient-to-r from-amber-50/50 to-white px-4 py-3 text-center">
+              <span class="text-xs font-bold uppercase tracking-wide text-faithGold">CFO</span>
+              <span class="text-sm font-semibold text-navy">Optional</span>
+            </div>
+            <div class="grid grid-cols-2 gap-3 px-4 py-3 text-center text-xs sm:grid-cols-2">
+              <div><span class="font-semibold text-slate-500">Budget apps</span><p class="mt-1 text-slate-600">Some</p></div>
+              <div><span class="font-semibold text-slate-500">Sub trackers</span><p class="mt-1 text-slate-600">Some</p></div>
+              <div><span class="font-semibold text-slate-500">Cloud finance</span><p class="mt-1 text-slate-600">Common</p></div>
+              <div><span class="font-semibold text-slate-500">Spreadsheets</span><p class="mt-1 text-slate-600">N/A</p></div>
+            </div>
+          </div>
+        </article>
+        
+        <article class="overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-sm ring-1 ring-slate-900/[0.04]">
+          <h3 class="border-b border-slate-100 bg-slate-50/90 px-4 py-3 text-center text-sm font-semibold leading-snug text-navy">Personal use + business mode</h3>
+          <div class="divide-y divide-slate-100">
+            <div class="flex flex-col items-center gap-1 bg-gradient-to-r from-amber-50/50 to-white px-4 py-3 text-center">
+              <span class="text-xs font-bold uppercase tracking-wide text-faithGold">CFO</span>
+              <span class="text-sm font-semibold text-navy">Both</span>
+            </div>
+            <div class="grid grid-cols-2 gap-3 px-4 py-3 text-center text-xs sm:grid-cols-2">
+              <div><span class="font-semibold text-slate-500">Budget apps</span><p class="mt-1 text-slate-600">Rare</p></div>
+              <div><span class="font-semibold text-slate-500">Sub trackers</span><p class="mt-1 text-slate-600">Rare</p></div>
+              <div><span class="font-semibold text-slate-500">Cloud finance</span><p class="mt-1 text-slate-600">Some</p></div>
+              <div><span class="font-semibold text-slate-500">Spreadsheets</span><p class="mt-1 text-slate-600">DIY</p></div>
+            </div>
+          </div>
+        </article>
+        
+        <article class="overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-sm ring-1 ring-slate-900/[0.04]">
+          <h3 class="border-b border-slate-100 bg-slate-50/90 px-4 py-3 text-center text-sm font-semibold leading-snug text-navy">Structured visibility beyond budgets</h3>
+          <div class="divide-y divide-slate-100">
+            <div class="flex flex-col items-center gap-1 bg-gradient-to-r from-amber-50/50 to-white px-4 py-3 text-center">
+              <span class="text-xs font-bold uppercase tracking-wide text-faithGold">CFO</span>
+              <span class="text-sm font-semibold text-navy">Operating system</span>
+            </div>
+            <div class="grid grid-cols-2 gap-3 px-4 py-3 text-center text-xs sm:grid-cols-2">
+              <div><span class="font-semibold text-slate-500">Budget apps</span><p class="mt-1 text-slate-600">Budget-first</p></div>
+              <div><span class="font-semibold text-slate-500">Sub trackers</span><p class="mt-1 text-slate-600">Subs-first</p></div>
+              <div><span class="font-semibold text-slate-500">Cloud finance</span><p class="mt-1 text-slate-600">Dashboards</p></div>
+              <div><span class="font-semibold text-slate-500">Spreadsheets</span><p class="mt-1 text-slate-600">Flexible</p></div>
+            </div>
+          </div>
+        </article>
+        
+        <article class="overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-sm ring-1 ring-slate-900/[0.04]">
+          <h3 class="border-b border-slate-100 bg-slate-50/90 px-4 py-3 text-center text-sm font-semibold leading-snug text-navy">Privacy-first product philosophy</h3>
+          <div class="divide-y divide-slate-100">
+            <div class="flex flex-col items-center gap-1 bg-gradient-to-r from-amber-50/50 to-white px-4 py-3 text-center">
+              <span class="text-xs font-bold uppercase tracking-wide text-faithGold">CFO</span>
+              <span class="text-sm font-semibold text-navy">Core</span>
+            </div>
+            <div class="grid grid-cols-2 gap-3 px-4 py-3 text-center text-xs sm:grid-cols-2">
+              <div><span class="font-semibold text-slate-500">Budget apps</span><p class="mt-1 text-slate-600">Varies</p></div>
+              <div><span class="font-semibold text-slate-500">Sub trackers</span><p class="mt-1 text-slate-600">Varies</p></div>
+              <div><span class="font-semibold text-slate-500">Cloud finance</span><p class="mt-1 text-slate-600">Varies</p></div>
+              <div><span class="font-semibold text-slate-500">Spreadsheets</span><p class="mt-1 text-slate-600">Varies</p></div>
+            </div>
+          </div>
+        </article>
+        
+      </div>
+    </div>
+
+    <div id="cfo-comparison-close" class="mx-auto mt-14 max-w-3xl lg:mt-16" role="region" aria-label="How CFO compares—closing">
+      <p class="text-center text-xl font-semibold leading-snug text-navy sm:text-2xl sm:leading-tight">Most tools help you track money. <span class="text-faithGold">CFO helps you run it.</span></p>
+      <p class="mt-5 text-center text-base leading-relaxed text-slate-600">CFO is not a budget app, not a subscription tracker, and not a passive dashboard—it is your <strong class="font-semibold text-navy">financial operating system</strong>, built for ownership, structure, and disciplined intelligence on your machine.</p>
+    </div>
+
+    <div class="mx-auto mt-12 max-w-3xl rounded-2xl border border-slate-200/80 bg-white/90 px-6 py-8 shadow-sm ring-1 ring-slate-900/[0.03] sm:px-8 sm:py-10">
+      <div id="cfo-versioning" class="scroll-mt-28">
+        <p class="text-center text-sm leading-relaxed text-slate-600">CFO is being built with <strong class="font-semibold text-navy">optional Plaid connectivity</strong> and a <strong class="font-semibold text-navy">fully manual path</strong>—explicit choices, no silent defaults. Pick the workflow that matches how you want to work.</p>
+      </div>
+      <div class="mt-10 flex flex-col items-stretch justify-center gap-4 sm:flex-row sm:items-center sm:gap-5">
+        <a href="#cfo-versioning" class="inline-flex min-h-[3rem] flex-1 items-center justify-center rounded-full bg-faithGold px-8 text-base font-semibold text-white shadow-md shadow-amber-900/15 transition duration-200 ease-out hover:bg-amber-600 hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-300 focus-visible:ring-offset-2 sm:flex-initial">Choose your version</a>
+        <a href="#cfo-features" class="inline-flex min-h-[3rem] flex-1 items-center justify-center rounded-full border border-slate-300 bg-white px-8 text-base font-semibold text-navy shadow-sm transition duration-200 ease-out hover:border-faithGold hover:text-faithGold focus:outline-none focus-visible:ring-2 focus-visible:ring-faithGold focus-visible:ring-offset-2 sm:flex-initial">Explore CFO features</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <section class="bg-navy py-14 text-white">
+    <div class="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold">Same ecosystem, different jobs</h2>
+      <p class="mt-4 text-slate-200 leading-relaxed">CFO is the flagship financial title. <strong class="text-white">Sentinel</strong> is evidence intelligence. <strong class="text-white">Eden</strong> is research software. <strong class="text-white">Ledger</strong> is identity and document execution. Separate products—shared discipline and Steward.</p>
+      <div class="mt-8 flex flex-wrap justify-center gap-3">
+        <a href="product-sentinel.html" class="rounded-lg border border-white/25 px-4 py-2 text-sm font-semibold hover:bg-white/10">Sentinel</a>
+        <a href="product-eden.html" class="rounded-lg border border-white/25 px-4 py-2 text-sm font-semibold hover:bg-white/10">Eden</a>
+        <a href="product-ledger.html" class="rounded-lg border border-white/25 px-4 py-2 text-sm font-semibold hover:bg-white/10">Ledger</a>
+        <a href="compare.html" class="rounded-lg bg-faithGold px-4 py-2 text-sm font-semibold text-navy hover:bg-amber-500">Compare all</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-y border-amber-200/50 bg-gradient-to-b from-amber-50/90 to-amber-50/70" aria-label="Product availability">
+    <div class="mx-auto max-w-4xl px-4 py-16 text-center sm:px-6 lg:px-8">
+      <p class="text-xs font-bold uppercase tracking-[0.2em] text-amber-800">Coming soon</p>
+      <p class="mt-3 text-base text-slate-700">CFO, Eden, and Ledger are in active development—not for sale or download yet. We’re building toward a careful launch and will share more as each title is ready.</p>
+      <p class="mt-2 text-sm font-semibold text-navy" role="status">Stay tuned for release news</p>
+    </div>
+  </section>
+
+</main>
+<footer class="site-footer mt-auto bg-slate-50/95">
+  <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+    <div class="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between">
+      <div class="max-w-md">
+        <div class="flex items-center gap-3 text-navy">
+          <img src="./assets/FBI_Transparent.png" alt="" width="48" height="48" class="h-12 w-12 shrink-0 object-contain" aria-hidden="true" />
+          <div>
+            <p class="text-sm font-bold tracking-tight">Faith Based Innovations, LLC</p>
+            <p class="mt-1 text-xs leading-relaxed text-slate-600">Thoughtful desktop software—privacy-minded, without engagement gimmicks.</p>
+          </div>
+        </div>
+      </div>
+      <nav class="flex flex-col gap-3 sm:items-end lg:text-right" aria-label="Policies and legal">
+        <p class="text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-400">Policies</p>
+        <div class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-slate-600">
+          <a href="security.html" class="transition-colors duration-280 ease-fbi-out hover:text-navy focus:outline-none focus-visible:text-navy focus-visible:underline">Security</a>
+          <a href="privacy.html" class="transition-colors duration-280 ease-fbi-out hover:text-navy focus:outline-none focus-visible:text-navy focus-visible:underline">Privacy</a>
+          <a href="terms.html" class="transition-colors duration-280 ease-fbi-out hover:text-navy focus:outline-none focus-visible:text-navy focus-visible:underline">Terms</a>
+          <a href="support.html" class="transition-colors duration-280 ease-fbi-out hover:text-navy focus:outline-none focus-visible:text-navy focus-visible:underline">Support</a>
+        </div>
+      </nav>
+    </div>
+    <div class="mt-10 border-t border-slate-200/60 pt-8 text-xs leading-relaxed text-slate-500">
+      <p>© 2026 Faith Based Innovations, LLC. Sentinel, CFO, Eden, and Ledger are product names of Faith Based Innovations, LLC.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var btn = document.getElementById("tw-menu-btn");
+    var panel = document.getElementById("tw-menu-panel");
+    if (!btn || !panel) return;
+    btn.addEventListener("click", function () {
+      var open = btn.getAttribute("aria-expanded") === "true";
+      btn.setAttribute("aria-expanded", open ? "false" : "true");
+      panel.classList.toggle("hidden", open);
+    });
+  })();
+</script>
+<script>
+  (function () {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      document.documentElement.classList.add("fbi-reduced-motion");
+      return;
+    }
+    var main = document.querySelector("main");
+    if (!main) return;
+    var all = Array.prototype.slice.call(main.querySelectorAll(":scope > section"));
+    if (!all.length) all = Array.prototype.slice.call(main.children);
+    var nodes = all.length > 1 ? all.slice(1) : [];
+    var yAttr = ["sm", "md", "lg"];
+    nodes.forEach(function (el, i) {
+      el.classList.add("fbi-reveal");
+      el.setAttribute("data-fbi-y", yAttr[i % 3]);
+    });
+    var io = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (ent) {
+          if (!ent.isIntersecting) return;
+          var t = ent.target;
+          requestAnimationFrame(function () {
+            t.classList.add("fbi-reveal--visible");
+          });
+          io.unobserve(t);
+        });
+      },
+      { rootMargin: "0px 0px -48px 0px", threshold: 0.04 }
+    );
+    nodes.forEach(function (el) {
+      io.observe(el);
+    });
+  })();
+</script>
+
+</body>
+</html>

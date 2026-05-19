@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Products | Faith Based Innovations, LLC</title>
+  <meta name="description" content="Sentinel, CFO, Eden, and Ledger." />
+  <link rel="icon" type="image/png" href="./assets/FBI_Transparent.png?v=1" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/FBI_Transparent.png?v=1" />
+  <link rel="icon" type="image/png" sizes="192x192" href="./assets/FBI_Transparent.png?v=1" />
+  <link rel="apple-touch-icon" href="./assets/FBI_Transparent.png?v=1" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            navy: "#0f172a",
+            navySoft: "#1e293b",
+            faithGold: "#d97706"
+          },
+          fontFamily: {
+            sans: ["Inter", "ui-sans-serif", "system-ui", "-apple-system", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "sans-serif"]
+          },
+          spacing: {
+            18: "4.5rem",
+            22: "5.5rem"
+          },
+          maxWidth: {
+            content: "42rem"
+          },
+          transitionDuration: {
+            200: "200ms",
+            240: "240ms",
+            280: "280ms",
+            320: "320ms",
+            360: "360ms",
+            400: "400ms"
+          },
+          transitionTimingFunction: {
+            "fbi-out": "cubic-bezier(0.25, 1, 0.5, 1)"
+          },
+          boxShadow: {
+            fbi: "0 12px 48px -12px rgba(15, 23, 42, 0.07)",
+            "fbi-sm": "0 2px 24px -4px rgba(15, 23, 42, 0.05)",
+            "fbi-line": "0 1px 0 rgba(15, 23, 42, 0.05)"
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" crossorigin href="./assets/main.css">
+</head>
+<body class="fbi-site flex min-h-full flex-col bg-slate-50 text-slate-800 antialiased">
+<header class="site-header sticky top-0 z-50 border-b border-transparent bg-white/92 supports-[backdrop-filter]:bg-white/88 backdrop-blur-md">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="flex min-h-[88px] items-center justify-between gap-4 py-3 sm:min-h-[96px]">
+      <a href="index.html" class="flex min-w-0 items-center gap-3 sm:gap-4 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-faithGold focus-visible:ring-offset-2" aria-label="Faith Based Innovations home">
+        <img
+          src="./assets/FBI_Transparent.png"
+          alt="Faith Based Innovations"
+          width="112"
+          height="112"
+          class="h-[4.5rem] w-[4.5rem] shrink-0 object-contain sm:h-[5.25rem] sm:w-[5.25rem]"
+        />
+        <div class="min-w-0 leading-tight">
+          <p class="truncate text-sm font-bold tracking-tight text-navy">Faith Based Innovations, LLC</p>
+          <p class="truncate text-xs text-slate-500">Premium local-first desktop software</p>
+        </div>
+      </a>
+      <button type="button" id="tw-menu-btn" class="inline-flex items-center justify-center rounded-lg p-2 text-slate-600 hover:bg-slate-100 md:hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-faithGold" aria-expanded="false" aria-controls="tw-menu-panel">
+        <span class="sr-only">Open menu</span>
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+      <nav class="hidden items-center gap-4 md:flex lg:gap-8" aria-label="Primary">
+        <a href="index.html" class="text-sm font-medium text-slate-600 transition-colors duration-280 ease-fbi-out hover:text-navy focus:outline-none focus-visible:ring-2 focus-visible:ring-faithGold focus-visible:ring-offset-2 rounded-sm">Home</a>
+        <a href="products.html" class="text-sm font-semibold text-navy">Products</a>
+        <a href="compare.html" class="text-sm font-medium text-slate-600 transition-colors duration-280 ease-fbi-out hover:text-navy focus:outline-none focus-visible:ring-2 focus-visible:ring-faithGold focus-visible:ring-offset-2 rounded-sm">Compare</a>
+        <a href="about.html" class="text-sm font-medium text-slate-600 transition-colors duration-280 ease-fbi-out hover:text-navy focus:outline-none focus-visible:ring-2 focus-visible:ring-faithGold focus-visible:ring-offset-2 rounded-sm">About</a>
+        <a href="support.html" class="text-sm font-medium text-slate-600 transition-colors duration-280 ease-fbi-out hover:text-navy focus:outline-none focus-visible:ring-2 focus-visible:ring-faithGold focus-visible:ring-offset-2 rounded-sm">Support</a>
+        <a href="simulator.html" class="text-sm font-medium text-slate-600 transition-colors duration-280 ease-fbi-out hover:text-navy focus:outline-none focus-visible:ring-2 focus-visible:ring-faithGold focus-visible:ring-offset-2 rounded-sm">Simulator</a>
+        <a href="reflections.html" class="text-sm font-medium text-slate-600 transition-colors duration-280 ease-fbi-out hover:text-navy focus:outline-none focus-visible:ring-2 focus-visible:ring-faithGold focus-visible:ring-offset-2 rounded-sm">Reflections</a>
+      </nav>
+    </div>
+    <div id="tw-menu-panel" class="hidden border-t border-slate-200 py-3 md:hidden">
+      <nav class="grid gap-1" aria-label="Mobile">
+        <a href="index.html" class="rounded-lg px-3 py-2 text-sm text-slate-700 transition-colors duration-280 ease-fbi-out hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-faithGold">Home</a>
+        <a href="products.html" class="rounded-lg px-3 py-2 text-sm font-semibold text-navy bg-slate-100">Products</a>
+        <a href="compare.html" class="rounded-lg px-3 py-2 text-sm text-slate-700 transition-colors duration-280 ease-fbi-out hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-faithGold">Compare</a>
+        <a href="about.html" class="rounded-lg px-3 py-2 text-sm text-slate-700 transition-colors duration-280 ease-fbi-out hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-faithGold">About</a>
+        <a href="support.html" class="rounded-lg px-3 py-2 text-sm text-slate-700 transition-colors duration-280 ease-fbi-out hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-faithGold">Support</a>
+        <a href="simulator.html" class="rounded-lg px-3 py-2 text-sm text-slate-700 transition-colors duration-280 ease-fbi-out hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-faithGold">Simulator</a>
+        <a href="reflections.html" class="rounded-lg px-3 py-2 text-sm text-slate-700 transition-colors duration-280 ease-fbi-out hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-faithGold">Reflections</a>
+      </nav>
+    </div>
+  </div>
+</header>
+<main class="flex-1">
+  <section class="relative overflow-hidden bg-navy py-20 text-white sm:py-24">
+    <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_100%_80%_at_80%_0%,rgba(217,119,6,0.16),transparent_50%)]"></div>
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <p class="text-xs font-bold uppercase tracking-[0.22em] text-amber-200/90">Products</p>
+      <h1 class="mt-4 max-w-4xl text-5xl font-bold leading-[1.08] tracking-tight sm:text-6xl">Sentinel, CFO, Eden, and Ledger</h1>
+      <p class="mt-8 max-w-2xl text-xl leading-relaxed text-slate-200">Four standalone applications—each with its own job. One parent company, one standard of craft, and Steward as the shared guide—without mashing evidence, finance, research, and identity into one messy “super-app.”</p>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
+    <h2 class="text-2xl font-bold text-navy">Steward</h2>
+    <p class="mt-5 text-lg leading-relaxed text-slate-600">Steward is the shared local assistant across our apps: clear rules and your data—not open-ended generation. It helps organize, surface relationships, and keep outputs tied to what you actually entered.</p>
+  </section>
+
+  <section class="mx-auto max-w-7xl px-4 pb-20 sm:px-6 lg:px-8">
+    <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+      
+      <article class="flex flex-col rounded-3xl border border-slate-200/80 bg-white p-8 shadow-fbi-sm ring-1 ring-slate-900/[0.03] transition duration-280 ease-fbi-out hover:border-slate-300/90 hover:shadow-fbi">
+        <div class="mb-1 flex flex-wrap items-center justify-between gap-2">
+          <span class="text-xs font-bold uppercase tracking-wider text-slate-600">Flagship · Evidence intelligence</span>
+          <span class="rounded-full px-2.5 py-0.5 text-xs font-semibold bg-slate-100 text-slate-700 ring-1 ring-slate-200">Advanced internal alpha</span>
+        </div>
+        <h2 class="text-2xl font-bold text-navy">Sentinel</h2>
+        <p class="mt-2 text-sm font-medium text-slate-500">Local-first evidence intelligence.</p>
+        <p class="mt-4 flex-1 text-sm leading-relaxed text-slate-600">Sentinel is a local-first evidence intelligence and investigative organization platform. It helps you structure complex evidence, build chronologies, map relationships, and prepare professional review materials—your data stays under your control.</p>
+        <a href="product-sentinel.html" class="mt-10 inline-flex min-h-[2.75rem] items-center text-sm font-semibold text-navy transition duration-200 hover:text-faithGold focus:outline-none focus-visible:ring-2 focus-visible:ring-faithGold focus-visible:ring-offset-2 rounded-sm">View product page →</a>
+      </article>
+      
+      <article class="flex flex-col rounded-3xl border border-slate-200/80 bg-white p-8 shadow-fbi-sm ring-1 ring-slate-900/[0.03] transition duration-280 ease-fbi-out hover:border-slate-300/90 hover:shadow-fbi">
+        <div class="mb-1 flex flex-wrap items-center justify-between gap-2">
+          <span class="text-xs font-bold uppercase tracking-wider text-faithGold">Flagship · Finance</span>
+          <span class="rounded-full px-2.5 py-0.5 text-xs font-semibold bg-amber-50 text-amber-800">Coming soon</span>
+        </div>
+        <h2 class="text-2xl font-bold text-navy">CFO</h2>
+        <p class="mt-2 text-sm font-medium text-slate-500">The financial operating system.</p>
+        <p class="mt-4 flex-1 text-sm leading-relaxed text-slate-600">CFO is a financial operating system you run on your machine, powered by Steward—not a thin budgeting app. It helps you interpret, plan, and decide from structured data and transparent rules.</p>
+        <a href="product-cfo.html" class="mt-10 inline-flex min-h-[2.75rem] items-center text-sm font-semibold text-navy transition duration-200 hover:text-faithGold focus:outline-none focus-visible:ring-2 focus-visible:ring-faithGold focus-visible:ring-offset-2 rounded-sm">View product page →</a>
+      </article>
+      
+      <article class="flex flex-col rounded-3xl border border-slate-200/80 bg-white p-8 shadow-fbi-sm ring-1 ring-slate-900/[0.03] transition duration-280 ease-fbi-out hover:border-slate-300/90 hover:shadow-fbi">
+        <div class="mb-1 flex flex-wrap items-center justify-between gap-2">
+          <span class="text-xs font-bold uppercase tracking-wider text-faithGold">Research</span>
+          <span class="rounded-full px-2.5 py-0.5 text-xs font-semibold bg-amber-50 text-amber-800">Coming soon</span>
+        </div>
+        <h2 class="text-2xl font-bold text-navy">Eden</h2>
+        <p class="mt-2 text-sm font-medium text-slate-500">Research intelligence and prioritization.</p>
+        <p class="mt-4 flex-1 text-sm leading-relaxed text-slate-600">Eden is a standalone research workspace on your machine: gather sources, compare claims, and see citations—Steward helps prioritize what fits your question.</p>
+        <a href="product-eden.html" class="mt-10 inline-flex min-h-[2.75rem] items-center text-sm font-semibold text-navy transition duration-200 hover:text-faithGold focus:outline-none focus-visible:ring-2 focus-visible:ring-faithGold focus-visible:ring-offset-2 rounded-sm">View product page →</a>
+      </article>
+      
+      <article class="flex flex-col rounded-3xl border border-slate-200/80 bg-white p-8 shadow-fbi-sm ring-1 ring-slate-900/[0.03] transition duration-280 ease-fbi-out hover:border-slate-300/90 hover:shadow-fbi">
+        <div class="mb-1 flex flex-wrap items-center justify-between gap-2">
+          <span class="text-xs font-bold uppercase tracking-wider text-faithGold">Identity &amp; documents</span>
+          <span class="rounded-full px-2.5 py-0.5 text-xs font-semibold bg-amber-50 text-amber-800">Coming soon</span>
+        </div>
+        <h2 class="text-2xl font-bold text-navy">Ledger</h2>
+        <p class="mt-2 text-sm font-medium text-slate-500">Secure vault. Exact-fill documents.</p>
+        <p class="mt-4 flex-1 text-sm leading-relaxed text-slate-600">Ledger is an encrypted identity vault and document assistant on your machine—for example, spouses sharing a household file. Steward helps line up form fields with stored values; blanks stay blank if you didn’t supply data.</p>
+        <a href="product-ledger.html" class="mt-10 inline-flex min-h-[2.75rem] items-center text-sm font-semibold text-navy transition duration-200 hover:text-faithGold focus:outline-none focus-visible:ring-2 focus-visible:ring-faithGold focus-visible:ring-offset-2 rounded-sm">View product page →</a>
+      </article>
+      
+    </div>
+  </section>
+
+  <section class="border-t border-slate-200 bg-white">
+    <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+      <div class="grid gap-12 lg:grid-cols-[1fr_auto] lg:items-end">
+        <div>
+          <h2 class="text-3xl font-bold tracking-tight text-navy sm:text-4xl">Compare at a glance</h2>
+          <p class="mt-4 max-w-2xl text-lg leading-relaxed text-slate-600">See how Sentinel, CFO, Eden, and Ledger differ in core job, inputs, and Steward—plus how CFO contrasts with typical “all-in-one” fintech experiences.</p>
+          <ul class="mt-8 space-y-3 text-sm text-slate-600">
+            <li class="flex gap-3"><span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-500"></span><span><strong class="text-navy">Sentinel</strong> — evidence, timelines, review exports; not finance or identity.</span></li>
+            <li class="flex gap-3"><span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-faithGold"></span><span><strong class="text-navy">CFO</strong> — money, plans, projections; not research or identity.</span></li>
+            <li class="flex gap-3"><span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-faithGold"></span><span><strong class="text-navy">Eden</strong> — sources, claims, citations; not a finance dashboard.</span></li>
+            <li class="flex gap-3"><span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-faithGold"></span><span><strong class="text-navy">Ledger</strong> — secure vault + exact-fill documents; no invented field values.</span></li>
+          </ul>
+        </div>
+        <a href="compare.html" class="inline-flex min-h-[3rem] shrink-0 items-center justify-center self-start rounded-full border border-slate-300/90 bg-white px-8 text-base font-semibold text-navy shadow-fbi-sm transition duration-280 ease-fbi-out hover:border-faithGold hover:text-faithGold hover:shadow-fbi focus:outline-none focus-visible:ring-2 focus-visible:ring-faithGold lg:self-end">Open comparison</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-y border-amber-200/50 bg-gradient-to-b from-amber-50/90 to-amber-50/70" aria-label="Product availability">
+    <div class="mx-auto max-w-4xl px-4 py-16 text-center sm:px-6 lg:px-8">
+      <p class="text-xs font-bold uppercase tracking-[0.2em] text-amber-800">Coming soon</p>
+      <p class="mt-3 text-base text-slate-700">CFO, Eden, and Ledger are in active development—not for sale or download yet. We’re building toward a careful launch and will share more as each title is ready.</p>
+      <p class="mt-2 text-sm font-semibold text-navy" role="status">Stay tuned for release news</p>
+    </div>
+  </section>
+
+</main>
+<footer class="site-footer mt-auto bg-slate-50/95">
+  <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+    <div class="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between">
+      <div class="max-w-md">
+        <div class="flex items-center gap-3 text-navy">
+          <img src="./assets/FBI_Transparent.png" alt="" width="48" height="48" class="h-12 w-12 shrink-0 object-contain" aria-hidden="true" />
+          <div>
+            <p class="text-sm font-bold tracking-tight">Faith Based Innovations, LLC</p>
+            <p class="mt-1 text-xs leading-relaxed text-slate-600">Thoughtful desktop software—privacy-minded, without engagement gimmicks.</p>
+          </div>
+        </div>
+      </div>
+      <nav class="flex flex-col gap-3 sm:items-end lg:text-right" aria-label="Policies and legal">
+        <p class="text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-400">Policies</p>
+        <div class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-slate-600">
+          <a href="security.html" class="transition-colors duration-280 ease-fbi-out hover:text-navy focus:outline-none focus-visible:text-navy focus-visible:underline">Security</a>
+          <a href="privacy.html" class="transition-colors duration-280 ease-fbi-out hover:text-navy focus:outline-none focus-visible:text-navy focus-visible:underline">Privacy</a>
+          <a href="terms.html" class="transition-colors duration-280 ease-fbi-out hover:text-navy focus:outline-none focus-visible:text-navy focus-visible:underline">Terms</a>
+          <a href="support.html" class="transition-colors duration-280 ease-fbi-out hover:text-navy focus:outline-none focus-visible:text-navy focus-visible:underline">Support</a>
+        </div>
+      </nav>
+    </div>
+    <div class="mt-10 border-t border-slate-200/60 pt-8 text-xs leading-relaxed text-slate-500">
+      <p>© 2026 Faith Based Innovations, LLC. Sentinel, CFO, Eden, and Ledger are product names of Faith Based Innovations, LLC.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var btn = document.getElementById("tw-menu-btn");
+    var panel = document.getElementById("tw-menu-panel");
+    if (!btn || !panel) return;
+    btn.addEventListener("click", function () {
+      var open = btn.getAttribute("aria-expanded") === "true";
+      btn.setAttribute("aria-expanded", open ? "false" : "true");
+      panel.classList.toggle("hidden", open);
+    });
+  })();
+</script>
+<script>
+  (function () {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      document.documentElement.classList.add("fbi-reduced-motion");
+      return;
+    }
+    var main = document.querySelector("main");
+    if (!main) return;
+    var all = Array.prototype.slice.call(main.querySelectorAll(":scope > section"));
+    if (!all.length) all = Array.prototype.slice.call(main.children);
+    var nodes = all.length > 1 ? all.slice(1) : [];
+    var yAttr = ["sm", "md", "lg"];
+    nodes.forEach(function (el, i) {
+      el.classList.add("fbi-reveal");
+      el.setAttribute("data-fbi-y", yAttr[i % 3]);
+    });
+    var io = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (ent) {
+          if (!ent.isIntersecting) return;
+          var t = ent.target;
+          requestAnimationFrame(function () {
+            t.classList.add("fbi-reveal--visible");
+          });
+          io.unobserve(t);
+        });
+      },
+      { rootMargin: "0px 0px -48px 0px", threshold: 0.04 }
+    );
+    nodes.forEach(function (el) {
+      io.observe(el);
+    });
+  })();
+</script>
+
+</body>
+</html>
