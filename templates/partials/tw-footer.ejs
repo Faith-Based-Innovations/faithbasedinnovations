@@ -5,7 +5,7 @@
         <div class="flex items-center gap-3 text-navy">
           <img src="./assets/FBI_Transparent.png" alt="" width="48" height="48" class="h-12 w-12 shrink-0 object-contain" aria-hidden="true" />
           <div>
-            <p class="text-sm font-bold tracking-tight">Faith Based Innovations, LLC</p>
+            <p class="text-sm font-bold tracking-tight"><%= SITE.brand %></p>
             <p class="mt-1 text-xs leading-relaxed text-slate-600">Thoughtful desktop software—privacy-minded, without engagement gimmicks.</p>
           </div>
         </div>
@@ -21,7 +21,7 @@
       </nav>
     </div>
     <div class="mt-10 border-t border-slate-200/60 pt-8 text-xs leading-relaxed text-slate-500">
-      <p>© <%= new Date().getFullYear() %> Faith Based Innovations, LLC. Sentinel, CFO, Eden, and Ledger are product names of Faith Based Innovations, LLC.</p>
+      <p>© <%= new Date().getFullYear() %> <%= SITE.brand %>. Sentinel, CFO, Eden, and Ledger are product names of <%= SITE.brand %>.</p>
     </div>
   </div>
 </footer>
