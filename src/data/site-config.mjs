@@ -25,8 +25,7 @@ export const SITE = {
   availability: {
     badge: "In development",
     line:
-      "CFO, Eden, and Ledger are actively being built and are not for sale or download yet. Sentinel is in advanced internal alpha. We share more as each title reaches a careful launch.",
-    ctaLabel: "Release updates when ready"
+      "CFO, Eden, and Ledger are actively being built and are not for sale or download yet. Sentinel is in advanced internal alpha. We share more as each title reaches a careful launch."
   }
 };
 
