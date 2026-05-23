@@ -11,21 +11,22 @@
   var hCompact = typeof heroCompact !== "undefined" ? heroCompact : false;
   var isSlate = hVariant === "slate";
   var bgClass = isSlate ? "bg-slate-900" : "bg-navy";
-  var pyClass = hCompact ? "py-16 sm:py-20" : "py-20 sm:py-24 lg:py-28";
+  var pyClass = hCompact ? "py-16 sm:py-20" : "py-20 sm:py-28 lg:py-32";
 %>
-<section class="fbi-ambient relative overflow-hidden <%= bgClass %> text-white">
+<section class="fbi-ambient fbi-hero-premium relative overflow-hidden <%= bgClass %> text-white">
   <div class="fbi-hero-shapes pointer-events-none absolute inset-0" aria-hidden="true">
     <span class="fbi-hero-shape fbi-hero-shape--gold"></span>
     <span class="fbi-hero-shape fbi-hero-shape--blue"></span>
   </div>
-  <div class="pointer-events-none absolute inset-0 opacity-[0.06] bg-[linear-gradient(to_right,rgba(255,255,255,0.12)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.12)_1px,transparent_1px)] bg-[length:36px_36px]"></div>
+  <div class="pointer-events-none absolute inset-0 opacity-[0.07] bg-[linear-gradient(to_right,rgba(255,255,255,0.14)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.14)_1px,transparent_1px)] bg-[length:32px_32px]"></div>
+  <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(255,255,255,0.08),transparent)]"></div>
   <div class="fbi-ambient__inner relative mx-auto max-w-7xl px-4 <%= pyClass %> sm:px-6 lg:px-8">
-    <div class="<%= hSplit ? 'grid gap-14 lg:grid-cols-2 lg:items-center lg:gap-16' : 'max-w-4xl' %>">
+    <div class="<%= hSplit ? 'grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-14' : 'max-w-4xl' %>">
       <div class="<%= hSplit ? 'max-w-2xl' : '' %>">
         <% if (hBadge || hStatus) { %>
         <div class="flex flex-wrap items-center gap-3">
           <% if (hStatus) { %>
-          <span class="rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-semibold text-amber-200"><%= hStatus %></span>
+          <span class="rounded-full border border-white/25 bg-white/10 px-3 py-1 text-xs font-semibold text-amber-200 backdrop-blur-sm"><%= hStatus %></span>
           <% } %>
           <% if (hBadge) { %>
           <span class="text-xs font-bold uppercase tracking-widest <%= isSlate ? 'text-slate-400' : 'text-amber-200/80' %>"><%= hBadge %></span>
@@ -33,22 +34,22 @@
         </div>
         <% } %>
         <% if (hEyebrow) { %>
-        <p class="fbi-kicker mt-6 <%= isSlate ? 'text-slate-400' : 'text-amber-200/90' %>"><%= hEyebrow %></p>
+        <p class="fbi-kicker <%= (hBadge || hStatus) ? 'mt-4' : '' %> <%= isSlate ? 'text-slate-400' : 'text-amber-200/90' %>"><%= hEyebrow %></p>
         <% } %>
-        <h1 class="mt-4 text-4xl font-bold leading-[1.06] tracking-tight sm:text-5xl lg:text-6xl"><%= hTitle %></h1>
+        <h1 class="fbi-hero-title mt-5"><%= hTitle %></h1>
         <% if (hLead) { %>
-        <p class="mt-6 max-w-2xl text-lg leading-relaxed sm:text-xl <%= isSlate ? 'text-slate-300' : 'text-slate-200' %>"><%- hLead %></p>
+        <p class="fbi-hero-lead mt-6 <%= isSlate ? 'text-slate-300' : 'text-slate-200' %>"><%- hLead %></p>
         <% } %>
         <% if (hLeadExtra) { %>
-        <p class="mt-4 max-w-2xl text-base leading-relaxed <%= isSlate ? 'text-slate-400' : 'text-slate-300/90' %>"><%- hLeadExtra %></p>
+        <p class="mt-4 max-w-xl text-sm leading-relaxed sm:text-base <%= isSlate ? 'text-slate-400' : 'text-slate-300/90' %>"><%- hLeadExtra %></p>
         <% } %>
         <% if (typeof heroActionsHtml !== "undefined" && heroActionsHtml) { %>
-        <div class="mt-10 flex flex-wrap gap-3"><%- heroActionsHtml %></div>
+        <div class="mt-10 flex flex-wrap gap-3 sm:gap-4"><%- heroActionsHtml %></div>
         <% } %>
       </div>
       <% if (hSplit && hMockup) { %>
-      <div class="relative mx-auto w-full max-w-lg lg:max-w-none">
-        <%- include('./tw-ui-mockup', { mockupType: hMockup, mockupDark: isSlate }) %>
+      <div class="fbi-hero-mockup-wrap relative mx-auto w-full max-w-md lg:max-w-none">
+        <%- include('./tw-ui-mockup', { mockupType: hMockup, mockupDark: isSlate || hVariant === 'navy' }) %>
       </div>
       <% } %>
     </div>

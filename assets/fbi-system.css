@@ -76,7 +76,7 @@ body.fbi-site main p {
   border-top: 1px solid rgba(15, 23, 42, 0.06);
 }
 
-/* Scroll reveal — secondary sections only (JS skips first section) */
+/* Scroll reveal: secondary sections only (JS skips first section) */
 .fbi-reveal {
   opacity: 0;
   transform: translate3d(0, var(--fbi-reveal-y), 0);
@@ -97,7 +97,7 @@ html.fbi-reduced-motion .fbi-reveal {
   transition: none !important;
 }
 
-/* Optional Y variants (8px–20px), set via --fbi-reveal-y in JS */
+/* Optional Y variants (8px to 20px), set via --fbi-reveal-y in JS */
 .fbi-reveal[data-fbi-y="sm"] {
   --fbi-reveal-y: 8px;
 }
@@ -115,7 +115,7 @@ a.site-link-quiet {
     opacity var(--fbi-duration-base) var(--fbi-ease-motion);
 }
 
-/* Navigation — micro feedback */
+/* Navigation micro feedback */
 body.fbi-site .site-header nav a {
   transition: color var(--fbi-duration-base) var(--fbi-ease-motion),
     opacity var(--fbi-duration-fast) var(--fbi-ease-motion),
@@ -135,7 +135,7 @@ body.fbi-site .site-footer nav a:hover {
   opacity: 0.88;
 }
 
-/* Primary actions — 1px lift + shadow handoff (transform GPU; shadow kept subtle / short) */
+/* Primary actions: 1px lift + shadow handoff */
 body.fbi-site main a.inline-flex {
   transition: opacity var(--fbi-duration-base) var(--fbi-ease-motion),
     transform var(--fbi-duration-base) var(--fbi-ease-motion),
@@ -381,6 +381,14 @@ html.fbi-reduced-motion .fbi-stagger-grid > *:hover {
   background: rgba(15, 23, 42, 0.6);
 }
 
+.fbi-panel-ui--compact .fbi-panel-ui__chrome {
+  padding: 0.45rem 0.65rem;
+}
+
+.fbi-panel-ui--compact .fbi-ui-bar {
+  height: 2.25rem;
+}
+
 .fbi-panel-ui__dot {
   width: 0.5rem;
   height: 0.5rem;
@@ -480,4 +488,323 @@ html.fbi-reduced-motion .fbi-stagger-grid > *:hover {
 
 html.fbi-reduced-motion .fbi-table-wrap tbody tr {
   transition: none;
+}
+
+/* Premium hero */
+.fbi-hero-premium {
+  position: relative;
+}
+
+.fbi-hero-premium::after {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 55% at 100% 0%, rgba(217, 119, 6, 0.18), transparent 50%),
+    radial-gradient(ellipse 55% 45% at 0% 100%, rgba(30, 58, 95, 0.45), transparent 55%);
+  opacity: 0.9;
+}
+
+.fbi-hero-premium .fbi-hero-shapes .fbi-hero-shape--gold {
+  width: 360px;
+  height: 360px;
+  animation: fbi-float 12s var(--fbi-ease-motion) infinite alternate;
+}
+
+.fbi-hero-premium .fbi-hero-shapes .fbi-hero-shape--blue {
+  width: 300px;
+  height: 300px;
+  animation: fbi-float 14s var(--fbi-ease-motion) infinite alternate-reverse;
+}
+
+@keyframes fbi-float {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(12px, -16px, 0); }
+}
+
+.fbi-hero-mockup-wrap {
+  position: relative;
+}
+
+.fbi-hero-mockup-wrap::before {
+  content: "";
+  position: absolute;
+  inset: -12% -8%;
+  border-radius: 2rem;
+  background: radial-gradient(circle at 50% 40%, rgba(217, 119, 6, 0.2), transparent 65%);
+  filter: blur(24px);
+  z-index: 0;
+}
+
+.fbi-hero-mockup-wrap > * {
+  position: relative;
+  z-index: 1;
+}
+
+.fbi-hero-title {
+  font-size: clamp(2.5rem, 5.5vw, 4.25rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.04;
+}
+
+.fbi-hero-lead {
+  font-size: clamp(1.0625rem, 2vw, 1.25rem);
+  line-height: 1.55;
+  max-width: 34rem;
+}
+
+/* Glass + depth cards */
+.fbi-glass {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.92), rgba(248, 250, 252, 0.88));
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.9) inset,
+    0 20px 50px -28px rgba(15, 23, 42, 0.14);
+  backdrop-filter: blur(8px);
+}
+
+.fbi-glass--dark {
+  background: linear-gradient(155deg, rgba(30, 41, 59, 0.85), rgba(15, 23, 42, 0.95));
+  border-color: rgba(148, 163, 184, 0.2);
+  color: #e2e8f0;
+}
+
+.fbi-card--glow:hover {
+  border-color: rgba(217, 119, 6, 0.35);
+  box-shadow:
+    0 0 0 1px rgba(217, 119, 6, 0.12),
+    0 20px 50px -18px rgba(15, 23, 42, 0.14);
+}
+
+.fbi-section-title--lg {
+  font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+}
+
+.fbi-pill-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.fbi-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  background: rgba(255, 255, 255, 0.85);
+  padding: 0.4rem 0.85rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #334155;
+}
+
+.fbi-pill--gold {
+  border-color: rgba(217, 119, 6, 0.3);
+  background: rgba(255, 251, 235, 0.9);
+  color: #92400e;
+}
+
+/* Bento ecosystem grid */
+.fbi-bento {
+  display: grid;
+  gap: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .fbi-bento {
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1.5rem;
+  }
+
+  .fbi-bento__sentinel { grid-column: span 7; }
+  .fbi-bento__cfo { grid-column: span 5; }
+  .fbi-bento__eden { grid-column: span 5; }
+  .fbi-bento__ledger { grid-column: span 7; }
+}
+
+.fbi-eco-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  transition:
+    transform var(--fbi-duration-base) var(--fbi-ease-motion),
+    box-shadow var(--fbi-duration-base) var(--fbi-ease-motion),
+    border-color var(--fbi-duration-base) var(--fbi-ease-motion);
+}
+
+.fbi-eco-card:hover {
+  transform: translate3d(0, -4px, 0);
+}
+
+.fbi-eco-card__visual {
+  padding: 1rem 1rem 0;
+  min-height: 8.5rem;
+}
+
+.fbi-eco-card__visual .fbi-panel-ui {
+  transform: scale(0.96);
+  transform-origin: top center;
+  box-shadow: 0 12px 32px -16px rgba(15, 23, 42, 0.2);
+}
+
+.fbi-eco-card__body {
+  flex: 1;
+  padding: 1.25rem 1.5rem 1.5rem;
+}
+
+/* Philosophy trio */
+.fbi-philosophy-grid {
+  display: grid;
+  gap: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .fbi-philosophy-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+.fbi-philosophy-item {
+  position: relative;
+  padding: 1.75rem 1.5rem;
+  border-radius: 1.25rem;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  background: #fff;
+  text-align: center;
+}
+
+.fbi-philosophy-item::before {
+  content: "";
+  display: block;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin: 0 auto 1rem;
+  border-radius: 0.75rem;
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.08), rgba(217, 119, 6, 0.15));
+  border: 1px solid rgba(217, 119, 6, 0.2);
+}
+
+/* Security band */
+.fbi-security-band {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(165deg, #0f172a 0%, #1e3a5f 45%, #0f172a 100%);
+  color: #e2e8f0;
+}
+
+.fbi-security-band::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.5;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(217, 119, 6, 0.12), transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(30, 58, 95, 0.5), transparent 45%);
+  pointer-events: none;
+}
+
+.fbi-security-band__inner {
+  position: relative;
+  z-index: 1;
+}
+
+/* Status band */
+.fbi-status-band {
+  border-block: 1px solid rgba(217, 119, 6, 0.25);
+  background: linear-gradient(180deg, #fffbeb 0%, #fef3c7 50%, #fffbeb 100%);
+}
+
+.fbi-panel-ui__badge {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  font-size: 0.5625rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #64748b;
+  background: rgba(248, 250, 252, 0.95);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 0.25rem;
+  padding: 0.2rem 0.45rem;
+}
+
+.fbi-panel-ui--dark .fbi-panel-ui__badge {
+  background: rgba(15, 23, 42, 0.8);
+  border-color: rgba(148, 163, 184, 0.2);
+  color: #94a3b8;
+}
+
+/* Mini stat widgets */
+.fbi-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+}
+
+.fbi-stat {
+  border-radius: 0.5rem;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  background: rgba(255, 255, 255, 0.7);
+  padding: 0.5rem 0.65rem;
+  font-size: 0.625rem;
+}
+
+.fbi-stat strong {
+  display: block;
+  font-size: 0.75rem;
+  color: #0f172a;
+}
+
+/* Compare mission cards on home */
+.fbi-mission-card {
+  position: relative;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  background: #fff;
+  transition: transform var(--fbi-duration-base) var(--fbi-ease-motion), box-shadow var(--fbi-duration-base) var(--fbi-ease-motion);
+}
+
+.fbi-mission-card:hover {
+  transform: translate3d(0, -3px, 0);
+  box-shadow: 0 16px 40px -18px rgba(15, 23, 42, 0.12);
+}
+
+.fbi-mission-card--featured {
+  border-width: 2px;
+  border-color: rgba(15, 23, 42, 0.14);
+  background: linear-gradient(160deg, #f8fafc, #fff);
+}
+
+/* Mobile footer + hero */
+@media (max-width: 639px) {
+  .site-footer .flex.flex-col.gap-10 {
+    gap: 2rem;
+  }
+
+  .fbi-hero-premium .fbi-hero-mockup-wrap {
+    margin-top: 0.5rem;
+  }
+
+  .fbi-bento__sentinel,
+  .fbi-bento__cfo,
+  .fbi-bento__eden,
+  .fbi-bento__ledger {
+    grid-column: span 12;
+  }
+}
+
+html.fbi-reduced-motion .fbi-hero-premium .fbi-hero-shapes .fbi-hero-shape--gold,
+html.fbi-reduced-motion .fbi-hero-premium .fbi-hero-shapes .fbi-hero-shape--blue,
+html.fbi-reduced-motion .fbi-eco-card:hover,
+html.fbi-reduced-motion .fbi-mission-card:hover {
+  animation: none;
+  transform: none;
 }

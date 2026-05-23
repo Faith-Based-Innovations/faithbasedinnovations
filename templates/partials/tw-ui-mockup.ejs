@@ -1,17 +1,38 @@
 <%
   var mType = typeof mockupType !== "undefined" ? mockupType : "generic";
   var mDark = typeof mockupDark !== "undefined" ? mockupDark : false;
-  var panelClass = "fbi-panel-ui fbi-glow-blue " + (mDark ? "fbi-panel-ui--dark" : "");
+  var mCompact = typeof mockupCompact !== "undefined" && mockupCompact;
+  var panelClass = "fbi-panel-ui fbi-glow-blue " + (mDark ? "fbi-panel-ui--dark" : "") + (mCompact ? " fbi-panel-ui--compact" : "");
 %>
-<div class="<%= panelClass %>" role="img" aria-label="Illustrative product interface">
+<div class="<%= panelClass %>" role="img" aria-label="Concept interface preview, not a product screenshot">
+  <span class="fbi-panel-ui__badge">Concept preview</span>
   <div class="fbi-panel-ui__chrome">
     <span class="fbi-panel-ui__dot fbi-panel-ui__dot--gold" aria-hidden="true"></span>
     <span class="fbi-panel-ui__dot" aria-hidden="true"></span>
     <span class="fbi-panel-ui__dot" aria-hidden="true"></span>
-    <span class="ml-2 text-[10px] font-semibold uppercase tracking-[0.14em] <%= mDark ? 'text-slate-400' : 'text-slate-500' %>"><%= mType === 'steward' ? SITE.steward.name : (mType.charAt(0).toUpperCase() + mType.slice(1)) %></span>
+    <span class="ml-2 text-[10px] font-semibold uppercase tracking-[0.14em] <%= mDark ? 'text-slate-400' : 'text-slate-500' %>"><%= mType === 'steward' ? SITE.steward.name : (mType === 'suite' ? SITE.brand : (mType.charAt(0).toUpperCase() + mType.slice(1))) %></span>
   </div>
-  <div class="p-5 sm:p-6">
-    <% if (mType === 'cfo') { %>
+  <div class="<%= mCompact ? 'p-3 sm:p-4' : 'p-5 sm:p-6' %>">
+    <% if (mType === 'suite') { %>
+    <div class="grid grid-cols-2 gap-2">
+      <div class="rounded-lg border <%= mDark ? 'border-slate-600/50 bg-slate-800/60' : 'border-slate-200 bg-white' %> p-2">
+        <p class="text-[9px] font-bold uppercase tracking-wider text-faithGold">CFO</p>
+        <p class="mt-1 text-sm font-bold <%= mDark ? 'text-white' : 'text-navy' %>">$24k</p>
+        <div class="mt-2 h-6 fbi-ui-bar" aria-hidden="true"><span></span><span></span><span></span></div>
+      </div>
+      <div class="rounded-lg border <%= mDark ? 'border-faithGold/30 bg-amber-950/20' : 'border-amber-200/60 bg-amber-50/50' %> p-2">
+        <p class="text-[9px] font-bold uppercase tracking-wider text-slate-400">Sentinel</p>
+        <div class="mt-2 flex gap-1" aria-hidden="true">
+          <% [1,2,3,4].forEach(function () { %><span class="h-1.5 w-1.5 rounded-full bg-slate-500"></span><% }); %>
+        </div>
+        <p class="mt-1 text-[10px] <%= mDark ? 'text-slate-400' : 'text-slate-500' %>">142 linked</p>
+      </div>
+      <div class="rounded-lg border <%= mDark ? 'border-slate-600/50 bg-slate-800/40' : 'border-slate-200 bg-slate-50' %> p-2 col-span-2">
+        <p class="text-[9px] font-bold uppercase tracking-wider text-amber-600"><%= SITE.steward.name %></p>
+        <p class="mt-1 text-[10px] leading-snug <%= mDark ? 'text-slate-300' : 'text-slate-600' %>">Rules-based layer across Eden, Ledger, CFO, and Sentinel on your machine.</p>
+      </div>
+    </div>
+    <% } else if (mType === 'cfo') { %>
     <div class="flex items-start justify-between gap-3">
       <div>
         <p class="text-[10px] font-bold uppercase tracking-[0.16em] text-faithGold">Cash outlook</p>
@@ -20,20 +41,14 @@
       </div>
       <span class="rounded-md border border-faithGold/30 bg-amber-50/80 px-2 py-1 text-[10px] font-semibold text-amber-900">Local</span>
     </div>
-    <div class="mt-5 fbi-ui-bar" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
-    <div class="mt-5 space-y-2">
-      <div class="flex items-center justify-between rounded-lg border <%= mDark ? 'border-slate-600/60 bg-slate-800/50' : 'border-slate-200 bg-white' %> px-3 py-2 text-xs">
-        <span class="<%= mDark ? 'text-slate-300' : 'text-slate-600' %>">Operating account</span>
-        <span class="font-semibold <%= mDark ? 'text-white' : 'text-navy' %>">$8,420</span>
-      </div>
-      <div class="flex items-center justify-between rounded-lg border <%= mDark ? 'border-slate-600/60 bg-slate-800/50' : 'border-slate-200 bg-white' %> px-3 py-2 text-xs">
-        <span class="<%= mDark ? 'text-slate-300' : 'text-slate-600' %>">Recurring · due Fri</span>
-        <span class="font-semibold text-faithGold">-$240</span>
-      </div>
+    <div class="mt-4 fbi-ui-bar" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="mt-4 fbi-stat-grid">
+      <div class="fbi-stat <%= mDark ? 'border-slate-600/50 bg-slate-800/40' : '' %>"><strong>Operating</strong>$8,420</div>
+      <div class="fbi-stat <%= mDark ? 'border-slate-600/50 bg-slate-800/40' : '' %>"><strong>Due Fri</strong><span class="text-faithGold">-$240</span></div>
     </div>
     <% } else if (mType === 'sentinel') { %>
     <p class="text-[10px] font-bold uppercase tracking-[0.16em] text-slate-400">Timeline · Case overview</p>
-    <div class="mt-4 flex items-center gap-2">
+    <div class="mt-3 flex items-center gap-2">
       <% [1,2,3,4,5].forEach(function (n) { %>
       <div class="flex flex-1 flex-col items-center gap-1">
         <span class="h-2 w-2 rounded-full <%= n === 3 ? 'bg-faithGold shadow-[0_0_0_4px_rgba(217,119,6,0.2)]' : 'bg-slate-500' %>"></span>
@@ -41,7 +56,7 @@
       </div>
       <% }); %>
     </div>
-    <div class="mt-5 grid grid-cols-2 gap-2 text-[10px]">
+    <div class="mt-4 grid grid-cols-2 gap-2 text-[10px]">
       <div class="rounded-lg border border-slate-600/50 bg-slate-800/60 p-2.5">
         <p class="font-semibold text-slate-300">Evidence</p>
         <p class="mt-1 text-slate-400">142 items linked</p>
@@ -63,10 +78,6 @@
         <span class="h-1.5 w-1.5 rounded-full bg-slate-400"></span>
         <span class="<%= mDark ? 'text-slate-300' : 'text-slate-600' %>">Article · pending cite</span>
       </li>
-      <li class="flex items-center gap-2 rounded-lg border <%= mDark ? 'border-slate-600/50 bg-slate-800/40' : 'border-slate-200 bg-white' %> px-3 py-2">
-        <span class="h-1.5 w-1.5 rounded-full bg-slate-400"></span>
-        <span class="<%= mDark ? 'text-slate-300' : 'text-slate-600' %>">Recording · transcribed</span>
-      </li>
     </ul>
     <% } else if (mType === 'ledger') { %>
     <div class="flex items-center gap-3">
@@ -78,14 +89,10 @@
         <p class="text-sm font-semibold <%= mDark ? 'text-white' : 'text-navy' %>">2 profiles · local only</p>
       </div>
     </div>
-    <div class="mt-5 space-y-2 text-xs">
+    <div class="mt-4 space-y-2 text-xs">
       <div class="flex justify-between rounded-md border border-dashed <%= mDark ? 'border-slate-500 bg-slate-800/30' : 'border-slate-300 bg-white' %> px-3 py-2">
         <span class="<%= mDark ? 'text-slate-400' : 'text-slate-500' %>">Form field · SSN</span>
         <span class="font-mono text-faithGold">•••-••-1234</span>
-      </div>
-      <div class="flex justify-between rounded-md border <%= mDark ? 'border-slate-600/50' : 'border-slate-200' %> px-3 py-2">
-        <span class="<%= mDark ? 'text-slate-400' : 'text-slate-500' %>">Address line 1</span>
-        <span class="<%= mDark ? 'text-slate-200' : 'text-navy' %>">Exact match</span>
       </div>
       <div class="flex justify-between rounded-md border border-amber-200/50 bg-amber-50/50 px-3 py-2">
         <span class="text-slate-500">Missing field</span>
@@ -98,8 +105,12 @@
       <span class="shrink-0 rounded-full border <%= mDark ? 'border-slate-500 text-slate-300' : 'border-slate-300 text-slate-600' %> px-2.5 py-0.5 text-[10px] font-medium"><%= SITE.availability.badge %></span>
     </div>
     <p class="mt-4 text-sm leading-relaxed <%= mDark ? 'text-slate-300' : 'text-slate-600' %>"><%= SITE.steward.short %></p>
-    <p class="mt-6 text-[10px] font-semibold uppercase tracking-[0.18em] <%= mDark ? 'text-slate-500' : 'text-slate-400' %>">Product line</p>
-    <p class="mt-2 text-sm font-medium <%= mDark ? 'text-slate-100' : 'text-navy' %>">Sentinel · CFO · Eden · Ledger</p>
+    <div class="mt-5 fbi-pill-row">
+      <span class="fbi-pill fbi-pill--gold text-[10px]">Sentinel</span>
+      <span class="fbi-pill text-[10px]">CFO</span>
+      <span class="fbi-pill text-[10px]">Eden</span>
+      <span class="fbi-pill text-[10px]">Ledger</span>
+    </div>
     <% } else { %>
     <p class="text-sm <%= mDark ? 'text-slate-300' : 'text-slate-600' %>">Structured desktop software on your machine.</p>
     <% } %>

@@ -3,37 +3,69 @@
 <%- include('../partials/tw-header') -%>
 <main class="flex-1">
   <%- include('../partials/tw-hero-premium', {
-    heroEyebrow: 'Premium desktop software',
-    heroTitle: 'Purpose-built tools for faithful, disciplined work.',
-    heroLead: 'We build <strong class="font-semibold text-white">Sentinel</strong>, <strong class="font-semibold text-white">CFO</strong>, <strong class="font-semibold text-white">Eden</strong>, and <strong class="font-semibold text-white">Ledger</strong>: separate apps that keep your work on <strong class="font-semibold text-white">your computer</strong>, treat privacy as the default, and use <strong class="font-semibold text-white">' + SITE.steward.name + '</strong> to apply clear rules to <em>your</em> data, not endless cloud feeds.',
+    heroEyebrow: 'Faith Based Innovations',
+    heroTitle: 'Serious desktop software for work that matters.',
+    heroLead: '<strong class="font-semibold text-white">Sentinel</strong>, <strong class="font-semibold text-white">CFO</strong>, <strong class="font-semibold text-white">Eden</strong>, and <strong class="font-semibold text-white">Ledger</strong>: four standalone apps on <strong class="font-semibold text-white">your machine</strong>, with <strong class="font-semibold text-white">' + SITE.steward.name + '</strong> applying clear rules to <em>your</em> data.',
     heroSplit: true,
-    heroMockup: 'steward',
-    heroActionsHtml: '<a href="products.html" class="inline-flex min-h-[3.25rem] items-center justify-center rounded-full bg-faithGold px-8 text-base font-semibold text-white shadow-xl shadow-amber-950/20 transition duration-280 ease-fbi-out hover:bg-amber-600 hover:shadow-fbi focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-300 focus-visible:ring-offset-2 focus-visible:ring-offset-navy">Explore products</a><a href="compare.html" class="inline-flex min-h-[3.25rem] items-center justify-center rounded-full border border-white/25 bg-white/5 px-8 text-base font-semibold text-white backdrop-blur-sm transition duration-280 ease-fbi-out hover:border-white/40 hover:bg-white/15 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2 focus-visible:ring-offset-navy">Compare products</a>'
+    heroMockup: 'suite',
+    heroActionsHtml: '<a href="products.html" class="inline-flex min-h-[3.25rem] items-center justify-center rounded-full bg-faithGold px-8 text-base font-semibold text-white shadow-xl shadow-amber-950/25 transition duration-280 ease-fbi-out hover:bg-amber-600 hover:shadow-fbi focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-300 focus-visible:ring-offset-2 focus-visible:ring-offset-navy">Explore the ecosystem</a><a href="compare.html" class="inline-flex min-h-[3.25rem] items-center justify-center rounded-full border border-white/30 bg-white/8 px-8 text-base font-semibold text-white backdrop-blur-sm transition duration-280 ease-fbi-out hover:border-white/45 hover:bg-white/15 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2 focus-visible:ring-offset-navy">Compare products</a>'
   }) -%>
 
-  <section class="fbi-ambient fbi-ambient--light mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-32 lg:px-8">
-    <div class="fbi-ambient__inner">
-      <div class="mb-16 max-w-3xl">
-        <p class="fbi-kicker text-faithGold">Product line</p>
-        <h2 class="fbi-section-title mt-3">Our products</h2>
-        <p class="fbi-section-lead">Each title is engineered as standalone software: same standard of craft, clearly separated missions.</p>
+  <section class="border-b border-slate-200/80 bg-white">
+    <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
+      <div class="mx-auto max-w-3xl text-center">
+        <p class="fbi-kicker text-faithGold">Philosophy</p>
+        <h2 class="fbi-section-title fbi-section-title--lg mt-3">Built around ownership, not feeds</h2>
+        <p class="fbi-section-lead mx-auto">Local-first by conviction. Privacy as default. <%= SITE.steward.name %> as a disciplined layer, not open-ended generation.</p>
       </div>
-      <div class="fbi-stagger-grid grid gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-10">
-        <% NAV_PRODUCTS.forEach(function (p) { %>
-        <%- include('../partials/tw-product-card', { productId: p.id }) %>
-        <% }); %>
+      <div class="fbi-philosophy-grid mt-14">
+        <div class="fbi-philosophy-item fbi-glow-blue">
+          <h3 class="text-lg font-bold text-navy">Your machine first</h3>
+          <p class="mt-2 text-sm leading-relaxed text-slate-600">Work stays on your device. Sync is optional and explicit, never assumed.</p>
+        </div>
+        <div class="fbi-philosophy-item fbi-glow-gold lg:translate-y-2">
+          <h3 class="text-lg font-bold text-navy">Clear product boundaries</h3>
+          <p class="mt-2 text-sm leading-relaxed text-slate-600">Evidence, finance, research, and identity each get a purpose-built surface.</p>
+        </div>
+        <div class="fbi-philosophy-item fbi-glow-blue">
+          <h3 class="text-lg font-bold text-navy">Traceable intelligence</h3>
+          <p class="mt-2 text-sm leading-relaxed text-slate-600"><%= SITE.steward.name %> surfaces patterns from structured inputs you control. No invented filler.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="fbi-ambient fbi-ambient--light">
+    <div class="fbi-ambient__inner mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
+      <div class="mb-14 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+        <div class="max-w-2xl">
+          <p class="fbi-kicker text-faithGold">Product ecosystem</p>
+          <h2 class="fbi-section-title fbi-section-title--lg mt-3"><%= SITE.suiteSectionTitle %></h2>
+          <p class="fbi-section-lead">Each title is engineered as standalone software with the same bar for craft and clearly separated missions.</p>
+        </div>
+        <a href="products.html" class="inline-flex min-h-[3rem] shrink-0 items-center justify-center self-start rounded-full border border-slate-300/90 bg-white px-7 text-sm font-semibold text-navy shadow-fbi-sm transition duration-280 ease-fbi-out hover:border-faithGold hover:text-faithGold lg:self-end">View all products</a>
+      </div>
+      <div class="fbi-bento">
+        <%- include('../partials/tw-ecosystem-card', { productId: 'sentinel' }) %>
+        <%- include('../partials/tw-ecosystem-card', { productId: 'cfo' }) %>
+        <%- include('../partials/tw-ecosystem-card', { productId: 'eden' }) %>
+        <%- include('../partials/tw-ecosystem-card', { productId: 'ledger' }) %>
       </div>
     </div>
   </section>
 
   <section class="fbi-feature-band fbi-grid-bg">
-    <div class="mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-32 lg:px-8">
+    <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
       <div class="fbi-split-section fbi-split-section--wide-right">
         <div>
-          <p class="fbi-kicker text-slate-500">Technical identity</p>
-          <h2 class="fbi-section-title mt-3">Built for ownership on your machine</h2>
-          <p class="fbi-section-lead">Local-first storage, encrypted vaults where it matters, and <%= SITE.steward.name %> as a rules-based layer over <em>your</em> structured data. Optional sync stays explicit, never assumed.</p>
-          <blockquote class="fbi-statement mt-8">Serious work deserves software that does not treat you like a feed. Our products keep control, clarity, and traceability at the center.</blockquote>
+          <p class="fbi-kicker text-slate-500">Architecture</p>
+          <h2 class="fbi-section-title mt-3">Local-first by design</h2>
+          <p class="fbi-section-lead">Encrypted vaults where it matters. <%= SITE.steward.name %> reads structured data you entered. Optional sync only when you choose it.</p>
+          <ul class="mt-8 space-y-3 text-sm text-slate-600">
+            <li class="flex gap-3"><span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-faithGold"></span>Device-native storage and workflows</li>
+            <li class="flex gap-3"><span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-navy"></span>Rules-based guidance tied to your records</li>
+            <li class="flex gap-3"><span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-navy"></span>No engagement loops or surveillance growth models</li>
+          </ul>
         </div>
         <%- include('../partials/tw-tech-diagram', {
           diagramTitle: 'How your data moves',
@@ -43,46 +75,88 @@
     </div>
   </section>
 
-  <section class="border-y border-slate-200/70 bg-white">
-    <div class="mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-32 lg:px-8">
-      <div class="max-w-3xl">
-        <p class="fbi-kicker text-slate-500">At a glance</p>
-        <h2 class="fbi-section-title mt-3">Compare missions</h2>
-        <p class="mt-5 text-lg leading-relaxed text-slate-600">Four missions, one bar for quality. Use this view to see how scope differs, then open the full comparison for detail.</p>
-      </div>
-      <div class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
-        <div class="fbi-card rounded-2xl border-2 border-slate-300/80 bg-slate-50/90 p-8 lg:translate-y-2">
-          <p class="text-xs font-bold uppercase tracking-wider text-slate-600">Sentinel</p>
-          <p class="mt-3 text-sm font-semibold text-navy">Evidence intelligence</p>
-          <p class="mt-2 text-sm leading-relaxed text-slate-600">Organize complex evidence, timelines, and review materials on your machine, with <%= SITE.steward.name %> supporting structured investigative workflows.</p>
+  <section class="border-y border-slate-200 bg-gradient-to-b from-white via-slate-50/50 to-white">
+    <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
+      <div class="fbi-split-section">
+        <div class="order-2 lg:order-1">
+          <%- include('../partials/tw-ui-mockup', { mockupType: 'steward', mockupDark: false }) %>
         </div>
-        <div class="fbi-card rounded-2xl p-8">
-          <p class="text-xs font-bold uppercase tracking-wider text-faithGold">CFO</p>
-          <p class="mt-3 text-sm font-semibold text-navy">Financial operating system</p>
-          <p class="mt-2 text-sm leading-relaxed text-slate-600">Money in motion: planning, forecasting, and cash-flow clarity, with <%= SITE.steward.name %> helping you read your own structured data, not endless feeds.</p>
+        <div class="order-1 max-w-xl lg:order-2">
+          <p class="fbi-kicker text-faithGold"><%= SITE.steward.name %></p>
+          <h2 class="fbi-section-title mt-3">One assistant, four missions</h2>
+          <p class="fbi-section-lead"><%= SITE.steward.homeBlurb %></p>
+          <blockquote class="fbi-statement mt-8">Deterministic, auditable, and tied to what you entered. <%= SITE.steward.name %> is designed to organize and surface, not to invent.</blockquote>
+          <a href="products.html" class="mt-8 inline-flex text-sm font-semibold text-navy underline-offset-4 hover:text-faithGold hover:underline">See how <%= SITE.steward.name %> fits each product →</a>
         </div>
-        <div class="fbi-card rounded-2xl p-8 lg:-translate-y-1">
-          <p class="text-xs font-bold uppercase tracking-wider text-faithGold">Eden</p>
-          <p class="mt-3 text-sm font-semibold text-navy">Research intelligence</p>
-          <p class="mt-2 text-sm leading-relaxed text-slate-600">Gather sources, compare claims, and keep citations. <%= SITE.steward.name %> highlights what fits your question, separate from finance or identity tools.</p>
-        </div>
-        <div class="fbi-card rounded-2xl p-8">
-          <p class="text-xs font-bold uppercase tracking-wider text-faithGold">Ledger</p>
-          <p class="mt-3 text-sm font-semibold text-navy">Vault &amp; documents</p>
-          <p class="mt-2 text-sm leading-relaxed text-slate-600">Encrypted storage for sensitive info and forms filled only from what you saved. <%= SITE.steward.name %> lines up fields; it never invents answers.</p>
-        </div>
-      </div>
-      <div class="mt-14 rounded-3xl border border-slate-200/80 bg-gradient-to-br from-slate-50 to-white p-8 ring-1 ring-slate-900/[0.03] sm:p-10 fbi-glow-gold">
-        <p class="text-sm font-bold uppercase tracking-[0.14em] text-slate-500">CFO vs. typical fintech apps</p>
-        <p class="mt-4 text-base leading-relaxed text-slate-700">Most consumer apps optimize for engagement, cross-sell, and cloud-first sync. <strong class="font-semibold text-navy">CFO</strong> is built as deliberate desktop software: local-first, rules-based intelligence, and clarity over infinite feeds, because serious money work deserves a serious surface, not a marketing dashboard.</p>
-      </div>
-      <div class="mt-12">
-        <a href="compare.html" class="inline-flex min-h-[3rem] items-center justify-center rounded-full border border-slate-300/90 bg-white px-8 text-base font-semibold text-navy shadow-fbi-sm transition duration-280 ease-fbi-out hover:border-faithGold hover:text-faithGold hover:shadow-fbi focus:outline-none focus-visible:ring-2 focus-visible:ring-faithGold">Open full comparison</a>
       </div>
     </div>
   </section>
 
-  <%- include('../partials/tw-availability') %>
+  <section class="fbi-security-band">
+    <div class="fbi-security-band__inner mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
+      <div class="fbi-split-section">
+        <div class="max-w-xl">
+          <p class="fbi-kicker text-amber-200/90">Security &amp; privacy</p>
+          <h2 class="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl">Posture built for serious work</h2>
+          <p class="mt-5 text-lg leading-relaxed text-slate-300">Our products are designed around local control, encrypted storage where appropriate, and transparent behavior. We do not treat users as telemetry feeds.</p>
+        </div>
+        <div class="fbi-glass fbi-glass--dark rounded-2xl p-8">
+          <h3 class="text-sm font-bold uppercase tracking-[0.14em] text-slate-400">Designed to</h3>
+          <ul class="mt-5 space-y-3 text-sm leading-relaxed text-slate-300">
+            <li class="flex gap-3"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-faithGold"></span>Keep sensitive workflows on your hardware</li>
+            <li class="flex gap-3"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-faithGold"></span>Make data boundaries explicit per product</li>
+            <li class="flex gap-3"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-faithGold"></span>Support review and accountability, not hype</li>
+          </ul>
+          <a href="security.html" class="mt-8 inline-flex rounded-full border border-white/25 px-5 py-2.5 text-sm font-semibold text-white hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40">Security overview</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-b border-slate-200/80 bg-white">
+    <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
+      <div class="max-w-3xl">
+        <p class="fbi-kicker text-slate-500">At a glance</p>
+        <h2 class="fbi-section-title mt-3">Compare missions</h2>
+        <p class="fbi-section-lead">Four missions, one standard of quality. Open the full comparison for detail.</p>
+      </div>
+      <div class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
+        <div class="fbi-mission-card fbi-mission-card--featured lg:translate-y-2">
+          <p class="text-xs font-bold uppercase tracking-wider text-slate-600">Sentinel</p>
+          <p class="mt-3 text-sm font-semibold text-navy">Evidence intelligence</p>
+          <p class="mt-2 text-sm leading-relaxed text-slate-600">Timelines, relationships, and review exports on your machine.</p>
+        </div>
+        <div class="fbi-mission-card">
+          <p class="text-xs font-bold uppercase tracking-wider text-faithGold">CFO</p>
+          <p class="mt-3 text-sm font-semibold text-navy">Financial operating system</p>
+          <p class="mt-2 text-sm leading-relaxed text-slate-600">Planning, forecasting, and cash-flow clarity from your records.</p>
+        </div>
+        <div class="fbi-mission-card lg:-translate-y-1">
+          <p class="text-xs font-bold uppercase tracking-wider text-faithGold">Eden</p>
+          <p class="mt-3 text-sm font-semibold text-navy">Research intelligence</p>
+          <p class="mt-2 text-sm leading-relaxed text-slate-600">Sources, claims, and citations in one disciplined workspace.</p>
+        </div>
+        <div class="fbi-mission-card">
+          <p class="text-xs font-bold uppercase tracking-wider text-faithGold">Ledger</p>
+          <p class="mt-3 text-sm font-semibold text-navy">Vault &amp; documents</p>
+          <p class="mt-2 text-sm leading-relaxed text-slate-600">Encrypted storage and exact-fill forms. No invented field values.</p>
+        </div>
+      </div>
+      <div class="mt-12 flex flex-wrap gap-4">
+        <a href="compare.html" class="inline-flex min-h-[3rem] items-center justify-center rounded-full border border-slate-300/90 bg-white px-8 text-base font-semibold text-navy shadow-fbi-sm transition duration-280 ease-fbi-out hover:border-faithGold hover:text-faithGold focus:outline-none focus-visible:ring-2 focus-visible:ring-faithGold">Open full comparison</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="fbi-status-band" aria-label="Build status">
+    <div class="mx-auto max-w-4xl px-4 py-16 text-center sm:px-6 sm:py-20 lg:px-8">
+      <p class="text-xs font-bold uppercase tracking-[0.2em] text-amber-900"><%= SITE.availability.badge %></p>
+      <h2 class="mt-4 text-2xl font-bold text-navy sm:text-3xl">Actively being built</h2>
+      <p class="mt-4 text-base leading-relaxed text-slate-700"><%= SITE.availability.line %></p>
+      <p class="mt-3 text-sm font-semibold text-amber-900" role="status"><%= PRODUCTS.sentinel.development.stage %> · Sentinel (as of <%= PRODUCTS.sentinel.development.asOf %>)</p>
+      <p class="mt-2 text-sm text-slate-600"><%= SITE.availability.ctaLabel %></p>
+    </div>
+  </section>
 </main>
 <%- include('../partials/tw-footer') %>
 <%- include('../partials/tw-scripts') %>

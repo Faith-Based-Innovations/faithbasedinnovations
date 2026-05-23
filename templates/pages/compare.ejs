@@ -4,8 +4,10 @@
 <main class="flex-1">
   <%- include('../partials/tw-hero-premium', {
     heroEyebrow: 'Compare',
-    heroTitle: 'Four distinct products',
-    heroLead: 'Use this view to understand scope and boundaries. None of these titles are offered for sale or download today. The comparison exists so the architecture reads clearly.',
+    heroTitle: 'Four distinct products.',
+    heroLead: 'Understand scope and boundaries. None of these titles are offered for sale or download today. The comparison exists so the architecture reads clearly.',
+    heroSplit: true,
+    heroMockup: 'suite',
     heroCompact: true
   }) -%>
 
@@ -39,7 +41,7 @@
           </tr>
           <tr>
             <th scope="row" class="whitespace-nowrap bg-slate-50/80 px-4 py-4 font-semibold text-navy sm:px-6">Typical inputs</th>
-            <td class="px-4 py-4 align-top sm:px-6">PDFs, images, spreadsheets, message logs, documents, media references, authority materials: evidence collections.</td>
+            <td class="px-4 py-4 align-top sm:px-6">PDFs, images, spreadsheets, message logs, documents, media references: evidence collections.</td>
             <td class="bg-amber-50/20 px-4 py-4 align-top sm:px-6">Accounts, plans, OCR documents, optional Plaid: financial data only.</td>
             <td class="px-4 py-4 align-top sm:px-6">Recordings, video, articles, images, screenshots, public or user-provided material.</td>
             <td class="px-4 py-4 align-top sm:px-6">Identity fields, history, relationships, documents: up to two people (e.g. spouses).</td>
@@ -59,7 +61,7 @@
             <td class="px-4 py-4 align-top sm:px-6">A finance app, research notebook, or autofill that infers missing answers.</td>
           </tr>
           <tr class="bg-amber-50/50">
-            <th scope="row" class="whitespace-nowrap px-4 py-4 font-semibold text-navy sm:px-6">Availability</th>
+            <th scope="row" class="whitespace-nowrap px-4 py-4 font-semibold text-navy sm:px-6">Build status</th>
             <td class="px-4 py-4 sm:px-6 font-medium text-slate-700"><%= PRODUCTS.sentinel.development.stage %> (as of <%= PRODUCTS.sentinel.development.asOf %>). Not for sale or download.</td>
             <td class="px-4 py-4 sm:px-6 font-medium text-slate-700" colspan="3"><%= SITE.availability.line %></td>
           </tr>
@@ -67,10 +69,10 @@
       </table>
     </div>
 
-    <section class="mt-16 rounded-3xl border border-slate-200 bg-gradient-to-br from-slate-50 to-white p-8 shadow-sm ring-1 ring-slate-900/[0.04] sm:p-10 fbi-glow-gold" aria-labelledby="compare-fintech-heading">
-      <h2 id="compare-fintech-heading" class="text-2xl font-bold tracking-tight text-navy sm:text-3xl">CFO and the fintech default</h2>
-      <p class="mt-4 text-base leading-relaxed text-slate-600">Many apps bundle bank feeds, credit scores, and cross-sell into one noisy surface, optimized for time-in-app, not clarity. <strong class="font-semibold text-navy">CFO</strong> is intentionally different: a local-first financial operating system with deterministic <%= SITE.steward.name %> logic, structured inputs, and boundaries, so finance stays finance, not a feed.</p>
-      <p class="mt-4 text-base leading-relaxed text-slate-600"><strong class="font-semibold text-navy">Sentinel</strong>, <strong class="font-semibold text-navy">Eden</strong>, and <strong class="font-semibold text-navy">Ledger</strong> answer different questions (evidence intelligence, research, and identity/documents). None of our titles are designed to blur those missions for engagement metrics.</p>
+    <section class="mt-16 fbi-glass rounded-3xl p-8 sm:p-10 fbi-glow-gold" aria-labelledby="compare-fintech-heading">
+      <h2 id="compare-fintech-heading" class="fbi-section-title text-2xl sm:text-3xl">CFO and the fintech default</h2>
+      <p class="mt-4 text-base leading-relaxed text-slate-600">Many apps bundle bank feeds, credit scores, and cross-sell into one noisy surface, optimized for time-in-app, not clarity. <strong class="font-semibold text-navy">CFO</strong> is intentionally different: a local-first financial operating system with deterministic <%= SITE.steward.name %> logic and structured inputs.</p>
+      <p class="mt-4 text-base leading-relaxed text-slate-600"><strong class="font-semibold text-navy">Sentinel</strong>, <strong class="font-semibold text-navy">Eden</strong>, and <strong class="font-semibold text-navy">Ledger</strong> answer different questions. None of our titles blur those missions for engagement metrics.</p>
     </section>
 
     <div class="mt-12 flex flex-wrap gap-3">
@@ -78,7 +80,7 @@
       <a href="product-cfo.html" class="inline-flex rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-navy shadow-sm transition duration-280 ease-fbi-out hover:border-faithGold hover:text-faithGold hover:shadow-fbi-sm">CFO</a>
       <a href="product-eden.html" class="inline-flex rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-navy shadow-sm transition duration-280 ease-fbi-out hover:border-faithGold hover:text-faithGold hover:shadow-fbi-sm">Eden</a>
       <a href="product-ledger.html" class="inline-flex rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-navy shadow-sm transition duration-280 ease-fbi-out hover:border-faithGold hover:text-faithGold hover:shadow-fbi-sm">Ledger</a>
-      <span class="inline-flex items-center rounded-lg border border-amber-200 bg-amber-50 px-4 py-2 text-sm font-semibold text-amber-900" role="status"><%= SITE.availability.ctaLabel %></span>
+      <span class="inline-flex items-center rounded-lg border border-amber-200 bg-amber-50 px-4 py-2 text-sm font-semibold text-amber-900" role="status"><%= SITE.availability.badge %></span>
     </div>
   </section>
 </main>
