@@ -2,8 +2,8 @@
 var navLink = function (id) {
   var on = !suppressActive && typeof activeNav !== "undefined" && activeNav === id;
   return on
-    ? "text-sm font-semibold text-navy"
-    : "text-sm font-medium text-slate-600 transition-colors duration-280 ease-fbi-out hover:text-navy focus:outline-none focus-visible:ring-2 focus-visible:ring-faithGold focus-visible:ring-offset-2 rounded-sm";
+    ? "fbi-nav-link fbi-nav-link--active text-sm"
+    : "fbi-nav-link text-sm font-medium text-slate-600 transition-colors duration-280 ease-fbi-out hover:text-navy focus:outline-none focus-visible:ring-2 focus-visible:ring-faithGold focus-visible:ring-offset-2 rounded-sm";
 };
 var navLinkMobile = function (id) {
   var on = !suppressActive && typeof activeNav !== "undefined" && activeNav === id;

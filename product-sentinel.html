@@ -77,13 +77,13 @@
         <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
       </button>
       <nav class="hidden items-center gap-4 md:flex lg:gap-8" aria-label="Primary">
-        <a href="index.html" class="text-sm font-medium text-slate-600 transition-colors duration-280 ease-fbi-out hover:text-navy focus:outline-none focus-visible:ring-2 focus-visible:ring-faithGold focus-visible:ring-offset-2 rounded-sm">Home</a>
-        <a href="products.html" class="text-sm font-semibold text-navy">Products</a>
-        <a href="compare.html" class="text-sm font-medium text-slate-600 transition-colors duration-280 ease-fbi-out hover:text-navy focus:outline-none focus-visible:ring-2 focus-visible:ring-faithGold focus-visible:ring-offset-2 rounded-sm">Compare</a>
-        <a href="about.html" class="text-sm font-medium text-slate-600 transition-colors duration-280 ease-fbi-out hover:text-navy focus:outline-none focus-visible:ring-2 focus-visible:ring-faithGold focus-visible:ring-offset-2 rounded-sm">About</a>
-        <a href="support.html" class="text-sm font-medium text-slate-600 transition-colors duration-280 ease-fbi-out hover:text-navy focus:outline-none focus-visible:ring-2 focus-visible:ring-faithGold focus-visible:ring-offset-2 rounded-sm">Support</a>
-        <a href="simulator.html" class="text-sm font-medium text-slate-600 transition-colors duration-280 ease-fbi-out hover:text-navy focus:outline-none focus-visible:ring-2 focus-visible:ring-faithGold focus-visible:ring-offset-2 rounded-sm">Simulator</a>
-        <a href="reflections.html" class="text-sm font-medium text-slate-600 transition-colors duration-280 ease-fbi-out hover:text-navy focus:outline-none focus-visible:ring-2 focus-visible:ring-faithGold focus-visible:ring-offset-2 rounded-sm">Reflections</a>
+        <a href="index.html" class="fbi-nav-link text-sm font-medium text-slate-600 transition-colors duration-280 ease-fbi-out hover:text-navy focus:outline-none focus-visible:ring-2 focus-visible:ring-faithGold focus-visible:ring-offset-2 rounded-sm">Home</a>
+        <a href="products.html" class="fbi-nav-link fbi-nav-link--active text-sm">Products</a>
+        <a href="compare.html" class="fbi-nav-link text-sm font-medium text-slate-600 transition-colors duration-280 ease-fbi-out hover:text-navy focus:outline-none focus-visible:ring-2 focus-visible:ring-faithGold focus-visible:ring-offset-2 rounded-sm">Compare</a>
+        <a href="about.html" class="fbi-nav-link text-sm font-medium text-slate-600 transition-colors duration-280 ease-fbi-out hover:text-navy focus:outline-none focus-visible:ring-2 focus-visible:ring-faithGold focus-visible:ring-offset-2 rounded-sm">About</a>
+        <a href="support.html" class="fbi-nav-link text-sm font-medium text-slate-600 transition-colors duration-280 ease-fbi-out hover:text-navy focus:outline-none focus-visible:ring-2 focus-visible:ring-faithGold focus-visible:ring-offset-2 rounded-sm">Support</a>
+        <a href="simulator.html" class="fbi-nav-link text-sm font-medium text-slate-600 transition-colors duration-280 ease-fbi-out hover:text-navy focus:outline-none focus-visible:ring-2 focus-visible:ring-faithGold focus-visible:ring-offset-2 rounded-sm">Simulator</a>
+        <a href="reflections.html" class="fbi-nav-link text-sm font-medium text-slate-600 transition-colors duration-280 ease-fbi-out hover:text-navy focus:outline-none focus-visible:ring-2 focus-visible:ring-faithGold focus-visible:ring-offset-2 rounded-sm">Reflections</a>
       </nav>
     </div>
     <div id="tw-menu-panel" class="hidden border-t border-slate-200 py-3 md:hidden">
@@ -138,7 +138,8 @@
       
       <div class="fbi-hero-mockup-wrap relative mx-auto w-full max-w-md lg:max-w-none">
         
-<div class="fbi-panel-ui fbi-glow-blue fbi-panel-ui--dark" role="img" aria-label="Concept interface preview, not a product screenshot">
+<div class="fbi-panel-ui fbi-glow-blue fbi-panel-ui--dark fbi-panel-ui--premium" role="img" aria-label="Concept interface preview, not a product screenshot">
+  <span class="fbi-panel-ui__ambient" aria-hidden="true"></span>
   <span class="fbi-panel-ui__badge">Concept preview</span>
   <div class="fbi-panel-ui__chrome">
     <span class="fbi-panel-ui__dot fbi-panel-ui__dot--gold" aria-hidden="true"></span>
@@ -146,7 +147,13 @@
     <span class="fbi-panel-ui__dot" aria-hidden="true"></span>
     <span class="ml-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-400">Sentinel</span>
   </div>
-  <div class="p-5 sm:p-6">
+  <div class="p-5 sm:p-6 relative">
+    
+    <div class="fbi-ui-telemetry" aria-hidden="true">
+      <span>local</span>
+      <span>vault ok</span>
+    </div>
+    
     
     <p class="text-[10px] font-bold uppercase tracking-[0.16em] text-slate-400">Timeline · Case overview</p>
     <div class="mt-3 flex items-center gap-2">
@@ -178,11 +185,11 @@
       
     </div>
     <div class="mt-4 grid grid-cols-2 gap-2 text-[10px]">
-      <div class="rounded-lg border border-slate-600/50 bg-slate-800/60 p-2.5">
+      <div class="fbi-ui-widget border-slate-600/50 !bg-slate-800/60">
         <p class="font-semibold text-slate-300">Evidence</p>
         <p class="mt-1 text-slate-400">142 items linked</p>
       </div>
-      <div class="rounded-lg border border-faithGold/30 bg-amber-950/30 p-2.5">
+      <div class="fbi-ui-widget border-faithGold/30 !bg-amber-950/30">
         <p class="font-semibold text-amber-200">Export packet</p>
         <p class="mt-1 text-slate-400">Ready for review</p>
       </div>
@@ -207,19 +214,46 @@
           <p class="mt-4 text-slate-600 leading-relaxed">The purpose is to organize information for <strong class="text-navy">human review</strong>, not to replace judgment, counsel, or professional responsibility.</p>
         </div>
         
-<div class="fbi-grid-bg rounded-3xl border border-slate-200/90 bg-gradient-to-br from-white via-slate-50/80 to-white p-8 sm:p-10 fbi-glow-blue">
-  <h3 class="text-center text-lg font-bold text-navy sm:text-xl">Evidence stays local</h3>
-  <p class="mx-auto mt-3 max-w-xl text-center text-sm leading-relaxed text-slate-600">Ingest and structure on your machine. Steward assists with timelines and patterns from material you supplied.</p>
-  <div class="fbi-tech-flow mt-8" role="img" aria-label="Local-first data flow: your device, encrypted vault, rules-based Steward, optional sync">
-    <div class="fbi-tech-flow__node">Your device</div>
-    <span class="fbi-tech-flow__arrow" aria-hidden="true"></span>
-    <div class="fbi-tech-flow__node fbi-tech-flow__node--accent">Encrypted vault</div>
-    <span class="fbi-tech-flow__arrow" aria-hidden="true"></span>
-    <div class="fbi-tech-flow__node fbi-tech-flow__node--accent">Steward<br /><span class="font-normal text-slate-500">Rules-based</span></div>
-    <span class="fbi-tech-flow__arrow" aria-hidden="true"></span>
-    <div class="fbi-tech-flow__node">Optional sync<br /><span class="font-normal text-slate-500">You choose</span></div>
+
+<div class="fbi-flow-visual fbi-flow-visual--light fbi-grid-bg" role="img" aria-label="Data flow: your device, encrypted local vault, Steward rules, optional sync you control">
+  
+  <h3 class="fbi-flow-visual__title">Evidence stays local</h3>
+  
+  
+  <p class="fbi-flow-visual__lead">Ingest and structure on your machine. Steward assists with timelines and patterns from material you supplied.</p>
+  
+  <div class="fbi-flow-visual__track">
+    <div class="fbi-flow-visual__step">
+      <div class="fbi-flow-visual__icon fbi-flow-visual__icon--device" aria-hidden="true"></div>
+      <p class="fbi-flow-visual__label">Your device</p>
+      <p class="fbi-flow-visual__hint">Native storage</p>
+    </div>
+    <span class="fbi-flow-visual__connector" aria-hidden="true"><span class="fbi-flow-visual__connector-line"></span></span>
+    <div class="fbi-flow-visual__step fbi-flow-visual__step--accent">
+      <div class="fbi-flow-visual__icon fbi-flow-visual__icon--vault" aria-hidden="true"></div>
+      <p class="fbi-flow-visual__label">Local vault</p>
+      <p class="fbi-flow-visual__hint">Encrypted where it matters</p>
+    </div>
+    <span class="fbi-flow-visual__connector" aria-hidden="true"><span class="fbi-flow-visual__connector-line"></span></span>
+    <div class="fbi-flow-visual__step fbi-flow-visual__step--accent">
+      <div class="fbi-flow-visual__icon fbi-flow-visual__icon--steward" aria-hidden="true"></div>
+      <p class="fbi-flow-visual__label">Steward</p>
+      <p class="fbi-flow-visual__hint">Rules-based layer</p>
+    </div>
+    <span class="fbi-flow-visual__connector fbi-flow-visual__connector--dashed" aria-hidden="true"><span class="fbi-flow-visual__connector-line"></span></span>
+    <div class="fbi-flow-visual__step">
+      <div class="fbi-flow-visual__icon fbi-flow-visual__icon--sync" aria-hidden="true"></div>
+      <p class="fbi-flow-visual__label">Optional sync</p>
+      <p class="fbi-flow-visual__hint">You choose</p>
+    </div>
+  </div>
+  <div class="fbi-flow-visual__trust" aria-hidden="true">
+    <span class="fbi-flow-visual__trust-item"><span class="fbi-flow-visual__trust-dot"></span>No telemetry feeds</span>
+    <span class="fbi-flow-visual__trust-item"><span class="fbi-flow-visual__trust-dot fbi-flow-visual__trust-dot--gold"></span>Traceable inputs</span>
+    <span class="fbi-flow-visual__trust-item"><span class="fbi-flow-visual__trust-dot"></span>Explicit boundaries</span>
   </div>
 </div>
+
 
       </div>
     </div>
@@ -333,29 +367,38 @@
 </section>
 
 </main>
-<footer class="site-footer mt-auto bg-slate-50/95">
-  <div class="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-16 lg:px-8">
-    <div class="flex flex-col gap-10 sm:gap-12 lg:flex-row lg:items-start lg:justify-between">
+<footer class="site-footer fbi-footer-premium mt-auto">
+  <div class="fbi-footer-premium__inner mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
+    <div class="grid gap-12 lg:grid-cols-[1.2fr_1fr_1fr] lg:gap-16">
       <div class="max-w-md">
         <div class="flex items-center gap-3 text-navy">
-          <img src="./assets/FBI_Transparent.png" alt="" width="48" height="48" class="h-12 w-12 shrink-0 object-contain" aria-hidden="true" />
+          <img src="./assets/FBI_Transparent.png" alt="" width="52" height="52" class="h-12 w-12 shrink-0 object-contain drop-shadow-sm" aria-hidden="true" />
           <div>
-            <p class="text-sm font-bold tracking-tight">Faith Based Innovations</p>
-            <p class="mt-1 text-xs leading-relaxed text-slate-600">Thoughtful desktop software, privacy-minded, without engagement gimmicks.</p>
+            <p class="text-base font-bold tracking-tight">Faith Based Innovations</p>
+            <p class="mt-1.5 text-sm leading-relaxed text-slate-600">Thoughtful desktop software, privacy-minded, without engagement gimmicks.</p>
           </div>
         </div>
       </div>
-      <nav class="flex flex-col gap-3 sm:items-end lg:text-right" aria-label="Policies and legal">
-        <p class="text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-400">Policies</p>
-        <div class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-slate-600">
-          <a href="security.html" class="transition-colors duration-280 ease-fbi-out hover:text-navy focus:outline-none focus-visible:text-navy focus-visible:underline">Security</a>
-          <a href="privacy.html" class="transition-colors duration-280 ease-fbi-out hover:text-navy focus:outline-none focus-visible:text-navy focus-visible:underline">Privacy</a>
-          <a href="terms.html" class="transition-colors duration-280 ease-fbi-out hover:text-navy focus:outline-none focus-visible:text-navy focus-visible:underline">Terms</a>
-          <a href="support.html" class="transition-colors duration-280 ease-fbi-out hover:text-navy focus:outline-none focus-visible:text-navy focus-visible:underline">Support</a>
+      <nav class="fbi-footer-nav-group" aria-label="Explore">
+        <h3>Explore</h3>
+        <div class="mt-4 flex flex-col gap-1">
+          <a href="index.html">Home</a>
+          <a href="products.html">Products</a>
+          <a href="compare.html">Compare</a>
+          <a href="about.html">About</a>
+        </div>
+      </nav>
+      <nav class="fbi-footer-nav-group" aria-label="Policies and support">
+        <h3>Policies</h3>
+        <div class="mt-4 flex flex-col gap-1">
+          <a href="security.html">Security</a>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="support.html">Support</a>
         </div>
       </nav>
     </div>
-    <div class="mt-10 border-t border-slate-200/60 pt-8 text-xs leading-relaxed text-slate-500">
+    <div class="mt-14 border-t border-slate-300/50 pt-8 text-xs leading-relaxed text-slate-500">
       <p>© 2026 Faith Based Innovations. Sentinel, CFO, Eden, and Ledger are product names of Faith Based Innovations.</p>
       <p class="mt-3 text-[11px] text-slate-400">
         Built by <a href="https://tristanmaratos.com" target="_blank" rel="noopener noreferrer" class="font-medium text-slate-600 transition-colors duration-280 ease-fbi-out hover:text-navy focus:outline-none focus-visible:text-navy focus-visible:underline">Tristan Maratos</a>
