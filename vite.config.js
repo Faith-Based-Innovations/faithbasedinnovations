@@ -91,6 +91,9 @@ export default defineConfig({
         assetFileNames: (info) => {
           const n = info.names?.[0] ?? info.name ?? "";
           if (typeof n === "string" && n.endsWith(".css")) return "assets/main.css";
+          if (typeof n === "string" && /^(machine-first|product-boundaries|traceable-intelligence)/.test(n)) {
+            return "assets/philosophy/[name][extname]";
+          }
           if (typeof n === "string" && /^philosophy-/.test(n)) {
             return "assets/images/[name][extname]";
           }
