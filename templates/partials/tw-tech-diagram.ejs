@@ -1,0 +1,17 @@
+<%
+  var dTitle = typeof diagramTitle !== "undefined" ? diagramTitle : "Your data stays yours";
+  var dLead = typeof diagramLead !== "undefined" ? diagramLead : "";
+%>
+<div class="fbi-grid-bg rounded-3xl border border-slate-200/90 bg-gradient-to-br from-white via-slate-50/80 to-white p-8 sm:p-10 fbi-glow-blue">
+  <h3 class="text-center text-lg font-bold text-navy sm:text-xl"><%= dTitle %></h3>
+  <% if (dLead) { %><p class="mx-auto mt-3 max-w-xl text-center text-sm leading-relaxed text-slate-600"><%= dLead %></p><% } %>
+  <div class="fbi-tech-flow mt-8" role="img" aria-label="Local-first data flow: your device, encrypted vault, rules-based Steward, optional sync">
+    <div class="fbi-tech-flow__node">Your device</div>
+    <span class="fbi-tech-flow__arrow" aria-hidden="true"></span>
+    <div class="fbi-tech-flow__node fbi-tech-flow__node--accent">Encrypted vault</div>
+    <span class="fbi-tech-flow__arrow" aria-hidden="true"></span>
+    <div class="fbi-tech-flow__node fbi-tech-flow__node--accent"><%= SITE.steward.name %><br /><span class="font-normal text-slate-500">Rules-based</span></div>
+    <span class="fbi-tech-flow__arrow" aria-hidden="true"></span>
+    <div class="fbi-tech-flow__node">Optional sync<br /><span class="font-normal text-slate-500">You choose</span></div>
+  </div>
+</div>

@@ -50,7 +50,7 @@ const pages = [
   { name: "product-cfo", out: "product-cfo.html", data: { title: `CFO | ${site.SITE.legalName}`, description: site.PRODUCTS.cfo.subhead, activeNav: "products", activeProduct: "cfo", pageClass: "product product-cfo" } },
   { name: "product-eden", out: "product-eden.html", data: { title: `Eden | ${site.SITE.legalName}`, description: site.PRODUCTS.eden.subhead, activeNav: "products", activeProduct: "eden", pageClass: "product product-eden" } },
   { name: "product-ledger", out: "product-ledger.html", data: { title: `Ledger | ${site.SITE.legalName}`, description: site.PRODUCTS.ledger.subhead, activeNav: "products", activeProduct: "ledger", pageClass: "product product-ledger" } },
-  { name: "compare", out: "compare.html", data: { title: `Compare | ${site.SITE.legalName}`, description: "Sentinel, CFO, Eden, and Ledger—distinct scope and Steward roles.", activeNav: "compare", pageClass: "compare" } },
+  { name: "compare", out: "compare.html", data: { title: `Compare | ${site.SITE.legalName}`, description: "Sentinel, CFO, Eden, and Ledger: distinct scope and Steward roles.", activeNav: "compare", pageClass: "compare" } },
   { name: "support", out: "support.html", data: { title: `Support | ${site.SITE.legalName}`, description: "Documentation, policies, and help.", activeNav: "support", pageClass: "support" } },
   { name: "simulator", out: "simulator.html", data: { title: `Simulator | ${site.SITE.legalName}`, description: "Simulator.", activeNav: "simulator", pageClass: "simulator" } },
   { name: "reflections", out: "reflections.html", data: { title: `Reflections | ${site.SITE.legalName}`, description: "Reflections.", activeNav: "reflections", pageClass: "reflections" } },

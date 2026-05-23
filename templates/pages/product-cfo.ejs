@@ -2,65 +2,73 @@
 <body class="fbi-site flex min-h-full flex-col bg-slate-50 text-slate-800 antialiased">
 <%- include('../partials/tw-header') -%>
 <main class="flex-1">
-  <section class="bg-navy py-14 text-white sm:py-16">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-wrap items-center gap-3">
-        <span class="rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-amber-200"><%= SITE.availability.badge %></span>
-        <span class="text-xs font-bold uppercase tracking-widest text-amber-200/80"><%= PRODUCTS.cfo.tag %></span>
-      </div>
-      <h1 class="mt-4 text-4xl font-extrabold tracking-tight sm:text-5xl"><%= PRODUCTS.cfo.headline %></h1>
-      <p class="mt-5 max-w-3xl text-lg text-slate-200 leading-relaxed"><%= PRODUCTS.cfo.subhead %></p>
-      <div class="mt-8 flex flex-wrap gap-3">
-        <a href="#how-cfo-compares" class="inline-flex rounded-lg bg-faithGold px-5 py-2.5 text-sm font-semibold text-white hover:bg-amber-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-300 focus-visible:ring-offset-2 focus-visible:ring-offset-navy">How CFO compares</a>
-        <a href="compare.html" class="inline-flex rounded-lg border border-white/25 px-5 py-2.5 text-sm font-semibold text-white hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50">Compare all products</a>
-        <a href="products.html" class="inline-flex rounded-lg border border-white/25 px-5 py-2.5 text-sm font-semibold text-white hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50">All products</a>
+  <%- include('../partials/tw-hero-premium', {
+    heroBadge: PRODUCTS.cfo.tag,
+    heroStatus: SITE.availability.badge,
+    heroTitle: PRODUCTS.cfo.headline,
+    heroLead: PRODUCTS.cfo.subhead,
+    heroSplit: true,
+    heroMockup: 'cfo',
+    heroActionsHtml: '<a href="#how-cfo-compares" class="inline-flex rounded-full bg-faithGold px-5 py-2.5 text-sm font-semibold text-white hover:bg-amber-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-300 focus-visible:ring-offset-2 focus-visible:ring-offset-navy">How CFO compares</a><a href="compare.html" class="inline-flex rounded-full border border-white/25 px-5 py-2.5 text-sm font-semibold text-white hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50">Compare all products</a><a href="products.html" class="inline-flex rounded-full border border-white/25 px-5 py-2.5 text-sm font-semibold text-white hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50">All products</a>'
+  }) -%>
+
+  <section class="fbi-feature-band fbi-grid-bg">
+    <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+      <div class="fbi-split-section">
+        <div class="max-w-xl">
+          <p class="fbi-kicker text-faithGold">Financial OS</p>
+          <h2 class="mt-3 text-3xl font-bold tracking-tight text-navy sm:text-4xl">A financial operating system, not a dashboard toy</h2>
+          <p class="mt-5 text-lg leading-relaxed text-slate-600">CFO is built for money in motion: structure, planning, and decisions grounded in <em>your</em> data. It is not a generic tracker or a thin budgeting app. It helps you interpret, plan, and act from real inputs that roll up into one coherent picture.</p>
+          <blockquote class="fbi-statement mt-8"><strong class="text-navy"><%= SITE.steward.name %></strong> inside CFO reads the records you add, highlights patterns and risks, and helps with projections and runway. Answers follow the same rules every time for the same inputs. Nothing is invented to fill gaps.</blockquote>
+        </div>
+        <%- include('../partials/tw-tech-diagram', {
+          diagramTitle: 'Local-first money work',
+          diagramLead: 'Structured data on your machine, rules-based guidance, optional bank connection only when you choose it.'
+        }) %>
       </div>
     </div>
   </section>
 
-  <section class="mx-auto max-w-3xl px-4 py-20 sm:px-6 lg:px-8">
-    <h2 class="text-2xl font-bold text-navy">A financial operating system—not a dashboard toy</h2>
-    <p class="mt-4 text-slate-600 leading-relaxed">CFO is built for money in motion: structure, planning, and decisions grounded in <em>your</em> data. It is not a generic tracker or a thin budgeting app—it helps you interpret, plan, and act from real inputs. Everything rolls up into one coherent picture instead of disconnected categories.</p>
-    <p class="mt-4 text-slate-600 leading-relaxed"><strong class="text-navy"><%= SITE.steward.name %></strong> inside CFO reads the records you add, highlights patterns and risks, and helps with projections and runway. Answers follow the same rules every time for the same inputs—nothing is invented to fill gaps.</p>
-  </section>
-
-  <section id="cfo-features" class="scroll-mt-28 border-y border-slate-200 bg-white py-16">
-    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-      <h2 class="text-center text-2xl font-bold text-navy">What CFO handles</h2>
-      <ul class="mt-8 space-y-3 text-slate-600">
-        <li class="flex gap-3"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-faithGold"></span>Budgeting and financial planning</li>
-        <li class="flex gap-3"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-faithGold"></span>Forecasting and cash-flow clarity</li>
-        <li class="flex gap-3"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-faithGold"></span>Calendar-based financial awareness for upcoming and recurring obligations</li>
-        <li class="flex gap-3"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-faithGold"></span>Predictive scheduling of expenses from patterns or user-defined entries</li>
-        <li class="flex gap-3"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-faithGold"></span>Manual financial calendar control when you want full input authority</li>
-        <li class="flex gap-3"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-faithGold"></span>Structured financial database foundation—accounts, transactions, documents, and relationships kept in one coherent model</li>
-        <li class="flex gap-3"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-faithGold"></span>OCR ingestion for statements and documents</li>
-        <li class="flex gap-3"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-faithGold"></span>Optional Plaid integration—explicit and optional, never a silent default</li>
-        <li class="flex gap-3"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-faithGold"></span>Structured financial intelligence and advanced organization</li>
+  <section id="cfo-features" class="scroll-mt-28 border-y border-slate-200 bg-white py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-3xl text-center">
+        <p class="fbi-kicker text-slate-500">Capabilities</p>
+        <h2 class="mt-3 text-3xl font-bold text-navy sm:text-4xl">What CFO handles</h2>
+      </div>
+      <ul class="mx-auto mt-12 grid max-w-4xl gap-4 sm:grid-cols-2">
+        <li class="fbi-card fbi-card--flat flex gap-3 rounded-2xl px-4 py-3.5 text-sm text-slate-700"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-faithGold"></span>Budgeting and financial planning</li>
+        <li class="fbi-card fbi-card--flat flex gap-3 rounded-2xl px-4 py-3.5 text-sm text-slate-700"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-faithGold"></span>Forecasting and cash-flow clarity</li>
+        <li class="fbi-card fbi-card--flat flex gap-3 rounded-2xl px-4 py-3.5 text-sm text-slate-700"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-faithGold"></span>Calendar-based awareness for upcoming and recurring obligations</li>
+        <li class="fbi-card fbi-card--flat flex gap-3 rounded-2xl px-4 py-3.5 text-sm text-slate-700"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-faithGold"></span>Predictive scheduling from patterns or user-defined entries</li>
+        <li class="fbi-card fbi-card--flat flex gap-3 rounded-2xl px-4 py-3.5 text-sm text-slate-700"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-faithGold"></span>Manual calendar control when you want full input authority</li>
+        <li class="fbi-card fbi-card--flat flex gap-3 rounded-2xl px-4 py-3.5 text-sm text-slate-700"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-faithGold"></span>Structured financial database: accounts, transactions, documents, relationships</li>
+        <li class="fbi-card fbi-card--flat flex gap-3 rounded-2xl px-4 py-3.5 text-sm text-slate-700"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-faithGold"></span>OCR ingestion for statements and documents</li>
+        <li class="fbi-card fbi-card--flat flex gap-3 rounded-2xl px-4 py-3.5 text-sm text-slate-700"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-faithGold"></span>Optional Plaid integration: explicit and optional, never a silent default</li>
       </ul>
-      <p class="mt-8 text-slate-600 leading-relaxed">CFO includes a financial calendar that tracks recurring and upcoming expenses, can reflect patterns from your activity, and supports fully manual entry when you prefer direct control. It is there to give forward visibility into obligations—not as a separate gimmick, but as part of how the system keeps time and money aligned.</p>
-      <p class="mt-8 text-center text-sm text-slate-500">Local-first and privacy-first. Your financial data stays oriented to your machine and your choices.</p>
+      <p class="mx-auto mt-10 max-w-3xl text-center text-slate-600 leading-relaxed">CFO includes a financial calendar that tracks recurring and upcoming expenses, can reflect patterns from your activity, and supports fully manual entry when you prefer direct control. Forward visibility into obligations is part of how the system keeps time and money aligned.</p>
+      <p class="mt-6 text-center text-sm text-slate-500">Local-first and privacy-first. Your financial data stays oriented to your machine and your choices.</p>
     </div>
   </section>
 
   <%- include('../partials/cfo-database-foundation') %>
 
-  <section class="mx-auto max-w-3xl px-4 py-20 sm:px-6 lg:px-8">
-    <h2 class="text-2xl font-bold text-navy"><%= SITE.steward.name %> without guesswork</h2>
-    <p class="mt-4 text-slate-600 leading-relaxed">Steward is a controlled, rules-based layer—not vague automation. In CFO, projections and signals trace back to sources and policy.</p>
-    <p class="mt-4 text-slate-600 leading-relaxed">No fabricated balances or filler numbers. Where information is missing, CFO does not pretend otherwise.</p>
-  </section>
-
-  <section class="mx-auto max-w-3xl px-4 pb-16 sm:px-6 sm:pb-20 lg:px-8" aria-label="Structured financial model">
-    <p class="text-slate-600 leading-relaxed">Under the interface, CFO relies on a structured internal financial model that ties accounts, transactions, recurring events, and documents together. It is part of the standard experience for every user, supports consistent tracking and planning, and is not presented as a developer-facing tool.</p>
+  <section class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+    <div class="fbi-split-section">
+      <div>
+        <h2 class="text-2xl font-bold text-navy sm:text-3xl"><%= SITE.steward.name %> without guesswork</h2>
+        <p class="mt-4 text-slate-600 leading-relaxed">Steward is a controlled, rules-based layer, not vague automation. In CFO, projections and signals trace back to sources and policy.</p>
+        <p class="mt-4 text-slate-600 leading-relaxed">No fabricated balances or filler numbers. Where information is missing, CFO does not pretend otherwise.</p>
+      </div>
+      <p class="fbi-statement text-slate-600 leading-relaxed">Under the interface, CFO relies on a structured internal financial model that ties accounts, transactions, recurring events, and documents together. It supports consistent tracking and planning and is not presented as a developer-facing tool.</p>
+    </div>
   </section>
 
   <%- include('../partials/cfo-comparison-section') %>
 
-  <section class="bg-navy py-14 text-white">
+  <section class="fbi-feature-band fbi-feature-band--navy py-16">
     <div class="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
-      <h2 class="text-2xl font-bold">Same ecosystem, different jobs</h2>
-      <p class="mt-4 text-slate-200 leading-relaxed">CFO is the flagship financial title. <strong class="text-white">Sentinel</strong> is evidence intelligence. <strong class="text-white">Eden</strong> is research software. <strong class="text-white">Ledger</strong> is identity and document execution. Separate products—shared discipline and <%= SITE.steward.name %>.</p>
+      <h2 class="text-2xl font-bold text-white sm:text-3xl">Same ecosystem, different jobs</h2>
+      <p class="mt-4 text-slate-200 leading-relaxed">CFO is the flagship financial title. <strong class="text-white">Sentinel</strong> is evidence intelligence. <strong class="text-white">Eden</strong> is research software. <strong class="text-white">Ledger</strong> is identity and document execution. Separate products, shared discipline and <%= SITE.steward.name %>.</p>
       <div class="mt-8 flex flex-wrap justify-center gap-3">
         <a href="product-sentinel.html" class="rounded-lg border border-white/25 px-4 py-2 text-sm font-semibold hover:bg-white/10">Sentinel</a>
         <a href="product-eden.html" class="rounded-lg border border-white/25 px-4 py-2 text-sm font-semibold hover:bg-white/10">Eden</a>
