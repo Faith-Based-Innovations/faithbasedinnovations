@@ -26,6 +26,172 @@ export const SITE = {
       "Steward is connective tissue, not a monolith. The same local, user-trainable guidance pattern runs inside Sentinel, CFO, Eden, and Ledger: organize what you entered, surface relationships, adapt to workflows you approve, and pause for permission before anything sensitive.",
     trainabilityLine:
       "Steward is designed to become more useful as the user teaches it how they work.",
+    cinemaKicker: "Operational command layer",
+    cinemaHeadline: "Software that adapts to you without surrendering you.",
+    cinemaLead:
+      "Steward sits between you and separate focused applications. It reads what you structured, applies your rules and memory, routes work with permission, and stays on your machine.",
+    cinemaTagline: "Separate apps. Shared Steward logic.",
+    cinemaWorkflows: [
+      {
+        id: "cfo",
+        product: "CFO",
+        tagline: "Finance command",
+        request: "Track my missing Amazon refund.",
+        processing: ["rules", "memory", "permissions"],
+        responses: [
+          "Receipt matched to purchase history",
+          "Vault lookup for merchant and refund rules",
+          "Dashboard surfaces missing refund alert",
+          "Steward asks before any account action"
+        ],
+        routeNote: "Routes to CFO only. Finance data stays in CFO."
+      },
+      {
+        id: "sentinel",
+        product: "Sentinel",
+        tagline: "Evidence workspace",
+        request: "Organize all evidence related to medical records.",
+        processing: ["rules", "memory", "permissions"],
+        responses: [
+          "Evidence nodes grouped by matter",
+          "Timeline assembled from dated items",
+          "Case organization updated locally",
+          "Document links prepared for your review"
+        ],
+        routeNote: "Routes to Sentinel only. Case data stays in Sentinel."
+      },
+      {
+        id: "eden",
+        product: "Eden",
+        tagline: "Research workspace",
+        request: "Organize this research into topics.",
+        processing: ["rules", "memory", "permissions"],
+        responses: [
+          "Sources clustered by theme you approve",
+          "Knowledge graph links related notes",
+          "Research nodes categorized on device",
+          "Suggestions wait for your confirmation"
+        ],
+        routeNote: "Routes to Eden only. Research stays in Eden."
+      },
+      {
+        id: "ledger",
+        product: "Ledger",
+        tagline: "Identity vault",
+        request: "Fill my recurring information automatically.",
+        processing: ["rules", "memory", "permissions"],
+        responses: [
+          "Vault fields matched to the form",
+          "Templates applied from saved profiles",
+          "Autofill preview before paste",
+          "Permission prompt for each sensitive field"
+        ],
+        routeNote: "Routes to Ledger only. Vault data stays in Ledger."
+      }
+    ],
+
+    flowAriaLabel:
+      "Flow diagram: user request to Steward processing nodes, routes to CFO Sentinel Eden and Ledger, grounded in local vault rules memory and tools",
+    exampleRequests: [
+      "Track refunds from Amazon.",
+      "How much pressure will next month have?",
+      "Compile my case notes.",
+      "Organize this research."
+    ],
+    processNodes: [
+      { id: "rules", label: "Rules" },
+      { id: "memory", label: "Memory" },
+      { id: "permissions", label: "Permissions" },
+      { id: "vault", label: "Vault" },
+      { id: "context", label: "Context" },
+      { id: "tools", label: "Tools" }
+    ],
+    responseItems: [
+      "Suggested actions tied to your records",
+      "Permission prompts before sensitive steps",
+      "Local indicators you can audit and reset"
+    ],
+    cinemaChips: [
+      "user-trainable",
+      "permission-aware",
+      "rules-based",
+      "local-first",
+      "modular",
+      "deterministic where needed"
+    ],
+    foundationPillars: [
+      "Local rules",
+      "Memory",
+      "Knowledge",
+      "Permissions",
+      "Tools",
+      "Audit",
+      "User training"
+    ],
+    trainabilityKicker: "Trainability",
+    trainabilityHeadline: "More useful as you teach it how you work",
+    trainabilityLead:
+      "Steward improves from categorization you approve, merchant patterns you define, workflows you edit, and conversations that stay on your machine. Not from opaque provider training.",
+    trainabilityFeatures: [
+      {
+        title: "User-trainable",
+        body: "Corrections, naming choices, and approved actions shape how Steward assists inside each product."
+      },
+      {
+        title: "Locally adaptive",
+        body: "Patterns and preferences accumulate in your environment, not in a shared remote model."
+      },
+      {
+        title: "Rule-aware",
+        body: "Editable rules gate what Steward may suggest, surface, or prepare before you confirm."
+      },
+      {
+        title: "Memory-aware",
+        body: "Remembers organization you chose. Memory can be reviewed and reset when you need a clean slate."
+      },
+      {
+        title: "Merchant and category patterns",
+        body: "Finance and operations workflows can reflect how you actually label and group activity."
+      },
+      {
+        title: "Approved workflows",
+        body: "Repeatable sequences you trust become part of how Steward routes work across apps."
+      }
+    ],
+    trainabilityStatements: [
+      "You teach Steward how you work.",
+      "Training belongs to the user.",
+      "Rules can be edited.",
+      "Memory can be reset.",
+      "Your workflows stay yours."
+    ],
+    compareKicker: "Design contrast",
+    compareHeadline: "Cloud convenience is not the same as local control",
+    compareLead:
+      "A professional engineering comparison. Steward is built for operators who need explainable, resettable, permission-gated guidance on their own hardware.",
+    compareCloud: {
+      title: "Typical cloud assistant pattern",
+      lead: "Useful for quick answers. Harder to own, audit, or bound to your records.",
+      items: [
+        "Opaque reasoning and vendor-controlled updates",
+        "Provider-controlled infrastructure and retention",
+        "Shared training signals across many tenants",
+        "Unpredictable outputs on sensitive work",
+        "Hard to reset behavior to a known baseline"
+      ]
+    },
+    compareSteward: {
+      title: "Steward on your machine",
+      lead: "Modular guidance across separate apps, tied to data you entered and rules you set.",
+      items: [
+        "Local processing oriented to your structured records",
+        "Modular surfaces per product with shared operational logic",
+        "Resettable memory and editable rules",
+        "User-owned training from corrections you approve",
+        "Permission-gated actions with deterministic paths where needed",
+        "Explainable suggestions you can review before acting"
+      ]
+    },
     traits: [
       "User-trainable local guidance layer inside each product",
       "Learns from your corrections, preferences, and approved actions",
@@ -86,7 +252,7 @@ export const PRODUCTS = {
     id: "sentinel",
     name: "Sentinel",
     path: "product-sentinel.html",
-    tag: "Flagship · Evidence intelligence",
+    tag: "Flagship Â· Evidence intelligence",
     statusBadge: "Advanced internal alpha",
     headline: "Evidence organization for professional review.",
     cardBlurb:
@@ -105,7 +271,7 @@ export const PRODUCTS = {
     id: "cfo",
     name: "CFO",
     path: "product-cfo.html",
-    tag: "Flagship · Finance",
+    tag: "Flagship Â· Finance",
     statusBadge: null,
     headline: "Focused financial command center.",
     cardBlurb:

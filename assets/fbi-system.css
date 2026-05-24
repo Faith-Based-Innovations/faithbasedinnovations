@@ -1681,13 +1681,23 @@ body.fbi-site .fbi-nav-link--active {
   .fbi-wow__node--eden { order: 3; }
   .fbi-wow__node--ledger { order: 4; }
 
+  .fbi-wow__foundation {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    transform: none;
+    order: 5;
+    margin-top: 0.5rem;
+    max-width: 100%;
+  }
+
   .fbi-wow__vault-flow,
   .fbi-wow__principle-flow {
     position: relative;
     left: auto;
     bottom: auto;
     transform: none;
-    order: 5;
+    order: 6;
     margin-top: 0.5rem;
   }
 
@@ -1696,7 +1706,7 @@ body.fbi-site .fbi-nav-link--active {
     bottom: auto;
     left: auto;
     transform: none;
-    order: 6;
+    order: 7;
     margin-top: 0.5rem;
   }
 
@@ -1716,5 +1726,674 @@ html.fbi-reduced-motion .fbi-flow-visual__connector-line {
 html.fbi-reduced-motion .fbi-card-depth > *:hover,
 html.fbi-reduced-motion .fbi-wow__node:hover .fbi-wow__node-panel,
 html.fbi-reduced-motion .fbi-philosophy-item:hover {
+  transform: none;
+}
+
+/* Statement mega bands */
+.fbi-statement-band {
+  position: relative;
+  overflow: hidden;
+}
+
+.fbi-statement-band--light {
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 50%, #ffffff 100%);
+}
+
+.fbi-statement-band--gold {
+  background: linear-gradient(165deg, #fffbeb 0%, #fef3c7 40%, #fffbeb 100%);
+}
+
+.fbi-statement-band--dark {
+  background: linear-gradient(168deg, #0f172a 0%, #1e3a5f 50%, #0f172a 100%);
+}
+
+.fbi-statement-band__texture {
+  opacity: 0.35;
+  background-image:
+    linear-gradient(to right, rgba(15, 23, 42, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 20%, transparent 75%);
+}
+
+.fbi-statement-band--dark .fbi-statement-band__texture {
+  opacity: 0.15;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+}
+
+.fbi-statement-band__glow {
+  background: radial-gradient(ellipse 60% 50% at 50% 50%, rgba(217, 119, 6, 0.08), transparent 65%);
+}
+
+.fbi-statement-band--dark .fbi-statement-band__glow {
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 40%, rgba(217, 119, 6, 0.12), transparent 55%),
+    radial-gradient(circle at 20% 80%, rgba(30, 58, 95, 0.4), transparent 45%);
+}
+
+.fbi-statement-mega--band {
+  position: relative;
+  z-index: 1;
+}
+
+.fbi-statement--center {
+  border-left: none;
+  border-radius: 1rem;
+  text-align: center;
+}
+
+/* Steward cinematic experience */
+.fbi-steward-cinema {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(172deg, #0b1220 0%, #1a3354 38%, #0f172a 100%);
+  color: #e2e8f0;
+}
+
+.fbi-steward-cinema__grid-texture {
+  opacity: 0.14;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image: radial-gradient(ellipse 95% 85% at 50% 40%, black 10%, transparent 78%);
+}
+
+.fbi-steward-cinema__glow {
+  background:
+    radial-gradient(ellipse 65% 45% at 50% 25%, rgba(217, 119, 6, 0.16), transparent 58%),
+    radial-gradient(circle at 85% 70%, rgba(56, 189, 248, 0.08), transparent 40%);
+}
+
+.fbi-steward-cinema__float {
+  position: absolute;
+  border-radius: 1rem;
+  border: 1px solid rgba(148, 163, 184, 0.12);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.04), rgba(15, 23, 42, 0.35));
+  backdrop-filter: blur(10px);
+  box-shadow: 0 24px 60px -30px rgba(0, 0, 0, 0.5);
+  animation: fbi-float-drift 14s ease-in-out infinite alternate;
+}
+
+.fbi-steward-cinema__float--a {
+  width: 10rem;
+  height: 5.5rem;
+  top: 12%;
+  left: 4%;
+  opacity: 0.45;
+}
+
+.fbi-steward-cinema__float--b {
+  width: 8rem;
+  height: 4.5rem;
+  bottom: 18%;
+  right: 6%;
+  opacity: 0.35;
+  animation-delay: -5s;
+}
+
+@keyframes fbi-float-drift {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(8px, -12px, 0); }
+}
+
+.fbi-steward-cinema__telemetry {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.fbi-steward-cinema__tel {
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #94a3b8;
+  padding: 0.4rem 0.75rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(148, 163, 184, 0.28);
+  background: rgba(15, 23, 42, 0.55);
+}
+
+/* Steward interactive flow */
+.fbi-steward-flow {
+  position: relative;
+  min-height: 28rem;
+  max-width: 56rem;
+  margin-inline: auto;
+}
+
+.fbi-steward-flow__lines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.fbi-steward-flow__path {
+  fill: none;
+  stroke-width: 1.5;
+  stroke-dasharray: 5 9;
+  opacity: 0.55;
+  transition: opacity var(--fbi-duration-base) var(--fbi-ease-motion);
+}
+
+.fbi-steward-flow__path--user { stroke: url(#fbi-flow-grad-gold); animation: fbi-line-flow 3.8s linear infinite; }
+.fbi-steward-flow__path--vault { stroke: url(#fbi-flow-grad-gold); animation: fbi-line-flow 4.2s linear infinite reverse; }
+.fbi-steward-flow__path--cfo,
+.fbi-steward-flow__path--sentinel,
+.fbi-steward-flow__path--eden,
+.fbi-steward-flow__path--ledger { stroke: url(#fbi-flow-grad-blue); }
+.fbi-steward-flow__path--cfo { animation: fbi-line-flow 4s linear infinite; }
+.fbi-steward-flow__path--sentinel { animation: fbi-line-flow 4.4s linear infinite reverse; }
+.fbi-steward-flow__path--eden { animation: fbi-line-flow 4.1s linear infinite; }
+.fbi-steward-flow__path--ledger { animation: fbi-line-flow 4.6s linear infinite reverse; }
+
+.fbi-steward-flow__pulse {
+  fill: none;
+  stroke: rgba(217, 119, 6, 0.22);
+  stroke-width: 1;
+  animation: fbi-pulse-ring 3.2s ease-out infinite;
+}
+
+.fbi-steward-flow__panel {
+  border-radius: 1rem;
+  border: 1px solid rgba(148, 163, 184, 0.28);
+  background: linear-gradient(155deg, rgba(30, 41, 59, 0.92), rgba(15, 23, 42, 0.96));
+  padding: 0.85rem 1rem;
+  backdrop-filter: blur(12px);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.05) inset,
+    0 20px 48px -24px rgba(0, 0, 0, 0.55);
+  transition:
+    border-color var(--fbi-duration-base) var(--fbi-ease-motion),
+    box-shadow var(--fbi-duration-base) var(--fbi-ease-motion),
+    transform var(--fbi-duration-base) var(--fbi-ease-motion);
+}
+
+.fbi-steward-flow__chip {
+  display: inline-block;
+  font-size: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #94a3b8;
+}
+
+.fbi-steward-flow__chip--gold { color: #fbbf24; }
+.fbi-steward-flow__chip--muted { color: #64748b; }
+
+.fbi-steward-flow__user {
+  position: absolute;
+  left: 2%;
+  top: 4%;
+  width: 11.5rem;
+  z-index: 2;
+}
+
+.fbi-steward-flow__requests {
+  position: relative;
+  min-height: 3.25rem;
+  margin-top: 0.5rem;
+}
+
+.fbi-steward-flow__request {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  line-height: 1.45;
+  color: #cbd5e1;
+  opacity: 0;
+  transform: translate3d(0, 6px, 0);
+  transition:
+    opacity 0.5s var(--fbi-ease-motion),
+    transform 0.5s var(--fbi-ease-motion);
+}
+
+.fbi-steward-flow__request--active {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.fbi-steward-flow__core {
+  position: absolute;
+  left: 50%;
+  top: 38%;
+  transform: translate(-50%, -50%);
+  width: 14.5rem;
+  z-index: 4;
+}
+
+.fbi-steward-flow__core-ring {
+  position: absolute;
+  inset: -14%;
+  border-radius: 1.25rem;
+  border: 1px solid rgba(217, 119, 6, 0.35);
+  animation: fbi-hub-glow 4.5s ease-in-out infinite alternate;
+}
+
+.fbi-steward-flow__panel--core {
+  position: relative;
+  border-color: rgba(217, 119, 6, 0.4);
+  text-align: center;
+}
+
+.fbi-steward-flow__core-title {
+  margin-top: 0.35rem;
+  font-size: 0.6875rem;
+  color: #94a3b8;
+}
+
+.fbi-steward-flow__nodes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.35rem;
+  margin-top: 0.65rem;
+  padding-top: 0.65rem;
+  border-top: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+.fbi-steward-flow__node {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.5625rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #94a3b8;
+  padding: 0.25rem 0.45rem;
+  border-radius: 0.35rem;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  background: rgba(15, 23, 42, 0.5);
+  cursor: default;
+  transition:
+    color var(--fbi-duration-fast) var(--fbi-ease-motion),
+    border-color var(--fbi-duration-fast) var(--fbi-ease-motion),
+    background-color var(--fbi-duration-fast) var(--fbi-ease-motion);
+}
+
+.fbi-steward-flow__node:hover,
+.fbi-steward-flow__node:focus-visible {
+  outline: none;
+  color: #fbbf24;
+  border-color: rgba(217, 119, 6, 0.5);
+  background: rgba(217, 119, 6, 0.1);
+}
+
+.fbi-steward-flow__node-dot {
+  width: 0.3rem;
+  height: 0.3rem;
+  border-radius: 9999px;
+  background: #64748b;
+  box-shadow: 0 0 6px rgba(148, 163, 184, 0.4);
+}
+
+.fbi-steward-flow__node:hover .fbi-steward-flow__node-dot,
+.fbi-steward-flow__node:focus-visible .fbi-steward-flow__node-dot {
+  background: #d97706;
+  box-shadow: 0 0 8px rgba(217, 119, 6, 0.5);
+}
+
+.fbi-steward-flow__core-hint {
+  margin-top: 0.5rem;
+  font-size: 0.5625rem;
+  color: #64748b;
+  letter-spacing: 0.04em;
+}
+
+.fbi-steward-flow__apps {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.fbi-steward-flow__app {
+  position: absolute;
+  width: 7.5rem;
+  pointer-events: auto;
+}
+
+.fbi-steward-flow__app--cfo { right: 2%; top: 6%; }
+.fbi-steward-flow__app--sentinel { right: 8%; top: 38%; }
+.fbi-steward-flow__app--eden { right: 2%; bottom: 22%; }
+.fbi-steward-flow__app--ledger { left: 2%; bottom: 28%; }
+
+.fbi-steward-flow__panel--app {
+  text-align: center;
+  padding: 0.65rem 0.75rem;
+}
+
+.fbi-steward-flow__app-tag {
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #fbbf24;
+}
+
+.fbi-steward-flow__app-meta {
+  margin-top: 0.2rem;
+  font-size: 0.625rem;
+  color: #64748b;
+}
+
+.fbi-steward-flow__app--lit .fbi-steward-flow__panel--app,
+.fbi-steward-flow__app:hover .fbi-steward-flow__panel--app {
+  border-color: rgba(217, 119, 6, 0.45);
+  box-shadow: 0 0 28px rgba(217, 119, 6, 0.15);
+  transform: translate3d(0, -2px, 0);
+}
+
+.fbi-steward-flow--glow-rules .fbi-steward-flow__path--user,
+.fbi-steward-flow--glow-memory .fbi-steward-flow__path--user,
+.fbi-steward-flow--glow-permissions .fbi-steward-flow__path--cfo,
+.fbi-steward-flow--glow-vault .fbi-steward-flow__path--vault,
+.fbi-steward-flow--glow-context .fbi-steward-flow__path--sentinel,
+.fbi-steward-flow--glow-tools .fbi-steward-flow__path--eden {
+  opacity: 1;
+  stroke-width: 2;
+}
+
+.fbi-steward-flow__vault {
+  position: absolute;
+  left: 50%;
+  bottom: 2%;
+  transform: translateX(-50%);
+  width: 13rem;
+  z-index: 2;
+}
+
+.fbi-steward-flow__vault-title {
+  margin-top: 0.35rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #f1f5f9;
+}
+
+.fbi-steward-flow__vault-meta {
+  margin-top: 0.15rem;
+  font-size: 0.625rem;
+  color: #64748b;
+}
+
+.fbi-steward-flow__response {
+  position: absolute;
+  left: 2%;
+  bottom: 8%;
+  width: 12rem;
+  z-index: 2;
+}
+
+.fbi-steward-flow__response-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0;
+}
+
+.fbi-steward-flow__response-list li {
+  display: flex;
+  gap: 0.45rem;
+  align-items: flex-start;
+  font-size: 0.6875rem;
+  line-height: 1.45;
+  color: #94a3b8;
+  margin-top: 0.35rem;
+}
+
+.fbi-steward-flow__response-dot {
+  flex-shrink: 0;
+  width: 0.35rem;
+  height: 0.35rem;
+  margin-top: 0.35rem;
+  border-radius: 9999px;
+  background: #22c55e;
+  box-shadow: 0 0 6px rgba(34, 197, 94, 0.45);
+}
+
+.fbi-steward-flow__caption {
+  position: absolute;
+  bottom: -1.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.5625rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #475569;
+  white-space: nowrap;
+}
+
+/* WOW foundation pillars */
+.fbi-wow__foundation {
+  position: absolute;
+  left: 50%;
+  bottom: 14%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.35rem;
+  max-width: 92%;
+  z-index: 2;
+}
+
+.fbi-wow__foundation-pill {
+  font-size: 0.5rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #94a3b8;
+  padding: 0.3rem 0.55rem;
+  border-radius: 0.35rem;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  background: rgba(15, 23, 42, 0.65);
+  transition:
+    border-color var(--fbi-duration-fast) var(--fbi-ease-motion),
+    color var(--fbi-duration-fast) var(--fbi-ease-motion);
+}
+
+.fbi-wow__foundation-pill:hover {
+  border-color: rgba(217, 119, 6, 0.4);
+  color: #fbbf24;
+}
+
+/* Steward trainability */
+.fbi-steward-train__card {
+  border-radius: 1rem;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  background: #fff;
+  padding: 1.25rem 1.35rem;
+  box-shadow: var(--fbi-shadow-float);
+  transition:
+    transform var(--fbi-duration-base) var(--fbi-ease-motion),
+    border-color var(--fbi-duration-base) var(--fbi-ease-motion);
+}
+
+.fbi-steward-train__card:hover {
+  transform: translate3d(0, -3px, 0);
+  border-color: rgba(217, 119, 6, 0.2);
+}
+
+.fbi-steward-train__statements {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.fbi-steward-train__statement {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #0f172a;
+  padding: 1rem 1.15rem;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(217, 119, 6, 0.2);
+  background: linear-gradient(145deg, #fffbeb, #ffffff);
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* Steward comparison */
+.fbi-steward-compare__col {
+  border-radius: 1.25rem;
+  padding: 1.75rem 1.5rem;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  background: #fff;
+  box-shadow: var(--fbi-shadow-float);
+}
+
+.fbi-steward-compare__col--cloud {
+  background: linear-gradient(160deg, #f8fafc, #f1f5f9);
+}
+
+.fbi-steward-compare__col--steward {
+  border-color: rgba(217, 119, 6, 0.25);
+  background: linear-gradient(160deg, #fffbeb 0%, #ffffff 55%);
+  box-shadow:
+    0 0 0 1px rgba(217, 119, 6, 0.08),
+    var(--fbi-shadow-float);
+}
+
+.fbi-steward-compare__col-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.fbi-steward-compare__col-lead {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: #64748b;
+}
+
+.fbi-steward-compare__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.fbi-steward-compare__list li {
+  display: flex;
+  gap: 0.65rem;
+  align-items: flex-start;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #475569;
+  margin-top: 0.65rem;
+}
+
+.fbi-steward-compare__mark {
+  flex-shrink: 0;
+  width: 0.4rem;
+  height: 0.4rem;
+  margin-top: 0.45rem;
+  border-radius: 9999px;
+}
+
+.fbi-steward-compare__mark--muted { background: #94a3b8; }
+.fbi-steward-compare__mark--gold {
+  background: #d97706;
+  box-shadow: 0 0 8px rgba(217, 119, 6, 0.35);
+}
+
+/* Steward flow + WOW mobile */
+@media (max-width: 767px) {
+  .fbi-steward-flow {
+    min-height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.85rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .fbi-steward-flow__lines {
+    display: none;
+  }
+
+  .fbi-steward-flow__user,
+  .fbi-steward-flow__core,
+  .fbi-steward-flow__vault,
+  .fbi-steward-flow__response,
+  .fbi-steward-flow__app {
+    position: relative;
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: auto !important;
+    transform: none;
+    width: 100%;
+    max-width: 16rem;
+  }
+
+  .fbi-steward-flow__apps {
+    position: relative;
+    inset: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.65rem;
+    width: 100%;
+    pointer-events: auto;
+  }
+
+  .fbi-steward-flow__core {
+    order: 1;
+    width: 100%;
+    max-width: 18rem;
+  }
+
+  .fbi-steward-flow__user { order: 0; }
+  .fbi-steward-flow__vault { order: 3; }
+  .fbi-steward-flow__response { order: 4; }
+
+  .fbi-steward-flow__caption {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    transform: none;
+    order: 6;
+    white-space: normal;
+    text-align: center;
+    max-width: 16rem;
+  }
+
+  .fbi-steward-cinema__float {
+    display: none;
+  }
+
+  .fbi-wow__stage {
+    min-height: 36rem;
+  }
+}
+
+html.fbi-reduced-motion .fbi-steward-cinema__float,
+html.fbi-reduced-motion .fbi-steward-flow__path,
+html.fbi-reduced-motion .fbi-steward-flow__pulse,
+html.fbi-reduced-motion .fbi-steward-flow__core-ring {
+  animation: none !important;
+}
+
+html.fbi-reduced-motion .fbi-steward-flow__request {
+  position: relative;
+  opacity: 1;
+  transform: none;
+}
+
+html.fbi-reduced-motion .fbi-steward-flow__request:not(:first-child) {
+  display: none;
+}
+
+html.fbi-reduced-motion .fbi-steward-train__card:hover,
+html.fbi-reduced-motion .fbi-steward-flow__app--lit .fbi-steward-flow__panel--app {
   transform: none;
 }

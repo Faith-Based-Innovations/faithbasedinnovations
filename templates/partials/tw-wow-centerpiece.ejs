@@ -75,6 +75,12 @@
         </div>
       </div>
 
+      <div class="fbi-wow__foundation" aria-label="Steward local foundation pillars">
+        <% SITE.steward.foundationPillars.forEach(function (pillar) { %>
+        <span class="fbi-wow__foundation-pill"><%= pillar %></span>
+        <% }); %>
+      </div>
+
       <div class="fbi-wow__principle-flow" aria-hidden="true">
         <span class="fbi-wow__vault-chip">Shared principles</span>
         <span class="fbi-wow__vault-arrow"></span>
@@ -91,8 +97,6 @@
       <li class="fbi-arch-pillars__item"><%= pillar %></li>
       <% }); %>
     </ul>
-
-    <p class="fbi-statement-mega fbi-statement-mega--on-dark mt-12 text-center"><%= SITE.steward.trainabilityLine %></p>
   </div>
   <div class="fbi-divider-glow fbi-divider-glow--light" aria-hidden="true"></div>
 </section>

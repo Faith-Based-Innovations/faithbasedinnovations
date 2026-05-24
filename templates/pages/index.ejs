@@ -11,12 +11,48 @@
     heroActionsHtml: '<a href="products.html" class="fbi-btn fbi-btn--gold">Explore the ecosystem</a><a href="compare.html" class="fbi-btn fbi-btn--ghost">Compare products</a>'
   }) -%>
 
+  <%- include('../partials/tw-statement-mega', { statementVariant: 'gold', statementText: 'Trainable by the user.' }) -%>
+
+  <%- include('../partials/tw-steward-experience') -%>
+
+  <%- include('../partials/tw-statement-mega', { statementVariant: 'dark', statementText: 'Separate apps. Shared operational logic.' }) -%>
+
   <%- include('../partials/tw-wow-centerpiece') -%>
+
+  <%- include('../partials/tw-statement-mega', { statementVariant: 'light', statementText: 'Permission-aware by design.' }) -%>
+
+  <%- include('../partials/tw-steward-trainability') -%>
+
+  <%- include('../partials/tw-statement-mega', { statementVariant: 'gold', statementText: 'Your workflows stay yours.' }) -%>
+
+  <%- include('../partials/tw-steward-comparison') -%>
+
+  <%- include('../partials/tw-statement-mega', { statementVariant: 'dark', statementText: 'Local-first means local-first.' }) -%>
+
+  <section class="fbi-ambient fbi-ambient--light fbi-ambient--shift">
+    <div class="fbi-ambient__inner mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
+      <div class="mb-14 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+        <div class="max-w-2xl">
+          <p class="fbi-kicker text-faithGold">Focused applications</p>
+          <h2 class="fbi-section-title fbi-section-title--lg mt-3"><%= SITE.suiteSectionTitle %></h2>
+          <p class="fbi-section-lead">Each title is a separate focused application with its own domain. Steward gives them a consistent, user-trainable interaction model without merging data or missions.</p>
+        </div>
+        <a href="products.html" class="fbi-btn inline-flex min-h-[3rem] shrink-0 self-start rounded-full border border-slate-300/90 bg-white px-7 text-sm text-navy shadow-fbi-sm hover:border-faithGold hover:text-faithGold lg:self-end" style="box-shadow: var(--fbi-shadow-float);">View all products</a>
+      </div>
+      <div class="fbi-bento">
+        <%- include('../partials/tw-ecosystem-card', { productId: 'sentinel' }) %>
+        <%- include('../partials/tw-ecosystem-card', { productId: 'cfo' }) %>
+        <%- include('../partials/tw-ecosystem-card', { productId: 'eden' }) %>
+        <%- include('../partials/tw-ecosystem-card', { productId: 'ledger' }) %>
+      </div>
+    </div>
+  </section>
+
+  <%- include('../partials/tw-statement-mega', { statementVariant: 'light', statementText: 'Software should adapt to you.' }) -%>
 
   <section class="fbi-section-overlap border-b border-slate-200/80 bg-white">
     <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
-      <p class="fbi-statement-mega fbi-statement-mega--gold text-center">Local-first means local-first.</p>
-      <div class="mx-auto mt-16 max-w-3xl text-center">
+      <div class="mx-auto max-w-3xl text-center">
         <p class="fbi-kicker text-faithGold">Philosophy</p>
         <h2 class="fbi-section-title fbi-section-title--lg mt-3">Built around ownership, not feeds</h2>
         <p class="fbi-section-lead mx-auto">Local-first by conviction. Privacy as default. <%= SITE.steward.name %> as a shared rules-based guidance layer inside each product, not open-ended generation.</p>
@@ -46,25 +82,6 @@
       </div>
     </div>
     <div class="fbi-divider-glow fbi-divider-glow--light mx-auto mb-0 max-w-4xl" aria-hidden="true"></div>
-  </section>
-
-  <section class="fbi-ambient fbi-ambient--light fbi-ambient--shift">
-    <div class="fbi-ambient__inner mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
-      <div class="mb-14 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-        <div class="max-w-2xl">
-          <p class="fbi-kicker text-faithGold">Focused applications</p>
-          <h2 class="fbi-section-title fbi-section-title--lg mt-3"><%= SITE.suiteSectionTitle %></h2>
-          <p class="fbi-section-lead">Each title is a separate focused application with its own domain. Steward gives them a consistent, user-trainable interaction model without merging data or missions.</p>
-        </div>
-        <a href="products.html" class="fbi-btn inline-flex min-h-[3rem] shrink-0 self-start rounded-full border border-slate-300/90 bg-white px-7 text-sm text-navy shadow-fbi-sm hover:border-faithGold hover:text-faithGold lg:self-end" style="box-shadow: var(--fbi-shadow-float);">View all products</a>
-      </div>
-      <div class="fbi-bento">
-        <%- include('../partials/tw-ecosystem-card', { productId: 'sentinel' }) %>
-        <%- include('../partials/tw-ecosystem-card', { productId: 'cfo' }) %>
-        <%- include('../partials/tw-ecosystem-card', { productId: 'eden' }) %>
-        <%- include('../partials/tw-ecosystem-card', { productId: 'ledger' }) %>
-      </div>
-    </div>
   </section>
 
   <section class="fbi-feature-band fbi-grid-bg">

@@ -1,0 +1,30 @@
+<section class="fbi-steward-compare fbi-ambient fbi-ambient--light" aria-labelledby="fbi-steward-compare-title">
+  <div class="fbi-ambient__inner mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
+    <div class="mx-auto max-w-3xl text-center">
+      <p class="fbi-kicker text-slate-500"><%= SITE.steward.compareKicker %></p>
+      <h2 id="fbi-steward-compare-title" class="fbi-section-title fbi-section-title--lg mt-3"><%= SITE.steward.compareHeadline %></h2>
+      <p class="fbi-section-lead mx-auto"><%= SITE.steward.compareLead %></p>
+    </div>
+
+    <div class="fbi-steward-compare__grid mt-14 grid gap-6 lg:grid-cols-2 lg:gap-10">
+      <div class="fbi-steward-compare__col fbi-steward-compare__col--cloud">
+        <h3 class="fbi-steward-compare__col-title"><%= SITE.steward.compareCloud.title %></h3>
+        <p class="fbi-steward-compare__col-lead"><%= SITE.steward.compareCloud.lead %></p>
+        <ul class="fbi-steward-compare__list mt-6">
+          <% SITE.steward.compareCloud.items.forEach(function (item) { %>
+          <li><span class="fbi-steward-compare__mark fbi-steward-compare__mark--muted" aria-hidden="true"></span><%= item %></li>
+          <% }); %>
+        </ul>
+      </div>
+      <div class="fbi-steward-compare__col fbi-steward-compare__col--steward">
+        <h3 class="fbi-steward-compare__col-title"><%= SITE.steward.compareSteward.title %></h3>
+        <p class="fbi-steward-compare__col-lead"><%= SITE.steward.compareSteward.lead %></p>
+        <ul class="fbi-steward-compare__list mt-6">
+          <% SITE.steward.compareSteward.items.forEach(function (item) { %>
+          <li><span class="fbi-steward-compare__mark fbi-steward-compare__mark--gold" aria-hidden="true"></span><%= item %></li>
+          <% }); %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

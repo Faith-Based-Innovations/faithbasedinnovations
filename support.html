@@ -219,6 +219,54 @@
     });
   })();
 </script>
+<script>
+  (function () {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    var wrap = document.querySelector(".fbi-steward-flow__requests");
+    if (!wrap) return;
+    var items = wrap.querySelectorAll(".fbi-steward-flow__request");
+    if (items.length < 2) return;
+    var idx = 0;
+    window.setInterval(function () {
+      items[idx].classList.remove("fbi-steward-flow__request--active");
+      idx = (idx + 1) % items.length;
+      items[idx].classList.add("fbi-steward-flow__request--active");
+    }, 4200);
+  })();
+</script>
+<script>
+  (function () {
+    var flow = document.querySelector(".fbi-steward-flow");
+    if (!flow) return;
+    var nodes = flow.querySelectorAll(".fbi-steward-flow__node[data-steward-node]");
+    var apps = flow.querySelectorAll(".fbi-steward-flow__app[data-app]");
+    function clearGlow() {
+      flow.classList.remove("fbi-steward-flow--glow-rules", "fbi-steward-flow--glow-memory", "fbi-steward-flow--glow-permissions", "fbi-steward-flow--glow-vault", "fbi-steward-flow--glow-context", "fbi-steward-flow--glow-tools");
+      apps.forEach(function (a) {
+        a.classList.remove("fbi-steward-flow__app--lit");
+      });
+    }
+    nodes.forEach(function (btn) {
+      btn.addEventListener("mouseenter", function () {
+        clearGlow();
+        var id = btn.getAttribute("data-steward-node");
+        if (id) flow.classList.add("fbi-steward-flow--glow-" + id);
+      });
+      btn.addEventListener("focus", function () {
+        btn.dispatchEvent(new Event("mouseenter"));
+      });
+      btn.addEventListener("mouseleave", clearGlow);
+      btn.addEventListener("blur", clearGlow);
+    });
+    apps.forEach(function (app) {
+      app.addEventListener("mouseenter", function () {
+        clearGlow();
+        app.classList.add("fbi-steward-flow__app--lit");
+      });
+      app.addEventListener("mouseleave", clearGlow);
+    });
+  })();
+</script>
 
 </body>
 </html>
