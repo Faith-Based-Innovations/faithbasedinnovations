@@ -102,9 +102,11 @@ export const SITE = {
       { id: "rules", label: "Rules" },
       { id: "memory", label: "Memory" },
       { id: "permissions", label: "Permissions" },
+      { id: "knowledge", label: "Knowledge" },
       { id: "vault", label: "Vault" },
-      { id: "context", label: "Context" },
-      { id: "tools", label: "Tools" }
+      { id: "tools", label: "Tools" },
+      { id: "audit", label: "Audit" },
+      { id: "training", label: "User Training" }
     ],
     responseItems: [
       "Suggested actions tied to your records",
@@ -252,7 +254,7 @@ export const PRODUCTS = {
     id: "sentinel",
     name: "Sentinel",
     path: "product-sentinel.html",
-    tag: "Flagship Â· Evidence intelligence",
+    tag: "Flagship Ã‚Â· Evidence intelligence",
     statusBadge: "Advanced internal alpha",
     headline: "Evidence organization for professional review.",
     cardBlurb:
@@ -271,7 +273,7 @@ export const PRODUCTS = {
     id: "cfo",
     name: "CFO",
     path: "product-cfo.html",
-    tag: "Flagship Â· Finance",
+    tag: "Flagship Ã‚Â· Finance",
     statusBadge: null,
     headline: "Focused financial command center.",
     cardBlurb:

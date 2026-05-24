@@ -238,5 +238,53 @@
     });
   })();
 </script>
-</body>
+<script>
+  (function () {
+    var root = document.querySelector("[data-steward-cinema]");
+    if (!root) return;
+    var tabs = root.querySelectorAll("[data-cinema-flow]");
+    var panels = root.querySelectorAll("[data-cinema-panel]");
+    var flows = [];
+    tabs.forEach(function (tab) {
+      flows.push(tab.getAttribute("data-cinema-flow"));
+    });
+    if (!flows.length) return;
+
+    var idx = 0;
+    var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    function setActive(id) {
+      root.setAttribute("data-active-route", id);
+      tabs.forEach(function (tab) {
+        var on = tab.getAttribute("data-cinema-flow") === id;
+        tab.classList.toggle("fbi-steward-cinema__tab--active", on);
+        tab.setAttribute("aria-selected", on ? "true" : "false");
+      });
+      panels.forEach(function (panel) {
+        var on = panel.getAttribute("data-cinema-panel") === id;
+        panel.classList.toggle("fbi-steward-cinema__panel--active", on);
+        panel.hidden = !on;
+      });
+    }
+
+    setActive(flows[0]);
+
+    tabs.forEach(function (tab) {
+      tab.addEventListener("click", function () {
+        var id = tab.getAttribute("data-cinema-flow");
+        if (!id) return;
+        idx = flows.indexOf(id);
+        if (idx < 0) idx = 0;
+        setActive(id);
+      });
+    });
+
+    if (reduced || flows.length < 2) return;
+
+    window.setInterval(function () {
+      idx = (idx + 1) % flows.length;
+      setActive(flows[idx]);
+    }, 6500);
+  })();
+</script></body>
 </html>

@@ -1,0 +1,149 @@
+<section class="fbi-steward-cinema fbi-ambient fbi-ambient--shift" aria-labelledby="fbi-steward-cinema-title" data-steward-cinema data-active-route="cfo">
+  <div class="fbi-steward-cinema__grid-texture pointer-events-none absolute inset-0" aria-hidden="true"></div>
+  <div class="fbi-steward-cinema__glow pointer-events-none absolute inset-0" aria-hidden="true"></div>
+  <div class="fbi-section-bridge fbi-section-bridge--down" aria-hidden="true"></div>
+
+  <div class="fbi-ambient__inner relative mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
+    <div class="mx-auto max-w-3xl text-center">
+      <p class="fbi-kicker text-amber-200/90"><%= SITE.steward.cinemaKicker %></p>
+      <h2 id="fbi-steward-cinema-title" class="fbi-section-title fbi-section-title--xl mt-3 text-white"><%= SITE.steward.cinemaHeadline %></h2>
+      <p class="fbi-section-lead mx-auto text-slate-300"><%= SITE.steward.cinemaLead %></p>
+      <p class="mt-4 text-sm font-semibold tracking-wide text-amber-200/95"><%= SITE.steward.cinemaTagline %></p>
+    </div>
+
+    <div class="fbi-steward-cinema__stage mt-14 lg:mt-16" role="img" aria-label="<%= SITE.steward.flowAriaLabel %>">
+      <svg class="fbi-steward-cinema__lines" viewBox="0 0 800 520" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+        <defs>
+          <linearGradient id="fbi-cinema-grad-gold" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="rgba(217,119,6,0)" />
+            <stop offset="50%" stop-color="rgba(217,119,6,0.55)" />
+            <stop offset="100%" stop-color="rgba(217,119,6,0)" />
+          </linearGradient>
+          <linearGradient id="fbi-cinema-grad-blue" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="rgba(148,163,184,0.15)" />
+            <stop offset="50%" stop-color="rgba(148,163,184,0.45)" />
+            <stop offset="100%" stop-color="rgba(148,163,184,0.15)" />
+          </linearGradient>
+        </defs>
+        <path class="fbi-steward-cinema__path fbi-steward-cinema__path--cfo" data-route="cfo" d="M400 268 L620 120" />
+        <path class="fbi-steward-cinema__path fbi-steward-cinema__path--sentinel" data-route="sentinel" d="M400 268 L180 120" />
+        <path class="fbi-steward-cinema__path fbi-steward-cinema__path--eden" data-route="eden" d="M400 268 L160 380" />
+        <path class="fbi-steward-cinema__path fbi-steward-cinema__path--ledger" data-route="ledger" d="M400 268 L640 380" />
+        <circle class="fbi-steward-cinema__pulse" cx="400" cy="268" r="72" />
+      </svg>
+
+      <div class="fbi-steward-cinema__hub">
+        <div class="fbi-steward-cinema__hub-ring" aria-hidden="true"></div>
+        <div class="fbi-steward-cinema__hub-core">
+          <p class="fbi-steward-cinema__hub-label"><%= SITE.steward.name %></p>
+          <p class="fbi-steward-cinema__hub-sub">Shared operational guidance layer</p>
+          <p class="fbi-steward-cinema__hub-note">Trainable. Local. Permission-aware.</p>
+        </div>
+      </div>
+
+      <div class="fbi-steward-cinema__node fbi-steward-cinema__node--sentinel" data-product="sentinel">
+        <div class="fbi-steward-cinema__node-panel">
+          <span class="fbi-steward-cinema__node-badge">Standalone app</span>
+          <span class="fbi-steward-cinema__node-tag">Sentinel</span>
+          <p class="fbi-steward-cinema__node-title">Evidence workspace</p>
+          <p class="fbi-steward-cinema__node-meta">Case prep on your machine</p>
+        </div>
+      </div>
+      <div class="fbi-steward-cinema__node fbi-steward-cinema__node--cfo" data-product="cfo">
+        <div class="fbi-steward-cinema__node-panel">
+          <span class="fbi-steward-cinema__node-badge">Standalone app</span>
+          <span class="fbi-steward-cinema__node-tag fbi-steward-cinema__node-tag--gold">CFO</span>
+          <p class="fbi-steward-cinema__node-title">Finance command</p>
+          <p class="fbi-steward-cinema__node-meta">Local-first finance</p>
+        </div>
+      </div>
+      <div class="fbi-steward-cinema__node fbi-steward-cinema__node--eden" data-product="eden">
+        <div class="fbi-steward-cinema__node-panel">
+          <span class="fbi-steward-cinema__node-badge">Standalone app</span>
+          <span class="fbi-steward-cinema__node-tag fbi-steward-cinema__node-tag--gold">Eden</span>
+          <p class="fbi-steward-cinema__node-title">Research workspace</p>
+          <p class="fbi-steward-cinema__node-meta">Sources and cites</p>
+        </div>
+      </div>
+      <div class="fbi-steward-cinema__node fbi-steward-cinema__node--ledger" data-product="ledger">
+        <div class="fbi-steward-cinema__node-panel">
+          <span class="fbi-steward-cinema__node-badge">Standalone app</span>
+          <span class="fbi-steward-cinema__node-tag fbi-steward-cinema__node-tag--gold">Ledger</span>
+          <p class="fbi-steward-cinema__node-title">Identity vault</p>
+          <p class="fbi-steward-cinema__node-meta">Encrypted on device</p>
+        </div>
+      </div>
+
+      <div class="fbi-steward-cinema__foundation" aria-label="Steward local foundation pillars">
+        <% SITE.steward.foundationPillars.forEach(function (pillar) { %>
+        <span class="fbi-steward-cinema__foundation-pill"><%= pillar %></span>
+        <% }); %>
+      </div>
+
+      <p class="fbi-steward-cinema__diagram-caption">Independent apps. One Steward hub. Separate data boundaries.</p>
+    </div>
+
+    <div class="fbi-steward-cinema__demo mt-16 lg:mt-20">
+      <div class="fbi-steward-cinema__demo-head">
+        <p class="fbi-kicker text-amber-200/80">Live workflow preview</p>
+        <p class="mt-2 text-center text-sm text-slate-400">Steward processes locally, then routes to one application at a time.</p>
+      </div>
+
+      <div class="fbi-steward-cinema__tabs" role="tablist" aria-label="Product workflow demos">
+        <% SITE.steward.cinemaWorkflows.forEach(function (flow, i) { %>
+        <button type="button" class="fbi-steward-cinema__tab<%= i === 0 ? ' fbi-steward-cinema__tab--active' : '' %>" role="tab" aria-selected="<%= i === 0 ? 'true' : 'false' %>" data-cinema-flow="<%= flow.id %>" id="fbi-cinema-tab-<%= flow.id %>" aria-controls="fbi-cinema-panel-<%= flow.id %>"><%= flow.product %></button>
+        <% }); %>
+      </div>
+
+      <div class="fbi-steward-cinema__panels">
+        <% SITE.steward.cinemaWorkflows.forEach(function (flow, i) { %>
+        <div class="fbi-steward-cinema__panel<%= i === 0 ? ' fbi-steward-cinema__panel--active' : '' %>" id="fbi-cinema-panel-<%= flow.id %>" role="tabpanel" aria-labelledby="fbi-cinema-tab-<%= flow.id %>" data-cinema-panel="<%= flow.id %>"<%= i === 0 ? '' : ' hidden' %>>
+          <div class="fbi-steward-cinema__panel-grid">
+            <div class="fbi-steward-cinema__glass fbi-steward-cinema__glass--request">
+              <span class="fbi-steward-cinema__chip">You ask</span>
+              <p class="fbi-steward-cinema__request"><%= flow.request %></p>
+            </div>
+            <div class="fbi-steward-cinema__glass fbi-steward-cinema__glass--core">
+              <span class="fbi-steward-cinema__chip fbi-steward-cinema__chip--gold"><%= SITE.steward.name %></span>
+              <p class="fbi-steward-cinema__core-title">Processing on your machine</p>
+              <ul class="fbi-steward-cinema__node-list">
+                <% flow.processing.forEach(function (nodeId) { %>
+                <% var nodeLabel = nodeId; SITE.steward.processNodes.forEach(function (n) { if (n.id === nodeId) nodeLabel = n.label; }); %>
+                <li class="fbi-steward-cinema__node-lit" data-steward-node="<%= nodeId %>"><span class="fbi-steward-cinema__node-dot" aria-hidden="true"></span><%= nodeLabel %></li>
+                <% }); %>
+              </ul>
+            </div>
+            <div class="fbi-steward-cinema__glass fbi-steward-cinema__glass--app">
+              <span class="fbi-steward-cinema__chip">Routes to <%= flow.product %></span>
+              <p class="fbi-steward-cinema__app-name"><%= flow.product %></p>
+              <p class="fbi-steward-cinema__app-tag"><%= flow.tagline %></p>
+              <p class="fbi-steward-cinema__route-note"><%= flow.routeNote %></p>
+            </div>
+            <div class="fbi-steward-cinema__glass fbi-steward-cinema__glass--response">
+              <span class="fbi-steward-cinema__chip fbi-steward-cinema__chip--muted">In <%= flow.product %></span>
+              <ul class="fbi-steward-cinema__response-list">
+                <% flow.responses.forEach(function (line) { %>
+                <li><span class="fbi-steward-cinema__response-dot" aria-hidden="true"></span><%= line %></li>
+                <% }); %>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <% }); %>
+      </div>
+    </div>
+
+    <ul class="fbi-steward-cinema__copy mt-12 flex flex-wrap justify-center gap-3 text-center" aria-label="Steward principles">
+      <li class="fbi-steward-cinema__copy-item">Trainable by the user.</li>
+      <li class="fbi-steward-cinema__copy-item">Permission-aware by design.</li>
+      <li class="fbi-steward-cinema__copy-item">Your workflows stay yours.</li>
+    </ul>
+
+    <ul class="fbi-steward-cinema__telemetry mt-8 flex flex-wrap justify-center gap-2 sm:gap-3" aria-label="Steward characteristics">
+      <% SITE.steward.cinemaChips.forEach(function (chip) { %>
+      <li class="fbi-steward-cinema__tel"><%= chip %></li>
+      <% }); %>
+    </ul>
+  </div>
+  <div class="fbi-divider-glow fbi-divider-glow--light" aria-hidden="true"></div>
+</section>

@@ -188,155 +188,313 @@
   </div>
 </section>
 
-  <section class="fbi-steward-cinema fbi-ambient fbi-ambient--shift" aria-labelledby="fbi-steward-cinema-title">
+  <section class="fbi-steward-cinema fbi-ambient fbi-ambient--shift" aria-labelledby="fbi-steward-cinema-title" data-steward-cinema data-active-route="cfo">
   <div class="fbi-steward-cinema__grid-texture pointer-events-none absolute inset-0" aria-hidden="true"></div>
   <div class="fbi-steward-cinema__glow pointer-events-none absolute inset-0" aria-hidden="true"></div>
-  <div class="fbi-steward-cinema__float fbi-steward-cinema__float--a pointer-events-none" aria-hidden="true"></div>
-  <div class="fbi-steward-cinema__float fbi-steward-cinema__float--b pointer-events-none" aria-hidden="true"></div>
+  <div class="fbi-section-bridge fbi-section-bridge--down" aria-hidden="true"></div>
 
   <div class="fbi-ambient__inner relative mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
     <div class="mx-auto max-w-3xl text-center">
       <p class="fbi-kicker text-amber-200/90">Operational command layer</p>
       <h2 id="fbi-steward-cinema-title" class="fbi-section-title fbi-section-title--xl mt-3 text-white">Software that adapts to you without surrendering you.</h2>
       <p class="fbi-section-lead mx-auto text-slate-300">Steward sits between you and separate focused applications. It reads what you structured, applies your rules and memory, routes work with permission, and stays on your machine.</p>
+      <p class="mt-4 text-sm font-semibold tracking-wide text-amber-200/95">Separate apps. Shared Steward logic.</p>
     </div>
 
-    <div class="fbi-steward-flow mt-14 lg:mt-16" role="img" aria-label="Flow diagram: user request to Steward processing nodes, routes to CFO Sentinel Eden and Ledger, grounded in local vault rules memory and tools">
-      <svg class="fbi-steward-flow__lines" viewBox="0 0 960 640" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+    <div class="fbi-steward-cinema__stage mt-14 lg:mt-16" role="img" aria-label="Flow diagram: user request to Steward processing nodes, routes to CFO Sentinel Eden and Ledger, grounded in local vault rules memory and tools">
+      <svg class="fbi-steward-cinema__lines" viewBox="0 0 800 520" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
         <defs>
-          <linearGradient id="fbi-flow-grad-blue" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stop-color="rgba(148,163,184,0)" />
-            <stop offset="50%" stop-color="rgba(148,163,184,0.55)" />
-            <stop offset="100%" stop-color="rgba(148,163,184,0)" />
+          <linearGradient id="fbi-cinema-grad-gold" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="rgba(217,119,6,0)" />
+            <stop offset="50%" stop-color="rgba(217,119,6,0.55)" />
+            <stop offset="100%" stop-color="rgba(217,119,6,0)" />
           </linearGradient>
-          <linearGradient id="fbi-flow-grad-gold" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="rgba(217,119,6,0.15)" />
-            <stop offset="50%" stop-color="rgba(217,119,6,0.65)" />
-            <stop offset="100%" stop-color="rgba(217,119,6,0.15)" />
+          <linearGradient id="fbi-cinema-grad-blue" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="rgba(148,163,184,0.15)" />
+            <stop offset="50%" stop-color="rgba(148,163,184,0.45)" />
+            <stop offset="100%" stop-color="rgba(148,163,184,0.15)" />
           </linearGradient>
         </defs>
-        <path class="fbi-steward-flow__path fbi-steward-flow__path--user" d="M120 120 L480 280" />
-        <path class="fbi-steward-flow__path fbi-steward-flow__path--cfo" d="M480 280 L780 100" />
-        <path class="fbi-steward-flow__path fbi-steward-flow__path--sentinel" d="M480 280 L820 280" />
-        <path class="fbi-steward-flow__path fbi-steward-flow__path--eden" d="M480 280 L780 460" />
-        <path class="fbi-steward-flow__path fbi-steward-flow__path--ledger" d="M480 280 L140 460" />
-        <path class="fbi-steward-flow__path fbi-steward-flow__path--vault" d="M480 280 L480 520" />
-        <circle class="fbi-steward-flow__pulse" cx="480" cy="280" r="64" />
+        <path class="fbi-steward-cinema__path fbi-steward-cinema__path--cfo" data-route="cfo" d="M400 268 L620 120" />
+        <path class="fbi-steward-cinema__path fbi-steward-cinema__path--sentinel" data-route="sentinel" d="M400 268 L180 120" />
+        <path class="fbi-steward-cinema__path fbi-steward-cinema__path--eden" data-route="eden" d="M400 268 L160 380" />
+        <path class="fbi-steward-cinema__path fbi-steward-cinema__path--ledger" data-route="ledger" d="M400 268 L640 380" />
+        <circle class="fbi-steward-cinema__pulse" cx="400" cy="268" r="72" />
       </svg>
 
-      <div class="fbi-steward-flow__user">
-        <div class="fbi-steward-flow__panel fbi-steward-flow__panel--user">
-          <span class="fbi-steward-flow__chip">You</span>
-          <div class="fbi-steward-flow__requests" aria-live="polite">
-            
-            <p class="fbi-steward-flow__request fbi-steward-flow__request--active" data-request-index="0">Track refunds from Amazon.</p>
-            
-            <p class="fbi-steward-flow__request" data-request-index="1">How much pressure will next month have?</p>
-            
-            <p class="fbi-steward-flow__request" data-request-index="2">Compile my case notes.</p>
-            
-            <p class="fbi-steward-flow__request" data-request-index="3">Organize this research.</p>
-            
-          </div>
+      <div class="fbi-steward-cinema__hub">
+        <div class="fbi-steward-cinema__hub-ring" aria-hidden="true"></div>
+        <div class="fbi-steward-cinema__hub-core">
+          <p class="fbi-steward-cinema__hub-label">Steward</p>
+          <p class="fbi-steward-cinema__hub-sub">Shared operational guidance layer</p>
+          <p class="fbi-steward-cinema__hub-note">Trainable. Local. Permission-aware.</p>
         </div>
       </div>
 
-      <div class="fbi-steward-flow__core">
-        <div class="fbi-steward-flow__core-ring" aria-hidden="true"></div>
-        <div class="fbi-steward-flow__panel fbi-steward-flow__panel--core">
-          <span class="fbi-steward-flow__chip fbi-steward-flow__chip--gold">Steward</span>
-          <p class="fbi-steward-flow__core-title">Operational guidance layer</p>
-          <div class="fbi-steward-flow__nodes" role="list">
-            
-            <button type="button" class="fbi-steward-flow__node" data-steward-node="rules" role="listitem" aria-describedby="fbi-node-desc-rules">
-              <span class="fbi-steward-flow__node-dot" aria-hidden="true"></span>
-              <span class="fbi-steward-flow__node-label">Rules</span>
-            </button>
-            
-            <button type="button" class="fbi-steward-flow__node" data-steward-node="memory" role="listitem" aria-describedby="fbi-node-desc-memory">
-              <span class="fbi-steward-flow__node-dot" aria-hidden="true"></span>
-              <span class="fbi-steward-flow__node-label">Memory</span>
-            </button>
-            
-            <button type="button" class="fbi-steward-flow__node" data-steward-node="permissions" role="listitem" aria-describedby="fbi-node-desc-permissions">
-              <span class="fbi-steward-flow__node-dot" aria-hidden="true"></span>
-              <span class="fbi-steward-flow__node-label">Permissions</span>
-            </button>
-            
-            <button type="button" class="fbi-steward-flow__node" data-steward-node="vault" role="listitem" aria-describedby="fbi-node-desc-vault">
-              <span class="fbi-steward-flow__node-dot" aria-hidden="true"></span>
-              <span class="fbi-steward-flow__node-label">Vault</span>
-            </button>
-            
-            <button type="button" class="fbi-steward-flow__node" data-steward-node="context" role="listitem" aria-describedby="fbi-node-desc-context">
-              <span class="fbi-steward-flow__node-dot" aria-hidden="true"></span>
-              <span class="fbi-steward-flow__node-label">Context</span>
-            </button>
-            
-            <button type="button" class="fbi-steward-flow__node" data-steward-node="tools" role="listitem" aria-describedby="fbi-node-desc-tools">
-              <span class="fbi-steward-flow__node-dot" aria-hidden="true"></span>
-              <span class="fbi-steward-flow__node-label">Tools</span>
-            </button>
-            
-          </div>
-          <p class="fbi-steward-flow__core-hint">Rules · memory · permissions · vault · context · tools</p>
+      <div class="fbi-steward-cinema__node fbi-steward-cinema__node--sentinel" data-product="sentinel">
+        <div class="fbi-steward-cinema__node-panel">
+          <span class="fbi-steward-cinema__node-badge">Standalone app</span>
+          <span class="fbi-steward-cinema__node-tag">Sentinel</span>
+          <p class="fbi-steward-cinema__node-title">Evidence workspace</p>
+          <p class="fbi-steward-cinema__node-meta">Case prep on your machine</p>
+        </div>
+      </div>
+      <div class="fbi-steward-cinema__node fbi-steward-cinema__node--cfo" data-product="cfo">
+        <div class="fbi-steward-cinema__node-panel">
+          <span class="fbi-steward-cinema__node-badge">Standalone app</span>
+          <span class="fbi-steward-cinema__node-tag fbi-steward-cinema__node-tag--gold">CFO</span>
+          <p class="fbi-steward-cinema__node-title">Finance command</p>
+          <p class="fbi-steward-cinema__node-meta">Local-first finance</p>
+        </div>
+      </div>
+      <div class="fbi-steward-cinema__node fbi-steward-cinema__node--eden" data-product="eden">
+        <div class="fbi-steward-cinema__node-panel">
+          <span class="fbi-steward-cinema__node-badge">Standalone app</span>
+          <span class="fbi-steward-cinema__node-tag fbi-steward-cinema__node-tag--gold">Eden</span>
+          <p class="fbi-steward-cinema__node-title">Research workspace</p>
+          <p class="fbi-steward-cinema__node-meta">Sources and cites</p>
+        </div>
+      </div>
+      <div class="fbi-steward-cinema__node fbi-steward-cinema__node--ledger" data-product="ledger">
+        <div class="fbi-steward-cinema__node-panel">
+          <span class="fbi-steward-cinema__node-badge">Standalone app</span>
+          <span class="fbi-steward-cinema__node-tag fbi-steward-cinema__node-tag--gold">Ledger</span>
+          <p class="fbi-steward-cinema__node-title">Identity vault</p>
+          <p class="fbi-steward-cinema__node-meta">Encrypted on device</p>
         </div>
       </div>
 
-      <div class="fbi-steward-flow__apps">
-        <div class="fbi-steward-flow__app fbi-steward-flow__app--cfo" data-app="cfo">
-          <div class="fbi-steward-flow__panel fbi-steward-flow__panel--app">
-            <span class="fbi-steward-flow__app-tag">CFO</span>
-            <p class="fbi-steward-flow__app-meta">Finance command</p>
-          </div>
-        </div>
-        <div class="fbi-steward-flow__app fbi-steward-flow__app--sentinel" data-app="sentinel">
-          <div class="fbi-steward-flow__panel fbi-steward-flow__panel--app">
-            <span class="fbi-steward-flow__app-tag">Sentinel</span>
-            <p class="fbi-steward-flow__app-meta">Evidence workspace</p>
-          </div>
-        </div>
-        <div class="fbi-steward-flow__app fbi-steward-flow__app--eden" data-app="eden">
-          <div class="fbi-steward-flow__panel fbi-steward-flow__panel--app">
-            <span class="fbi-steward-flow__app-tag">Eden</span>
-            <p class="fbi-steward-flow__app-meta">Research workspace</p>
-          </div>
-        </div>
-        <div class="fbi-steward-flow__app fbi-steward-flow__app--ledger" data-app="ledger">
-          <div class="fbi-steward-flow__panel fbi-steward-flow__panel--app">
-            <span class="fbi-steward-flow__app-tag">Ledger</span>
-            <p class="fbi-steward-flow__app-meta">Identity vault</p>
-          </div>
-        </div>
+      <div class="fbi-steward-cinema__foundation" aria-label="Steward local foundation pillars">
+        
+        <span class="fbi-steward-cinema__foundation-pill">Local rules</span>
+        
+        <span class="fbi-steward-cinema__foundation-pill">Memory</span>
+        
+        <span class="fbi-steward-cinema__foundation-pill">Knowledge</span>
+        
+        <span class="fbi-steward-cinema__foundation-pill">Permissions</span>
+        
+        <span class="fbi-steward-cinema__foundation-pill">Tools</span>
+        
+        <span class="fbi-steward-cinema__foundation-pill">Audit</span>
+        
+        <span class="fbi-steward-cinema__foundation-pill">User training</span>
+        
       </div>
 
-      <div class="fbi-steward-flow__vault">
-        <div class="fbi-steward-flow__panel fbi-steward-flow__panel--vault">
-          <span class="fbi-steward-flow__chip">Local foundation</span>
-          <p class="fbi-steward-flow__vault-title">Vault · Rules · Memory · Tools</p>
-          <p class="fbi-steward-flow__vault-meta">On your machine. Resettable. Yours.</p>
-        </div>
-      </div>
-
-      <div class="fbi-steward-flow__response">
-        <div class="fbi-steward-flow__panel fbi-steward-flow__panel--response">
-          <span class="fbi-steward-flow__chip fbi-steward-flow__chip--muted">Response</span>
-          <ul class="fbi-steward-flow__response-list">
-            
-            <li><span class="fbi-steward-flow__response-dot" aria-hidden="true"></span>Suggested actions tied to your records</li>
-            
-            <li><span class="fbi-steward-flow__response-dot" aria-hidden="true"></span>Permission prompts before sensitive steps</li>
-            
-            <li><span class="fbi-steward-flow__response-dot" aria-hidden="true"></span>Local indicators you can audit and reset</li>
-            
-          </ul>
-        </div>
-      </div>
-
-      <p class="fbi-steward-flow__caption">User request → Steward → separate apps → local vault and rules · concept preview</p>
+      <p class="fbi-steward-cinema__diagram-caption">Independent apps. One Steward hub. Separate data boundaries.</p>
     </div>
 
-    <ul class="fbi-steward-cinema__telemetry mt-10 flex flex-wrap justify-center gap-2 sm:gap-3" aria-label="Steward characteristics">
+    <div class="fbi-steward-cinema__demo mt-16 lg:mt-20">
+      <div class="fbi-steward-cinema__demo-head">
+        <p class="fbi-kicker text-amber-200/80">Live workflow preview</p>
+        <p class="mt-2 text-center text-sm text-slate-400">Steward processes locally, then routes to one application at a time.</p>
+      </div>
+
+      <div class="fbi-steward-cinema__tabs" role="tablist" aria-label="Product workflow demos">
+        
+        <button type="button" class="fbi-steward-cinema__tab fbi-steward-cinema__tab--active" role="tab" aria-selected="true" data-cinema-flow="cfo" id="fbi-cinema-tab-cfo" aria-controls="fbi-cinema-panel-cfo">CFO</button>
+        
+        <button type="button" class="fbi-steward-cinema__tab" role="tab" aria-selected="false" data-cinema-flow="sentinel" id="fbi-cinema-tab-sentinel" aria-controls="fbi-cinema-panel-sentinel">Sentinel</button>
+        
+        <button type="button" class="fbi-steward-cinema__tab" role="tab" aria-selected="false" data-cinema-flow="eden" id="fbi-cinema-tab-eden" aria-controls="fbi-cinema-panel-eden">Eden</button>
+        
+        <button type="button" class="fbi-steward-cinema__tab" role="tab" aria-selected="false" data-cinema-flow="ledger" id="fbi-cinema-tab-ledger" aria-controls="fbi-cinema-panel-ledger">Ledger</button>
+        
+      </div>
+
+      <div class="fbi-steward-cinema__panels">
+        
+        <div class="fbi-steward-cinema__panel fbi-steward-cinema__panel--active" id="fbi-cinema-panel-cfo" role="tabpanel" aria-labelledby="fbi-cinema-tab-cfo" data-cinema-panel="cfo">
+          <div class="fbi-steward-cinema__panel-grid">
+            <div class="fbi-steward-cinema__glass fbi-steward-cinema__glass--request">
+              <span class="fbi-steward-cinema__chip">You ask</span>
+              <p class="fbi-steward-cinema__request">Track my missing Amazon refund.</p>
+            </div>
+            <div class="fbi-steward-cinema__glass fbi-steward-cinema__glass--core">
+              <span class="fbi-steward-cinema__chip fbi-steward-cinema__chip--gold">Steward</span>
+              <p class="fbi-steward-cinema__core-title">Processing on your machine</p>
+              <ul class="fbi-steward-cinema__node-list">
+                
+                
+                <li class="fbi-steward-cinema__node-lit" data-steward-node="rules"><span class="fbi-steward-cinema__node-dot" aria-hidden="true"></span>Rules</li>
+                
+                
+                <li class="fbi-steward-cinema__node-lit" data-steward-node="memory"><span class="fbi-steward-cinema__node-dot" aria-hidden="true"></span>Memory</li>
+                
+                
+                <li class="fbi-steward-cinema__node-lit" data-steward-node="permissions"><span class="fbi-steward-cinema__node-dot" aria-hidden="true"></span>Permissions</li>
+                
+              </ul>
+            </div>
+            <div class="fbi-steward-cinema__glass fbi-steward-cinema__glass--app">
+              <span class="fbi-steward-cinema__chip">Routes to CFO</span>
+              <p class="fbi-steward-cinema__app-name">CFO</p>
+              <p class="fbi-steward-cinema__app-tag">Finance command</p>
+              <p class="fbi-steward-cinema__route-note">Routes to CFO only. Finance data stays in CFO.</p>
+            </div>
+            <div class="fbi-steward-cinema__glass fbi-steward-cinema__glass--response">
+              <span class="fbi-steward-cinema__chip fbi-steward-cinema__chip--muted">In CFO</span>
+              <ul class="fbi-steward-cinema__response-list">
+                
+                <li><span class="fbi-steward-cinema__response-dot" aria-hidden="true"></span>Receipt matched to purchase history</li>
+                
+                <li><span class="fbi-steward-cinema__response-dot" aria-hidden="true"></span>Vault lookup for merchant and refund rules</li>
+                
+                <li><span class="fbi-steward-cinema__response-dot" aria-hidden="true"></span>Dashboard surfaces missing refund alert</li>
+                
+                <li><span class="fbi-steward-cinema__response-dot" aria-hidden="true"></span>Steward asks before any account action</li>
+                
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <div class="fbi-steward-cinema__panel" id="fbi-cinema-panel-sentinel" role="tabpanel" aria-labelledby="fbi-cinema-tab-sentinel" data-cinema-panel="sentinel" hidden>
+          <div class="fbi-steward-cinema__panel-grid">
+            <div class="fbi-steward-cinema__glass fbi-steward-cinema__glass--request">
+              <span class="fbi-steward-cinema__chip">You ask</span>
+              <p class="fbi-steward-cinema__request">Organize all evidence related to medical records.</p>
+            </div>
+            <div class="fbi-steward-cinema__glass fbi-steward-cinema__glass--core">
+              <span class="fbi-steward-cinema__chip fbi-steward-cinema__chip--gold">Steward</span>
+              <p class="fbi-steward-cinema__core-title">Processing on your machine</p>
+              <ul class="fbi-steward-cinema__node-list">
+                
+                
+                <li class="fbi-steward-cinema__node-lit" data-steward-node="rules"><span class="fbi-steward-cinema__node-dot" aria-hidden="true"></span>Rules</li>
+                
+                
+                <li class="fbi-steward-cinema__node-lit" data-steward-node="memory"><span class="fbi-steward-cinema__node-dot" aria-hidden="true"></span>Memory</li>
+                
+                
+                <li class="fbi-steward-cinema__node-lit" data-steward-node="permissions"><span class="fbi-steward-cinema__node-dot" aria-hidden="true"></span>Permissions</li>
+                
+              </ul>
+            </div>
+            <div class="fbi-steward-cinema__glass fbi-steward-cinema__glass--app">
+              <span class="fbi-steward-cinema__chip">Routes to Sentinel</span>
+              <p class="fbi-steward-cinema__app-name">Sentinel</p>
+              <p class="fbi-steward-cinema__app-tag">Evidence workspace</p>
+              <p class="fbi-steward-cinema__route-note">Routes to Sentinel only. Case data stays in Sentinel.</p>
+            </div>
+            <div class="fbi-steward-cinema__glass fbi-steward-cinema__glass--response">
+              <span class="fbi-steward-cinema__chip fbi-steward-cinema__chip--muted">In Sentinel</span>
+              <ul class="fbi-steward-cinema__response-list">
+                
+                <li><span class="fbi-steward-cinema__response-dot" aria-hidden="true"></span>Evidence nodes grouped by matter</li>
+                
+                <li><span class="fbi-steward-cinema__response-dot" aria-hidden="true"></span>Timeline assembled from dated items</li>
+                
+                <li><span class="fbi-steward-cinema__response-dot" aria-hidden="true"></span>Case organization updated locally</li>
+                
+                <li><span class="fbi-steward-cinema__response-dot" aria-hidden="true"></span>Document links prepared for your review</li>
+                
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <div class="fbi-steward-cinema__panel" id="fbi-cinema-panel-eden" role="tabpanel" aria-labelledby="fbi-cinema-tab-eden" data-cinema-panel="eden" hidden>
+          <div class="fbi-steward-cinema__panel-grid">
+            <div class="fbi-steward-cinema__glass fbi-steward-cinema__glass--request">
+              <span class="fbi-steward-cinema__chip">You ask</span>
+              <p class="fbi-steward-cinema__request">Organize this research into topics.</p>
+            </div>
+            <div class="fbi-steward-cinema__glass fbi-steward-cinema__glass--core">
+              <span class="fbi-steward-cinema__chip fbi-steward-cinema__chip--gold">Steward</span>
+              <p class="fbi-steward-cinema__core-title">Processing on your machine</p>
+              <ul class="fbi-steward-cinema__node-list">
+                
+                
+                <li class="fbi-steward-cinema__node-lit" data-steward-node="rules"><span class="fbi-steward-cinema__node-dot" aria-hidden="true"></span>Rules</li>
+                
+                
+                <li class="fbi-steward-cinema__node-lit" data-steward-node="memory"><span class="fbi-steward-cinema__node-dot" aria-hidden="true"></span>Memory</li>
+                
+                
+                <li class="fbi-steward-cinema__node-lit" data-steward-node="permissions"><span class="fbi-steward-cinema__node-dot" aria-hidden="true"></span>Permissions</li>
+                
+              </ul>
+            </div>
+            <div class="fbi-steward-cinema__glass fbi-steward-cinema__glass--app">
+              <span class="fbi-steward-cinema__chip">Routes to Eden</span>
+              <p class="fbi-steward-cinema__app-name">Eden</p>
+              <p class="fbi-steward-cinema__app-tag">Research workspace</p>
+              <p class="fbi-steward-cinema__route-note">Routes to Eden only. Research stays in Eden.</p>
+            </div>
+            <div class="fbi-steward-cinema__glass fbi-steward-cinema__glass--response">
+              <span class="fbi-steward-cinema__chip fbi-steward-cinema__chip--muted">In Eden</span>
+              <ul class="fbi-steward-cinema__response-list">
+                
+                <li><span class="fbi-steward-cinema__response-dot" aria-hidden="true"></span>Sources clustered by theme you approve</li>
+                
+                <li><span class="fbi-steward-cinema__response-dot" aria-hidden="true"></span>Knowledge graph links related notes</li>
+                
+                <li><span class="fbi-steward-cinema__response-dot" aria-hidden="true"></span>Research nodes categorized on device</li>
+                
+                <li><span class="fbi-steward-cinema__response-dot" aria-hidden="true"></span>Suggestions wait for your confirmation</li>
+                
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <div class="fbi-steward-cinema__panel" id="fbi-cinema-panel-ledger" role="tabpanel" aria-labelledby="fbi-cinema-tab-ledger" data-cinema-panel="ledger" hidden>
+          <div class="fbi-steward-cinema__panel-grid">
+            <div class="fbi-steward-cinema__glass fbi-steward-cinema__glass--request">
+              <span class="fbi-steward-cinema__chip">You ask</span>
+              <p class="fbi-steward-cinema__request">Fill my recurring information automatically.</p>
+            </div>
+            <div class="fbi-steward-cinema__glass fbi-steward-cinema__glass--core">
+              <span class="fbi-steward-cinema__chip fbi-steward-cinema__chip--gold">Steward</span>
+              <p class="fbi-steward-cinema__core-title">Processing on your machine</p>
+              <ul class="fbi-steward-cinema__node-list">
+                
+                
+                <li class="fbi-steward-cinema__node-lit" data-steward-node="rules"><span class="fbi-steward-cinema__node-dot" aria-hidden="true"></span>Rules</li>
+                
+                
+                <li class="fbi-steward-cinema__node-lit" data-steward-node="memory"><span class="fbi-steward-cinema__node-dot" aria-hidden="true"></span>Memory</li>
+                
+                
+                <li class="fbi-steward-cinema__node-lit" data-steward-node="permissions"><span class="fbi-steward-cinema__node-dot" aria-hidden="true"></span>Permissions</li>
+                
+              </ul>
+            </div>
+            <div class="fbi-steward-cinema__glass fbi-steward-cinema__glass--app">
+              <span class="fbi-steward-cinema__chip">Routes to Ledger</span>
+              <p class="fbi-steward-cinema__app-name">Ledger</p>
+              <p class="fbi-steward-cinema__app-tag">Identity vault</p>
+              <p class="fbi-steward-cinema__route-note">Routes to Ledger only. Vault data stays in Ledger.</p>
+            </div>
+            <div class="fbi-steward-cinema__glass fbi-steward-cinema__glass--response">
+              <span class="fbi-steward-cinema__chip fbi-steward-cinema__chip--muted">In Ledger</span>
+              <ul class="fbi-steward-cinema__response-list">
+                
+                <li><span class="fbi-steward-cinema__response-dot" aria-hidden="true"></span>Vault fields matched to the form</li>
+                
+                <li><span class="fbi-steward-cinema__response-dot" aria-hidden="true"></span>Templates applied from saved profiles</li>
+                
+                <li><span class="fbi-steward-cinema__response-dot" aria-hidden="true"></span>Autofill preview before paste</li>
+                
+                <li><span class="fbi-steward-cinema__response-dot" aria-hidden="true"></span>Permission prompt for each sensitive field</li>
+                
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+
+    <ul class="fbi-steward-cinema__copy mt-12 flex flex-wrap justify-center gap-3 text-center" aria-label="Steward principles">
+      <li class="fbi-steward-cinema__copy-item">Trainable by the user.</li>
+      <li class="fbi-steward-cinema__copy-item">Permission-aware by design.</li>
+      <li class="fbi-steward-cinema__copy-item">Your workflows stay yours.</li>
+    </ul>
+
+    <ul class="fbi-steward-cinema__telemetry mt-8 flex flex-wrap justify-center gap-2 sm:gap-3" aria-label="Steward characteristics">
       
       <li class="fbi-steward-cinema__tel">user-trainable</li>
       
@@ -352,9 +510,8 @@
       
     </ul>
   </div>
-</section>
-
-  
+  <div class="fbi-divider-glow fbi-divider-glow--light" aria-hidden="true"></div>
+</section>  
 
 <section class="fbi-statement-band fbi-statement-band--dark" aria-label="Separate apps. Shared operational logic.">
   <div class="fbi-statement-band__texture pointer-events-none absolute inset-0" aria-hidden="true"></div>
@@ -363,128 +520,6 @@
     <p class="fbi-statement-mega fbi-statement-mega--band fbi-statement-mega--on-dark text-center">Separate apps. Shared operational logic.</p>
   </div>
 </section>
-
-  <section class="fbi-wow fbi-ambient fbi-ambient--shift" aria-labelledby="fbi-wow-title">
-  <div class="fbi-section-bridge fbi-section-bridge--down" aria-hidden="true"></div>
-  <div class="fbi-wow__grid-texture pointer-events-none absolute inset-0" aria-hidden="true"></div>
-  <div class="fbi-wow__glow pointer-events-none absolute inset-0" aria-hidden="true"></div>
-  <div class="fbi-ambient__inner relative mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
-    <div class="mx-auto max-w-3xl text-center">
-      <p class="fbi-kicker text-amber-200/90">Modular software ecosystem</p>
-      <h2 id="fbi-wow-title" class="fbi-section-title fbi-section-title--xl mt-3 text-white">Separate applications. Shared intelligence.</h2>
-      <p class="fbi-section-lead mx-auto text-slate-300">Faith Based Innovations builds focused local-first software products. CFO, Sentinel, Eden, and Ledger each stand on their own. Steward is the shared local, user-trainable guidance layer that gives them a consistent way to assist, organize, and act with user permission.</p>
-    </div>
-
-    <div class="fbi-wow__stage mt-14 lg:mt-16" role="img" aria-label="Architecture diagram: CFO, Sentinel, Eden, and Ledger as separate applications surrounding Steward, the shared local guidance layer at center. Connecting lines represent shared principles, not merged data.">
-      <svg class="fbi-wow__lines" viewBox="0 0 800 520" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-        <defs>
-          <linearGradient id="fbi-wow-grad-gold" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stop-color="rgba(217,119,6,0)" />
-            <stop offset="50%" stop-color="rgba(217,119,6,0.55)" />
-            <stop offset="100%" stop-color="rgba(217,119,6,0)" />
-          </linearGradient>
-          <linearGradient id="fbi-wow-grad-blue" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="rgba(148,163,184,0.15)" />
-            <stop offset="50%" stop-color="rgba(148,163,184,0.45)" />
-            <stop offset="100%" stop-color="rgba(148,163,184,0.15)" />
-          </linearGradient>
-        </defs>
-        <path class="fbi-wow__path fbi-wow__path--a" d="M400 268 L180 120" />
-        <path class="fbi-wow__path fbi-wow__path--b" d="M400 268 L620 120" />
-        <path class="fbi-wow__path fbi-wow__path--c" d="M400 268 L160 380" />
-        <path class="fbi-wow__path fbi-wow__path--d" d="M400 268 L640 380" />
-        <circle class="fbi-wow__pulse" cx="400" cy="268" r="72" />
-      </svg>
-
-      <div class="fbi-wow__hub">
-        <div class="fbi-wow__hub-ring" aria-hidden="true"></div>
-        <div class="fbi-wow__hub-core">
-          <p class="fbi-wow__hub-label">Steward</p>
-          <p class="fbi-wow__hub-sub">User-trainable local guidance layer</p>
-          <div class="fbi-wow__telemetry" aria-hidden="true">
-            <span class="fbi-wow__tel"><span class="fbi-wow__tel-dot fbi-wow__tel-dot--gold"></span>user-trainable</span>
-            <span class="fbi-wow__tel"><span class="fbi-wow__tel-dot"></span>permission-aware</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="fbi-wow__node fbi-wow__node--sentinel" data-product="sentinel">
-        <div class="fbi-wow__node-panel">
-          <span class="fbi-wow__node-badge">Standalone app</span>
-          <span class="fbi-wow__node-tag">Sentinel</span>
-          <p class="fbi-wow__node-title">Evidence workspace</p>
-          <p class="fbi-wow__node-meta">Case prep · local</p>
-        </div>
-      </div>
-      <div class="fbi-wow__node fbi-wow__node--cfo" data-product="cfo">
-        <div class="fbi-wow__node-panel">
-          <span class="fbi-wow__node-badge">Standalone app</span>
-          <span class="fbi-wow__node-tag fbi-wow__node-tag--gold">CFO</span>
-          <p class="fbi-wow__node-title">Finance command</p>
-          <p class="fbi-wow__node-meta">Local-first · yours</p>
-        </div>
-      </div>
-      <div class="fbi-wow__node fbi-wow__node--eden" data-product="eden">
-        <div class="fbi-wow__node-panel">
-          <span class="fbi-wow__node-badge">Standalone app</span>
-          <span class="fbi-wow__node-tag fbi-wow__node-tag--gold">Eden</span>
-          <p class="fbi-wow__node-title">Research workspace</p>
-          <p class="fbi-wow__node-meta">Sources · cites</p>
-        </div>
-      </div>
-      <div class="fbi-wow__node fbi-wow__node--ledger" data-product="ledger">
-        <div class="fbi-wow__node-panel">
-          <span class="fbi-wow__node-badge">Standalone app</span>
-          <span class="fbi-wow__node-tag fbi-wow__node-tag--gold">Ledger</span>
-          <p class="fbi-wow__node-title">Identity vault</p>
-          <p class="fbi-wow__node-meta">Encrypted · local</p>
-        </div>
-      </div>
-
-      <div class="fbi-wow__foundation" aria-label="Steward local foundation pillars">
-        
-        <span class="fbi-wow__foundation-pill">Local rules</span>
-        
-        <span class="fbi-wow__foundation-pill">Memory</span>
-        
-        <span class="fbi-wow__foundation-pill">Knowledge</span>
-        
-        <span class="fbi-wow__foundation-pill">Permissions</span>
-        
-        <span class="fbi-wow__foundation-pill">Tools</span>
-        
-        <span class="fbi-wow__foundation-pill">Audit</span>
-        
-        <span class="fbi-wow__foundation-pill">User training</span>
-        
-      </div>
-
-      <div class="fbi-wow__principle-flow" aria-hidden="true">
-        <span class="fbi-wow__vault-chip">Shared principles</span>
-        <span class="fbi-wow__vault-arrow"></span>
-        <span class="fbi-wow__vault-chip fbi-wow__vault-chip--accent">Not merged data</span>
-        <span class="fbi-wow__vault-arrow"></span>
-        <span class="fbi-wow__vault-chip">Consistent interaction model</span>
-      </div>
-
-      <p class="fbi-wow__caption">Separate applications · shared operational logic · concept preview</p>
-    </div>
-
-    <ul class="fbi-arch-pillars mt-14 flex flex-wrap justify-center gap-3 sm:gap-4" aria-label="Architecture principles">
-      
-      <li class="fbi-arch-pillars__item">Focused apps.</li>
-      
-      <li class="fbi-arch-pillars__item">User-trainable guidance.</li>
-      
-      <li class="fbi-arch-pillars__item">User-controlled workflows.</li>
-      
-      <li class="fbi-arch-pillars__item">Local-first by design.</li>
-      
-    </ul>
-  </div>
-  <div class="fbi-divider-glow fbi-divider-glow--light" aria-hidden="true"></div>
-</section>
-
   
 
 <section class="fbi-statement-band fbi-statement-band--light" aria-label="Permission-aware by design.">
@@ -698,7 +733,7 @@
   </div>
   <div class="fbi-eco-card__body">
     <div class="flex flex-wrap items-center justify-between gap-2">
-      <span class="text-[10px] font-bold uppercase tracking-wider text-slate-600">Flagship · Evidence intelligence</span>
+      <span class="text-[10px] font-bold uppercase tracking-wider text-slate-600">Flagship Ã‚Â· Evidence intelligence</span>
       <span class="rounded-full bg-slate-100 px-2 py-0.5 text-[10px] font-semibold text-slate-600 ring-1 ring-slate-200">Advanced internal alpha</span>
     </div>
     <h3 class="mt-3 text-xl font-bold text-navy sm:text-2xl">Sentinel</h3>
@@ -745,7 +780,7 @@
   </div>
   <div class="fbi-eco-card__body">
     <div class="flex flex-wrap items-center justify-between gap-2">
-      <span class="text-[10px] font-bold uppercase tracking-wider text-faithGold">Flagship · Finance</span>
+      <span class="text-[10px] font-bold uppercase tracking-wider text-faithGold">Flagship Ã‚Â· Finance</span>
       <span class="rounded-full bg-slate-100 px-2 py-0.5 text-[10px] font-semibold text-slate-600 ring-1 ring-slate-200">In development</span>
     </div>
     <h3 class="mt-3 text-xl font-bold text-navy sm:text-2xl">CFO</h3>
@@ -1025,7 +1060,7 @@
           </ul>
           <blockquote class="fbi-statement mt-8">Steward is designed to become more useful as the user teaches it how they work.</blockquote>
           <p class="mt-4 text-sm text-slate-600">Deterministic, auditable, and tied to what you entered. Steward is designed to organize and surface, not to invent or override you.</p>
-          <a href="products.html" class="fbi-link-premium mt-8 inline-flex text-sm text-navy hover:text-faithGold">See how Steward fits each product →</a>
+          <a href="products.html" class="fbi-link-premium mt-8 inline-flex text-sm text-navy hover:text-faithGold">See how Steward fits each product â†’</a>
         </div>
       </div>
     </div>
@@ -1092,7 +1127,7 @@
       <p class="text-xs font-bold uppercase tracking-[0.2em] text-amber-900">In development</p>
       <h2 class="mt-4 text-2xl font-bold text-navy sm:text-3xl">Actively being built</h2>
       <p class="mt-4 text-base leading-relaxed text-slate-700">CFO, Eden, and Ledger are actively being built and are not for sale or download yet. Sentinel is in advanced internal alpha. We share more as each title reaches a careful launch.</p>
-      <p class="mt-3 text-sm font-semibold text-amber-900" role="status">Advanced internal alpha · Sentinel (as of May 19, 2026)</p>
+      <p class="mt-3 text-sm font-semibold text-amber-900" role="status">Advanced internal alpha Â· Sentinel (as of May 19, 2026)</p>
       <p class="mt-2 text-sm text-slate-600"></p>
     </div>
   </section>
@@ -1231,6 +1266,54 @@
     });
   })();
 </script>
+<script>
+  (function () {
+    var root = document.querySelector("[data-steward-cinema]");
+    if (!root) return;
+    var tabs = root.querySelectorAll("[data-cinema-flow]");
+    var panels = root.querySelectorAll("[data-cinema-panel]");
+    var flows = [];
+    tabs.forEach(function (tab) {
+      flows.push(tab.getAttribute("data-cinema-flow"));
+    });
+    if (!flows.length) return;
 
+    var idx = 0;
+    var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    function setActive(id) {
+      root.setAttribute("data-active-route", id);
+      tabs.forEach(function (tab) {
+        var on = tab.getAttribute("data-cinema-flow") === id;
+        tab.classList.toggle("fbi-steward-cinema__tab--active", on);
+        tab.setAttribute("aria-selected", on ? "true" : "false");
+      });
+      panels.forEach(function (panel) {
+        var on = panel.getAttribute("data-cinema-panel") === id;
+        panel.classList.toggle("fbi-steward-cinema__panel--active", on);
+        panel.hidden = !on;
+      });
+    }
+
+    setActive(flows[0]);
+
+    tabs.forEach(function (tab) {
+      tab.addEventListener("click", function () {
+        var id = tab.getAttribute("data-cinema-flow");
+        if (!id) return;
+        idx = flows.indexOf(id);
+        if (idx < 0) idx = 0;
+        setActive(id);
+      });
+    });
+
+    if (reduced || flows.length < 2) return;
+
+    window.setInterval(function () {
+      idx = (idx + 1) % flows.length;
+      setActive(flows[idx]);
+    }, 6500);
+  })();
+</script>
 </body>
 </html>

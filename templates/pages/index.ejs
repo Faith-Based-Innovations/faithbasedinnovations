@@ -13,12 +13,8 @@
 
   <%- include('../partials/tw-statement-mega', { statementVariant: 'gold', statementText: 'Trainable by the user.' }) -%>
 
-  <%- include('../partials/tw-steward-experience') -%>
-
+  <%- include('../partials/tw-steward-cinema') -%>
   <%- include('../partials/tw-statement-mega', { statementVariant: 'dark', statementText: 'Separate apps. Shared operational logic.' }) -%>
-
-  <%- include('../partials/tw-wow-centerpiece') -%>
-
   <%- include('../partials/tw-statement-mega', { statementVariant: 'light', statementText: 'Permission-aware by design.' }) -%>
 
   <%- include('../partials/tw-steward-trainability') -%>
@@ -123,7 +119,7 @@
           </ul>
           <blockquote class="fbi-statement mt-8"><%= SITE.steward.trainabilityLine %></blockquote>
           <p class="mt-4 text-sm text-slate-600">Deterministic, auditable, and tied to what you entered. <%= SITE.steward.name %> is designed to organize and surface, not to invent or override you.</p>
-          <a href="products.html" class="fbi-link-premium mt-8 inline-flex text-sm text-navy hover:text-faithGold">See how <%= SITE.steward.name %> fits each product →</a>
+          <a href="products.html" class="fbi-link-premium mt-8 inline-flex text-sm text-navy hover:text-faithGold">See how <%= SITE.steward.name %> fits each product â†’</a>
         </div>
       </div>
     </div>
@@ -190,7 +186,7 @@
       <p class="text-xs font-bold uppercase tracking-[0.2em] text-amber-900"><%= SITE.availability.badge %></p>
       <h2 class="mt-4 text-2xl font-bold text-navy sm:text-3xl">Actively being built</h2>
       <p class="mt-4 text-base leading-relaxed text-slate-700"><%= SITE.availability.line %></p>
-      <p class="mt-3 text-sm font-semibold text-amber-900" role="status"><%= PRODUCTS.sentinel.development.stage %> · Sentinel (as of <%= PRODUCTS.sentinel.development.asOf %>)</p>
+      <p class="mt-3 text-sm font-semibold text-amber-900" role="status"><%= PRODUCTS.sentinel.development.stage %> Â· Sentinel (as of <%= PRODUCTS.sentinel.development.asOf %>)</p>
       <p class="mt-2 text-sm text-slate-600"><%= SITE.availability.ctaLabel %></p>
     </div>
   </section>
