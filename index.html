@@ -188,330 +188,430 @@
   </div>
 </section>
 
-  <section class="fbi-steward-cinema fbi-ambient fbi-ambient--shift" aria-labelledby="fbi-steward-cinema-title" data-steward-cinema data-active-route="cfo">
-  <div class="fbi-steward-cinema__grid-texture pointer-events-none absolute inset-0" aria-hidden="true"></div>
-  <div class="fbi-steward-cinema__glow pointer-events-none absolute inset-0" aria-hidden="true"></div>
+  <section
+  class="fbi-steward-movie fbi-ambient fbi-ambient--shift"
+  aria-labelledby="fbi-steward-movie-title"
+  data-steward-movie
+  data-stage="request"
+  data-workflow="cfo"
+  data-paused="false"
+>
+  <div class="fbi-steward-movie__grid-texture pointer-events-none absolute inset-0" aria-hidden="true"></div>
+  <div class="fbi-steward-movie__glow pointer-events-none absolute inset-0" aria-hidden="true"></div>
   <div class="fbi-section-bridge fbi-section-bridge--down" aria-hidden="true"></div>
 
   <div class="fbi-ambient__inner relative mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
     <div class="mx-auto max-w-3xl text-center">
-      <p class="fbi-kicker text-amber-200/90">Operational command layer</p>
-      <h2 id="fbi-steward-cinema-title" class="fbi-section-title fbi-section-title--xl mt-3 text-white">Software that adapts to you without surrendering you.</h2>
-      <p class="fbi-section-lead mx-auto text-slate-300">Steward sits between you and separate focused applications. It reads what you structured, applies your rules and memory, routes work with permission, and stays on your machine.</p>
-      <p class="mt-4 text-sm font-semibold tracking-wide text-amber-200/95">Separate apps. Shared Steward logic.</p>
+      <p class="fbi-kicker text-amber-200/90">How it works</p>
+      <h2 id="fbi-steward-movie-title" class="fbi-section-title fbi-section-title--xl mt-3 text-white">How Steward Works Across Every App</h2>
+      <p class="fbi-section-lead mx-auto text-slate-300">Steward is not a separate super-app. It is the shared local guidance layer inside each product: trainable by the user, permission-aware by design, and tied to the data the user controls.</p>
+      <p class="mt-4 text-sm font-semibold tracking-wide text-amber-200/95">Separate apps. One guidance layer. Your machine.</p>
     </div>
 
-    <div class="fbi-steward-cinema__stage mt-14 lg:mt-16" role="img" aria-label="Flow diagram: user request to Steward processing nodes, routes to CFO Sentinel Eden and Ledger, grounded in local vault rules memory and tools">
-      <svg class="fbi-steward-cinema__lines" viewBox="0 0 800 520" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+    <div class="fbi-steward-movie__controls mt-10">
+      <div class="fbi-steward-movie__tabs" role="tablist" aria-label="Product workflow demos">
+        
+        <button
+          type="button"
+          class="fbi-steward-movie__tab fbi-steward-movie__tab--active"
+          role="tab"
+          aria-selected="true"
+          data-movie-workflow="cfo"
+          id="fbi-movie-tab-cfo"
+        >CFO</button>
+        
+        <button
+          type="button"
+          class="fbi-steward-movie__tab"
+          role="tab"
+          aria-selected="false"
+          data-movie-workflow="sentinel"
+          id="fbi-movie-tab-sentinel"
+        >Sentinel</button>
+        
+        <button
+          type="button"
+          class="fbi-steward-movie__tab"
+          role="tab"
+          aria-selected="false"
+          data-movie-workflow="eden"
+          id="fbi-movie-tab-eden"
+        >Eden</button>
+        
+        <button
+          type="button"
+          class="fbi-steward-movie__tab"
+          role="tab"
+          aria-selected="false"
+          data-movie-workflow="ledger"
+          id="fbi-movie-tab-ledger"
+        >Ledger</button>
+        
+      </div>
+      <button type="button" class="fbi-steward-movie__play" data-movie-toggle aria-pressed="false" aria-label="Pause animation">
+        <span class="fbi-steward-movie__play-label" data-movie-toggle-label>Pause</span>
+      </button>
+    </div>
+
+    <div
+      class="fbi-steward-movie__theater mt-8"
+      role="region"
+      aria-label="Flow diagram: user request to Steward processing nodes, routes to CFO Sentinel Eden and Ledger, grounded in local vault rules memory and tools"
+      aria-live="polite"
+    >
+      <svg class="fbi-steward-movie__svg" viewBox="0 0 960 420" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
         <defs>
-          <linearGradient id="fbi-cinema-grad-gold" x1="0%" y1="0%" x2="100%" y2="0%">
+          <linearGradient id="fbi-movie-grad-gold" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%" stop-color="rgba(217,119,6,0)" />
-            <stop offset="50%" stop-color="rgba(217,119,6,0.55)" />
+            <stop offset="50%" stop-color="rgba(251,191,36,0.85)" />
             <stop offset="100%" stop-color="rgba(217,119,6,0)" />
           </linearGradient>
-          <linearGradient id="fbi-cinema-grad-blue" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="rgba(148,163,184,0.15)" />
-            <stop offset="50%" stop-color="rgba(148,163,184,0.45)" />
-            <stop offset="100%" stop-color="rgba(148,163,184,0.15)" />
+          <linearGradient id="fbi-movie-grad-dim" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="rgba(148,163,184,0.05)" />
+            <stop offset="50%" stop-color="rgba(148,163,184,0.35)" />
+            <stop offset="100%" stop-color="rgba(148,163,184,0.05)" />
           </linearGradient>
         </defs>
-        <path class="fbi-steward-cinema__path fbi-steward-cinema__path--cfo" data-route="cfo" d="M400 268 L620 120" />
-        <path class="fbi-steward-cinema__path fbi-steward-cinema__path--sentinel" data-route="sentinel" d="M400 268 L180 120" />
-        <path class="fbi-steward-cinema__path fbi-steward-cinema__path--eden" data-route="eden" d="M400 268 L160 380" />
-        <path class="fbi-steward-cinema__path fbi-steward-cinema__path--ledger" data-route="ledger" d="M400 268 L640 380" />
-        <circle class="fbi-steward-cinema__pulse" cx="400" cy="268" r="72" />
+        <path class="fbi-steward-movie__path fbi-steward-movie__path--user" d="M120 210 L320 210" />
+        <path class="fbi-steward-movie__path fbi-steward-movie__path--out" d="M640 210 L840 210" />
+        
+        
+        <path class="fbi-steward-movie__path fbi-steward-movie__path--app" data-route-app="cfo" d="M640 210 L840 95" />
+        
+        
+        
+        <path class="fbi-steward-movie__path fbi-steward-movie__path--app" data-route-app="sentinel" d="M640 210 L840 140" />
+        
+        
+        
+        <path class="fbi-steward-movie__path fbi-steward-movie__path--app" data-route-app="eden" d="M640 210 L840 280" />
+        
+        
+        
+        <path class="fbi-steward-movie__path fbi-steward-movie__path--app" data-route-app="ledger" d="M640 210 L840 325" />
+        
+        
+        
+        
+        <path class="fbi-steward-movie__path fbi-steward-movie__path--node" data-route-node="rules" d="M480 210 L480 95" />
+        
+        <path class="fbi-steward-movie__path fbi-steward-movie__path--node" data-route-node="memory" d="M480 210 L560 118" />
+        
+        <path class="fbi-steward-movie__path fbi-steward-movie__path--node" data-route-node="permissions" d="M480 210 L600 175" />
+        
+        <path class="fbi-steward-movie__path fbi-steward-movie__path--node" data-route-node="knowledge" d="M480 210 L580 245" />
+        
+        <path class="fbi-steward-movie__path fbi-steward-movie__path--node" data-route-node="vault" d="M480 210 L520 285" />
+        
+        <path class="fbi-steward-movie__path fbi-steward-movie__path--node" data-route-node="tools" d="M480 210 L440 265" />
+        
+        <path class="fbi-steward-movie__path fbi-steward-movie__path--node" data-route-node="audit" d="M480 210 L420 185" />
+        
+        <circle class="fbi-steward-movie__pulse" cx="480" cy="210" r="58" />
       </svg>
 
-      <div class="fbi-steward-cinema__hub">
-        <div class="fbi-steward-cinema__hub-ring" aria-hidden="true"></div>
-        <div class="fbi-steward-cinema__hub-core">
-          <p class="fbi-steward-cinema__hub-label">Steward</p>
-          <p class="fbi-steward-cinema__hub-sub">Shared operational guidance layer</p>
-          <p class="fbi-steward-cinema__hub-note">Trainable. Local. Permission-aware.</p>
+      <div class="fbi-steward-movie__layout">
+        <div class="fbi-steward-movie__panel fbi-steward-movie__panel--user">
+          <span class="fbi-steward-movie__chip">You</span>
+          <p class="fbi-steward-movie__user-label">Request</p>
+          
+          <p class="fbi-steward-movie__request fbi-steward-movie__request--active" data-movie-request="cfo">Track my missing Amazon refund.</p>
+          
+          <p class="fbi-steward-movie__request" data-movie-request="sentinel">Organize evidence related to medical records.</p>
+          
+          <p class="fbi-steward-movie__request" data-movie-request="eden">Organize this research into topics.</p>
+          
+          <p class="fbi-steward-movie__request" data-movie-request="ledger">Fill this form using my saved information.</p>
+          
+          <div class="fbi-steward-movie__typing" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </div>
+        </div>
+
+        <div class="fbi-steward-movie__panel fbi-steward-movie__panel--core">
+          <div class="fbi-steward-movie__orb-wrap">
+            <div class="fbi-steward-movie__orb-ring" aria-hidden="true"></div>
+            <div class="fbi-steward-movie__orb">
+              <p class="fbi-steward-movie__orb-title">Steward</p>
+              <p class="fbi-steward-movie__orb-sub">Local guidance core</p>
+            </div>
+          </div>
+          <ul class="fbi-steward-movie__nodes" aria-label="Local processing components">
+            
+            
+            <li class="fbi-steward-movie__node" data-steward-node="rules">
+              <span class="fbi-steward-movie__node-dot" aria-hidden="true"></span>
+              <span class="fbi-steward-movie__node-label">Rules</span>
+            </li>
+            
+            
+            <li class="fbi-steward-movie__node" data-steward-node="memory">
+              <span class="fbi-steward-movie__node-dot" aria-hidden="true"></span>
+              <span class="fbi-steward-movie__node-label">Memory</span>
+            </li>
+            
+            
+            <li class="fbi-steward-movie__node" data-steward-node="permissions">
+              <span class="fbi-steward-movie__node-dot" aria-hidden="true"></span>
+              <span class="fbi-steward-movie__node-label">Permissions</span>
+            </li>
+            
+            
+            <li class="fbi-steward-movie__node" data-steward-node="knowledge">
+              <span class="fbi-steward-movie__node-dot" aria-hidden="true"></span>
+              <span class="fbi-steward-movie__node-label">Knowledge</span>
+            </li>
+            
+            
+            <li class="fbi-steward-movie__node" data-steward-node="vault">
+              <span class="fbi-steward-movie__node-dot" aria-hidden="true"></span>
+              <span class="fbi-steward-movie__node-label">Vault</span>
+            </li>
+            
+            
+            <li class="fbi-steward-movie__node" data-steward-node="tools">
+              <span class="fbi-steward-movie__node-dot" aria-hidden="true"></span>
+              <span class="fbi-steward-movie__node-label">Tools</span>
+            </li>
+            
+            
+            <li class="fbi-steward-movie__node" data-steward-node="audit">
+              <span class="fbi-steward-movie__node-dot" aria-hidden="true"></span>
+              <span class="fbi-steward-movie__node-label">Audit</span>
+            </li>
+            
+          </ul>
+        </div>
+
+        <div class="fbi-steward-movie__panel fbi-steward-movie__panel--apps">
+          <span class="fbi-steward-movie__chip fbi-steward-movie__chip--muted">Separate apps</span>
+          
+          <article class="fbi-steward-movie__app" data-movie-app="cfo">
+            <span class="fbi-steward-movie__app-tag">CFO</span>
+            <p class="fbi-steward-movie__app-title">Finance command</p>
+            <p class="fbi-steward-movie__app-note">Routes to CFO only. Finance data stays in CFO.</p>
+          </article>
+          
+          <article class="fbi-steward-movie__app" data-movie-app="sentinel">
+            <span class="fbi-steward-movie__app-tag">Sentinel</span>
+            <p class="fbi-steward-movie__app-title">Evidence workspace</p>
+            <p class="fbi-steward-movie__app-note">Routes to Sentinel only. Case data stays in Sentinel.</p>
+          </article>
+          
+          <article class="fbi-steward-movie__app" data-movie-app="eden">
+            <span class="fbi-steward-movie__app-tag">Eden</span>
+            <p class="fbi-steward-movie__app-title">Research workspace</p>
+            <p class="fbi-steward-movie__app-note">Routes to Eden only. Research stays in Eden.</p>
+          </article>
+          
+          <article class="fbi-steward-movie__app" data-movie-app="ledger">
+            <span class="fbi-steward-movie__app-tag">Ledger</span>
+            <p class="fbi-steward-movie__app-title">Identity vault</p>
+            <p class="fbi-steward-movie__app-note">Routes to Ledger only. Vault data stays in Ledger.</p>
+          </article>
+          
         </div>
       </div>
 
-      <div class="fbi-steward-cinema__node fbi-steward-cinema__node--sentinel" data-product="sentinel">
-        <div class="fbi-steward-cinema__node-panel">
-          <span class="fbi-steward-cinema__node-badge">Standalone app</span>
-          <span class="fbi-steward-cinema__node-tag">Sentinel</span>
-          <p class="fbi-steward-cinema__node-title">Evidence workspace</p>
-          <p class="fbi-steward-cinema__node-meta">Case prep on your machine</p>
+      <div class="fbi-steward-movie__dock">
+        <div class="fbi-steward-movie__terminal">
+          <div class="fbi-steward-movie__terminal-bar">
+            <span>steward.local</span>
+            <span class="fbi-steward-movie__terminal-stage" data-movie-stage-label>request</span>
+          </div>
+          <ol class="fbi-steward-movie__terminal-feed" data-movie-terminal></ol>
         </div>
-      </div>
-      <div class="fbi-steward-cinema__node fbi-steward-cinema__node--cfo" data-product="cfo">
-        <div class="fbi-steward-cinema__node-panel">
-          <span class="fbi-steward-cinema__node-badge">Standalone app</span>
-          <span class="fbi-steward-cinema__node-tag fbi-steward-cinema__node-tag--gold">CFO</span>
-          <p class="fbi-steward-cinema__node-title">Finance command</p>
-          <p class="fbi-steward-cinema__node-meta">Local-first finance</p>
+
+        <div class="fbi-steward-movie__permission" data-movie-permission>
+          <p class="fbi-steward-movie__permission-q" data-movie-permission-text>Approve action?</p>
+          <div class="fbi-steward-movie__permission-actions">
+            <span class="fbi-steward-movie__perm-btn fbi-steward-movie__perm-btn--ghost">Deny</span>
+            <span class="fbi-steward-movie__perm-btn fbi-steward-movie__perm-btn--gold">Allow</span>
+          </div>
         </div>
-      </div>
-      <div class="fbi-steward-cinema__node fbi-steward-cinema__node--eden" data-product="eden">
-        <div class="fbi-steward-cinema__node-panel">
-          <span class="fbi-steward-cinema__node-badge">Standalone app</span>
-          <span class="fbi-steward-cinema__node-tag fbi-steward-cinema__node-tag--gold">Eden</span>
-          <p class="fbi-steward-cinema__node-title">Research workspace</p>
-          <p class="fbi-steward-cinema__node-meta">Sources and cites</p>
-        </div>
-      </div>
-      <div class="fbi-steward-cinema__node fbi-steward-cinema__node--ledger" data-product="ledger">
-        <div class="fbi-steward-cinema__node-panel">
-          <span class="fbi-steward-cinema__node-badge">Standalone app</span>
-          <span class="fbi-steward-cinema__node-tag fbi-steward-cinema__node-tag--gold">Ledger</span>
-          <p class="fbi-steward-cinema__node-title">Identity vault</p>
-          <p class="fbi-steward-cinema__node-meta">Encrypted on device</p>
+
+        <div class="fbi-steward-movie__output">
+          <span class="fbi-steward-movie__chip fbi-steward-movie__chip--gold">Steward response</span>
+          
+          <ul class="fbi-steward-movie__response fbi-steward-movie__response--active" data-movie-response="cfo">
+            
+            <li><span class="fbi-steward-movie__response-dot" aria-hidden="true"></span>Refund candidate matched to purchase history</li>
+            
+            <li><span class="fbi-steward-movie__response-dot" aria-hidden="true"></span>Merchant pattern applied from your rules</li>
+            
+            <li><span class="fbi-steward-movie__response-dot" aria-hidden="true"></span>CFO dashboard alert ready for review</li>
+            
+            <li><span class="fbi-steward-movie__response-dot" aria-hidden="true"></span>No account action without your approval</li>
+            
+          </ul>
+          
+          <ul class="fbi-steward-movie__response" data-movie-response="sentinel">
+            
+            <li><span class="fbi-steward-movie__response-dot" aria-hidden="true"></span>Evidence grouped by matter and record type</li>
+            
+            <li><span class="fbi-steward-movie__response-dot" aria-hidden="true"></span>Timeline assembled from dated items</li>
+            
+            <li><span class="fbi-steward-movie__response-dot" aria-hidden="true"></span>Case folders updated on your machine</li>
+            
+            <li><span class="fbi-steward-movie__response-dot" aria-hidden="true"></span>Exports wait for your review</li>
+            
+          </ul>
+          
+          <ul class="fbi-steward-movie__response" data-movie-response="eden">
+            
+            <li><span class="fbi-steward-movie__response-dot" aria-hidden="true"></span>Sources clustered by themes you approve</li>
+            
+            <li><span class="fbi-steward-movie__response-dot" aria-hidden="true"></span>Related notes linked in your graph</li>
+            
+            <li><span class="fbi-steward-movie__response-dot" aria-hidden="true"></span>Topics saved on device for review</li>
+            
+            <li><span class="fbi-steward-movie__response-dot" aria-hidden="true"></span>Suggestions stay suggestions until you confirm</li>
+            
+          </ul>
+          
+          <ul class="fbi-steward-movie__response" data-movie-response="ledger">
+            
+            <li><span class="fbi-steward-movie__response-dot" aria-hidden="true"></span>Vault fields matched to form labels</li>
+            
+            <li><span class="fbi-steward-movie__response-dot" aria-hidden="true"></span>Profile template applied from saved data</li>
+            
+            <li><span class="fbi-steward-movie__response-dot" aria-hidden="true"></span>Autofill preview ready before paste</li>
+            
+            <li><span class="fbi-steward-movie__response-dot" aria-hidden="true"></span>Sensitive fields gated by permission</li>
+            
+          </ul>
+          
         </div>
       </div>
 
-      <div class="fbi-steward-cinema__foundation" aria-label="Steward local foundation pillars">
-        
-        <span class="fbi-steward-cinema__foundation-pill">Local rules</span>
-        
-        <span class="fbi-steward-cinema__foundation-pill">Memory</span>
-        
-        <span class="fbi-steward-cinema__foundation-pill">Knowledge</span>
-        
-        <span class="fbi-steward-cinema__foundation-pill">Permissions</span>
-        
-        <span class="fbi-steward-cinema__foundation-pill">Tools</span>
-        
-        <span class="fbi-steward-cinema__foundation-pill">Audit</span>
-        
-        <span class="fbi-steward-cinema__foundation-pill">User training</span>
-        
+      
+      <div class="fbi-steward-movie__outcome fbi-steward-movie__outcome--active" data-movie-outcome="cfo">
+        <div class="fbi-steward-movie__outcome-chrome">
+          <span class="fbi-steward-movie__outcome-app">CFO</span>
+          <span class="fbi-steward-movie__outcome-title">Refund tracker</span>
+        </div>
+        <dl class="fbi-steward-movie__outcome-rows">
+          
+          <div class="fbi-steward-movie__outcome-row">
+            <dt>Merchant</dt>
+            <dd>Amazon</dd>
+          </div>
+          
+          <div class="fbi-steward-movie__outcome-row">
+            <dt>Amount</dt>
+            <dd>$47.12</dd>
+          </div>
+          
+          <div class="fbi-steward-movie__outcome-row">
+            <dt>Status</dt>
+            <dd>Missing refund flagged</dd>
+          </div>
+          
+        </dl>
       </div>
-
-      <p class="fbi-steward-cinema__diagram-caption">Independent apps. One Steward hub. Separate data boundaries.</p>
+      
+      <div class="fbi-steward-movie__outcome" data-movie-outcome="sentinel">
+        <div class="fbi-steward-movie__outcome-chrome">
+          <span class="fbi-steward-movie__outcome-app">Sentinel</span>
+          <span class="fbi-steward-movie__outcome-title">Evidence workspace</span>
+        </div>
+        <dl class="fbi-steward-movie__outcome-rows">
+          
+          <div class="fbi-steward-movie__outcome-row">
+            <dt>Matter</dt>
+            <dd>Medical records bundle</dd>
+          </div>
+          
+          <div class="fbi-steward-movie__outcome-row">
+            <dt>Items</dt>
+            <dd>24 nodes linked</dd>
+          </div>
+          
+          <div class="fbi-steward-movie__outcome-row">
+            <dt>Timeline</dt>
+            <dd>12 dated events sorted</dd>
+          </div>
+          
+        </dl>
+      </div>
+      
+      <div class="fbi-steward-movie__outcome" data-movie-outcome="eden">
+        <div class="fbi-steward-movie__outcome-chrome">
+          <span class="fbi-steward-movie__outcome-app">Eden</span>
+          <span class="fbi-steward-movie__outcome-title">Topic map</span>
+        </div>
+        <dl class="fbi-steward-movie__outcome-rows">
+          
+          <div class="fbi-steward-movie__outcome-row">
+            <dt>Cluster A</dt>
+            <dd>Primary sources (8)</dd>
+          </div>
+          
+          <div class="fbi-steward-movie__outcome-row">
+            <dt>Cluster B</dt>
+            <dd>Supporting notes (5)</dd>
+          </div>
+          
+          <div class="fbi-steward-movie__outcome-row">
+            <dt>Status</dt>
+            <dd>Awaiting your confirmation</dd>
+          </div>
+          
+        </dl>
+      </div>
+      
+      <div class="fbi-steward-movie__outcome" data-movie-outcome="ledger">
+        <div class="fbi-steward-movie__outcome-chrome">
+          <span class="fbi-steward-movie__outcome-app">Ledger</span>
+          <span class="fbi-steward-movie__outcome-title">Form autofill preview</span>
+        </div>
+        <dl class="fbi-steward-movie__outcome-rows">
+          
+          <div class="fbi-steward-movie__outcome-row">
+            <dt>Name</dt>
+            <dd>From vault profile</dd>
+          </div>
+          
+          <div class="fbi-steward-movie__outcome-row">
+            <dt>Address</dt>
+            <dd>Matched 4 of 4 fields</dd>
+          </div>
+          
+          <div class="fbi-steward-movie__outcome-row">
+            <dt>SSN</dt>
+            <dd>Permission required</dd>
+          </div>
+          
+        </dl>
+      </div>
+      
     </div>
 
-    <div class="fbi-steward-cinema__demo mt-16 lg:mt-20">
-      <div class="fbi-steward-cinema__demo-head">
-        <p class="fbi-kicker text-amber-200/80">Live workflow preview</p>
-        <p class="mt-2 text-center text-sm text-slate-400">Steward processes locally, then routes to one application at a time.</p>
-      </div>
-
-      <div class="fbi-steward-cinema__tabs" role="tablist" aria-label="Product workflow demos">
-        
-        <button type="button" class="fbi-steward-cinema__tab fbi-steward-cinema__tab--active" role="tab" aria-selected="true" data-cinema-flow="cfo" id="fbi-cinema-tab-cfo" aria-controls="fbi-cinema-panel-cfo">CFO</button>
-        
-        <button type="button" class="fbi-steward-cinema__tab" role="tab" aria-selected="false" data-cinema-flow="sentinel" id="fbi-cinema-tab-sentinel" aria-controls="fbi-cinema-panel-sentinel">Sentinel</button>
-        
-        <button type="button" class="fbi-steward-cinema__tab" role="tab" aria-selected="false" data-cinema-flow="eden" id="fbi-cinema-tab-eden" aria-controls="fbi-cinema-panel-eden">Eden</button>
-        
-        <button type="button" class="fbi-steward-cinema__tab" role="tab" aria-selected="false" data-cinema-flow="ledger" id="fbi-cinema-tab-ledger" aria-controls="fbi-cinema-panel-ledger">Ledger</button>
-        
-      </div>
-
-      <div class="fbi-steward-cinema__panels">
-        
-        <div class="fbi-steward-cinema__panel fbi-steward-cinema__panel--active" id="fbi-cinema-panel-cfo" role="tabpanel" aria-labelledby="fbi-cinema-tab-cfo" data-cinema-panel="cfo">
-          <div class="fbi-steward-cinema__panel-grid">
-            <div class="fbi-steward-cinema__glass fbi-steward-cinema__glass--request">
-              <span class="fbi-steward-cinema__chip">You ask</span>
-              <p class="fbi-steward-cinema__request">Track my missing Amazon refund.</p>
-            </div>
-            <div class="fbi-steward-cinema__glass fbi-steward-cinema__glass--core">
-              <span class="fbi-steward-cinema__chip fbi-steward-cinema__chip--gold">Steward</span>
-              <p class="fbi-steward-cinema__core-title">Processing on your machine</p>
-              <ul class="fbi-steward-cinema__node-list">
-                
-                
-                <li class="fbi-steward-cinema__node-lit" data-steward-node="rules"><span class="fbi-steward-cinema__node-dot" aria-hidden="true"></span>Rules</li>
-                
-                
-                <li class="fbi-steward-cinema__node-lit" data-steward-node="memory"><span class="fbi-steward-cinema__node-dot" aria-hidden="true"></span>Memory</li>
-                
-                
-                <li class="fbi-steward-cinema__node-lit" data-steward-node="permissions"><span class="fbi-steward-cinema__node-dot" aria-hidden="true"></span>Permissions</li>
-                
-              </ul>
-            </div>
-            <div class="fbi-steward-cinema__glass fbi-steward-cinema__glass--app">
-              <span class="fbi-steward-cinema__chip">Routes to CFO</span>
-              <p class="fbi-steward-cinema__app-name">CFO</p>
-              <p class="fbi-steward-cinema__app-tag">Finance command</p>
-              <p class="fbi-steward-cinema__route-note">Routes to CFO only. Finance data stays in CFO.</p>
-            </div>
-            <div class="fbi-steward-cinema__glass fbi-steward-cinema__glass--response">
-              <span class="fbi-steward-cinema__chip fbi-steward-cinema__chip--muted">In CFO</span>
-              <ul class="fbi-steward-cinema__response-list">
-                
-                <li><span class="fbi-steward-cinema__response-dot" aria-hidden="true"></span>Receipt matched to purchase history</li>
-                
-                <li><span class="fbi-steward-cinema__response-dot" aria-hidden="true"></span>Vault lookup for merchant and refund rules</li>
-                
-                <li><span class="fbi-steward-cinema__response-dot" aria-hidden="true"></span>Dashboard surfaces missing refund alert</li>
-                
-                <li><span class="fbi-steward-cinema__response-dot" aria-hidden="true"></span>Steward asks before any account action</li>
-                
-              </ul>
-            </div>
-          </div>
-        </div>
-        
-        <div class="fbi-steward-cinema__panel" id="fbi-cinema-panel-sentinel" role="tabpanel" aria-labelledby="fbi-cinema-tab-sentinel" data-cinema-panel="sentinel" hidden>
-          <div class="fbi-steward-cinema__panel-grid">
-            <div class="fbi-steward-cinema__glass fbi-steward-cinema__glass--request">
-              <span class="fbi-steward-cinema__chip">You ask</span>
-              <p class="fbi-steward-cinema__request">Organize all evidence related to medical records.</p>
-            </div>
-            <div class="fbi-steward-cinema__glass fbi-steward-cinema__glass--core">
-              <span class="fbi-steward-cinema__chip fbi-steward-cinema__chip--gold">Steward</span>
-              <p class="fbi-steward-cinema__core-title">Processing on your machine</p>
-              <ul class="fbi-steward-cinema__node-list">
-                
-                
-                <li class="fbi-steward-cinema__node-lit" data-steward-node="rules"><span class="fbi-steward-cinema__node-dot" aria-hidden="true"></span>Rules</li>
-                
-                
-                <li class="fbi-steward-cinema__node-lit" data-steward-node="memory"><span class="fbi-steward-cinema__node-dot" aria-hidden="true"></span>Memory</li>
-                
-                
-                <li class="fbi-steward-cinema__node-lit" data-steward-node="permissions"><span class="fbi-steward-cinema__node-dot" aria-hidden="true"></span>Permissions</li>
-                
-              </ul>
-            </div>
-            <div class="fbi-steward-cinema__glass fbi-steward-cinema__glass--app">
-              <span class="fbi-steward-cinema__chip">Routes to Sentinel</span>
-              <p class="fbi-steward-cinema__app-name">Sentinel</p>
-              <p class="fbi-steward-cinema__app-tag">Evidence workspace</p>
-              <p class="fbi-steward-cinema__route-note">Routes to Sentinel only. Case data stays in Sentinel.</p>
-            </div>
-            <div class="fbi-steward-cinema__glass fbi-steward-cinema__glass--response">
-              <span class="fbi-steward-cinema__chip fbi-steward-cinema__chip--muted">In Sentinel</span>
-              <ul class="fbi-steward-cinema__response-list">
-                
-                <li><span class="fbi-steward-cinema__response-dot" aria-hidden="true"></span>Evidence nodes grouped by matter</li>
-                
-                <li><span class="fbi-steward-cinema__response-dot" aria-hidden="true"></span>Timeline assembled from dated items</li>
-                
-                <li><span class="fbi-steward-cinema__response-dot" aria-hidden="true"></span>Case organization updated locally</li>
-                
-                <li><span class="fbi-steward-cinema__response-dot" aria-hidden="true"></span>Document links prepared for your review</li>
-                
-              </ul>
-            </div>
-          </div>
-        </div>
-        
-        <div class="fbi-steward-cinema__panel" id="fbi-cinema-panel-eden" role="tabpanel" aria-labelledby="fbi-cinema-tab-eden" data-cinema-panel="eden" hidden>
-          <div class="fbi-steward-cinema__panel-grid">
-            <div class="fbi-steward-cinema__glass fbi-steward-cinema__glass--request">
-              <span class="fbi-steward-cinema__chip">You ask</span>
-              <p class="fbi-steward-cinema__request">Organize this research into topics.</p>
-            </div>
-            <div class="fbi-steward-cinema__glass fbi-steward-cinema__glass--core">
-              <span class="fbi-steward-cinema__chip fbi-steward-cinema__chip--gold">Steward</span>
-              <p class="fbi-steward-cinema__core-title">Processing on your machine</p>
-              <ul class="fbi-steward-cinema__node-list">
-                
-                
-                <li class="fbi-steward-cinema__node-lit" data-steward-node="rules"><span class="fbi-steward-cinema__node-dot" aria-hidden="true"></span>Rules</li>
-                
-                
-                <li class="fbi-steward-cinema__node-lit" data-steward-node="memory"><span class="fbi-steward-cinema__node-dot" aria-hidden="true"></span>Memory</li>
-                
-                
-                <li class="fbi-steward-cinema__node-lit" data-steward-node="permissions"><span class="fbi-steward-cinema__node-dot" aria-hidden="true"></span>Permissions</li>
-                
-              </ul>
-            </div>
-            <div class="fbi-steward-cinema__glass fbi-steward-cinema__glass--app">
-              <span class="fbi-steward-cinema__chip">Routes to Eden</span>
-              <p class="fbi-steward-cinema__app-name">Eden</p>
-              <p class="fbi-steward-cinema__app-tag">Research workspace</p>
-              <p class="fbi-steward-cinema__route-note">Routes to Eden only. Research stays in Eden.</p>
-            </div>
-            <div class="fbi-steward-cinema__glass fbi-steward-cinema__glass--response">
-              <span class="fbi-steward-cinema__chip fbi-steward-cinema__chip--muted">In Eden</span>
-              <ul class="fbi-steward-cinema__response-list">
-                
-                <li><span class="fbi-steward-cinema__response-dot" aria-hidden="true"></span>Sources clustered by theme you approve</li>
-                
-                <li><span class="fbi-steward-cinema__response-dot" aria-hidden="true"></span>Knowledge graph links related notes</li>
-                
-                <li><span class="fbi-steward-cinema__response-dot" aria-hidden="true"></span>Research nodes categorized on device</li>
-                
-                <li><span class="fbi-steward-cinema__response-dot" aria-hidden="true"></span>Suggestions wait for your confirmation</li>
-                
-              </ul>
-            </div>
-          </div>
-        </div>
-        
-        <div class="fbi-steward-cinema__panel" id="fbi-cinema-panel-ledger" role="tabpanel" aria-labelledby="fbi-cinema-tab-ledger" data-cinema-panel="ledger" hidden>
-          <div class="fbi-steward-cinema__panel-grid">
-            <div class="fbi-steward-cinema__glass fbi-steward-cinema__glass--request">
-              <span class="fbi-steward-cinema__chip">You ask</span>
-              <p class="fbi-steward-cinema__request">Fill my recurring information automatically.</p>
-            </div>
-            <div class="fbi-steward-cinema__glass fbi-steward-cinema__glass--core">
-              <span class="fbi-steward-cinema__chip fbi-steward-cinema__chip--gold">Steward</span>
-              <p class="fbi-steward-cinema__core-title">Processing on your machine</p>
-              <ul class="fbi-steward-cinema__node-list">
-                
-                
-                <li class="fbi-steward-cinema__node-lit" data-steward-node="rules"><span class="fbi-steward-cinema__node-dot" aria-hidden="true"></span>Rules</li>
-                
-                
-                <li class="fbi-steward-cinema__node-lit" data-steward-node="memory"><span class="fbi-steward-cinema__node-dot" aria-hidden="true"></span>Memory</li>
-                
-                
-                <li class="fbi-steward-cinema__node-lit" data-steward-node="permissions"><span class="fbi-steward-cinema__node-dot" aria-hidden="true"></span>Permissions</li>
-                
-              </ul>
-            </div>
-            <div class="fbi-steward-cinema__glass fbi-steward-cinema__glass--app">
-              <span class="fbi-steward-cinema__chip">Routes to Ledger</span>
-              <p class="fbi-steward-cinema__app-name">Ledger</p>
-              <p class="fbi-steward-cinema__app-tag">Identity vault</p>
-              <p class="fbi-steward-cinema__route-note">Routes to Ledger only. Vault data stays in Ledger.</p>
-            </div>
-            <div class="fbi-steward-cinema__glass fbi-steward-cinema__glass--response">
-              <span class="fbi-steward-cinema__chip fbi-steward-cinema__chip--muted">In Ledger</span>
-              <ul class="fbi-steward-cinema__response-list">
-                
-                <li><span class="fbi-steward-cinema__response-dot" aria-hidden="true"></span>Vault fields matched to the form</li>
-                
-                <li><span class="fbi-steward-cinema__response-dot" aria-hidden="true"></span>Templates applied from saved profiles</li>
-                
-                <li><span class="fbi-steward-cinema__response-dot" aria-hidden="true"></span>Autofill preview before paste</li>
-                
-                <li><span class="fbi-steward-cinema__response-dot" aria-hidden="true"></span>Permission prompt for each sensitive field</li>
-                
-              </ul>
-            </div>
-          </div>
-        </div>
-        
-      </div>
-    </div>
-
-    <ul class="fbi-steward-cinema__copy mt-12 flex flex-wrap justify-center gap-3 text-center" aria-label="Steward principles">
-      <li class="fbi-steward-cinema__copy-item">Trainable by the user.</li>
-      <li class="fbi-steward-cinema__copy-item">Permission-aware by design.</li>
-      <li class="fbi-steward-cinema__copy-item">Your workflows stay yours.</li>
+    <ul class="fbi-steward-movie__copy mt-10 flex flex-wrap justify-center gap-3 text-center" aria-label="Steward principles">
+      <li class="fbi-steward-movie__copy-item">Trainable by the user.</li>
+      <li class="fbi-steward-movie__copy-item">Permission-aware by design.</li>
+      <li class="fbi-steward-movie__copy-item">Your workflows stay yours.</li>
     </ul>
 
-    <ul class="fbi-steward-cinema__telemetry mt-8 flex flex-wrap justify-center gap-2 sm:gap-3" aria-label="Steward characteristics">
+    <ul class="fbi-steward-movie__telemetry mt-8 flex flex-wrap justify-center gap-2 sm:gap-3" aria-label="Steward characteristics">
       
-      <li class="fbi-steward-cinema__tel">user-trainable</li>
+      <li class="fbi-steward-movie__tel">user-trainable</li>
       
-      <li class="fbi-steward-cinema__tel">permission-aware</li>
+      <li class="fbi-steward-movie__tel">permission-aware</li>
       
-      <li class="fbi-steward-cinema__tel">rules-based</li>
+      <li class="fbi-steward-movie__tel">rules-based</li>
       
-      <li class="fbi-steward-cinema__tel">local-first</li>
+      <li class="fbi-steward-movie__tel">local-first</li>
       
-      <li class="fbi-steward-cinema__tel">modular</li>
+      <li class="fbi-steward-movie__tel">modular</li>
       
-      <li class="fbi-steward-cinema__tel">deterministic where needed</li>
+      <li class="fbi-steward-movie__tel">deterministic where needed</li>
       
     </ul>
   </div>
   <div class="fbi-divider-glow fbi-divider-glow--light" aria-hidden="true"></div>
-</section>  
+</section>
+  
 
 <section class="fbi-statement-band fbi-statement-band--dark" aria-label="Separate apps. Shared operational logic.">
   <div class="fbi-statement-band__texture pointer-events-none absolute inset-0" aria-hidden="true"></div>
@@ -1268,51 +1368,246 @@
 </script>
 <script>
   (function () {
-    var root = document.querySelector("[data-steward-cinema]");
+    var root = document.querySelector("[data-steward-movie]");
     if (!root) return;
-    var tabs = root.querySelectorAll("[data-cinema-flow]");
-    var panels = root.querySelectorAll("[data-cinema-panel]");
-    var flows = [];
+
+    var STAGES = ["request", "receive", "processing", "permission", "route", "outcome", "response"];
+    var STAGE_MS = {
+      request: 900,
+      receive: 700,
+      processing: 2400,
+      permission: 1000,
+      route: 1100,
+      outcome: 1300,
+      response: 1000
+    };
+    var PERM_TEXT = {
+      permission: "Approve action?",
+      route: "Review before applying",
+      outcome: "Safe suggestion only"
+    };
+    var TERM_LINES = {
+      request: "User request captured locally.",
+      receive: "Steward core received request.",
+      processing: "Activating local components...",
+      permission: "Permission gate: user confirmation required.",
+      route: "Routing to active application only.",
+      outcome: "Application outcome panel rendered.",
+      response: "Permission-aware response returned to user."
+    };
+
+    var tabs = root.querySelectorAll("[data-movie-workflow]");
+    var workflows = [];
     tabs.forEach(function (tab) {
-      flows.push(tab.getAttribute("data-cinema-flow"));
+      workflows.push(tab.getAttribute("data-movie-workflow"));
     });
-    if (!flows.length) return;
+    if (!workflows.length) return;
 
-    var idx = 0;
+    var processNodes = root.querySelectorAll(".fbi-steward-movie__node[data-steward-node]");
+    var pathNodes = root.querySelectorAll(".fbi-steward-movie__path--node[data-route-node]");
+    var apps = root.querySelectorAll("[data-movie-app]");
+    var requests = root.querySelectorAll("[data-movie-request]");
+    var responses = root.querySelectorAll("[data-movie-response]");
+    var outcomes = root.querySelectorAll("[data-movie-outcome]");
+    var terminal = root.querySelector("[data-movie-terminal]");
+    var stageLabel = root.querySelector("[data-movie-stage-label]");
+    var permBox = root.querySelector("[data-movie-permission]");
+    var permText = root.querySelector("[data-movie-permission-text]");
+    var toggleBtn = root.querySelector("[data-movie-toggle]");
+    var toggleLabel = root.querySelector("[data-movie-toggle-label]");
+
+    var wfIdx = 0;
+    var stageIdx = 0;
+    var timer = null;
+    var nodeTimer = null;
+    var nodeStep = 0;
     var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var paused = root.getAttribute("data-paused") === "true";
 
-    function setActive(id) {
-      root.setAttribute("data-active-route", id);
-      tabs.forEach(function (tab) {
-        var on = tab.getAttribute("data-cinema-flow") === id;
-        tab.classList.toggle("fbi-steward-cinema__tab--active", on);
-        tab.setAttribute("aria-selected", on ? "true" : "false");
+    function clearTimers() {
+      if (timer) window.clearTimeout(timer);
+      if (nodeTimer) window.clearInterval(nodeTimer);
+      timer = null;
+      nodeTimer = null;
+    }
+
+    function clearNodeLights() {
+      processNodes.forEach(function (n) {
+        n.classList.remove("fbi-steward-movie__node--lit");
       });
-      panels.forEach(function (panel) {
-        var on = panel.getAttribute("data-cinema-panel") === id;
-        panel.classList.toggle("fbi-steward-cinema__panel--active", on);
-        panel.hidden = !on;
+      pathNodes.forEach(function (p) {
+        p.classList.remove("fbi-steward-movie__path--lit");
       });
     }
 
-    setActive(flows[0]);
+    function lightNodeAt(i) {
+      if (i < 0 || i >= processNodes.length) return;
+      processNodes[i].classList.add("fbi-steward-movie__node--lit");
+      var id = processNodes[i].getAttribute("data-steward-node");
+      if (id) {
+        var path = root.querySelector('.fbi-steward-movie__path--node[data-route-node="' + id + '"]');
+        if (path) path.classList.add("fbi-steward-movie__path--lit");
+      }
+    }
+
+    function runNodeSequence() {
+      clearNodeLights();
+      nodeStep = 0;
+      lightNodeAt(0);
+      if (processNodes.length < 2) return;
+      nodeTimer = window.setInterval(function () {
+        nodeStep += 1;
+        if (nodeStep >= processNodes.length) {
+          window.clearInterval(nodeTimer);
+          nodeTimer = null;
+          return;
+        }
+        lightNodeAt(nodeStep);
+      }, 280);
+    }
+
+    function appendTerminal(stage) {
+      if (!terminal) return;
+      var line = document.createElement("li");
+      line.textContent = TERM_LINES[stage] || stage;
+      terminal.appendChild(line);
+      while (terminal.children.length > 6) {
+        terminal.removeChild(terminal.firstChild);
+      }
+    }
+
+    function setWorkflow(id) {
+      root.setAttribute("data-workflow", id);
+      tabs.forEach(function (tab) {
+        var on = tab.getAttribute("data-movie-workflow") === id;
+        tab.classList.toggle("fbi-steward-movie__tab--active", on);
+        tab.setAttribute("aria-selected", on ? "true" : "false");
+      });
+      requests.forEach(function (el) {
+        el.classList.toggle("fbi-steward-movie__request--active", el.getAttribute("data-movie-request") === id);
+      });
+      responses.forEach(function (el) {
+        el.classList.toggle("fbi-steward-movie__response--active", el.getAttribute("data-movie-response") === id);
+      });
+      outcomes.forEach(function (el) {
+        el.classList.toggle("fbi-steward-movie__outcome--active", el.getAttribute("data-movie-outcome") === id);
+      });
+      apps.forEach(function (app) {
+        app.classList.toggle("fbi-steward-movie__app--active", app.getAttribute("data-movie-app") === id);
+      });
+    }
+
+    function setStage(stage) {
+      root.setAttribute("data-stage", stage);
+      root.classList.remove.apply(
+        root.classList,
+        STAGES.map(function (s) {
+          return "fbi-steward-movie--stage-" + s;
+        })
+      );
+      root.classList.add("fbi-steward-movie--stage-" + stage);
+      if (stageLabel) stageLabel.textContent = stage;
+
+      if (stage === "processing") {
+        runNodeSequence();
+      } else if (stage === "response") {
+        processNodes.forEach(function (n) {
+          n.classList.add("fbi-steward-movie__node--lit");
+        });
+      } else if (stage !== "route" && stage !== "outcome") {
+        clearNodeLights();
+      }
+
+      if (permText && permBox) {
+        if (stage === "permission" || stage === "route" || stage === "outcome") {
+          permText.textContent = PERM_TEXT[stage] || "Approve action?";
+          permBox.hidden = false;
+        } else if (stage === "request" || stage === "receive") {
+          permBox.hidden = true;
+        }
+      }
+
+      appendTerminal(stage);
+    }
+
+    function scheduleNext() {
+      clearTimers();
+      if (paused || reduced) return;
+      var stage = STAGES[stageIdx];
+      timer = window.setTimeout(advance, STAGE_MS[stage] || 900);
+    }
+
+    function advance() {
+      stageIdx += 1;
+      if (stageIdx >= STAGES.length) {
+        stageIdx = 0;
+        if (terminal) terminal.innerHTML = "";
+        wfIdx = (wfIdx + 1) % workflows.length;
+        setWorkflow(workflows[wfIdx]);
+      }
+      setStage(STAGES[stageIdx]);
+      scheduleNext();
+    }
+
+    function resetCycle(workflowId, startStage) {
+      clearTimers();
+      if (terminal) terminal.innerHTML = "";
+      clearNodeLights();
+      wfIdx = workflows.indexOf(workflowId);
+      if (wfIdx < 0) wfIdx = 0;
+      setWorkflow(workflows[wfIdx]);
+      stageIdx = STAGES.indexOf(startStage || "request");
+      if (stageIdx < 0) stageIdx = 0;
+      setStage(STAGES[stageIdx]);
+      if (!paused && !reduced) scheduleNext();
+    }
+
+    function showReducedFinal() {
+      clearTimers();
+      setWorkflow(workflows[wfIdx]);
+      setStage("response");
+      processNodes.forEach(function (n) {
+        n.classList.add("fbi-steward-movie__node--lit");
+      });
+      if (terminal && terminal.children.length === 0) {
+        STAGES.forEach(function (s) {
+          appendTerminal(s);
+        });
+      }
+      if (permText) permText.textContent = "Review before applying";
+      if (permBox) permBox.hidden = false;
+    }
 
     tabs.forEach(function (tab) {
       tab.addEventListener("click", function () {
-        var id = tab.getAttribute("data-cinema-flow");
+        var id = tab.getAttribute("data-movie-workflow");
         if (!id) return;
-        idx = flows.indexOf(id);
-        if (idx < 0) idx = 0;
-        setActive(id);
+        resetCycle(id, reduced ? "response" : "request");
+        if (reduced) showReducedFinal();
       });
     });
 
-    if (reduced || flows.length < 2) return;
+    if (toggleBtn) {
+      toggleBtn.addEventListener("click", function () {
+        paused = !paused;
+        root.setAttribute("data-paused", paused ? "true" : "false");
+        toggleBtn.setAttribute("aria-pressed", paused ? "true" : "false");
+        toggleBtn.setAttribute("aria-label", paused ? "Play animation" : "Pause animation");
+        if (toggleLabel) toggleLabel.textContent = paused ? "Play" : "Pause";
+        if (paused) {
+          clearTimers();
+        } else if (!reduced) {
+          scheduleNext();
+        }
+      });
+    }
 
-    window.setInterval(function () {
-      idx = (idx + 1) % flows.length;
-      setActive(flows[idx]);
-    }, 6500);
+    if (reduced) {
+      showReducedFinal();
+      return;
+    }
+
+    resetCycle(workflows[0], "request");
   })();
 </script>
 </body>

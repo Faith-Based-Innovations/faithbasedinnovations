@@ -636,51 +636,246 @@
 </script>
 <script>
   (function () {
-    var root = document.querySelector("[data-steward-cinema]");
+    var root = document.querySelector("[data-steward-movie]");
     if (!root) return;
-    var tabs = root.querySelectorAll("[data-cinema-flow]");
-    var panels = root.querySelectorAll("[data-cinema-panel]");
-    var flows = [];
+
+    var STAGES = ["request", "receive", "processing", "permission", "route", "outcome", "response"];
+    var STAGE_MS = {
+      request: 900,
+      receive: 700,
+      processing: 2400,
+      permission: 1000,
+      route: 1100,
+      outcome: 1300,
+      response: 1000
+    };
+    var PERM_TEXT = {
+      permission: "Approve action?",
+      route: "Review before applying",
+      outcome: "Safe suggestion only"
+    };
+    var TERM_LINES = {
+      request: "User request captured locally.",
+      receive: "Steward core received request.",
+      processing: "Activating local components...",
+      permission: "Permission gate: user confirmation required.",
+      route: "Routing to active application only.",
+      outcome: "Application outcome panel rendered.",
+      response: "Permission-aware response returned to user."
+    };
+
+    var tabs = root.querySelectorAll("[data-movie-workflow]");
+    var workflows = [];
     tabs.forEach(function (tab) {
-      flows.push(tab.getAttribute("data-cinema-flow"));
+      workflows.push(tab.getAttribute("data-movie-workflow"));
     });
-    if (!flows.length) return;
+    if (!workflows.length) return;
 
-    var idx = 0;
+    var processNodes = root.querySelectorAll(".fbi-steward-movie__node[data-steward-node]");
+    var pathNodes = root.querySelectorAll(".fbi-steward-movie__path--node[data-route-node]");
+    var apps = root.querySelectorAll("[data-movie-app]");
+    var requests = root.querySelectorAll("[data-movie-request]");
+    var responses = root.querySelectorAll("[data-movie-response]");
+    var outcomes = root.querySelectorAll("[data-movie-outcome]");
+    var terminal = root.querySelector("[data-movie-terminal]");
+    var stageLabel = root.querySelector("[data-movie-stage-label]");
+    var permBox = root.querySelector("[data-movie-permission]");
+    var permText = root.querySelector("[data-movie-permission-text]");
+    var toggleBtn = root.querySelector("[data-movie-toggle]");
+    var toggleLabel = root.querySelector("[data-movie-toggle-label]");
+
+    var wfIdx = 0;
+    var stageIdx = 0;
+    var timer = null;
+    var nodeTimer = null;
+    var nodeStep = 0;
     var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var paused = root.getAttribute("data-paused") === "true";
 
-    function setActive(id) {
-      root.setAttribute("data-active-route", id);
-      tabs.forEach(function (tab) {
-        var on = tab.getAttribute("data-cinema-flow") === id;
-        tab.classList.toggle("fbi-steward-cinema__tab--active", on);
-        tab.setAttribute("aria-selected", on ? "true" : "false");
+    function clearTimers() {
+      if (timer) window.clearTimeout(timer);
+      if (nodeTimer) window.clearInterval(nodeTimer);
+      timer = null;
+      nodeTimer = null;
+    }
+
+    function clearNodeLights() {
+      processNodes.forEach(function (n) {
+        n.classList.remove("fbi-steward-movie__node--lit");
       });
-      panels.forEach(function (panel) {
-        var on = panel.getAttribute("data-cinema-panel") === id;
-        panel.classList.toggle("fbi-steward-cinema__panel--active", on);
-        panel.hidden = !on;
+      pathNodes.forEach(function (p) {
+        p.classList.remove("fbi-steward-movie__path--lit");
       });
     }
 
-    setActive(flows[0]);
+    function lightNodeAt(i) {
+      if (i < 0 || i >= processNodes.length) return;
+      processNodes[i].classList.add("fbi-steward-movie__node--lit");
+      var id = processNodes[i].getAttribute("data-steward-node");
+      if (id) {
+        var path = root.querySelector('.fbi-steward-movie__path--node[data-route-node="' + id + '"]');
+        if (path) path.classList.add("fbi-steward-movie__path--lit");
+      }
+    }
+
+    function runNodeSequence() {
+      clearNodeLights();
+      nodeStep = 0;
+      lightNodeAt(0);
+      if (processNodes.length < 2) return;
+      nodeTimer = window.setInterval(function () {
+        nodeStep += 1;
+        if (nodeStep >= processNodes.length) {
+          window.clearInterval(nodeTimer);
+          nodeTimer = null;
+          return;
+        }
+        lightNodeAt(nodeStep);
+      }, 280);
+    }
+
+    function appendTerminal(stage) {
+      if (!terminal) return;
+      var line = document.createElement("li");
+      line.textContent = TERM_LINES[stage] || stage;
+      terminal.appendChild(line);
+      while (terminal.children.length > 6) {
+        terminal.removeChild(terminal.firstChild);
+      }
+    }
+
+    function setWorkflow(id) {
+      root.setAttribute("data-workflow", id);
+      tabs.forEach(function (tab) {
+        var on = tab.getAttribute("data-movie-workflow") === id;
+        tab.classList.toggle("fbi-steward-movie__tab--active", on);
+        tab.setAttribute("aria-selected", on ? "true" : "false");
+      });
+      requests.forEach(function (el) {
+        el.classList.toggle("fbi-steward-movie__request--active", el.getAttribute("data-movie-request") === id);
+      });
+      responses.forEach(function (el) {
+        el.classList.toggle("fbi-steward-movie__response--active", el.getAttribute("data-movie-response") === id);
+      });
+      outcomes.forEach(function (el) {
+        el.classList.toggle("fbi-steward-movie__outcome--active", el.getAttribute("data-movie-outcome") === id);
+      });
+      apps.forEach(function (app) {
+        app.classList.toggle("fbi-steward-movie__app--active", app.getAttribute("data-movie-app") === id);
+      });
+    }
+
+    function setStage(stage) {
+      root.setAttribute("data-stage", stage);
+      root.classList.remove.apply(
+        root.classList,
+        STAGES.map(function (s) {
+          return "fbi-steward-movie--stage-" + s;
+        })
+      );
+      root.classList.add("fbi-steward-movie--stage-" + stage);
+      if (stageLabel) stageLabel.textContent = stage;
+
+      if (stage === "processing") {
+        runNodeSequence();
+      } else if (stage === "response") {
+        processNodes.forEach(function (n) {
+          n.classList.add("fbi-steward-movie__node--lit");
+        });
+      } else if (stage !== "route" && stage !== "outcome") {
+        clearNodeLights();
+      }
+
+      if (permText && permBox) {
+        if (stage === "permission" || stage === "route" || stage === "outcome") {
+          permText.textContent = PERM_TEXT[stage] || "Approve action?";
+          permBox.hidden = false;
+        } else if (stage === "request" || stage === "receive") {
+          permBox.hidden = true;
+        }
+      }
+
+      appendTerminal(stage);
+    }
+
+    function scheduleNext() {
+      clearTimers();
+      if (paused || reduced) return;
+      var stage = STAGES[stageIdx];
+      timer = window.setTimeout(advance, STAGE_MS[stage] || 900);
+    }
+
+    function advance() {
+      stageIdx += 1;
+      if (stageIdx >= STAGES.length) {
+        stageIdx = 0;
+        if (terminal) terminal.innerHTML = "";
+        wfIdx = (wfIdx + 1) % workflows.length;
+        setWorkflow(workflows[wfIdx]);
+      }
+      setStage(STAGES[stageIdx]);
+      scheduleNext();
+    }
+
+    function resetCycle(workflowId, startStage) {
+      clearTimers();
+      if (terminal) terminal.innerHTML = "";
+      clearNodeLights();
+      wfIdx = workflows.indexOf(workflowId);
+      if (wfIdx < 0) wfIdx = 0;
+      setWorkflow(workflows[wfIdx]);
+      stageIdx = STAGES.indexOf(startStage || "request");
+      if (stageIdx < 0) stageIdx = 0;
+      setStage(STAGES[stageIdx]);
+      if (!paused && !reduced) scheduleNext();
+    }
+
+    function showReducedFinal() {
+      clearTimers();
+      setWorkflow(workflows[wfIdx]);
+      setStage("response");
+      processNodes.forEach(function (n) {
+        n.classList.add("fbi-steward-movie__node--lit");
+      });
+      if (terminal && terminal.children.length === 0) {
+        STAGES.forEach(function (s) {
+          appendTerminal(s);
+        });
+      }
+      if (permText) permText.textContent = "Review before applying";
+      if (permBox) permBox.hidden = false;
+    }
 
     tabs.forEach(function (tab) {
       tab.addEventListener("click", function () {
-        var id = tab.getAttribute("data-cinema-flow");
+        var id = tab.getAttribute("data-movie-workflow");
         if (!id) return;
-        idx = flows.indexOf(id);
-        if (idx < 0) idx = 0;
-        setActive(id);
+        resetCycle(id, reduced ? "response" : "request");
+        if (reduced) showReducedFinal();
       });
     });
 
-    if (reduced || flows.length < 2) return;
+    if (toggleBtn) {
+      toggleBtn.addEventListener("click", function () {
+        paused = !paused;
+        root.setAttribute("data-paused", paused ? "true" : "false");
+        toggleBtn.setAttribute("aria-pressed", paused ? "true" : "false");
+        toggleBtn.setAttribute("aria-label", paused ? "Play animation" : "Pause animation");
+        if (toggleLabel) toggleLabel.textContent = paused ? "Play" : "Pause";
+        if (paused) {
+          clearTimers();
+        } else if (!reduced) {
+          scheduleNext();
+        }
+      });
+    }
 
-    window.setInterval(function () {
-      idx = (idx + 1) % flows.length;
-      setActive(flows[idx]);
-    }, 6500);
+    if (reduced) {
+      showReducedFinal();
+      return;
+    }
+
+    resetCycle(workflows[0], "request");
   })();
 </script>
 </body>

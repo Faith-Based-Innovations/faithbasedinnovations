@@ -26,67 +26,92 @@ export const SITE = {
       "Steward is connective tissue, not a monolith. The same local, user-trainable guidance pattern runs inside Sentinel, CFO, Eden, and Ledger: organize what you entered, surface relationships, adapt to workflows you approve, and pause for permission before anything sensitive.",
     trainabilityLine:
       "Steward is designed to become more useful as the user teaches it how they work.",
-    cinemaKicker: "Operational command layer",
-    cinemaHeadline: "Software that adapts to you without surrendering you.",
+    cinemaKicker: "How it works",
+    cinemaHeadline: "How Steward Works Across Every App",
     cinemaLead:
-      "Steward sits between you and separate focused applications. It reads what you structured, applies your rules and memory, routes work with permission, and stays on your machine.",
-    cinemaTagline: "Separate apps. Shared Steward logic.",
+      "Steward is not a separate super-app. It is the shared local guidance layer inside each product: trainable by the user, permission-aware by design, and tied to the data the user controls.",
+    cinemaTagline: "Separate apps. One guidance layer. Your machine.",
+    movieProcessOrder: ["rules", "memory", "permissions", "knowledge", "vault", "tools", "audit"],
     cinemaWorkflows: [
       {
         id: "cfo",
         product: "CFO",
         tagline: "Finance command",
         request: "Track my missing Amazon refund.",
-        processing: ["rules", "memory", "permissions"],
+        processing: ["rules", "memory", "permissions", "knowledge", "vault", "tools", "audit"],
         responses: [
-          "Receipt matched to purchase history",
-          "Vault lookup for merchant and refund rules",
-          "Dashboard surfaces missing refund alert",
-          "Steward asks before any account action"
+          "Refund candidate matched to purchase history",
+          "Merchant pattern applied from your rules",
+          "CFO dashboard alert ready for review",
+          "No account action without your approval"
         ],
-        routeNote: "Routes to CFO only. Finance data stays in CFO."
+        routeNote: "Routes to CFO only. Finance data stays in CFO.",
+        outcomeTitle: "Refund tracker",
+        outcomeRows: [
+          { label: "Merchant", value: "Amazon" },
+          { label: "Amount", value: "$47.12" },
+          { label: "Status", value: "Missing refund flagged" }
+        ]
       },
       {
         id: "sentinel",
         product: "Sentinel",
         tagline: "Evidence workspace",
-        request: "Organize all evidence related to medical records.",
-        processing: ["rules", "memory", "permissions"],
+        request: "Organize evidence related to medical records.",
+        processing: ["rules", "memory", "permissions", "knowledge", "vault", "tools", "audit"],
         responses: [
-          "Evidence nodes grouped by matter",
+          "Evidence grouped by matter and record type",
           "Timeline assembled from dated items",
-          "Case organization updated locally",
-          "Document links prepared for your review"
+          "Case folders updated on your machine",
+          "Exports wait for your review"
         ],
-        routeNote: "Routes to Sentinel only. Case data stays in Sentinel."
+        routeNote: "Routes to Sentinel only. Case data stays in Sentinel.",
+        outcomeTitle: "Evidence workspace",
+        outcomeRows: [
+          { label: "Matter", value: "Medical records bundle" },
+          { label: "Items", value: "24 nodes linked" },
+          { label: "Timeline", value: "12 dated events sorted" }
+        ]
       },
       {
         id: "eden",
         product: "Eden",
         tagline: "Research workspace",
         request: "Organize this research into topics.",
-        processing: ["rules", "memory", "permissions"],
+        processing: ["rules", "memory", "permissions", "knowledge", "vault", "tools", "audit"],
         responses: [
-          "Sources clustered by theme you approve",
-          "Knowledge graph links related notes",
-          "Research nodes categorized on device",
-          "Suggestions wait for your confirmation"
+          "Sources clustered by themes you approve",
+          "Related notes linked in your graph",
+          "Topics saved on device for review",
+          "Suggestions stay suggestions until you confirm"
         ],
-        routeNote: "Routes to Eden only. Research stays in Eden."
+        routeNote: "Routes to Eden only. Research stays in Eden.",
+        outcomeTitle: "Topic map",
+        outcomeRows: [
+          { label: "Cluster A", value: "Primary sources (8)" },
+          { label: "Cluster B", value: "Supporting notes (5)" },
+          { label: "Status", value: "Awaiting your confirmation" }
+        ]
       },
       {
         id: "ledger",
         product: "Ledger",
         tagline: "Identity vault",
-        request: "Fill my recurring information automatically.",
-        processing: ["rules", "memory", "permissions"],
+        request: "Fill this form using my saved information.",
+        processing: ["rules", "memory", "permissions", "knowledge", "vault", "tools", "audit"],
         responses: [
-          "Vault fields matched to the form",
-          "Templates applied from saved profiles",
-          "Autofill preview before paste",
-          "Permission prompt for each sensitive field"
+          "Vault fields matched to form labels",
+          "Profile template applied from saved data",
+          "Autofill preview ready before paste",
+          "Sensitive fields gated by permission"
         ],
-        routeNote: "Routes to Ledger only. Vault data stays in Ledger."
+        routeNote: "Routes to Ledger only. Vault data stays in Ledger.",
+        outcomeTitle: "Form autofill preview",
+        outcomeRows: [
+          { label: "Name", value: "From vault profile" },
+          { label: "Address", value: "Matched 4 of 4 fields" },
+          { label: "SSN", value: "Permission required" }
+        ]
       }
     ],
 

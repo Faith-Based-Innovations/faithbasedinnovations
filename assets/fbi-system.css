@@ -1643,15 +1643,15 @@ body.fbi-site .fbi-nav-link--active {
 }
 
 
-/* Steward cinematic centerpiece */
-.fbi-steward-cinema {
+/* Steward animated movie centerpiece */
+.fbi-steward-movie {
   position: relative;
   overflow: hidden;
   background: linear-gradient(168deg, #0f172a 0%, #1e3a5f 42%, #0f172a 100%);
   color: #e2e8f0;
 }
 
-.fbi-steward-cinema__grid-texture {
+.fbi-steward-movie__grid-texture {
   opacity: 0.12;
   background-image:
     linear-gradient(to right, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
@@ -1660,275 +1660,203 @@ body.fbi-site .fbi-nav-link--active {
   mask-image: radial-gradient(ellipse 90% 80% at 50% 45%, black 15%, transparent 75%);
 }
 
-.fbi-steward-cinema__glow {
+.fbi-steward-movie__glow {
   background:
     radial-gradient(ellipse 70% 50% at 50% 28%, rgba(217, 119, 6, 0.16), transparent 55%),
     radial-gradient(circle at 12% 88%, rgba(30, 58, 95, 0.55), transparent 45%);
 }
 
-.fbi-steward-cinema__stage {
-  position: relative;
-  min-height: 22rem;
-  max-width: 52rem;
-  margin-inline: auto;
-}
-
-.fbi-steward-cinema__lines {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-}
-
-.fbi-steward-cinema__path {
-  fill: none;
-  stroke: url(#fbi-cinema-grad-blue);
-  stroke-width: 1.5;
-  stroke-dasharray: 6 8;
-  opacity: 0.55;
-  transition: opacity 0.35s ease, stroke 0.35s ease;
-}
-
-.fbi-steward-cinema__path--cfo,
-.fbi-steward-cinema__path--eden { animation: fbi-line-flow 4s linear infinite; }
-.fbi-steward-cinema__path--sentinel,
-.fbi-steward-cinema__path--ledger { animation: fbi-line-flow 4.5s linear infinite reverse; }
-
-.fbi-steward-cinema[data-active-route="cfo"] .fbi-steward-cinema__path--cfo,
-.fbi-steward-cinema[data-active-route="sentinel"] .fbi-steward-cinema__path--sentinel,
-.fbi-steward-cinema[data-active-route="eden"] .fbi-steward-cinema__path--eden,
-.fbi-steward-cinema[data-active-route="ledger"] .fbi-steward-cinema__path--ledger {
-  opacity: 1;
-  stroke: url(#fbi-cinema-grad-gold);
-  stroke-width: 2;
-}
-
-.fbi-steward-cinema__pulse {
-  fill: none;
-  stroke: rgba(217, 119, 6, 0.2);
-  stroke-width: 1;
-  animation: fbi-pulse-ring 3s ease-out infinite;
-}
-
-.fbi-steward-cinema__hub {
-  position: absolute;
-  left: 50%;
-  top: 52%;
-  transform: translate(-50%, -50%);
-  z-index: 3;
-  width: 11.5rem;
-}
-
-.fbi-steward-cinema__hub-ring {
-  position: absolute;
-  inset: -18%;
-  border-radius: 9999px;
-  border: 1px solid rgba(217, 119, 6, 0.35);
-  background: radial-gradient(circle, rgba(217, 119, 6, 0.08), transparent 70%);
-  animation: fbi-hub-glow 4s ease-in-out infinite alternate;
-}
-
-.fbi-steward-cinema__hub-core {
-  position: relative;
-  border-radius: 1.25rem;
-  border: 1px solid rgba(217, 119, 6, 0.4);
-  background: linear-gradient(155deg, rgba(30, 41, 59, 0.95), rgba(15, 23, 42, 0.98));
-  padding: 1.15rem 1rem;
-  text-align: center;
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06) inset, 0 24px 60px -20px rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(12px);
-}
-
-.fbi-steward-cinema__hub-label {
-  font-size: 0.875rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #fbbf24;
-}
-
-.fbi-steward-cinema__hub-sub,
-.fbi-steward-cinema__hub-note {
-  margin-top: 0.25rem;
-  font-size: 0.6875rem;
-  color: #94a3b8;
-}
-
-.fbi-steward-cinema__node {
-  position: absolute;
-  z-index: 2;
-  width: 8.75rem;
-  transition: transform 0.35s ease;
-}
-
-.fbi-steward-cinema__node-panel {
-  border-radius: 1rem;
-  border: 1px solid rgba(148, 163, 184, 0.25);
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(15, 23, 42, 0.6));
-  padding: 0.75rem 0.85rem;
-  backdrop-filter: blur(8px);
-  box-shadow: 0 12px 32px -12px rgba(0, 0, 0, 0.4);
-}
-
-.fbi-steward-cinema[data-active-route="cfo"] .fbi-steward-cinema__node--cfo .fbi-steward-cinema__node-panel,
-.fbi-steward-cinema[data-active-route="sentinel"] .fbi-steward-cinema__node--sentinel .fbi-steward-cinema__node-panel,
-.fbi-steward-cinema[data-active-route="eden"] .fbi-steward-cinema__node--eden .fbi-steward-cinema__node-panel,
-.fbi-steward-cinema[data-active-route="ledger"] .fbi-steward-cinema__node--ledger .fbi-steward-cinema__node-panel {
-  border-color: rgba(217, 119, 6, 0.55);
-  box-shadow: 0 16px 40px -12px rgba(217, 119, 6, 0.25);
-  transform: translate3d(0, -3px, 0);
-}
-
-.fbi-steward-cinema__node-badge {
-  display: inline-block;
-  margin-bottom: 0.35rem;
-  font-size: 0.5rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #64748b;
-  padding: 0.15rem 0.45rem;
-  border-radius: 9999px;
-  border: 1px solid rgba(148, 163, 184, 0.35);
-}
-
-.fbi-steward-cinema__node-tag {
-  font-size: 0.5625rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: #94a3b8;
-}
-
-.fbi-steward-cinema__node-tag--gold { color: #fbbf24; }
-
-.fbi-steward-cinema__node-title {
-  margin-top: 0.35rem;
-  font-size: 0.8125rem;
-  font-weight: 700;
-  color: #f1f5f9;
-}
-
-.fbi-steward-cinema__node-meta {
-  margin-top: 0.15rem;
-  font-size: 0.625rem;
-  color: #64748b;
-}
-
-.fbi-steward-cinema__node--sentinel { left: 4%; top: 6%; }
-.fbi-steward-cinema__node--cfo { right: 4%; top: 6%; }
-.fbi-steward-cinema__node--eden { left: 2%; bottom: 24%; }
-.fbi-steward-cinema__node--ledger { right: 2%; bottom: 24%; }
-
-.fbi-steward-cinema__foundation {
-  position: absolute;
-  left: 50%;
-  bottom: 2%;
-  transform: translateX(-50%);
+.fbi-steward-movie__controls {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   justify-content: center;
-  gap: 0.35rem;
-  max-width: 36rem;
-  z-index: 1;
+  gap: 0.75rem 1rem;
 }
 
-.fbi-steward-cinema__foundation-pill {
-  font-size: 0.5625rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: #94a3b8;
-  padding: 0.3rem 0.55rem;
-  border-radius: 9999px;
-  border: 1px solid rgba(148, 163, 184, 0.28);
-  background: rgba(15, 23, 42, 0.65);
-}
-
-.fbi-steward-cinema__diagram-caption {
-  position: absolute;
-  bottom: -1.75rem;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 0.5625rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: #475569;
-  white-space: nowrap;
-}
-
-.fbi-steward-cinema__demo {
-  border-radius: 1.25rem;
-  border: 1px solid rgba(148, 163, 184, 0.2);
-  background: linear-gradient(160deg, rgba(15, 23, 42, 0.75), rgba(30, 58, 95, 0.35));
-  padding: 1.25rem 1rem 1.5rem;
-  box-shadow: 0 24px 60px -28px rgba(0, 0, 0, 0.55);
-}
-
-.fbi-steward-cinema__tabs {
+.fbi-steward-movie__tabs {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 0.5rem;
-  margin-top: 1rem;
 }
 
-.fbi-steward-cinema__tab {
+.fbi-steward-movie__tab {
   font-size: 0.6875rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #94a3b8;
-  padding: 0.55rem 0.85rem;
+  padding: 0.55rem 0.9rem;
+  min-height: 2.75rem;
   border-radius: 9999px;
   border: 1px solid rgba(148, 163, 184, 0.35);
   background: rgba(15, 23, 42, 0.55);
-  transition: border-color 0.25s ease, color 0.25s ease, background 0.25s ease;
+  transition: border-color 0.25s ease, color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
 }
 
-.fbi-steward-cinema__tab--active,
-.fbi-steward-cinema__tab[aria-selected="true"] {
+.fbi-steward-movie__tab--active,
+.fbi-steward-movie__tab[aria-selected="true"] {
   color: #fbbf24;
   border-color: rgba(217, 119, 6, 0.55);
   background: rgba(217, 119, 6, 0.12);
+  box-shadow: 0 0 20px rgba(217, 119, 6, 0.2);
 }
 
-.fbi-steward-cinema__panels {
-  margin-top: 1rem;
+.fbi-steward-movie__play {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #cbd5e1;
+  padding: 0.55rem 0.9rem;
+  min-height: 2.75rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  background: rgba(15, 23, 42, 0.65);
 }
 
-.fbi-steward-cinema__panel {
-  display: none;
+.fbi-steward-movie[data-paused="true"] .fbi-steward-movie__play {
+  border-color: rgba(217, 119, 6, 0.45);
+  color: #fbbf24;
 }
 
-.fbi-steward-cinema__panel--active {
-  display: block;
+.fbi-steward-movie__theater {
+  position: relative;
+  border-radius: 1.25rem;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  background: linear-gradient(160deg, rgba(15, 23, 42, 0.82), rgba(30, 58, 95, 0.38));
+  padding: 1rem 0.85rem 1.25rem;
+  box-shadow: 0 28px 70px -30px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
 }
 
-.fbi-steward-cinema__panel-grid {
-  display: grid;
-  gap: 0.75rem;
+.fbi-steward-movie__svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 11.5rem;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.85;
 }
 
 @media (min-width: 1024px) {
-  .fbi-steward-cinema__panel-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    align-items: stretch;
+  .fbi-steward-movie__svg {
+    height: 13.5rem;
   }
 }
 
-.fbi-steward-cinema__glass {
-  border-radius: 0.875rem;
-  border: 1px solid rgba(148, 163, 184, 0.22);
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.06), rgba(15, 23, 42, 0.55));
-  padding: 0.85rem 0.9rem;
-  min-height: 9.5rem;
-  backdrop-filter: blur(10px);
+.fbi-steward-movie__path {
+  fill: none;
+  stroke: url(#fbi-movie-grad-dim);
+  stroke-width: 1.5;
+  stroke-dasharray: 7 9;
+  opacity: 0.35;
+  transition: opacity 0.35s ease, stroke 0.35s ease, stroke-width 0.35s ease;
 }
 
-.fbi-steward-cinema__chip {
+.fbi-steward-movie__path--user,
+.fbi-steward-movie__path--out,
+.fbi-steward-movie__path--node {
+  animation: fbi-line-flow 4.2s linear infinite;
+}
+
+.fbi-steward-movie__pulse {
+  fill: none;
+  stroke: rgba(217, 119, 6, 0.18);
+  stroke-width: 1;
+  opacity: 0;
+  transform-origin: 480px 210px;
+  transition: opacity 0.35s ease;
+}
+
+.fbi-steward-movie[data-stage="receive"] .fbi-steward-movie__pulse,
+.fbi-steward-movie[data-stage="processing"] .fbi-steward-movie__pulse {
+  opacity: 1;
+  animation: fbi-pulse-ring 2.4s ease-out infinite;
+}
+
+.fbi-steward-movie[data-stage="request"] .fbi-steward-movie__path--user,
+.fbi-steward-movie[data-stage="receive"] .fbi-steward-movie__path--user,
+.fbi-steward-movie[data-stage="route"] .fbi-steward-movie__path--user,
+.fbi-steward-movie[data-stage="route"] .fbi-steward-movie__path--out,
+.fbi-steward-movie[data-stage="outcome"] .fbi-steward-movie__path--out,
+.fbi-steward-movie[data-stage="response"] .fbi-steward-movie__path--out {
+  opacity: 1;
+  stroke: url(#fbi-movie-grad-gold);
+  stroke-width: 2.25;
+  animation: fbi-movie-path-run 1.1s ease-in-out infinite;
+}
+
+.fbi-steward-movie[data-stage="processing"] .fbi-steward-movie__path--node[data-route-node].fbi-steward-movie__path--lit {
+  opacity: 1;
+  stroke: url(#fbi-movie-grad-gold);
+  stroke-width: 2;
+  animation: fbi-movie-path-run 0.9s ease-in-out infinite;
+}
+
+.fbi-steward-movie[data-workflow="cfo"][data-stage="route"] .fbi-steward-movie__path--app[data-route-app="cfo"],
+.fbi-steward-movie[data-workflow="sentinel"][data-stage="route"] .fbi-steward-movie__path--app[data-route-app="sentinel"],
+.fbi-steward-movie[data-workflow="eden"][data-stage="route"] .fbi-steward-movie__path--app[data-route-app="eden"],
+.fbi-steward-movie[data-workflow="ledger"][data-stage="route"] .fbi-steward-movie__path--app[data-route-app="ledger"],
+.fbi-steward-movie[data-workflow="cfo"][data-stage="outcome"] .fbi-steward-movie__path--app[data-route-app="cfo"],
+.fbi-steward-movie[data-workflow="sentinel"][data-stage="outcome"] .fbi-steward-movie__path--app[data-route-app="sentinel"],
+.fbi-steward-movie[data-workflow="eden"][data-stage="outcome"] .fbi-steward-movie__path--app[data-route-app="eden"],
+.fbi-steward-movie[data-workflow="ledger"][data-stage="outcome"] .fbi-steward-movie__path--app[data-route-app="ledger"] {
+  opacity: 1;
+  stroke: url(#fbi-movie-grad-gold);
+  stroke-width: 2.5;
+  animation: fbi-movie-path-run 0.85s ease-in-out infinite;
+}
+
+@keyframes fbi-movie-path-run {
+  to { stroke-dashoffset: -32; }
+}
+
+.fbi-steward-movie__layout {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 0.85rem;
+}
+
+@media (min-width: 1024px) {
+  .fbi-steward-movie__layout {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr) minmax(0, 1fr);
+    align-items: stretch;
+    min-height: 13.5rem;
+  }
+}
+
+.fbi-steward-movie__panel {
+  border-radius: 0.9rem;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.06), rgba(15, 23, 42, 0.58));
+  padding: 0.85rem 0.9rem;
+  backdrop-filter: blur(10px);
+  transition: border-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s ease;
+}
+
+.fbi-steward-movie[data-stage="request"] .fbi-steward-movie__panel--user,
+.fbi-steward-movie[data-stage="receive"] .fbi-steward-movie__panel--user {
+  border-color: rgba(217, 119, 6, 0.45);
+  box-shadow: 0 12px 36px -14px rgba(217, 119, 6, 0.28);
+  transform: translateY(-2px);
+}
+
+.fbi-steward-movie[data-stage="receive"] .fbi-steward-movie__panel--core,
+.fbi-steward-movie[data-stage="processing"] .fbi-steward-movie__panel--core {
+  border-color: rgba(217, 119, 6, 0.4);
+  box-shadow: 0 16px 44px -16px rgba(217, 119, 6, 0.22);
+}
+
+.fbi-steward-movie[data-stage="route"] .fbi-steward-movie__panel--apps,
+.fbi-steward-movie[data-stage="outcome"] .fbi-steward-movie__panel--apps {
+  border-color: rgba(217, 119, 6, 0.35);
+}
+
+.fbi-steward-movie__chip {
   display: inline-block;
   font-size: 0.5rem;
   font-weight: 700;
@@ -1937,77 +1865,374 @@ body.fbi-site .fbi-nav-link--active {
   color: #64748b;
 }
 
-.fbi-steward-cinema__chip--gold { color: #fbbf24; }
-.fbi-steward-cinema__chip--muted { color: #475569; }
+.fbi-steward-movie__chip--gold { color: #fbbf24; }
+.fbi-steward-movie__chip--muted { color: #64748b; }
 
-.fbi-steward-cinema__request,
-.fbi-steward-cinema__core-title,
-.fbi-steward-cinema__app-name {
+.fbi-steward-movie__user-label {
+  margin-top: 0.45rem;
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #94a3b8;
+}
+
+.fbi-steward-movie__request {
+  display: none;
   margin-top: 0.5rem;
   font-size: 0.8125rem;
   font-weight: 600;
-  color: #f1f5f9;
+  color: #f8fafc;
   line-height: 1.45;
 }
 
-.fbi-steward-cinema__app-tag,
-.fbi-steward-cinema__route-note {
-  margin-top: 0.35rem;
-  font-size: 0.6875rem;
-  color: #94a3b8;
-  line-height: 1.45;
+.fbi-steward-movie__request--active {
+  display: block;
+  animation: fbi-movie-fade-in 0.45s ease;
 }
 
-.fbi-steward-cinema__node-list {
-  list-style: none;
-  margin: 0.65rem 0 0;
-  padding: 0;
+.fbi-steward-movie__typing {
+  display: none;
+  gap: 0.25rem;
+  margin-top: 0.65rem;
+}
+
+.fbi-steward-movie[data-stage="request"] .fbi-steward-movie__typing {
   display: flex;
+}
+
+.fbi-steward-movie__typing span {
+  width: 0.35rem;
+  height: 0.35rem;
+  border-radius: 9999px;
+  background: #fbbf24;
+  animation: fbi-movie-typing 1s ease-in-out infinite;
+}
+
+.fbi-steward-movie__typing span:nth-child(2) { animation-delay: 0.15s; }
+.fbi-steward-movie__typing span:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes fbi-movie-typing {
+  0%, 100% { opacity: 0.35; transform: translateY(0); }
+  50% { opacity: 1; transform: translateY(-2px); }
+}
+
+@keyframes fbi-movie-fade-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fbi-steward-movie__panel--core {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.fbi-steward-movie__orb-wrap {
+  position: relative;
+  width: 7.5rem;
+  margin-bottom: 0.65rem;
+}
+
+.fbi-steward-movie__orb-ring {
+  position: absolute;
+  inset: -14%;
+  border-radius: 9999px;
+  border: 1px solid rgba(217, 119, 6, 0.35);
+  background: radial-gradient(circle, rgba(217, 119, 6, 0.1), transparent 70%);
+  animation: fbi-hub-glow 3.5s ease-in-out infinite alternate;
+}
+
+.fbi-steward-movie[data-stage="receive"] .fbi-steward-movie__orb-ring,
+.fbi-steward-movie[data-stage="processing"] .fbi-steward-movie__orb-ring {
+  animation: fbi-movie-orb-pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes fbi-movie-orb-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.85; }
+  50% { transform: scale(1.06); opacity: 1; }
+}
+
+.fbi-steward-movie__orb {
+  position: relative;
+  border-radius: 1rem;
+  border: 1px solid rgba(217, 119, 6, 0.45);
+  background: linear-gradient(155deg, rgba(30, 41, 59, 0.95), rgba(15, 23, 42, 0.98));
+  padding: 0.85rem 0.65rem;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06) inset, 0 20px 50px -18px rgba(0, 0, 0, 0.55);
+}
+
+.fbi-steward-movie__orb-title {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #fbbf24;
+}
+
+.fbi-steward-movie__orb-sub {
+  margin-top: 0.2rem;
+  font-size: 0.625rem;
+  color: #94a3b8;
+}
+
+.fbi-steward-movie__nodes {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.35rem 0.5rem;
+  width: 100%;
+  max-width: 16rem;
+}
+
+.fbi-steward-movie__node {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.625rem;
+  font-weight: 600;
+  color: #64748b;
+  padding: 0.3rem 0.4rem;
+  border-radius: 0.5rem;
+  border: 1px solid transparent;
+  transition: color 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+}
+
+.fbi-steward-movie__node-dot {
+  width: 0.35rem;
+  height: 0.35rem;
+  border-radius: 9999px;
+  background: #334155;
+  flex-shrink: 0;
+  transition: background 0.25s ease, box-shadow 0.25s ease;
+}
+
+.fbi-steward-movie__node--lit {
+  color: #e2e8f0;
+  border-color: rgba(34, 197, 94, 0.35);
+  background: rgba(34, 197, 94, 0.08);
+  box-shadow: 0 0 14px rgba(34, 197, 94, 0.15);
+}
+
+.fbi-steward-movie__node--lit .fbi-steward-movie__node-dot {
+  background: #22c55e;
+  box-shadow: 0 0 10px rgba(34, 197, 94, 0.55);
+  animation: fbi-node-blink 1.4s ease-in-out infinite;
+}
+
+@keyframes fbi-node-blink {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+.fbi-steward-movie__panel--apps {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.fbi-steward-movie__app {
+  border-radius: 0.65rem;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  background: rgba(15, 23, 42, 0.45);
+  padding: 0.45rem 0.55rem;
+  opacity: 0.55;
+  transform: scale(0.98);
+  transition: opacity 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s ease;
+}
+
+.fbi-steward-movie__app--active {
+  opacity: 1;
+  transform: scale(1);
+  border-color: rgba(217, 119, 6, 0.5);
+  box-shadow: 0 10px 28px -12px rgba(217, 119, 6, 0.35);
+}
+
+.fbi-steward-movie__app-tag {
+  font-size: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #fbbf24;
+}
+
+.fbi-steward-movie__app-title {
+  margin-top: 0.15rem;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: #f1f5f9;
+}
+
+.fbi-steward-movie__app-note {
+  margin-top: 0.1rem;
+  font-size: 0.5625rem;
+  color: #64748b;
+  line-height: 1.35;
+}
+
+.fbi-steward-movie__dock {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  gap: 0.65rem;
+  margin-top: 0.85rem;
+}
+
+@media (min-width: 1024px) {
+  .fbi-steward-movie__dock {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr) minmax(0, 1fr);
+    align-items: stretch;
+  }
+}
+
+.fbi-steward-movie__terminal {
+  border-radius: 0.75rem;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  background: rgba(2, 6, 23, 0.75);
+  overflow: hidden;
+  min-height: 7.5rem;
+}
+
+.fbi-steward-movie__terminal-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.4rem 0.6rem;
+  font-size: 0.5625rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #64748b;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+  background: rgba(15, 23, 42, 0.85);
+}
+
+.fbi-steward-movie__terminal-stage {
+  color: #fbbf24;
+}
+
+.fbi-steward-movie__terminal-feed {
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem 0.6rem 0.65rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  max-height: 6.5rem;
+  overflow: hidden;
+}
+
+.fbi-steward-movie__terminal-feed li {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.625rem;
+  color: #94a3b8;
+  line-height: 1.4;
+  opacity: 0;
+  animation: fbi-movie-term-in 0.35s ease forwards;
+}
+
+.fbi-steward-movie__terminal-feed li::before {
+  content: "> ";
+  color: #22c55e;
+}
+
+@keyframes fbi-movie-term-in {
+  from { opacity: 0; transform: translateX(-4px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.fbi-steward-movie__permission {
+  border-radius: 0.75rem;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  background: rgba(15, 23, 42, 0.65);
+  padding: 0.65rem 0.7rem;
+  opacity: 0.45;
+  transform: translateY(4px);
+  transition: opacity 0.35s ease, transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.fbi-steward-movie[data-stage="permission"] .fbi-steward-movie__permission {
+  opacity: 1;
+  transform: translateY(0);
+  border-color: rgba(217, 119, 6, 0.5);
+  box-shadow: 0 12px 32px -14px rgba(217, 119, 6, 0.3);
+  animation: fbi-movie-perm-pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes fbi-movie-perm-pulse {
+  0%, 100% { box-shadow: 0 12px 32px -14px rgba(217, 119, 6, 0.25); }
+  50% { box-shadow: 0 16px 40px -10px rgba(217, 119, 6, 0.45); }
+}
+
+.fbi-steward-movie__permission-q {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #f8fafc;
+}
+
+.fbi-steward-movie__permission-actions {
+  display: flex;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+}
+
+.fbi-steward-movie__perm-btn {
+  font-size: 0.5625rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.55rem;
+  border-radius: 0.45rem;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  color: #94a3b8;
+}
+
+.fbi-steward-movie__perm-btn--gold {
+  color: #0f172a;
+  border-color: rgba(217, 119, 6, 0.6);
+  background: linear-gradient(180deg, #fbbf24, #d97706);
+}
+
+.fbi-steward-movie__output {
+  border-radius: 0.75rem;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  background: rgba(15, 23, 42, 0.55);
+  padding: 0.65rem 0.7rem;
+  opacity: 0.5;
+  transition: opacity 0.35s ease, border-color 0.35s ease;
+}
+
+.fbi-steward-movie[data-stage="response"] .fbi-steward-movie__output {
+  opacity: 1;
+  border-color: rgba(217, 119, 6, 0.4);
+}
+
+.fbi-steward-movie__response {
+  display: none;
+  list-style: none;
+  margin: 0.45rem 0 0;
+  padding: 0;
   flex-direction: column;
   gap: 0.35rem;
 }
 
-.fbi-steward-cinema__node-lit {
+.fbi-steward-movie__response--active {
   display: flex;
-  align-items: center;
+}
+
+.fbi-steward-movie__response li {
+  display: flex;
   gap: 0.4rem;
-  font-size: 0.6875rem;
-  color: #cbd5e1;
-}
-
-.fbi-steward-cinema__node-dot {
-  width: 0.4rem;
-  height: 0.4rem;
-  border-radius: 9999px;
-  background: #22c55e;
-  box-shadow: 0 0 8px rgba(34, 197, 94, 0.45);
-  animation: fbi-node-blink 1.8s ease-in-out infinite;
-}
-
-@keyframes fbi-node-blink {
-  0%, 100% { opacity: 0.55; }
-  50% { opacity: 1; }
-}
-
-.fbi-steward-cinema__response-list {
-  list-style: none;
-  margin: 0.5rem 0 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-}
-
-.fbi-steward-cinema__response-list li {
-  display: flex;
-  gap: 0.45rem;
-  font-size: 0.6875rem;
+  font-size: 0.625rem;
   color: #cbd5e1;
   line-height: 1.4;
 }
 
-.fbi-steward-cinema__response-dot {
-  margin-top: 0.35rem;
+.fbi-steward-movie__response-dot {
+  margin-top: 0.3rem;
   width: 0.35rem;
   height: 0.35rem;
   border-radius: 9999px;
@@ -2015,13 +2240,89 @@ body.fbi-site .fbi-nav-link--active {
   flex-shrink: 0;
 }
 
-.fbi-steward-cinema__copy {
+.fbi-steward-movie__outcome {
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 42%;
+  transform: translate(-50%, -50%) scale(0.96);
+  z-index: 4;
+  width: min(18rem, 88%);
+  border-radius: 0.85rem;
+  border: 1px solid rgba(217, 119, 6, 0.45);
+  background: linear-gradient(155deg, rgba(30, 41, 59, 0.98), rgba(15, 23, 42, 0.98));
+  padding: 0.75rem 0.8rem;
+  box-shadow: 0 24px 60px -20px rgba(0, 0, 0, 0.65);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.fbi-steward-movie[data-stage="outcome"] .fbi-steward-movie__outcome--active {
+  display: block;
+  opacity: 1;
+  pointer-events: auto;
+  animation: fbi-movie-outcome-in 0.5s ease forwards;
+}
+
+@keyframes fbi-movie-outcome-in {
+  from { opacity: 0; transform: translate(-50%, -46%) scale(0.94); }
+  to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+.fbi-steward-movie__outcome-chrome {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.fbi-steward-movie__outcome-app {
+  font-size: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #fbbf24;
+}
+
+.fbi-steward-movie__outcome-title {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: #f1f5f9;
+}
+
+.fbi-steward-movie__outcome-rows {
+  margin: 0;
+}
+
+.fbi-steward-movie__outcome-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.35rem 0;
+  border-top: 1px solid rgba(148, 163, 184, 0.15);
+  font-size: 0.625rem;
+}
+
+.fbi-steward-movie__outcome-row dt {
+  color: #64748b;
+  font-weight: 600;
+}
+
+.fbi-steward-movie__outcome-row dd {
+  margin: 0;
+  color: #e2e8f0;
+  font-weight: 600;
+  text-align: right;
+}
+
+.fbi-steward-movie__copy {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.fbi-steward-cinema__copy-item {
+.fbi-steward-movie__copy-item {
   font-size: 0.8125rem;
   font-weight: 600;
   color: #e2e8f0;
@@ -2031,7 +2332,7 @@ body.fbi-site .fbi-nav-link--active {
   background: rgba(15, 23, 42, 0.45);
 }
 
-.fbi-steward-cinema__tel {
+.fbi-steward-movie__tel {
   font-size: 0.625rem;
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -2043,58 +2344,49 @@ body.fbi-site .fbi-nav-link--active {
   background: rgba(15, 23, 42, 0.5);
 }
 
-@media (max-width: 767px) {
-  .fbi-steward-cinema__stage {
-    min-height: 32rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.75rem;
-    padding-bottom: 2.5rem;
+@media (max-width: 1023px) {
+  .fbi-steward-movie__svg {
+    display: none;
   }
 
-  .fbi-steward-cinema__lines { display: none; }
+  .fbi-steward-movie__layout {
+    grid-template-columns: 1fr;
+  }
 
-  .fbi-steward-cinema__hub {
+  .fbi-steward-movie__panel--core {
+    order: -1;
+  }
+
+  .fbi-steward-movie__nodes {
+    max-width: none;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .fbi-steward-movie__outcome {
     position: relative;
     left: auto;
     top: auto;
     transform: none;
-    order: 1;
-  }
-
-  .fbi-steward-cinema__node {
-    position: relative;
-    left: auto !important;
-    right: auto !important;
-    top: auto !important;
-    bottom: auto !important;
     width: 100%;
-    max-width: 14rem;
+    margin-top: 0.65rem;
   }
 
-  .fbi-steward-cinema__node--sentinel { order: 0; }
-  .fbi-steward-cinema__node--cfo { order: 2; }
-  .fbi-steward-cinema__node--eden { order: 3; }
-  .fbi-steward-cinema__node--ledger { order: 4; }
-
-  .fbi-steward-cinema__foundation,
-  .fbi-steward-cinema__diagram-caption {
-    position: relative;
-    left: auto;
-    bottom: auto;
-    transform: none;
-    order: 5;
+  .fbi-steward-movie[data-stage="outcome"] .fbi-steward-movie__outcome--active {
+    animation: fbi-movie-fade-in 0.45s ease forwards;
   }
-
-  .fbi-steward-cinema__diagram-caption { order: 6; margin-top: 0.25rem; }
 }
 
-html.fbi-reduced-motion .fbi-steward-cinema__path,
-html.fbi-reduced-motion .fbi-steward-cinema__pulse,
-html.fbi-reduced-motion .fbi-steward-cinema__hub-ring,
-html.fbi-reduced-motion .fbi-steward-cinema__node-dot {
+html.fbi-reduced-motion .fbi-steward-movie__path,
+html.fbi-reduced-motion .fbi-steward-movie__pulse,
+html.fbi-reduced-motion .fbi-steward-movie__orb-ring,
+html.fbi-reduced-motion .fbi-steward-movie__node--lit .fbi-steward-movie__node-dot,
+html.fbi-reduced-motion .fbi-steward-movie__permission,
+html.fbi-reduced-motion .fbi-steward-movie__typing span {
   animation: none !important;
+}
+
+html.fbi-reduced-motion .fbi-steward-movie[data-stage="outcome"] .fbi-steward-movie__outcome--active {
+  animation: none;
 }
 /* WOW mobile stack */
 @media (max-width: 767px) {
