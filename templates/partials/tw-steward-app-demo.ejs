@@ -1,0 +1,306 @@
+<%
+  var demoApps = SITE.steward.appDemo && SITE.steward.appDemo.apps
+    ? SITE.steward.appDemo.apps
+  : SITE.steward.cinemaWorkflows;
+  var demoHeadline = (SITE.steward.appDemo && SITE.steward.appDemo.headline) || SITE.steward.cinemaHeadline;
+  var demoLead = (SITE.steward.appDemo && SITE.steward.appDemo.lead) || SITE.steward.cinemaLead;
+  var demoKicker = (SITE.steward.appDemo && SITE.steward.appDemo.kicker) || SITE.steward.cinemaKicker;
+%>
+<section
+  class="fbi-app-demo fbi-ambient fbi-ambient--shift"
+  aria-labelledby="fbi-app-demo-title"
+  data-steward-app-demo
+  data-app="cfo"
+  data-scene-step="0"
+  data-paused="false"
+>
+  <div class="fbi-app-demo__grid-texture pointer-events-none absolute inset-0" aria-hidden="true"></div>
+  <div class="fbi-app-demo__glow pointer-events-none absolute inset-0" aria-hidden="true"></div>
+  <div class="fbi-section-bridge fbi-section-bridge--down" aria-hidden="true"></div>
+
+  <div class="fbi-ambient__inner relative mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
+    <div class="mx-auto max-w-3xl text-center">
+      <p class="fbi-kicker text-amber-200/90"><%= demoKicker %></p>
+      <h2 id="fbi-app-demo-title" class="fbi-section-title fbi-section-title--xl mt-3 text-white"><%= demoHeadline %></h2>
+      <p class="fbi-section-lead mx-auto text-slate-300"><%= demoLead %></p>
+    </div>
+
+    <div class="fbi-app-demo__controls mt-10">
+      <div class="fbi-app-demo__tabs" role="tablist" aria-label="Product app demos">
+        <% demoApps.forEach(function (app, i) { %>
+        <button
+          type="button"
+          class="fbi-app-demo__tab<%= i === 0 ? ' fbi-app-demo__tab--active' : '' %>"
+          role="tab"
+          aria-selected="<%= i === 0 ? 'true' : 'false' %>"
+          data-app-tab="<%= app.id %>"
+          id="fbi-app-tab-<%= app.id %>"
+        ><%= app.product %></button>
+        <% }); %>
+      </div>
+      <button type="button" class="fbi-app-demo__play" data-app-toggle aria-pressed="false" aria-label="Pause animation">
+        <span class="fbi-app-demo__play-label" data-app-toggle-label>Pause</span>
+      </button>
+    </div>
+
+    <div class="fbi-app-demo__frame-wrap mt-8" role="region" aria-label="Steward in-app product demo" aria-live="polite">
+      <div class="fbi-app-window">
+        <header class="fbi-app-window__titlebar">
+          <div class="fbi-app-window__lights" aria-hidden="true">
+            <span class="fbi-app-window__light fbi-app-window__light--close"></span>
+            <span class="fbi-app-window__light fbi-app-window__light--min"></span>
+            <span class="fbi-app-window__light fbi-app-window__light--max"></span>
+          </div>
+          <span class="fbi-app-window__title" data-app-window-title>Faith Based Innovations — CFO</span>
+          <span class="fbi-app-window__brand"><%= SITE.abbrev %></span>
+        </header>
+
+        <div class="fbi-app-window__body">
+          <nav class="fbi-app-window__nav" aria-label="Product switcher">
+            <% demoApps.forEach(function (app) { %>
+            <button type="button" class="fbi-app-window__nav-item" data-app-nav="<%= app.id %>" aria-label="<%= app.product %>">
+              <span class="fbi-app-window__nav-icon fbi-app-window__nav-icon--<%= app.id %>" aria-hidden="true"></span>
+              <span class="fbi-app-window__nav-label"><%= app.product %></span>
+            </button>
+            <% }); %>
+          </nav>
+
+          <div class="fbi-app-window__workspace">
+            <div class="fbi-app-window__toolbar">
+              <div class="fbi-app-window__breadcrumbs" data-app-breadcrumbs>
+                <span>Products</span>
+                <span aria-hidden="true">/</span>
+                <span data-app-crumb-active>CFO</span>
+                <span aria-hidden="true">/</span>
+                <span class="fbi-app-window__crumb-muted" data-app-crumb-view>Transactions</span>
+              </div>
+              <div class="fbi-app-window__actions">
+                <span class="fbi-app-window__action">Export</span>
+                <span class="fbi-app-window__action fbi-app-window__action--gold">Review</span>
+              </div>
+            </div>
+
+            <div class="fbi-app-window__scenes">
+              <!-- CFO Scene -->
+              <div class="fbi-app-scene fbi-scene-cfo" data-scene="cfo">
+                <div class="fbi-scene-cfo__grid">
+                  <div class="fbi-scene-cfo__transactions">
+                    <p class="fbi-app-scene__label">Recent transactions</p>
+                    <ul class="fbi-scene-cfo__tx-list">
+                      <li class="fbi-scene-cfo__tx">
+                        <span class="fbi-scene-cfo__tx-merchant">Amazon</span>
+                        <span class="fbi-scene-cfo__tx-date">Mar 12</span>
+                        <span class="fbi-scene-cfo__tx-amt">-$47.12</span>
+                      </li>
+                      <li class="fbi-scene-cfo__tx fbi-scene-cfo__tx--flagged">
+                        <span class="fbi-scene-cfo__tx-merchant">Amazon</span>
+                        <span class="fbi-scene-cfo__tx-date">Mar 14</span>
+                        <span class="fbi-scene-cfo__tx-amt fbi-scene-cfo__tx-amt--refund">+$47.12 expected</span>
+                      </li>
+                      <li class="fbi-scene-cfo__tx">
+                        <span class="fbi-scene-cfo__tx-merchant">Whole Foods</span>
+                        <span class="fbi-scene-cfo__tx-date">Mar 15</span>
+                        <span class="fbi-scene-cfo__tx-amt">-$86.40</span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="fbi-scene-cfo__receipt">
+                    <p class="fbi-app-scene__label">Receipt comparison</p>
+                    <div class="fbi-scene-cfo__receipt-panel">
+                      <div class="fbi-scene-cfo__receipt-row">
+                        <span>Purchase</span><span>$47.12</span>
+                      </div>
+                      <div class="fbi-scene-cfo__receipt-row fbi-scene-cfo__receipt-row--warn">
+                        <span>Refund posted</span><span class="fbi-scene-cfo__missing">Not found</span>
+                      </div>
+                      <div class="fbi-scene-cfo__receipt-row">
+                        <span>Days elapsed</span><span>18</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="fbi-scene-cfo__widgets">
+                    <div class="fbi-scene-cfo__forecast">
+                      <p class="fbi-app-scene__label">Pressure forecast</p>
+                      <div class="fbi-scene-cfo__bars" aria-hidden="true">
+                        <span style="--h:42%"></span><span style="--h:58%"></span><span style="--h:71%"></span><span style="--h:55%"></span><span style="--h:38%"></span>
+                      </div>
+                    </div>
+                    <div class="fbi-scene-cfo__reminder">
+                      <span class="fbi-scene-cfo__reminder-badge">Reminder</span>
+                      <p>Follow up with Amazon refund</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Sentinel Scene -->
+              <div class="fbi-app-scene fbi-scene-sentinel" data-scene="sentinel">
+                <div class="fbi-scene-sentinel__grid">
+                  <div class="fbi-scene-sentinel__folders">
+                    <p class="fbi-app-scene__label">Evidence folders</p>
+                    <ul class="fbi-scene-sentinel__folder-list">
+                      <li class="fbi-scene-sentinel__folder"><span class="fbi-scene-sentinel__folder-icon"></span>Medical records</li>
+                      <li class="fbi-scene-sentinel__folder fbi-scene-sentinel__folder--new"><span class="fbi-scene-sentinel__folder-icon"></span>Lab results</li>
+                      <li class="fbi-scene-sentinel__folder fbi-scene-sentinel__folder--new"><span class="fbi-scene-sentinel__folder-icon"></span>Provider notes</li>
+                    </ul>
+                    <div class="fbi-scene-sentinel__docs">
+                      <span class="fbi-scene-sentinel__doc"></span>
+                      <span class="fbi-scene-sentinel__doc"></span>
+                      <span class="fbi-scene-sentinel__doc fbi-scene-sentinel__doc--linked"></span>
+                    </div>
+                  </div>
+                  <div class="fbi-scene-sentinel__timeline">
+                    <p class="fbi-app-scene__label">Timeline</p>
+                    <ol class="fbi-scene-sentinel__events">
+                      <li><span class="fbi-scene-sentinel__dot"></span>Jan 4 · Intake</li>
+                      <li><span class="fbi-scene-sentinel__dot"></span>Feb 12 · Lab draw</li>
+                      <li class="fbi-scene-sentinel__event--new"><span class="fbi-scene-sentinel__dot fbi-scene-sentinel__dot--gold"></span>Mar 2 · Follow-up</li>
+                    </ol>
+                    <svg class="fbi-scene-sentinel__links" viewBox="0 0 200 60" aria-hidden="true">
+                      <path class="fbi-scene-sentinel__link" d="M20 30 L80 15" />
+                      <path class="fbi-scene-sentinel__link fbi-scene-sentinel__link--new" d="M80 15 L160 30" />
+                    </svg>
+                  </div>
+                  <div class="fbi-scene-sentinel__packet">
+                    <p class="fbi-app-scene__label">Review packet</p>
+                    <div class="fbi-scene-sentinel__packet-body">
+                      <p>24 items linked · 12 dated events</p>
+                      <span class="fbi-scene-sentinel__packet-status">Ready for review</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Eden Scene -->
+              <div class="fbi-app-scene fbi-scene-eden" data-scene="eden">
+                <div class="fbi-scene-eden__grid">
+                  <div class="fbi-scene-eden__graph">
+                    <p class="fbi-app-scene__label">Topic map</p>
+                    <div class="fbi-scene-eden__nodes" aria-hidden="true">
+                      <span class="fbi-scene-eden__node fbi-scene-eden__node--core">Primary sources</span>
+                      <span class="fbi-scene-eden__node fbi-scene-eden__node--sat">Methodology</span>
+                      <span class="fbi-scene-eden__node fbi-scene-eden__node--sat">Counterpoints</span>
+                      <span class="fbi-scene-eden__node fbi-scene-eden__node--new">Supporting notes</span>
+                      <svg class="fbi-scene-eden__edges" viewBox="0 0 280 120" aria-hidden="true">
+                        <line class="fbi-scene-eden__edge" x1="140" y1="60" x2="60" y2="25" />
+                        <line class="fbi-scene-eden__edge" x1="140" y1="60" x2="220" y2="25" />
+                        <line class="fbi-scene-eden__edge fbi-scene-eden__edge--new" x1="140" y1="60" x2="140" y2="100" />
+                      </svg>
+                    </div>
+                    <div class="fbi-scene-eden__tags">
+                      <span class="fbi-scene-eden__tag">clinical-trial</span>
+                      <span class="fbi-scene-eden__tag fbi-scene-eden__tag--new">peer-review</span>
+                      <span class="fbi-scene-eden__tag fbi-scene-eden__tag--new">meta-analysis</span>
+                    </div>
+                  </div>
+                  <div class="fbi-scene-eden__sources">
+                    <p class="fbi-app-scene__label">Source cards</p>
+                    <ul class="fbi-scene-eden__cards">
+                      <li class="fbi-scene-eden__card">Journal article · 2019</li>
+                      <li class="fbi-scene-eden__card fbi-scene-eden__card--cluster">Related note · corroborated</li>
+                      <li class="fbi-scene-eden__card fbi-scene-eden__card--cluster">Dataset · pending cite</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Ledger Scene -->
+              <div class="fbi-app-scene fbi-scene-ledger" data-scene="ledger">
+                <div class="fbi-scene-ledger__grid">
+                  <div class="fbi-scene-ledger__vault">
+                    <p class="fbi-app-scene__label">Encrypted vault</p>
+                    <ul class="fbi-scene-ledger__vault-list">
+                      <li><span class="fbi-scene-ledger__lock"></span>Profile · Personal</li>
+                      <li><span class="fbi-scene-ledger__lock"></span>Address · Home</li>
+                      <li class="fbi-scene-ledger__vault-item--gated"><span class="fbi-scene-ledger__lock fbi-scene-ledger__lock--gold"></span>SSN · Permission required</li>
+                    </ul>
+                  </div>
+                  <div class="fbi-scene-ledger__form">
+                    <p class="fbi-app-scene__label">Form autofill preview</p>
+                    <div class="fbi-scene-ledger__fields">
+                      <label class="fbi-scene-ledger__field"><span>Full name</span><input type="text" value="" readonly data-field="name" /></label>
+                      <label class="fbi-scene-ledger__field"><span>Street address</span><input type="text" value="" readonly data-field="address" /></label>
+                      <label class="fbi-scene-ledger__field"><span>City, State</span><input type="text" value="" readonly data-field="city" /></label>
+                      <label class="fbi-scene-ledger__field fbi-scene-ledger__field--gated"><span>SSN</span><input type="text" value="" readonly data-field="ssn" placeholder="Permission required" /></label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="fbi-app-window__permission" data-app-permission hidden>
+              <p class="fbi-app-window__permission-q" data-app-permission-text>Create follow-up reminder?</p>
+              <div class="fbi-app-window__permission-actions">
+                <span class="fbi-app-window__perm-btn fbi-app-window__perm-btn--ghost">Deny</span>
+                <span class="fbi-app-window__perm-btn fbi-app-window__perm-btn--gold">Allow</span>
+              </div>
+            </div>
+          </div>
+
+          <aside class="fbi-app-window__steward" aria-label="<%= SITE.steward.name %> guidance panel">
+            <header class="fbi-app-window__steward-head">
+              <span class="fbi-app-window__steward-mark"><%= SITE.steward.name %></span>
+              <span class="fbi-app-window__steward-status">Local</span>
+            </header>
+            <div class="fbi-app-window__steward-request" data-app-steward-request>
+              <p class="fbi-app-window__steward-label">You asked</p>
+              <p class="fbi-app-window__steward-prompt" data-app-prompt="cfo">Track my missing Amazon refund.</p>
+              <p class="fbi-app-window__steward-prompt" data-app-prompt="sentinel">Organize medical evidence.</p>
+              <p class="fbi-app-window__steward-prompt" data-app-prompt="eden">Organize this research into topics.</p>
+              <p class="fbi-app-window__steward-prompt" data-app-prompt="ledger">Fill this recurring form.</p>
+            </div>
+            <div class="fbi-app-window__steward-analysis" data-app-steward-analysis>
+              <p class="fbi-app-window__steward-label">Analysis</p>
+              <ul class="fbi-app-window__steward-lines" data-app-analysis="cfo">
+                <li>Purchase matched · refund not posted</li>
+                <li>Merchant pattern: Amazon 14-day window</li>
+                <li>Pressure impact: low this month</li>
+              </ul>
+              <ul class="fbi-app-window__steward-lines" data-app-analysis="sentinel">
+                <li>8 records linked to medical folder</li>
+                <li>Timeline gap detected Feb–Mar</li>
+                <li>3 documents suggest same provider</li>
+              </ul>
+              <ul class="fbi-app-window__steward-lines" data-app-analysis="eden">
+                <li>8 sources → Primary cluster</li>
+                <li>5 notes → Supporting cluster</li>
+                <li>2 tags pending your approval</li>
+              </ul>
+              <ul class="fbi-app-window__steward-lines" data-app-analysis="ledger">
+                <li>4 of 4 standard fields matched</li>
+                <li>SSN gated · permission required</li>
+                <li>Preview ready before paste</li>
+              </ul>
+            </div>
+            <div class="fbi-app-window__steward-outcome" data-app-steward-outcome>
+              <p class="fbi-app-window__steward-label">Outcome</p>
+              <p class="fbi-app-window__steward-result" data-app-outcome="cfo">Refund tracker updated · reminder staged</p>
+              <p class="fbi-app-window__steward-result" data-app-outcome="sentinel">Review packet assembled · 24 items</p>
+              <p class="fbi-app-window__steward-result" data-app-outcome="eden">Topics clustered · awaiting confirmation</p>
+              <p class="fbi-app-window__steward-result" data-app-outcome="ledger">Autofill preview ready · SSN gated</p>
+            </div>
+          </aside>
+        </div>
+
+        <div class="fbi-app-window__toasts" aria-live="polite">
+          <div class="fbi-app-window__toast" data-app-toast="0">Rule saved locally.</div>
+          <div class="fbi-app-window__toast fbi-app-window__toast--gold" data-app-toast="1">Merchant preference remembered.</div>
+          <div class="fbi-app-window__toast fbi-app-window__toast--warn" data-app-toast="2">Permission required.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="fbi-app-demo__dots" aria-hidden="true">
+      <% demoApps.forEach(function (app, i) { %>
+      <span class="fbi-app-demo__dot<%= i === 0 ? ' fbi-app-demo__dot--active' : '' %>" data-app-dot="<%= app.id %>"></span>
+      <% }); %>
+    </div>
+
+    <ul class="fbi-app-demo__chips mt-10 flex flex-wrap justify-center gap-2 sm:gap-3" aria-label="Steward characteristics">
+      <% SITE.steward.cinemaChips.forEach(function (chip) { %>
+      <li class="fbi-app-demo__chip"><%= chip %></li>
+      <% }); %>
+    </ul>
+  </div>
+  <div class="fbi-divider-glow fbi-divider-glow--light" aria-hidden="true"></div>
+</section>

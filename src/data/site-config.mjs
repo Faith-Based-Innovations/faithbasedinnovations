@@ -31,6 +31,35 @@ export const SITE = {
     cinemaLead:
       "Steward is not a separate super-app. It is the shared local guidance layer inside each product: trainable by the user, permission-aware by design, and tied to the data the user controls.",
     cinemaTagline: "Separate apps. One guidance layer. Your machine.",
+    appDemo: {
+      kicker: "How it works",
+      headline: "How Steward Works Across Every App",
+      lead:
+        "Steward is shared local guidance inside each product: trainable by you, permission-aware by design, and tied to data you control on your machine.",
+      permissions: {
+        cfo: "Create follow-up reminder?",
+        sentinel: "Export review packet?",
+        eden: "Confirm topic clusters?",
+        ledger: "Allow autofill from vault?"
+      },
+      toasts: [
+        "Rule saved locally.",
+        "Merchant preference remembered.",
+        "Permission required."
+      ],
+      windowTitles: {
+        cfo: "Faith Based Innovations — CFO",
+        sentinel: "Faith Based Innovations — Sentinel",
+        eden: "Faith Based Innovations — Eden",
+        ledger: "Faith Based Innovations — Ledger"
+      },
+      crumbs: {
+        cfo: "Transactions",
+        sentinel: "Evidence workspace",
+        eden: "Research library",
+        ledger: "Form fill"
+      }
+    },
     movieProcessOrder: ["rules", "memory", "permissions", "knowledge", "vault", "tools", "audit"],
     cinemaWorkflows: [
       {

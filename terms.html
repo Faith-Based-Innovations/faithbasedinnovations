@@ -277,221 +277,181 @@
 </script>
 <script>
   (function () {
-    var root = document.querySelector("[data-steward-movie]");
+    var root = document.querySelector("[data-steward-app-demo]");
     if (!root) return;
 
-    var STAGES = ["request", "receive", "processing", "permission", "route", "outcome", "response"];
-    var STAGE_MS = {
-      request: 900,
-      receive: 700,
-      processing: 2400,
-      permission: 1000,
-      route: 1100,
-      outcome: 1300,
-      response: 1000
+    var APPS = ["cfo", "sentinel", "eden", "ledger"];
+    var STEP_MS = [1100, 1400, 1800, 1200, 1500];
+    var TRANSITION_MS = 520;
+    var PERM_BY_APP = {
+      cfo: "Create follow-up reminder?",
+      sentinel: "Export review packet?",
+      eden: "Confirm topic clusters?",
+      ledger: "Allow autofill from vault?"
     };
-    var PERM_TEXT = {
-      permission: "Approve action?",
-      route: "Review before applying",
-      outcome: "Safe suggestion only"
+    var TITLE_BY_APP = {
+      cfo: "Faith Based Innovations — CFO",
+      sentinel: "Faith Based Innovations — Sentinel",
+      eden: "Faith Based Innovations — Eden",
+      ledger: "Faith Based Innovations — Ledger"
     };
-    var TERM_LINES = {
-      request: "User request captured locally.",
-      receive: "Steward core received request.",
-      processing: "Activating local components...",
-      permission: "Permission gate: user confirmation required.",
-      route: "Routing to active application only.",
-      outcome: "Application outcome panel rendered.",
-      response: "Permission-aware response returned to user."
+    var CRUMB_BY_APP = {
+      cfo: "Transactions",
+      sentinel: "Evidence workspace",
+      eden: "Research library",
+      ledger: "Form fill"
+    };
+    var LEDGER_VALUES = {
+      name: "Jordan A. Lee",
+      address: "1842 Cedar Lane",
+      city: "Austin, TX 78701",
+      ssn: ""
     };
 
-    var tabs = root.querySelectorAll("[data-movie-workflow]");
-    var workflows = [];
-    tabs.forEach(function (tab) {
-      workflows.push(tab.getAttribute("data-movie-workflow"));
-    });
-    if (!workflows.length) return;
+    var tabs = root.querySelectorAll("[data-app-tab]");
+    var navItems = root.querySelectorAll("[data-app-nav]");
+    var dots = root.querySelectorAll("[data-app-dot]");
+    var scenes = root.querySelectorAll("[data-scene]");
+    var prompts = root.querySelectorAll("[data-app-prompt]");
+    var analyses = root.querySelectorAll("[data-app-analysis]");
+    var outcomes = root.querySelectorAll("[data-app-outcome]");
+    var permBox = root.querySelector("[data-app-permission]");
+    var permText = root.querySelector("[data-app-permission-text]");
+    var toasts = root.querySelectorAll("[data-app-toast]");
+    var windowTitle = root.querySelector("[data-app-window-title]");
+    var crumbActive = root.querySelector("[data-app-crumb-active]");
+    var crumbView = root.querySelector("[data-app-crumb-view]");
+    var toggleBtn = root.querySelector("[data-app-toggle]");
+    var toggleLabel = root.querySelector("[data-app-toggle-label]");
+    var ledgerInputs = root.querySelectorAll(".fbi-scene-ledger__field input");
 
-    var processNodes = root.querySelectorAll(".fbi-steward-movie__node[data-steward-node]");
-    var pathNodes = root.querySelectorAll(".fbi-steward-movie__path--node[data-route-node]");
-    var apps = root.querySelectorAll("[data-movie-app]");
-    var requests = root.querySelectorAll("[data-movie-request]");
-    var responses = root.querySelectorAll("[data-movie-response]");
-    var outcomes = root.querySelectorAll("[data-movie-outcome]");
-    var terminal = root.querySelector("[data-movie-terminal]");
-    var stageLabel = root.querySelector("[data-movie-stage-label]");
-    var permBox = root.querySelector("[data-movie-permission]");
-    var permText = root.querySelector("[data-movie-permission-text]");
-    var toggleBtn = root.querySelector("[data-movie-toggle]");
-    var toggleLabel = root.querySelector("[data-movie-toggle-label]");
-
-    var wfIdx = 0;
-    var stageIdx = 0;
+    var appIdx = 0;
+    var stepIdx = 0;
     var timer = null;
-    var nodeTimer = null;
-    var nodeStep = 0;
     var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     var paused = root.getAttribute("data-paused") === "true";
 
-    function clearTimers() {
+    function clearTimer() {
       if (timer) window.clearTimeout(timer);
-      if (nodeTimer) window.clearInterval(nodeTimer);
       timer = null;
-      nodeTimer = null;
     }
 
-    function clearNodeLights() {
-      processNodes.forEach(function (n) {
-        n.classList.remove("fbi-steward-movie__node--lit");
-      });
-      pathNodes.forEach(function (p) {
-        p.classList.remove("fbi-steward-movie__path--lit");
-      });
-    }
-
-    function lightNodeAt(i) {
-      if (i < 0 || i >= processNodes.length) return;
-      processNodes[i].classList.add("fbi-steward-movie__node--lit");
-      var id = processNodes[i].getAttribute("data-steward-node");
-      if (id) {
-        var path = root.querySelector('.fbi-steward-movie__path--node[data-route-node="' + id + '"]');
-        if (path) path.classList.add("fbi-steward-movie__path--lit");
-      }
-    }
-
-    function runNodeSequence() {
-      clearNodeLights();
-      nodeStep = 0;
-      lightNodeAt(0);
-      if (processNodes.length < 2) return;
-      nodeTimer = window.setInterval(function () {
-        nodeStep += 1;
-        if (nodeStep >= processNodes.length) {
-          window.clearInterval(nodeTimer);
-          nodeTimer = null;
-          return;
+    function setLedgerFields(step) {
+      ledgerInputs.forEach(function (input) {
+        var key = input.getAttribute("data-field");
+        if (!key || key === "ssn") return;
+        if (step >= 2) {
+          input.value = LEDGER_VALUES[key] || "";
+        } else {
+          input.value = "";
         }
-        lightNodeAt(nodeStep);
-      }, 280);
+      });
     }
 
-    function appendTerminal(stage) {
-      if (!terminal) return;
-      var line = document.createElement("li");
-      line.textContent = TERM_LINES[stage] || stage;
-      terminal.appendChild(line);
-      while (terminal.children.length > 6) {
-        terminal.removeChild(terminal.firstChild);
-      }
-    }
+    function setApp(id) {
+      root.setAttribute("data-app", id);
+      root.classList.add("fbi-app-demo--transition");
+      window.setTimeout(function () {
+        root.classList.remove("fbi-app-demo--transition");
+      }, TRANSITION_MS);
 
-    function setWorkflow(id) {
-      root.setAttribute("data-workflow", id);
       tabs.forEach(function (tab) {
-        var on = tab.getAttribute("data-movie-workflow") === id;
-        tab.classList.toggle("fbi-steward-movie__tab--active", on);
+        var on = tab.getAttribute("data-app-tab") === id;
+        tab.classList.toggle("fbi-app-demo__tab--active", on);
         tab.setAttribute("aria-selected", on ? "true" : "false");
       });
-      requests.forEach(function (el) {
-        el.classList.toggle("fbi-steward-movie__request--active", el.getAttribute("data-movie-request") === id);
+      navItems.forEach(function (btn) {
+        btn.classList.toggle("fbi-app-window__nav-item--active", btn.getAttribute("data-app-nav") === id);
       });
-      responses.forEach(function (el) {
-        el.classList.toggle("fbi-steward-movie__response--active", el.getAttribute("data-movie-response") === id);
+      dots.forEach(function (dot) {
+        dot.classList.toggle("fbi-app-demo__dot--active", dot.getAttribute("data-app-dot") === id);
       });
-      outcomes.forEach(function (el) {
-        el.classList.toggle("fbi-steward-movie__outcome--active", el.getAttribute("data-movie-outcome") === id);
+      scenes.forEach(function (scene) {
+        scene.classList.toggle("fbi-app-scene--active", scene.getAttribute("data-scene") === id);
       });
-      apps.forEach(function (app) {
-        app.classList.toggle("fbi-steward-movie__app--active", app.getAttribute("data-movie-app") === id);
+      prompts.forEach(function (p) {
+        p.classList.toggle("fbi-app-window__steward-prompt--active", p.getAttribute("data-app-prompt") === id);
       });
+      analyses.forEach(function (a) {
+        a.classList.toggle("fbi-app-window__steward-lines--active", a.getAttribute("data-app-analysis") === id);
+      });
+      outcomes.forEach(function (o) {
+        o.classList.toggle("fbi-app-window__steward-result--active", o.getAttribute("data-app-outcome") === id);
+      });
+
+      if (windowTitle) windowTitle.textContent = TITLE_BY_APP[id] || TITLE_BY_APP.cfo;
+      if (crumbActive) crumbActive.textContent = id.charAt(0).toUpperCase() + id.slice(1);
+      if (crumbView) crumbView.textContent = CRUMB_BY_APP[id] || "";
+      if (permText) permText.textContent = PERM_BY_APP[id] || "Approve action?";
+      setLedgerFields(0);
     }
 
-    function setStage(stage) {
-      root.setAttribute("data-stage", stage);
-      root.classList.remove.apply(
-        root.classList,
-        STAGES.map(function (s) {
-          return "fbi-steward-movie--stage-" + s;
-        })
-      );
-      root.classList.add("fbi-steward-movie--stage-" + stage);
-      if (stageLabel) stageLabel.textContent = stage;
+    function setStep(step) {
+      stepIdx = step;
+      root.setAttribute("data-scene-step", String(step));
 
-      if (stage === "processing") {
-        runNodeSequence();
-      } else if (stage === "response") {
-        processNodes.forEach(function (n) {
-          n.classList.add("fbi-steward-movie__node--lit");
-        });
-      } else if (stage !== "route" && stage !== "outcome") {
-        clearNodeLights();
+      if (permBox) permBox.hidden = step !== 3;
+      toasts.forEach(function (t, i) {
+        t.classList.toggle("fbi-app-window__toast--visible", step === 4 && i === (appIdx % 3));
+      });
+
+      if (root.getAttribute("data-app") === "ledger") {
+        setLedgerFields(step);
       }
-
-      if (permText && permBox) {
-        if (stage === "permission" || stage === "route" || stage === "outcome") {
-          permText.textContent = PERM_TEXT[stage] || "Approve action?";
-          permBox.hidden = false;
-        } else if (stage === "request" || stage === "receive") {
-          permBox.hidden = true;
-        }
-      }
-
-      appendTerminal(stage);
     }
 
     function scheduleNext() {
-      clearTimers();
+      clearTimer();
       if (paused || reduced) return;
-      var stage = STAGES[stageIdx];
-      timer = window.setTimeout(advance, STAGE_MS[stage] || 900);
+      timer = window.setTimeout(advance, STEP_MS[stepIdx] || 1200);
     }
 
     function advance() {
-      stageIdx += 1;
-      if (stageIdx >= STAGES.length) {
-        stageIdx = 0;
-        if (terminal) terminal.innerHTML = "";
-        wfIdx = (wfIdx + 1) % workflows.length;
-        setWorkflow(workflows[wfIdx]);
+      if (stepIdx >= 4) {
+        stepIdx = 0;
+        appIdx = (appIdx + 1) % APPS.length;
+        setApp(APPS[appIdx]);
+      } else {
+        stepIdx += 1;
       }
-      setStage(STAGES[stageIdx]);
+      setStep(stepIdx);
       scheduleNext();
     }
 
-    function resetCycle(workflowId, startStage) {
-      clearTimers();
-      if (terminal) terminal.innerHTML = "";
-      clearNodeLights();
-      wfIdx = workflows.indexOf(workflowId);
-      if (wfIdx < 0) wfIdx = 0;
-      setWorkflow(workflows[wfIdx]);
-      stageIdx = STAGES.indexOf(startStage || "request");
-      if (stageIdx < 0) stageIdx = 0;
-      setStage(STAGES[stageIdx]);
+    function resetDemo(appId, finalStep) {
+      clearTimer();
+      appIdx = APPS.indexOf(appId);
+      if (appIdx < 0) appIdx = 0;
+      setApp(APPS[appIdx]);
+      setStep(finalStep != null ? finalStep : 0);
       if (!paused && !reduced) scheduleNext();
     }
 
     function showReducedFinal() {
-      clearTimers();
-      setWorkflow(workflows[wfIdx]);
-      setStage("response");
-      processNodes.forEach(function (n) {
-        n.classList.add("fbi-steward-movie__node--lit");
-      });
-      if (terminal && terminal.children.length === 0) {
-        STAGES.forEach(function (s) {
-          appendTerminal(s);
-        });
-      }
-      if (permText) permText.textContent = "Review before applying";
+      clearTimer();
+      setApp(APPS[appIdx]);
+      setStep(4);
       if (permBox) permBox.hidden = false;
+      toasts.forEach(function (t, i) {
+        t.classList.toggle("fbi-app-window__toast--visible", i === 0);
+      });
+      setLedgerFields(4);
     }
 
     tabs.forEach(function (tab) {
       tab.addEventListener("click", function () {
-        var id = tab.getAttribute("data-movie-workflow");
+        var id = tab.getAttribute("data-app-tab");
         if (!id) return;
-        resetCycle(id, reduced ? "response" : "request");
+        resetDemo(id, reduced ? 4 : 0);
+        if (reduced) showReducedFinal();
+      });
+    });
+
+    navItems.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var id = btn.getAttribute("data-app-nav");
+        if (!id) return;
+        resetDemo(id, reduced ? 4 : 0);
         if (reduced) showReducedFinal();
       });
     });
@@ -503,20 +463,18 @@
         toggleBtn.setAttribute("aria-pressed", paused ? "true" : "false");
         toggleBtn.setAttribute("aria-label", paused ? "Play animation" : "Pause animation");
         if (toggleLabel) toggleLabel.textContent = paused ? "Play" : "Pause";
-        if (paused) {
-          clearTimers();
-        } else if (!reduced) {
-          scheduleNext();
-        }
+        if (paused) clearTimer();
+        else if (!reduced) scheduleNext();
       });
     }
 
+    setApp(APPS[0]);
     if (reduced) {
       showReducedFinal();
       return;
     }
-
-    resetCycle(workflows[0], "request");
+    setStep(0);
+    scheduleNext();
   })();
 </script>
 </body>
