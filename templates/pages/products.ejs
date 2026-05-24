@@ -4,8 +4,8 @@
 <main class="flex-1">
   <%- include('../partials/tw-hero-premium', {
     heroEyebrow: 'Product ecosystem',
-    heroTitle: 'Four apps. One standard of craft.',
-    heroLead: 'Sentinel, CFO, Eden, and Ledger are standalone desktop titles. ' + SITE.steward.name + ' is the shared local layer across each, without collapsing evidence, finance, research, and identity into one surface.',
+    heroTitle: 'Separate focused applications.',
+    heroLead: 'Sentinel, CFO, Eden, and Ledger are independent desktop applications. ' + SITE.steward.name + ' is the shared local guidance layer across each, without collapsing evidence, finance, research, and identity into one surface.',
     heroSplit: true,
     heroMockup: 'suite',
     heroActionsHtml: '<a href="compare.html" class="inline-flex min-h-[3rem] items-center justify-center rounded-full bg-faithGold px-7 text-sm font-semibold text-white hover:bg-amber-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-300 focus-visible:ring-offset-2 focus-visible:ring-offset-navy">Compare products</a>'
@@ -16,12 +16,17 @@
       <div class="fbi-split-section">
         <div class="max-w-xl">
           <p class="fbi-kicker text-faithGold"><%= SITE.steward.name %></p>
-          <h2 class="fbi-section-title mt-3">Shared intelligence, separate missions</h2>
+          <h2 class="fbi-section-title mt-3">Shared guidance layer, separate missions</h2>
           <p class="fbi-section-lead"><%= SITE.steward.short %></p>
+          <ul class="mt-8 space-y-3 text-sm text-slate-600">
+            <% SITE.steward.traits.forEach(function (trait) { %>
+            <li class="flex gap-3"><span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-faithGold"></span><%= trait %></li>
+            <% }); %>
+          </ul>
         </div>
         <%- include('../partials/tw-tech-diagram', {
-          diagramTitle: 'One discipline, four surfaces',
-          diagramLead: 'Each product keeps its own domain. Steward applies the same rules-based approach on top of structured data you control.'
+          diagramTitle: 'Separate apps, shared guidance',
+          diagramLead: 'Each product keeps its own domain and data. Steward applies the same rules-based guidance pattern without merging applications.'
         }) %>
       </div>
     </div>

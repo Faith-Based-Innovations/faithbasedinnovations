@@ -4,12 +4,12 @@
   <div class="fbi-wow__glow pointer-events-none absolute inset-0" aria-hidden="true"></div>
   <div class="fbi-ambient__inner relative mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
     <div class="mx-auto max-w-3xl text-center">
-      <p class="fbi-kicker text-amber-200/90">Ecosystem command view</p>
-      <h2 id="fbi-wow-title" class="fbi-section-title fbi-section-title--xl mt-3 text-white">Five surfaces. One disciplined stack.</h2>
-      <p class="fbi-section-lead mx-auto text-slate-300">CFO, Sentinel, Eden, and Ledger run as standalone apps on your machine. <%= SITE.steward.name %> applies rules across structured data you control.</p>
+      <p class="fbi-kicker text-amber-200/90">Modular software ecosystem</p>
+      <h2 id="fbi-wow-title" class="fbi-section-title fbi-section-title--xl mt-3 text-white"><%= SITE.architectureHeadline %></h2>
+      <p class="fbi-section-lead mx-auto text-slate-300"><%= SITE.architectureLead %></p>
     </div>
 
-    <div class="fbi-wow__stage mt-14 lg:mt-16" role="img" aria-label="Concept diagram: CFO, Sentinel, Eden, and Ledger connect through <%= SITE.steward.name %> at the center, with encrypted vault flow on your device">
+    <div class="fbi-wow__stage mt-14 lg:mt-16" role="img" aria-label="Architecture diagram: CFO, Sentinel, Eden, and Ledger as separate applications surrounding <%= SITE.steward.name %>, the shared local guidance layer at center. Connecting lines represent shared principles, not merged data.">
       <svg class="fbi-wow__lines" viewBox="0 0 800 520" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
         <defs>
           <linearGradient id="fbi-wow-grad-gold" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -27,7 +27,6 @@
         <path class="fbi-wow__path fbi-wow__path--b" d="M400 268 L620 120" />
         <path class="fbi-wow__path fbi-wow__path--c" d="M400 268 L160 380" />
         <path class="fbi-wow__path fbi-wow__path--d" d="M400 268 L640 380" />
-        <path class="fbi-wow__path fbi-wow__path--e" d="M400 268 L400 460" />
         <circle class="fbi-wow__pulse" cx="400" cy="268" r="72" />
       </svg>
 
@@ -35,55 +34,65 @@
         <div class="fbi-wow__hub-ring" aria-hidden="true"></div>
         <div class="fbi-wow__hub-core">
           <p class="fbi-wow__hub-label"><%= SITE.steward.name %></p>
-          <p class="fbi-wow__hub-sub">Rules · audit trail</p>
+          <p class="fbi-wow__hub-sub">Shared local guidance layer</p>
           <div class="fbi-wow__telemetry" aria-hidden="true">
-            <span class="fbi-wow__tel"><span class="fbi-wow__tel-dot"></span>vault read</span>
-            <span class="fbi-wow__tel"><span class="fbi-wow__tel-dot fbi-wow__tel-dot--gold"></span>policy ok</span>
+            <span class="fbi-wow__tel"><span class="fbi-wow__tel-dot fbi-wow__tel-dot--gold"></span>rules-based</span>
+            <span class="fbi-wow__tel"><span class="fbi-wow__tel-dot"></span>permission-aware</span>
           </div>
         </div>
       </div>
 
       <div class="fbi-wow__node fbi-wow__node--sentinel" data-product="sentinel">
         <div class="fbi-wow__node-panel">
+          <span class="fbi-wow__node-badge">Standalone app</span>
           <span class="fbi-wow__node-tag">Sentinel</span>
-          <p class="fbi-wow__node-title">Evidence</p>
-          <p class="fbi-wow__node-meta">142 linked · local</p>
+          <p class="fbi-wow__node-title">Evidence workspace</p>
+          <p class="fbi-wow__node-meta">Case prep · local</p>
         </div>
       </div>
       <div class="fbi-wow__node fbi-wow__node--cfo" data-product="cfo">
         <div class="fbi-wow__node-panel">
+          <span class="fbi-wow__node-badge">Standalone app</span>
           <span class="fbi-wow__node-tag fbi-wow__node-tag--gold">CFO</span>
-          <p class="fbi-wow__node-title">$24k outlook</p>
-          <p class="fbi-wow__node-meta">Runway modeled</p>
+          <p class="fbi-wow__node-title">Finance command</p>
+          <p class="fbi-wow__node-meta">Local-first · yours</p>
         </div>
       </div>
       <div class="fbi-wow__node fbi-wow__node--eden" data-product="eden">
         <div class="fbi-wow__node-panel">
+          <span class="fbi-wow__node-badge">Standalone app</span>
           <span class="fbi-wow__node-tag fbi-wow__node-tag--gold">Eden</span>
-          <p class="fbi-wow__node-title">Sources</p>
-          <p class="fbi-wow__node-meta">Claims · cites</p>
+          <p class="fbi-wow__node-title">Research workspace</p>
+          <p class="fbi-wow__node-meta">Sources · cites</p>
         </div>
       </div>
       <div class="fbi-wow__node fbi-wow__node--ledger" data-product="ledger">
         <div class="fbi-wow__node-panel">
+          <span class="fbi-wow__node-badge">Standalone app</span>
           <span class="fbi-wow__node-tag fbi-wow__node-tag--gold">Ledger</span>
-          <p class="fbi-wow__node-title">Vault</p>
+          <p class="fbi-wow__node-title">Identity vault</p>
           <p class="fbi-wow__node-meta">Encrypted · local</p>
         </div>
       </div>
 
-      <div class="fbi-wow__vault-flow" aria-hidden="true">
-        <span class="fbi-wow__vault-chip">Device</span>
+      <div class="fbi-wow__principle-flow" aria-hidden="true">
+        <span class="fbi-wow__vault-chip">Shared principles</span>
         <span class="fbi-wow__vault-arrow"></span>
-        <span class="fbi-wow__vault-chip fbi-wow__vault-chip--accent">Local vault</span>
+        <span class="fbi-wow__vault-chip fbi-wow__vault-chip--accent">Not merged data</span>
         <span class="fbi-wow__vault-arrow"></span>
-        <span class="fbi-wow__vault-chip">Optional sync</span>
+        <span class="fbi-wow__vault-chip">Consistent interaction model</span>
       </div>
 
-      <p class="fbi-wow__caption">Concept preview · not a product screenshot</p>
+      <p class="fbi-wow__caption">Separate applications · shared operational logic · concept preview</p>
     </div>
 
-    <p class="fbi-statement-mega fbi-statement-mega--on-dark mt-16 text-center">Privacy by architecture.</p>
+    <ul class="fbi-arch-pillars mt-14 flex flex-wrap justify-center gap-3 sm:gap-4" aria-label="Architecture principles">
+      <% SITE.architecturePillars.forEach(function (pillar) { %>
+      <li class="fbi-arch-pillars__item"><%= pillar %></li>
+      <% }); %>
+    </ul>
+
+    <p class="fbi-statement-mega fbi-statement-mega--on-dark mt-12 text-center">Separate products. Shared principles. Steward-powered workflows.</p>
   </div>
   <div class="fbi-divider-glow fbi-divider-glow--light" aria-hidden="true"></div>
 </section>

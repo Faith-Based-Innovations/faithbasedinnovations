@@ -5,22 +5,41 @@ export const SITE = {
   brand: "Faith Based Innovations",
   abbrev: "FBI",
   tagline:
-    "Premium local-first desktop software: CFO, Sentinel, Eden, and Ledger, with Steward as the shared workflow layer on your machine.",
+    "Separate focused applications with a shared local, user-trainable guidance layer. CFO, Sentinel, Eden, and Ledger each stand on their own. Steward connects them through consistent, permission-aware workflows on your machine.",
   logoFile: "FBI_Transparent.png",
   logoAlt: "Faith Based Innovations",
-  suiteSectionTitle: "Four products, one ecosystem",
+  suiteSectionTitle: "Separate products. Shared principles.",
+  architectureHeadline: "Separate applications. Shared intelligence.",
+  architectureLead:
+    "Faith Based Innovations builds focused local-first software products. CFO, Sentinel, Eden, and Ledger each stand on their own. Steward is the shared local, user-trainable guidance layer that gives them a consistent way to assist, organize, and act with user permission.",
+  architecturePillars: [
+    "Focused apps.",
+    "User-trainable guidance.",
+    "User-controlled workflows.",
+    "Local-first by design."
+  ],
   steward: {
     name: "Steward",
     short:
-      "Steward is the shared local assistant across our apps: clear rules and your data, not open-ended generation. It helps organize, surface relationships, and keep outputs tied to what you actually entered.",
+      "Steward is the shared local, user-trainable operational guidance layer across our products: rules-based, deterministic, and permission-aware. It learns from your corrections, preferences, and approved actions inside each app. Not a generic chatbot. Not a cloud-trained model. Not a merged super-app.",
     homeBlurb:
-      "Sentinel uses Steward for evidence workflows, CFO for finance, Eden for research, and Ledger for identity documents. The same disciplined local layer in each product."
+      "Steward is connective tissue, not a monolith. The same local, user-trainable guidance pattern runs inside Sentinel, CFO, Eden, and Ledger: organize what you entered, surface relationships, adapt to workflows you approve, and pause for permission before anything sensitive.",
+    trainabilityLine:
+      "Steward is designed to become more useful as the user teaches it how they work.",
+    traits: [
+      "User-trainable local guidance layer inside each product",
+      "Learns from your corrections, preferences, and approved actions",
+      "Remembers preferred organization patterns and user-defined rules",
+      "Adapts to workflows you approve; training belongs to you",
+      "Asks before sensitive actions; you control what it may do",
+      "Improves within your local environment, not from shared cloud training"
+    ]
   },
   hero: {
     titleLine: "Premium software, built deliberately.",
-    titleAccent: "CFO, Sentinel, Eden, and Ledger. Each its own product.",
+    titleAccent: "Separate products. Shared intelligence.",
     lead:
-      "Faith Based Innovations builds standalone desktop titles. CFO is the financial operating system; Sentinel is evidence intelligence for investigative and review workflows; Eden and Ledger serve research and identity. All are local-first, privacy-first, and powered by Steward."
+      "Faith Based Innovations builds separate focused applications, not one giant app. CFO, Sentinel, Eden, and Ledger each solve a distinct problem. Steward is the shared local, user-trainable guidance layer that gives them a consistent interaction model on your machine."
   },
   availability: {
     badge: "In development",
@@ -40,25 +59,25 @@ export const NAV_PRODUCTS = [
     id: "sentinel",
     href: "product-sentinel.html",
     label: "Sentinel",
-    line: "Local-first evidence intelligence: ingest, organize, timeline, and export for professional review workflows."
+    line: "Evidence organization and case-preparation workspace for attorney-ready review. Designed with Steward-guided, locally trainable workflows."
   },
   {
     id: "cfo",
     href: "product-cfo.html",
     label: "CFO",
-    line: "Flagship financial operating system: budgeting, planning, forecasting, Steward-guided."
+    line: "Focused financial command center and local-first personal finance system. Designed with Steward-guided, locally trainable workflows."
   },
   {
     id: "eden",
     href: "product-eden.html",
     label: "Eden",
-    line: "Research ingestion, analysis, prioritization, and source evaluation, powered by Steward."
+    line: "Structured research and knowledge organization workspace. Designed with Steward-guided, locally trainable workflows."
   },
   {
     id: "ledger",
     href: "product-ledger.html",
     label: "Ledger",
-    line: "Encrypted identity vault and deterministic document execution. Steward assists mapping, never invents data."
+    line: "Local identity, document, and reusable information vault. Designed with Steward-guided, locally trainable workflows."
   }
 ];
 
@@ -69,11 +88,11 @@ export const PRODUCTS = {
     path: "product-sentinel.html",
     tag: "Flagship · Evidence intelligence",
     statusBadge: "Advanced internal alpha",
-    headline: "Local-first evidence intelligence.",
+    headline: "Evidence organization for professional review.",
     cardBlurb:
-      "Ingest, organize, connect, and review large evidence collections on your machine. Timelines, relationships, and structured exports built for investigative and professional review workflows.",
+      "Evidence organization and case-preparation workspace for attorney-ready review. Ingest, connect, and timeline complex material on your machine. Designed with Steward-guided, locally trainable workflows.",
     subhead:
-      "Sentinel is a local-first evidence intelligence and investigative organization platform. It helps you structure complex evidence, build chronologies, map relationships, and prepare professional review materials. Your data stays under your control.",
+      "Sentinel is a standalone evidence organization application for investigative and review workflows. Structure complex evidence, build chronologies, map relationships, and prepare professional review materials. Your data stays under your control. Designed with Steward-guided, locally trainable workflows.",
     development: {
       asOf: "May 19, 2026",
       stage: "Advanced internal alpha",
@@ -88,11 +107,11 @@ export const PRODUCTS = {
     path: "product-cfo.html",
     tag: "Flagship · Finance",
     statusBadge: null,
-    headline: "The financial operating system.",
+    headline: "Focused financial command center.",
     cardBlurb:
-      "Your money hub on your computer: budgets, plans, forecasts, and cash-flow clarity, with Steward helping you read your own numbers using clear rules (not guesswork).",
+      "Focused financial command center and local-first personal finance system. Budgets, plans, forecasts, and cash-flow clarity from your records. Designed with Steward-guided, locally trainable workflows.",
     subhead:
-      "CFO is a financial operating system you run on your machine, powered by Steward, not a thin budgeting app. It helps you interpret, plan, and decide from structured data and transparent rules.",
+      "CFO is a standalone local-first personal finance application: your financial command center on your machine. Interpret, plan, and decide from structured data and transparent rules. Designed with Steward-guided, locally trainable workflows.",
     purchasable: false
   },
   eden: {
@@ -101,11 +120,11 @@ export const PRODUCTS = {
     path: "product-eden.html",
     tag: "Research",
     statusBadge: null,
-    headline: "Research intelligence and prioritization.",
+    headline: "Structured research workspace.",
     cardBlurb:
-      "Bring articles, video, notes, and recordings into one place, then sort what matters. Steward ranks sources using your question and evidence (not hype).",
+      "Structured research and knowledge organization workspace. Gather sources, compare claims, and see citations on your machine. Designed with Steward-guided, locally trainable workflows.",
     subhead:
-      "Eden is a standalone research workspace on your machine: gather sources, compare claims, and see citations. Steward helps prioritize what fits your question.",
+      "Eden is a standalone research workspace: structured research and knowledge organization on your machine. Gather sources, compare claims, and prioritize what fits your question. Designed with Steward-guided, locally trainable workflows.",
     purchasable: false
   },
   ledger: {
@@ -114,11 +133,11 @@ export const PRODUCTS = {
     path: "product-ledger.html",
     tag: "Identity & documents",
     statusBadge: null,
-    headline: "Secure vault. Exact-fill documents.",
+    headline: "Local identity and document vault.",
     cardBlurb:
-      "Encrypted storage for sensitive info for up to two people, plus forms that fill only from what you saved. Steward helps match fields; it never invents answers.",
+      "Local identity, document, and reusable information vault. Encrypted storage and exact-fill forms from what you saved. Designed with Steward-guided, locally trainable workflows.",
     subhead:
-      "Ledger is an encrypted identity vault and document assistant on your machine, for example spouses sharing a household file. Steward helps line up form fields with stored values; blanks stay blank if you did not supply data.",
+      "Ledger is a standalone vault application for identity, documents, and reusable information on your machine. Steward helps match fields to stored values; blanks stay blank if you did not supply data. Designed with Steward-guided, locally trainable workflows.",
     purchasable: false
   }
 };

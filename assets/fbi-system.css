@@ -1141,6 +1141,61 @@ html.fbi-reduced-motion .fbi-mission-card:hover {
   white-space: nowrap;
 }
 
+.fbi-wow__node-badge {
+  display: inline-block;
+  margin-bottom: 0.35rem;
+  font-size: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #64748b;
+  padding: 0.15rem 0.45rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  background: rgba(15, 23, 42, 0.45);
+}
+
+.fbi-wow__principle-flow {
+  position: absolute;
+  left: 50%;
+  bottom: 4%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  z-index: 1;
+}
+
+.fbi-arch-pillars {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.fbi-arch-pillars__item {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #e2e8f0;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(217, 119, 6, 0.35);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.06), rgba(15, 23, 42, 0.5));
+  box-shadow: 0 0 20px rgba(217, 119, 6, 0.08);
+  transition:
+    transform var(--fbi-duration-base) var(--fbi-ease-motion),
+    border-color var(--fbi-duration-base) var(--fbi-ease-motion),
+    box-shadow var(--fbi-duration-base) var(--fbi-ease-motion);
+}
+
+.fbi-arch-pillars__item:hover {
+  transform: translate3d(0, -2px, 0);
+  border-color: rgba(217, 119, 6, 0.55);
+  box-shadow: 0 0 24px rgba(217, 119, 6, 0.15);
+}
+
 /* Flow visual (enhanced diagram) */
 .fbi-flow-visual {
   position: relative;
@@ -1626,7 +1681,8 @@ body.fbi-site .fbi-nav-link--active {
   .fbi-wow__node--eden { order: 3; }
   .fbi-wow__node--ledger { order: 4; }
 
-  .fbi-wow__vault-flow {
+  .fbi-wow__vault-flow,
+  .fbi-wow__principle-flow {
     position: relative;
     left: auto;
     bottom: auto;

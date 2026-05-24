@@ -5,7 +5,7 @@
   <%- include('../partials/tw-hero-premium', {
     heroEyebrow: 'Faith Based Innovations',
     heroTitle: 'Serious desktop software for work that matters.',
-    heroLead: '<strong class="font-semibold text-white">Sentinel</strong>, <strong class="font-semibold text-white">CFO</strong>, <strong class="font-semibold text-white">Eden</strong>, and <strong class="font-semibold text-white">Ledger</strong>: four standalone apps on <strong class="font-semibold text-white">your machine</strong>, with <strong class="font-semibold text-white">' + SITE.steward.name + '</strong> applying clear rules to <em>your</em> data.',
+    heroLead: '<strong class="font-semibold text-white">Separate products. Shared principles.</strong> <strong class="font-semibold text-white">Sentinel</strong>, <strong class="font-semibold text-white">CFO</strong>, <strong class="font-semibold text-white">Eden</strong>, and <strong class="font-semibold text-white">Ledger</strong> are focused applications on <strong class="font-semibold text-white">your machine</strong>. <strong class="font-semibold text-white">' + SITE.steward.name + '</strong> is the shared local guidance layer that connects them through permission-aware workflows.',
     heroSplit: true,
     heroMockup: 'suite',
     heroActionsHtml: '<a href="products.html" class="fbi-btn fbi-btn--gold">Explore the ecosystem</a><a href="compare.html" class="fbi-btn fbi-btn--ghost">Compare products</a>'
@@ -19,7 +19,7 @@
       <div class="mx-auto mt-16 max-w-3xl text-center">
         <p class="fbi-kicker text-faithGold">Philosophy</p>
         <h2 class="fbi-section-title fbi-section-title--lg mt-3">Built around ownership, not feeds</h2>
-        <p class="fbi-section-lead mx-auto">Local-first by conviction. Privacy as default. <%= SITE.steward.name %> as a disciplined layer, not open-ended generation.</p>
+        <p class="fbi-section-lead mx-auto">Local-first by conviction. Privacy as default. <%= SITE.steward.name %> as a shared rules-based guidance layer inside each product, not open-ended generation.</p>
       </div>
       <div class="fbi-philosophy-grid fbi-card-depth mt-14">
         <div class="fbi-philosophy-item fbi-glow-blue">
@@ -52,9 +52,9 @@
     <div class="fbi-ambient__inner mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
       <div class="mb-14 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
         <div class="max-w-2xl">
-          <p class="fbi-kicker text-faithGold">Product ecosystem</p>
+          <p class="fbi-kicker text-faithGold">Focused applications</p>
           <h2 class="fbi-section-title fbi-section-title--lg mt-3"><%= SITE.suiteSectionTitle %></h2>
-          <p class="fbi-section-lead">Each title is engineered as standalone software with the same bar for craft and clearly separated missions.</p>
+          <p class="fbi-section-lead">Each title is a separate focused application with its own domain. Steward gives them a consistent interaction model without merging data or missions.</p>
         </div>
         <a href="products.html" class="fbi-btn inline-flex min-h-[3rem] shrink-0 self-start rounded-full border border-slate-300/90 bg-white px-7 text-sm text-navy shadow-fbi-sm hover:border-faithGold hover:text-faithGold lg:self-end" style="box-shadow: var(--fbi-shadow-float);">View all products</a>
       </div>
@@ -73,7 +73,7 @@
         <div>
           <p class="fbi-kicker text-slate-500">Architecture</p>
           <h2 class="fbi-section-title fbi-section-title--lg mt-3">Local-first by design</h2>
-          <p class="fbi-section-lead">Encrypted vaults where it matters. <%= SITE.steward.name %> reads structured data you entered. Optional sync only when you choose it.</p>
+          <p class="fbi-section-lead">Encrypted vaults where it matters. <%= SITE.steward.name %> reads structured data you entered inside each application. Optional sync only when you choose it.</p>
           <p class="fbi-statement-mega mt-10 text-[clamp(1.5rem,4vw,2.25rem)]">Your data stays yours.</p>
           <ul class="mt-8 space-y-3 text-sm text-slate-600">
             <li class="flex gap-3"><span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-faithGold"></span>Device-native storage and workflows</li>
@@ -97,9 +97,14 @@
         </div>
         <div class="order-1 max-w-xl lg:order-2">
           <p class="fbi-kicker text-faithGold"><%= SITE.steward.name %></p>
-          <h2 class="fbi-section-title fbi-section-title--lg mt-3">One assistant, four missions</h2>
+          <h2 class="fbi-section-title fbi-section-title--lg mt-3">Shared guidance, not a super-app</h2>
           <p class="fbi-section-lead"><%= SITE.steward.homeBlurb %></p>
-          <blockquote class="fbi-statement mt-8">Deterministic, auditable, and tied to what you entered. <%= SITE.steward.name %> is designed to organize and surface, not to invent.</blockquote>
+          <ul class="mt-8 space-y-3 text-sm text-slate-600">
+            <% SITE.steward.traits.forEach(function (trait) { %>
+            <li class="flex gap-3"><span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-faithGold"></span><%= trait %></li>
+            <% }); %>
+          </ul>
+          <blockquote class="fbi-statement mt-8">Deterministic, auditable, and tied to what you entered. <%= SITE.steward.name %> is designed to organize and surface, not to invent or override you.</blockquote>
           <a href="products.html" class="fbi-link-premium mt-8 inline-flex text-sm text-navy hover:text-faithGold">See how <%= SITE.steward.name %> fits each product →</a>
         </div>
       </div>
@@ -132,7 +137,7 @@
       <div class="max-w-3xl">
         <p class="fbi-kicker text-slate-500">At a glance</p>
         <h2 class="fbi-section-title fbi-section-title--lg mt-3">Compare missions</h2>
-        <p class="fbi-section-lead">Four missions, one standard of quality. Open the full comparison for detail.</p>
+        <p class="fbi-section-lead">Four separate focused applications, one standard of quality. Open the full comparison for detail.</p>
       </div>
       <div class="fbi-card-depth mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
         <div class="fbi-mission-card fbi-mission-card--featured lg:translate-y-2">
