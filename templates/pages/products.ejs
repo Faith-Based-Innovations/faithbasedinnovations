@@ -23,10 +23,11 @@
             <li class="flex gap-3"><span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-faithGold"></span><%= trait %></li>
             <% }); %>
           </ul>
+          <blockquote class="fbi-statement mt-8"><%= SITE.steward.trainabilityLine %></blockquote>
         </div>
         <%- include('../partials/tw-tech-diagram', {
           diagramTitle: 'Separate apps, shared guidance',
-          diagramLead: 'Each product keeps its own domain and data. Steward applies the same rules-based guidance pattern without merging applications.'
+          diagramLead: 'Each product keeps its own domain and data. Steward applies the same user-trainable guidance pattern without merging applications.'
         }) %>
       </div>
     </div>

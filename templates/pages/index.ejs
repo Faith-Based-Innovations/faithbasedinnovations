@@ -54,7 +54,7 @@
         <div class="max-w-2xl">
           <p class="fbi-kicker text-faithGold">Focused applications</p>
           <h2 class="fbi-section-title fbi-section-title--lg mt-3"><%= SITE.suiteSectionTitle %></h2>
-          <p class="fbi-section-lead">Each title is a separate focused application with its own domain. Steward gives them a consistent interaction model without merging data or missions.</p>
+          <p class="fbi-section-lead">Each title is a separate focused application with its own domain. Steward gives them a consistent, user-trainable interaction model without merging data or missions.</p>
         </div>
         <a href="products.html" class="fbi-btn inline-flex min-h-[3rem] shrink-0 self-start rounded-full border border-slate-300/90 bg-white px-7 text-sm text-navy shadow-fbi-sm hover:border-faithGold hover:text-faithGold lg:self-end" style="box-shadow: var(--fbi-shadow-float);">View all products</a>
       </div>
@@ -83,7 +83,7 @@
         </div>
         <%- include('../partials/tw-flow-visual', {
           flowTitle: 'How your data moves',
-          flowLead: 'Work stays on your device first. Steward reads what you structured; sync is optional and user-controlled.'
+          flowLead: 'Work stays on your device first. Steward reads what you structured, learns from your corrections, and improves locally. Sync is optional and user-controlled.'
         }) %>
       </div>
     </div>
@@ -97,14 +97,15 @@
         </div>
         <div class="order-1 max-w-xl lg:order-2">
           <p class="fbi-kicker text-faithGold"><%= SITE.steward.name %></p>
-          <h2 class="fbi-section-title fbi-section-title--lg mt-3">Shared guidance, not a super-app</h2>
+          <h2 class="fbi-section-title fbi-section-title--lg mt-3">Shared guidance you train</h2>
           <p class="fbi-section-lead"><%= SITE.steward.homeBlurb %></p>
           <ul class="mt-8 space-y-3 text-sm text-slate-600">
             <% SITE.steward.traits.forEach(function (trait) { %>
             <li class="flex gap-3"><span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-faithGold"></span><%= trait %></li>
             <% }); %>
           </ul>
-          <blockquote class="fbi-statement mt-8">Deterministic, auditable, and tied to what you entered. <%= SITE.steward.name %> is designed to organize and surface, not to invent or override you.</blockquote>
+          <blockquote class="fbi-statement mt-8"><%= SITE.steward.trainabilityLine %></blockquote>
+          <p class="mt-4 text-sm text-slate-600">Deterministic, auditable, and tied to what you entered. <%= SITE.steward.name %> is designed to organize and surface, not to invent or override you.</p>
           <a href="products.html" class="fbi-link-premium mt-8 inline-flex text-sm text-navy hover:text-faithGold">See how <%= SITE.steward.name %> fits each product →</a>
         </div>
       </div>
