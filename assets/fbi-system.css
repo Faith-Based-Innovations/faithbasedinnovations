@@ -4401,3 +4401,158 @@ html.fbi-reduced-motion .fbi-app-demo[data-scene-step="4"] .fbi-scene-sentinel__
   max-height: none;
   transform: none;
 }
+
+/* Build velocity timeline: small premium milestone strip */
+.fbi-timeline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem 1.4rem;
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 36rem;
+  position: relative;
+}
+
+.fbi-timeline__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+  font-size: 0.8125rem;
+  line-height: 1.2;
+  position: relative;
+  transition: border-color var(--fbi-duration-fast) var(--fbi-ease-motion),
+    box-shadow var(--fbi-duration-fast) var(--fbi-ease-motion);
+}
+
+.fbi-timeline__item + .fbi-timeline__item::before {
+  content: "";
+  position: absolute;
+  left: -1.05rem;
+  top: 50%;
+  width: 1rem;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    rgba(148, 163, 184, 0.45),
+    rgba(217, 119, 6, 0.55)
+  );
+  transform: translateY(-50%);
+}
+
+.fbi-timeline__dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 999px;
+  background: #94a3b8;
+  display: inline-block;
+  flex-shrink: 0;
+  transition: background var(--fbi-duration-fast) var(--fbi-ease-motion),
+    box-shadow var(--fbi-duration-fast) var(--fbi-ease-motion);
+}
+
+.fbi-timeline__date {
+  font-weight: 600;
+  color: #0f172a;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.01em;
+}
+
+.fbi-timeline__label {
+  color: #475569;
+  font-weight: 500;
+}
+
+.fbi-timeline__item--past {
+  background: rgba(248, 250, 252, 0.85);
+  border-color: rgba(15, 23, 42, 0.06);
+}
+
+.fbi-timeline__item--past .fbi-timeline__date {
+  color: #475569;
+}
+
+.fbi-timeline__item--past .fbi-timeline__label {
+  color: #64748b;
+}
+
+.fbi-timeline__item--current {
+  background: rgba(254, 243, 199, 0.55);
+  border-color: rgba(217, 119, 6, 0.4);
+  box-shadow: 0 1px 0 rgba(217, 119, 6, 0.08), 0 4px 18px -10px rgba(217, 119, 6, 0.35);
+}
+
+.fbi-timeline__item--current .fbi-timeline__dot {
+  background: #d97706;
+  box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.18);
+}
+
+.fbi-timeline__item--current .fbi-timeline__label {
+  color: #92400e;
+  font-weight: 600;
+}
+
+.fbi-timeline--stacked {
+  flex-direction: column;
+  align-items: stretch;
+  max-width: 32rem;
+  gap: 0.6rem;
+}
+
+.fbi-timeline--stacked .fbi-timeline__item {
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  text-align: left;
+  padding: 0.65rem 0.95rem;
+  border-radius: 14px;
+}
+
+.fbi-timeline--stacked .fbi-timeline__item + .fbi-timeline__item::before {
+  left: 1.45rem;
+  top: -0.6rem;
+  width: 1px;
+  height: 0.6rem;
+  background: linear-gradient(
+    to bottom,
+    rgba(148, 163, 184, 0.45),
+    rgba(217, 119, 6, 0.55)
+  );
+  transform: none;
+}
+
+.fbi-timeline--stacked .fbi-timeline__note {
+  flex-basis: 100%;
+  margin-top: 0.25rem;
+  margin-left: 1.05rem;
+  font-size: 0.78125rem;
+  line-height: 1.5;
+  color: #64748b;
+  font-weight: 400;
+}
+
+.fbi-timeline--stacked .fbi-timeline__item--current .fbi-timeline__note {
+  color: #78350f;
+}
+
+@media (max-width: 480px) {
+  .fbi-timeline {
+    gap: 0.5rem;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .fbi-timeline__item + .fbi-timeline__item::before {
+    display: none;
+  }
+
+  .fbi-timeline__item {
+    justify-content: flex-start;
+  }
+}

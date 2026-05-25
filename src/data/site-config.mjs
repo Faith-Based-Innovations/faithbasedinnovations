@@ -266,7 +266,7 @@ export const SITE = {
   availability: {
     badge: "In development",
     line:
-      "CFO, Eden, and Ledger are actively being built and are not for sale or download yet. Sentinel is in advanced internal alpha. We share more as each title reaches a careful launch."
+      "CFO, Eden, and Ledger are actively being built and are not for sale or download yet. Sentinel is in beta testing. We share more as each title reaches a careful launch."
   }
 };
 
@@ -309,17 +309,32 @@ export const PRODUCTS = {
     name: "Sentinel",
     path: "product-sentinel.html",
     tag: "Flagship Ã‚Â· Evidence intelligence",
-    statusBadge: "Advanced internal alpha",
+    statusBadge: "Beta testing",
     headline: "Evidence organization for professional review.",
     cardBlurb:
       "Evidence organization and case-preparation workspace for attorney-ready review. Ingest, connect, and timeline complex material on your machine. Designed with Steward-guided, locally trainable workflows.",
     subhead:
       "Sentinel is a standalone evidence organization application for investigative and review workflows. Structure complex evidence, build chronologies, map relationships, and prepare professional review materials. Your data stays under your control. Designed with Steward-guided, locally trainable workflows.",
     development: {
-      asOf: "May 19, 2026",
-      stage: "Advanced internal alpha",
+      asOf: "May 25, 2026",
+      asOfIso: "2026-05-25",
+      stage: "Beta testing",
       summary:
-        "As of May 19, 2026, Sentinel is in advanced internal alpha: core architecture, ingestion pipelines, organizational structures, and operational direction are actively being built and integrated, not concept or prototype."
+        "As of May 25, 2026, Sentinel is in beta testing: core architecture, ingestion pipelines, organizational structures, and operational direction are integrated and being validated against real investigative workflows ahead of a careful launch.",
+      timeline: [
+        {
+          date: "May 19, 2026",
+          iso: "2026-05-19",
+          label: "Advanced internal alpha",
+          note: "Core architecture and ingestion pipelines actively being built and integrated."
+        },
+        {
+          date: "May 25, 2026",
+          iso: "2026-05-25",
+          label: "Beta testing",
+          note: "Integrated systems being validated against real investigative workflows."
+        }
+      ]
     },
     purchasable: false
   },

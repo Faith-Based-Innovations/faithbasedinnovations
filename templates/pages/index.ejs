@@ -186,7 +186,20 @@
       <p class="text-xs font-bold uppercase tracking-[0.2em] text-amber-900"><%= SITE.availability.badge %></p>
       <h2 class="mt-4 text-2xl font-bold text-navy sm:text-3xl">Actively being built</h2>
       <p class="mt-4 text-base leading-relaxed text-slate-700"><%= SITE.availability.line %></p>
-      <p class="mt-3 text-sm font-semibold text-amber-900" role="status"><%= PRODUCTS.sentinel.development.stage %> Â· Sentinel (as of <%= PRODUCTS.sentinel.development.asOf %>)</p>
+      <p class="mt-3 text-sm font-semibold text-amber-900" role="status"><%= PRODUCTS.sentinel.development.stage %> <span aria-hidden="true">·</span> Sentinel (as of <%= PRODUCTS.sentinel.development.asOf %>)</p>
+      <% if (Array.isArray(PRODUCTS.sentinel.development.timeline) && PRODUCTS.sentinel.development.timeline.length) { %>
+      <ol class="fbi-timeline mt-6" aria-label="Sentinel build milestones">
+        <% PRODUCTS.sentinel.development.timeline.forEach(function (milestone, idx) {
+          var isCurrent = idx === PRODUCTS.sentinel.development.timeline.length - 1;
+        %>
+        <li class="fbi-timeline__item <%= isCurrent ? 'fbi-timeline__item--current' : 'fbi-timeline__item--past' %>">
+          <span class="fbi-timeline__dot" aria-hidden="true"></span>
+          <span class="fbi-timeline__date"><time datetime="<%= milestone.iso %>"><%= milestone.date %></time></span>
+          <span class="fbi-timeline__label"><%= milestone.label %></span>
+        </li>
+        <% }); %>
+      </ol>
+      <% } %>
       <p class="mt-2 text-sm text-slate-600"><%= SITE.availability.ctaLabel %></p>
     </div>
   </section>

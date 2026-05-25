@@ -105,8 +105,29 @@
   <section id="sentinel-development" class="scroll-mt-28 mx-auto max-w-3xl px-4 py-20 sm:px-6 lg:px-8">
     <h2 class="text-2xl font-bold text-navy">Development status</h2>
     <p class="mt-4 text-slate-600 leading-relaxed"><%= PRODUCTS.sentinel.development.summary %></p>
-    <p class="mt-4 text-slate-600 leading-relaxed">Current stage: <strong class="text-navy"><%= PRODUCTS.sentinel.development.stage %></strong> (as of <time datetime="2026-05-19"><%= PRODUCTS.sentinel.development.asOf %></time>). Active systems integration, operational workflow construction, and foundational export and report generation are underway.</p>
+    <p class="mt-4 text-slate-600 leading-relaxed">Current stage: <strong class="text-navy"><%= PRODUCTS.sentinel.development.stage %></strong> (as of <time datetime="<%= PRODUCTS.sentinel.development.asOfIso %>"><%= PRODUCTS.sentinel.development.asOf %></time>). Active systems integration, operational workflow construction, and foundational export and report generation are underway.</p>
     <p class="mt-4 text-slate-600 leading-relaxed">Sentinel is not positioned as production complete, enterprise released, attorney-certified, legally authoritative, or feature finalized. The application is actively evolving.</p>
+
+    <% if (Array.isArray(PRODUCTS.sentinel.development.timeline) && PRODUCTS.sentinel.development.timeline.length) { %>
+    <div class="mt-10">
+      <h3 class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">Build velocity</h3>
+      <ol class="fbi-timeline fbi-timeline--stacked mt-4" aria-label="Sentinel build milestones">
+        <% PRODUCTS.sentinel.development.timeline.forEach(function (milestone, idx) {
+          var isCurrent = idx === PRODUCTS.sentinel.development.timeline.length - 1;
+        %>
+        <li class="fbi-timeline__item <%= isCurrent ? 'fbi-timeline__item--current' : 'fbi-timeline__item--past' %>">
+          <span class="fbi-timeline__dot" aria-hidden="true"></span>
+          <span class="fbi-timeline__date"><time datetime="<%= milestone.iso %>"><%= milestone.date %></time></span>
+          <span class="fbi-timeline__label"><%= milestone.label %></span>
+          <% if (milestone.note) { %>
+          <span class="fbi-timeline__note"><%= milestone.note %></span>
+          <% } %>
+        </li>
+        <% }); %>
+      </ol>
+    </div>
+    <% } %>
+
     <h3 class="mt-10 text-lg font-semibold text-navy">Systems in active development</h3>
     <ul class="mt-4 space-y-2 text-sm text-slate-600">
       <li class="flex gap-3"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-faithGold"></span>Evidence ingestion pipelines and structured indexing</li>
