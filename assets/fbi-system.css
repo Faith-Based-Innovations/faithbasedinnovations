@@ -4135,16 +4135,25 @@ html.fbi-reduced-motion .fbi-steward-flow__app--lit .fbi-steward-flow__panel--ap
 }
 
 .fbi-app-demo__dot {
-  width: 0.4rem;
-  height: 0.4rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  padding: 0;
+  border: none;
   border-radius: 50%;
   background: rgba(148, 163, 184, 0.35);
+  cursor: pointer;
   transition: background-color 0.3s, transform 0.3s;
 }
 
-.fbi-app-demo__dot--active {
+.fbi-app-demo__dot--active,
+.fbi-app-demo__dot[aria-selected="true"] {
   background: #fbbf24;
   transform: scale(1.25);
+}
+
+.fbi-app-demo[data-playing="true"] .fbi-app-demo__play {
+  border-color: rgba(52, 211, 153, 0.45);
+  color: #6ee7b7;
 }
 
 .fbi-app-demo__chip {
@@ -4159,69 +4168,215 @@ html.fbi-reduced-motion .fbi-steward-flow__app--lit .fbi-steward-flow__panel--ap
   background: rgba(15, 23, 42, 0.5);
 }
 
-@media (max-width: 900px) {
-  .fbi-app-window__body {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto 1fr auto;
+@media (max-width: 768px) {
+  .fbi-app-demo__controls {
+    padding: 0 0.25rem;
   }
 
-  .fbi-app-window__nav {
-    flex-direction: row;
+  .fbi-app-demo__tabs {
+    flex: 1 1 100%;
+    justify-content: stretch;
+    gap: 0.25rem;
+    padding: 0.35rem;
+  }
+
+  .fbi-app-demo__tab {
+    flex: 1 1 auto;
+    min-height: 2.75rem;
+    font-size: 0.6875rem;
+    padding: 0.55rem 0.5rem;
+    display: inline-flex;
+    align-items: center;
     justify-content: center;
-    border-right: none;
-    border-bottom: 1px solid rgba(148, 163, 184, 0.12);
-    padding: 0.4rem;
   }
 
-  .fbi-app-window__nav-item {
-    flex-direction: row;
-    padding: 0.35rem 0.55rem;
-  }
-
-  .fbi-app-window__steward {
-    width: 100%;
-    border-left: none;
-    border-top: 1px solid rgba(148, 163, 184, 0.12);
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: flex-start;
-  }
-
-  .fbi-app-window__steward-head {
-    width: 100%;
-  }
-
-  .fbi-app-window__steward-request,
-  .fbi-app-window__steward-analysis,
-  .fbi-app-window__steward-outcome {
-    flex: 1;
-    min-width: 8rem;
-  }
-
-  .fbi-scene-cfo__grid,
-  .fbi-scene-sentinel__grid,
-  .fbi-scene-eden__grid,
-  .fbi-scene-ledger__grid {
-    grid-template-columns: 1fr;
+  .fbi-app-demo__play {
+    min-height: 2.75rem;
+    padding: 0.55rem 1rem;
+    font-size: 0.8125rem;
   }
 
   .fbi-app-demo__dots {
     display: flex;
+    gap: 0.55rem;
+    margin-top: 1.25rem;
+  }
+
+  .fbi-app-demo__dot {
+    width: 0.55rem;
+    height: 0.55rem;
+    min-width: 2.75rem;
+    min-height: 2.75rem;
+    border-radius: 9999px;
+    background-clip: content-box;
+    padding: 1.1rem;
   }
 
   .fbi-app-demo__frame-wrap {
-    max-width: 22rem;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0.5rem;
-    border-radius: 1.25rem;
-    background: linear-gradient(145deg, #1e293b, #0f172a);
-    box-shadow: 0 24px 48px -16px rgba(0, 0, 0, 0.5);
+    max-width: none;
+    width: 100%;
+    margin: 0;
+    padding: 1rem;
+    border-radius: 1rem;
+    background: linear-gradient(160deg, rgba(30, 41, 59, 0.95), rgba(15, 23, 42, 0.98));
+    box-shadow: 0 20px 40px -18px rgba(0, 0, 0, 0.55);
+    perspective: none;
   }
 
-  .fbi-app-window {
-    border-radius: 10px;
-    min-height: 32rem;
+  .fbi-app-window--mobile,
+  .fbi-app-demo__frame-wrap .fbi-app-window {
+    border-radius: 12px;
+    min-height: auto;
+    border-width: 1px;
+    box-shadow: 0 12px 32px -14px rgba(0, 0, 0, 0.5);
+  }
+
+  .fbi-app-window--mobile .fbi-app-window__titlebar {
+    padding: 0.65rem 0.85rem;
+  }
+
+  .fbi-app-window--mobile .fbi-app-window__lights {
+    display: none;
+  }
+
+  .fbi-app-window--mobile .fbi-app-window__title {
+    font-size: 0.8125rem;
+    color: #cbd5e1;
+  }
+
+  .fbi-app-window--mobile .fbi-app-window__body {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+  }
+
+  .fbi-app-window--mobile .fbi-app-window__nav {
+    display: none;
+  }
+
+  .fbi-app-window--mobile .fbi-app-window__workspace {
+    order: 1;
+    flex: 1 1 auto;
+    min-height: 14rem;
+  }
+
+  .fbi-app-window--mobile .fbi-app-window__toolbar {
+    font-size: 0.75rem;
+    padding: 0.65rem 0.85rem;
+  }
+
+  .fbi-app-window--mobile .fbi-app-window__action {
+    font-size: 0.75rem;
+    padding: 0.35rem 0.55rem;
+  }
+
+  .fbi-app-window--mobile .fbi-app-window__scenes {
+    position: relative;
+    min-height: 12rem;
+    padding: 0.85rem;
+  }
+
+  .fbi-app-window--mobile .fbi-app-scene {
+    position: relative;
+    inset: auto;
+  }
+
+  .fbi-app-window--mobile .fbi-app-scene__label,
+  .fbi-app-window--mobile .fbi-app-scene .fbi-app-scene__label {
+    font-size: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .fbi-app-window--mobile .fbi-scene-cfo__tx-list,
+  .fbi-app-window--mobile .fbi-scene-cfo__receipt-row,
+  .fbi-app-window--mobile .fbi-scene-sentinel__folder-list,
+  .fbi-app-window--mobile .fbi-scene-sentinel__events,
+  .fbi-app-window--mobile .fbi-scene-eden__cards,
+  .fbi-app-window--mobile .fbi-scene-ledger__vault-list,
+  .fbi-app-window--mobile .fbi-scene-ledger__field {
+    font-size: 0.875rem;
+  }
+
+  .fbi-app-window--mobile .fbi-scene-cfo__tx {
+    padding: 0.5rem 0;
+  }
+
+  .fbi-app-window--mobile .fbi-scene-cfo__widgets {
+    display: none;
+  }
+
+  .fbi-app-window--mobile .fbi-scene-cfo__grid,
+  .fbi-app-window--mobile .fbi-scene-sentinel__grid,
+  .fbi-app-window--mobile .fbi-scene-eden__grid,
+  .fbi-app-window--mobile .fbi-scene-ledger__grid {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+
+  .fbi-app-window--mobile .fbi-scene-sentinel__links {
+    display: none;
+  }
+
+  .fbi-app-window--mobile .fbi-scene-eden__edges {
+    opacity: 0.65;
+  }
+
+  .fbi-app-window--mobile .fbi-app-window__steward {
+    order: 2;
+    width: 100%;
+    margin: 0;
+    border-left: none;
+    border-top: 1px solid rgba(148, 163, 184, 0.18);
+    border-radius: 0 0 12px 12px;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    padding: 0.85rem 1rem 1rem;
+    box-shadow: none;
+    background: rgba(15, 23, 42, 0.88);
+  }
+
+  .fbi-app-window--mobile .fbi-app-window__steward-head {
+    width: 100%;
+    margin-bottom: 0.35rem;
+  }
+
+  .fbi-app-window--mobile .fbi-app-window__steward-mark {
+    font-size: 0.9375rem;
+  }
+
+  .fbi-app-window--mobile .fbi-app-window__steward-label {
+    font-size: 0.75rem;
+  }
+
+  .fbi-app-window--mobile .fbi-app-window__steward-prompt,
+  .fbi-app-window--mobile .fbi-app-window__steward-lines,
+  .fbi-app-window--mobile .fbi-app-window__steward-result {
+    font-size: 0.875rem;
+    line-height: 1.45;
+  }
+
+  .fbi-app-window--mobile .fbi-app-window__steward-request,
+  .fbi-app-window--mobile .fbi-app-window__steward-analysis,
+  .fbi-app-window--mobile .fbi-app-window__steward-outcome {
+    flex: none;
+    min-width: 0;
+    width: 100%;
+  }
+
+  .fbi-app-window--mobile .fbi-app-window__permission {
+    font-size: 0.875rem;
+  }
+
+  .fbi-app-window--mobile .fbi-app-window__toasts {
+    left: 0.85rem;
+    right: 0.85rem;
+    bottom: auto;
+    top: 0.5rem;
+  }
+
+  .fbi-app-window--mobile .fbi-app-window__toast {
+    font-size: 0.8125rem;
   }
 }
 

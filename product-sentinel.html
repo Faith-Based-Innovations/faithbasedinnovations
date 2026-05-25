@@ -505,204 +505,286 @@
 </script>
 <script>
   (function () {
-    var root = document.querySelector("[data-steward-app-demo]");
-    if (!root) return;
+    function initStewardAppDemo() {
+      var root = document.querySelector("[data-steward-app-demo]");
+      if (!root || root.getAttribute("data-steward-demo-init") === "true") return;
+      root.setAttribute("data-steward-demo-init", "true");
 
-    var APPS = ["cfo", "sentinel", "eden", "ledger"];
-    var STEP_MS = [1100, 1400, 1800, 1200, 1500];
-    var TRANSITION_MS = 520;
-    var PERM_BY_APP = {
-      cfo: "Create follow-up reminder?",
-      sentinel: "Export review packet?",
-      eden: "Confirm topic clusters?",
-      ledger: "Allow autofill from vault?"
-    };
-    var TITLE_BY_APP = {
-      cfo: "Faith Based Innovations — CFO",
-      sentinel: "Faith Based Innovations — Sentinel",
-      eden: "Faith Based Innovations — Eden",
-      ledger: "Faith Based Innovations — Ledger"
-    };
-    var CRUMB_BY_APP = {
-      cfo: "Transactions",
-      sentinel: "Evidence workspace",
-      eden: "Research library",
-      ledger: "Form fill"
-    };
-    var LEDGER_VALUES = {
-      name: "Jordan A. Lee",
-      address: "1842 Cedar Lane",
-      city: "Austin, TX 78701",
-      ssn: ""
-    };
+      var APPS = ["cfo", "sentinel", "eden", "ledger"];
+      var STEP_MS = [1300, 1500, 1900, 1400, 1800];
+      var TRANSITION_MS = 520;
+      var PERM_BY_APP = {
+        cfo: "Create follow-up reminder?",
+        sentinel: "Export review packet?",
+        eden: "Confirm topic clusters?",
+        ledger: "Allow autofill from vault?"
+      };
+      var TITLE_BY_APP = {
+        cfo: "Faith Based Innovations — CFO",
+        sentinel: "Faith Based Innovations — Sentinel",
+        eden: "Faith Based Innovations — Eden",
+        ledger: "Faith Based Innovations — Ledger"
+      };
+      var CRUMB_BY_APP = {
+        cfo: "Transactions",
+        sentinel: "Evidence workspace",
+        eden: "Research library",
+        ledger: "Form fill"
+      };
+      var LEDGER_VALUES = {
+        name: "Jordan A. Lee",
+        address: "1842 Cedar Lane",
+        city: "Austin, TX 78701",
+        ssn: ""
+      };
 
-    var tabs = root.querySelectorAll("[data-app-tab]");
-    var navItems = root.querySelectorAll("[data-app-nav]");
-    var dots = root.querySelectorAll("[data-app-dot]");
-    var scenes = root.querySelectorAll("[data-scene]");
-    var prompts = root.querySelectorAll("[data-app-prompt]");
-    var analyses = root.querySelectorAll("[data-app-analysis]");
-    var outcomes = root.querySelectorAll("[data-app-outcome]");
-    var permBox = root.querySelector("[data-app-permission]");
-    var permText = root.querySelector("[data-app-permission-text]");
-    var toasts = root.querySelectorAll("[data-app-toast]");
-    var windowTitle = root.querySelector("[data-app-window-title]");
-    var crumbActive = root.querySelector("[data-app-crumb-active]");
-    var crumbView = root.querySelector("[data-app-crumb-view]");
-    var toggleBtn = root.querySelector("[data-app-toggle]");
-    var toggleLabel = root.querySelector("[data-app-toggle-label]");
-    var ledgerInputs = root.querySelectorAll(".fbi-scene-ledger__field input");
+      var tabs = root.querySelectorAll("[data-app-tab]");
+      var navItems = root.querySelectorAll("[data-app-nav]");
+      var dots = root.querySelectorAll("[data-app-dot]");
+      var scenes = root.querySelectorAll("[data-scene]");
+      var prompts = root.querySelectorAll("[data-app-prompt]");
+      var analyses = root.querySelectorAll("[data-app-analysis]");
+      var outcomes = root.querySelectorAll("[data-app-outcome]");
+      var permBox = root.querySelector("[data-app-permission]");
+      var permText = root.querySelector("[data-app-permission-text]");
+      var toasts = root.querySelectorAll("[data-app-toast]");
+      var windowTitle = root.querySelector("[data-app-window-title]");
+      var crumbActive = root.querySelector("[data-app-crumb-active]");
+      var crumbView = root.querySelector("[data-app-crumb-view]");
+      var toggleBtn = root.querySelector("[data-app-toggle]");
+      var toggleLabel = root.querySelector("[data-app-toggle-label]");
+      var ledgerInputs = root.querySelectorAll(".fbi-scene-ledger__field input");
 
-    var appIdx = 0;
-    var stepIdx = 0;
-    var timer = null;
-    var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    var paused = root.getAttribute("data-paused") === "true";
+      var appIdx = 0;
+      var stepIdx = 0;
+      var stepTimer = null;
+      var inView = false;
+      var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+      var reduced = reducedMotion.matches;
+      var paused = root.getAttribute("data-paused") === "true";
 
-    function clearTimer() {
-      if (timer) window.clearTimeout(timer);
-      timer = null;
-    }
+      function isReduced() {
+        return reducedMotion.matches;
+      }
 
-    function setLedgerFields(step) {
-      ledgerInputs.forEach(function (input) {
-        var key = input.getAttribute("data-field");
-        if (!key || key === "ssn") return;
-        if (step >= 2) {
-          input.value = LEDGER_VALUES[key] || "";
-        } else {
-          input.value = "";
+      function canAnimate() {
+        return !paused && !isReduced() && inView && !document.hidden;
+      }
+
+      function updatePlayingAttr() {
+        root.setAttribute("data-playing", canAnimate() && stepTimer != null ? "true" : "false");
+      }
+
+      function clearStepTimer() {
+        if (stepTimer) window.clearTimeout(stepTimer);
+        stepTimer = null;
+        updatePlayingAttr();
+      }
+
+      function setLedgerFields(step) {
+        ledgerInputs.forEach(function (input) {
+          var key = input.getAttribute("data-field");
+          if (!key || key === "ssn") return;
+          if (step >= 2) {
+            input.value = LEDGER_VALUES[key] || "";
+          } else {
+            input.value = "";
+          }
+        });
+      }
+
+      function setApp(id) {
+        root.setAttribute("data-app", id);
+        if (!isReduced()) {
+          root.classList.add("fbi-app-demo--transition");
+          window.setTimeout(function () {
+            root.classList.remove("fbi-app-demo--transition");
+          }, TRANSITION_MS);
         }
-      });
-    }
 
-    function setApp(id) {
-      root.setAttribute("data-app", id);
-      root.classList.add("fbi-app-demo--transition");
-      window.setTimeout(function () {
-        root.classList.remove("fbi-app-demo--transition");
-      }, TRANSITION_MS);
+        tabs.forEach(function (tab) {
+          var on = tab.getAttribute("data-app-tab") === id;
+          tab.classList.toggle("fbi-app-demo__tab--active", on);
+          tab.setAttribute("aria-selected", on ? "true" : "false");
+        });
+        navItems.forEach(function (btn) {
+          btn.classList.toggle("fbi-app-window__nav-item--active", btn.getAttribute("data-app-nav") === id);
+        });
+        dots.forEach(function (dot) {
+          var on = dot.getAttribute("data-app-dot") === id;
+          dot.classList.toggle("fbi-app-demo__dot--active", on);
+          dot.setAttribute("aria-selected", on ? "true" : "false");
+        });
+        scenes.forEach(function (scene) {
+          scene.classList.toggle("fbi-app-scene--active", scene.getAttribute("data-scene") === id);
+        });
+        prompts.forEach(function (p) {
+          p.classList.toggle("fbi-app-window__steward-prompt--active", p.getAttribute("data-app-prompt") === id);
+        });
+        analyses.forEach(function (a) {
+          a.classList.toggle("fbi-app-window__steward-lines--active", a.getAttribute("data-app-analysis") === id);
+        });
+        outcomes.forEach(function (o) {
+          o.classList.toggle("fbi-app-window__steward-result--active", o.getAttribute("data-app-outcome") === id);
+        });
+
+        if (windowTitle) windowTitle.textContent = TITLE_BY_APP[id] || TITLE_BY_APP.cfo;
+        if (crumbActive) crumbActive.textContent = id.charAt(0).toUpperCase() + id.slice(1);
+        if (crumbView) crumbView.textContent = CRUMB_BY_APP[id] || "";
+        if (permText) permText.textContent = PERM_BY_APP[id] || "Approve action?";
+        setLedgerFields(stepIdx);
+      }
+
+      function setStep(step) {
+        stepIdx = step;
+        root.setAttribute("data-scene-step", String(step));
+
+        if (permBox) permBox.hidden = step !== 3;
+        toasts.forEach(function (t, i) {
+          t.classList.toggle("fbi-app-window__toast--visible", step === 4 && i === (appIdx % 3));
+        });
+
+        if (root.getAttribute("data-app") === "ledger") {
+          setLedgerFields(step);
+        }
+      }
+
+      function scheduleNext() {
+        clearStepTimer();
+        if (!canAnimate()) return;
+        var delay = STEP_MS[stepIdx] || 1400;
+        stepTimer = window.setTimeout(function () {
+          stepTimer = null;
+          if (!canAnimate()) {
+            updatePlayingAttr();
+            return;
+          }
+          advance();
+        }, delay);
+        updatePlayingAttr();
+      }
+
+      function advance() {
+        if (stepIdx >= 4) {
+          stepIdx = 0;
+          appIdx = (appIdx + 1) % APPS.length;
+          setApp(APPS[appIdx]);
+        } else {
+          stepIdx += 1;
+        }
+        setStep(stepIdx);
+        scheduleNext();
+      }
+
+      function resetDemo(appId) {
+        clearStepTimer();
+        appIdx = APPS.indexOf(appId);
+        if (appIdx < 0) appIdx = 0;
+        setApp(APPS[appIdx]);
+        setStep(0);
+        scheduleNext();
+      }
+
+      function bindOnce(el, event, handler) {
+        if (!el || el.getAttribute("data-steward-bound") === "1") return;
+        el.setAttribute("data-steward-bound", "1");
+        el.addEventListener(event, handler);
+      }
 
       tabs.forEach(function (tab) {
-        var on = tab.getAttribute("data-app-tab") === id;
-        tab.classList.toggle("fbi-app-demo__tab--active", on);
-        tab.setAttribute("aria-selected", on ? "true" : "false");
+        bindOnce(tab, "click", function () {
+          var id = tab.getAttribute("data-app-tab");
+          if (!id) return;
+          resetDemo(id);
+        });
       });
+
       navItems.forEach(function (btn) {
-        btn.classList.toggle("fbi-app-window__nav-item--active", btn.getAttribute("data-app-nav") === id);
+        bindOnce(btn, "click", function () {
+          var id = btn.getAttribute("data-app-nav");
+          if (!id) return;
+          resetDemo(id);
+        });
       });
+
       dots.forEach(function (dot) {
-        dot.classList.toggle("fbi-app-demo__dot--active", dot.getAttribute("data-app-dot") === id);
-      });
-      scenes.forEach(function (scene) {
-        scene.classList.toggle("fbi-app-scene--active", scene.getAttribute("data-scene") === id);
-      });
-      prompts.forEach(function (p) {
-        p.classList.toggle("fbi-app-window__steward-prompt--active", p.getAttribute("data-app-prompt") === id);
-      });
-      analyses.forEach(function (a) {
-        a.classList.toggle("fbi-app-window__steward-lines--active", a.getAttribute("data-app-analysis") === id);
-      });
-      outcomes.forEach(function (o) {
-        o.classList.toggle("fbi-app-window__steward-result--active", o.getAttribute("data-app-outcome") === id);
+        bindOnce(dot, "click", function () {
+          var id = dot.getAttribute("data-app-dot");
+          if (!id) return;
+          resetDemo(id);
+        });
       });
 
-      if (windowTitle) windowTitle.textContent = TITLE_BY_APP[id] || TITLE_BY_APP.cfo;
-      if (crumbActive) crumbActive.textContent = id.charAt(0).toUpperCase() + id.slice(1);
-      if (crumbView) crumbView.textContent = CRUMB_BY_APP[id] || "";
-      if (permText) permText.textContent = PERM_BY_APP[id] || "Approve action?";
-      setLedgerFields(0);
-    }
-
-    function setStep(step) {
-      stepIdx = step;
-      root.setAttribute("data-scene-step", String(step));
-
-      if (permBox) permBox.hidden = step !== 3;
-      toasts.forEach(function (t, i) {
-        t.classList.toggle("fbi-app-window__toast--visible", step === 4 && i === (appIdx % 3));
-      });
-
-      if (root.getAttribute("data-app") === "ledger") {
-        setLedgerFields(step);
+      if (toggleBtn) {
+        bindOnce(toggleBtn, "click", function () {
+          paused = !paused;
+          root.setAttribute("data-paused", paused ? "true" : "false");
+          toggleBtn.setAttribute("aria-pressed", paused ? "true" : "false");
+          toggleBtn.setAttribute("aria-label", paused ? "Play animation" : "Pause animation");
+          if (toggleLabel) toggleLabel.textContent = paused ? "Play" : "Pause";
+          if (paused) clearStepTimer();
+          else scheduleNext();
+        });
       }
-    }
 
-    function scheduleNext() {
-      clearTimer();
-      if (paused || reduced) return;
-      timer = window.setTimeout(advance, STEP_MS[stepIdx] || 1200);
-    }
+      var frameWrap = root.querySelector(".fbi-app-demo__frame-wrap");
+      if (frameWrap && frameWrap.getAttribute("data-steward-swipe-bound") !== "1") {
+        frameWrap.setAttribute("data-steward-swipe-bound", "1");
+        var touchStartX = 0;
+        frameWrap.addEventListener("touchstart", function (e) {
+          if (!e.touches || !e.touches.length) return;
+          touchStartX = e.touches[0].clientX;
+        }, { passive: true });
+        frameWrap.addEventListener("touchend", function (e) {
+          if (!e.changedTouches || !e.changedTouches.length) return;
+          var dx = e.changedTouches[0].clientX - touchStartX;
+          if (Math.abs(dx) < 48) return;
+          var nextIdx = appIdx + (dx < 0 ? 1 : -1);
+          if (nextIdx < 0) nextIdx = APPS.length - 1;
+          if (nextIdx >= APPS.length) nextIdx = 0;
+          resetDemo(APPS[nextIdx]);
+        }, { passive: true });
+      }
 
-    function advance() {
-      if (stepIdx >= 4) {
-        stepIdx = 0;
-        appIdx = (appIdx + 1) % APPS.length;
-        setApp(APPS[appIdx]);
+      function onVisibilityChange() {
+        if (document.hidden) clearStepTimer();
+        else if (inView) scheduleNext();
+      }
+
+      document.addEventListener("visibilitychange", onVisibilityChange);
+
+      reducedMotion.addEventListener("change", function () {
+        reduced = reducedMotion.matches;
+        if (isReduced()) clearStepTimer();
+        else if (inView) scheduleNext();
+      });
+
+      if ("IntersectionObserver" in window) {
+        var io = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              inView = entry.isIntersecting && entry.intersectionRatio > 0.12;
+              if (inView) scheduleNext();
+              else clearStepTimer();
+            });
+          },
+          { threshold: [0, 0.12, 0.35] }
+        );
+        io.observe(root);
       } else {
-        stepIdx += 1;
+        inView = true;
       }
-      setStep(stepIdx);
-      scheduleNext();
+
+      setApp(APPS[0]);
+      setStep(0);
+      if (!("IntersectionObserver" in window)) scheduleNext();
     }
 
-    function resetDemo(appId, finalStep) {
-      clearTimer();
-      appIdx = APPS.indexOf(appId);
-      if (appIdx < 0) appIdx = 0;
-      setApp(APPS[appIdx]);
-      setStep(finalStep != null ? finalStep : 0);
-      if (!paused && !reduced) scheduleNext();
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", initStewardAppDemo);
+    } else {
+      initStewardAppDemo();
     }
-
-    function showReducedFinal() {
-      clearTimer();
-      setApp(APPS[appIdx]);
-      setStep(4);
-      if (permBox) permBox.hidden = false;
-      toasts.forEach(function (t, i) {
-        t.classList.toggle("fbi-app-window__toast--visible", i === 0);
-      });
-      setLedgerFields(4);
-    }
-
-    tabs.forEach(function (tab) {
-      tab.addEventListener("click", function () {
-        var id = tab.getAttribute("data-app-tab");
-        if (!id) return;
-        resetDemo(id, reduced ? 4 : 0);
-        if (reduced) showReducedFinal();
-      });
-    });
-
-    navItems.forEach(function (btn) {
-      btn.addEventListener("click", function () {
-        var id = btn.getAttribute("data-app-nav");
-        if (!id) return;
-        resetDemo(id, reduced ? 4 : 0);
-        if (reduced) showReducedFinal();
-      });
-    });
-
-    if (toggleBtn) {
-      toggleBtn.addEventListener("click", function () {
-        paused = !paused;
-        root.setAttribute("data-paused", paused ? "true" : "false");
-        toggleBtn.setAttribute("aria-pressed", paused ? "true" : "false");
-        toggleBtn.setAttribute("aria-label", paused ? "Play animation" : "Pause animation");
-        if (toggleLabel) toggleLabel.textContent = paused ? "Play" : "Pause";
-        if (paused) clearTimer();
-        else if (!reduced) scheduleNext();
-      });
-    }
-
-    setApp(APPS[0]);
-    if (reduced) {
-      showReducedFinal();
-      return;
-    }
-    setStep(0);
-    scheduleNext();
   })();
 </script>
 </body>

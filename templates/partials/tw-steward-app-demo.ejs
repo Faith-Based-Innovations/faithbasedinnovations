@@ -13,6 +13,7 @@
   data-app="cfo"
   data-scene-step="0"
   data-paused="false"
+  data-playing="false"
 >
   <div class="fbi-app-demo__grid-texture pointer-events-none absolute inset-0" aria-hidden="true"></div>
   <div class="fbi-app-demo__glow pointer-events-none absolute inset-0" aria-hidden="true"></div>
@@ -44,7 +45,7 @@
     </div>
 
     <div class="fbi-app-demo__frame-wrap mt-8" role="region" aria-label="Steward in-app product demo" aria-live="polite">
-      <div class="fbi-app-window">
+      <div class="fbi-app-window fbi-app-window--mobile">
         <header class="fbi-app-window__titlebar">
           <div class="fbi-app-window__lights" aria-hidden="true">
             <span class="fbi-app-window__light fbi-app-window__light--close"></span>
@@ -290,9 +291,16 @@
       </div>
     </div>
 
-    <div class="fbi-app-demo__dots" aria-hidden="true">
+    <div class="fbi-app-demo__dots" role="tablist" aria-label="Demo app indicators">
       <% demoApps.forEach(function (app, i) { %>
-      <span class="fbi-app-demo__dot<%= i === 0 ? ' fbi-app-demo__dot--active' : '' %>" data-app-dot="<%= app.id %>"></span>
+      <button
+        type="button"
+        class="fbi-app-demo__dot<%= i === 0 ? ' fbi-app-demo__dot--active' : '' %>"
+        data-app-dot="<%= app.id %>"
+        role="tab"
+        aria-selected="<%= i === 0 ? 'true' : 'false' %>"
+        aria-label="<%= app.product %> demo"
+      ></button>
       <% }); %>
     </div>
 
