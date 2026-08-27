@@ -1,9 +1,0 @@
-<% var smVariant = typeof statementVariant !== 'undefined' ? statementVariant : 'light'; %>
-<% var smText = typeof statementText !== 'undefined' ? statementText : ''; %>
-<section class="fbi-statement-band fbi-statement-band--<%= smVariant %>" aria-label="<%= smText %>">
-  <div class="fbi-statement-band__texture pointer-events-none absolute inset-0" aria-hidden="true"></div>
-  <div class="fbi-statement-band__glow pointer-events-none absolute inset-0" aria-hidden="true"></div>
-  <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
-    <p class="fbi-statement-mega fbi-statement-mega--band fbi-statement-mega--<%= smVariant === 'dark' ? 'on-dark' : (smVariant === 'gold' ? 'gold' : '') %> text-center"><%= smText %></p>
-  </div>
-</section>
