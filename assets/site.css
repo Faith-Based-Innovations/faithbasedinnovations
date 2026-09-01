@@ -7,3 +7,6 @@
 
 /* Tech-forward Faith Based Innovations lockup */
 .logo>span{font-family:"Space Grotesk",Arial,sans-serif;font-weight:700;font-size:13px;letter-spacing:.14em;line-height:1.08;color:#b78236;text-shadow:0 1px 0 #f5e5c4}.logo>span::selection{background:#1d3144;color:#fff}@media(max-width:760px){.logo>span{font-size:11px;letter-spacing:.13em}}
+
+/* Let product interface visuals be read at full width. */
+.split{grid-template-columns:1fr}.split .shot{width:100%;max-width:1180px;margin:0 auto}
